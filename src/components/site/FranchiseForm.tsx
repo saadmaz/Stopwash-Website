@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -8,13 +8,16 @@ import { franchiseSchema, type FranchiseInput } from "@/lib/enquiries.schema";
 import { submitFranchise } from "@/lib/enquiries.functions";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
+import { ThemedSelect } from "./ThemedSelect";
 
-const sel = inputCls;
+const investmentOptions = ["Prefer to discuss", "Under LKR 10M", "LKR 10M to 25M", "LKR 25M to 50M", "Above LKR 50M"] as const;
+const unitOptions = ["Single-unit", "Multi-unit", "Not sure yet"] as const;
+const siteOptions = ["Yes", "In discussion", "Not yet"] as const;
 
 export function FranchiseForm() {
   const send = useServerFn(submitFranchise);
   const [done, setDone] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FranchiseInput>({
+  const { register, control, handleSubmit, formState: { errors, isSubmitting } } = useForm<FranchiseInput>({
     resolver: zodResolver(franchiseSchema),
     defaultValues: { startedAt: Date.now() },
   });
@@ -55,20 +58,19 @@ export function FranchiseForm() {
         <legend className="text-h3 mb-5">The opportunity</legend>
         <Field label="Preferred city or territory" htmlFor="f-terr" error={e.territory?.message}><input id="f-terr" className={inputCls} {...register("territory")} /></Field>
         <Field label="Available investment range" htmlFor="f-inv" optional>
-          <select id="f-inv" className={sel} {...register("investmentRange")}>
-            <option value="">Prefer to discuss</option>
-            <option>Under LKR 10M</option><option>LKR 10M – 25M</option><option>LKR 25M – 50M</option><option>Above LKR 50M</option>
-          </select>
+          <Controller control={control} name="investmentRange" render={({ field }) => (
+            <ThemedSelect id="f-inv" name={field.name} value={field.value} onChange={field.onChange} onBlur={field.onBlur} options={investmentOptions} placeholder="Prefer to discuss" />
+          )} />
         </Field>
         <Field label="Single-unit or multi-unit interest" htmlFor="f-unit" optional>
-          <select id="f-unit" className={sel} {...register("unitInterest")}>
-            <option value="">Select</option><option>Single-unit</option><option>Multi-unit</option><option>Not sure yet</option>
-          </select>
+          <Controller control={control} name="unitInterest" render={({ field }) => (
+            <ThemedSelect id="f-unit" name={field.name} value={field.value} onChange={field.onChange} onBlur={field.onBlur} options={unitOptions} placeholder="Select an option" />
+          )} />
         </Field>
         <Field label="Potential site identified?" htmlFor="f-site" optional>
-          <select id="f-site" className={sel} {...register("siteIdentified")}>
-            <option value="">Select</option><option>Yes</option><option>In discussion</option><option>Not yet</option>
-          </select>
+          <Controller control={control} name="siteIdentified" render={({ field }) => (
+            <ThemedSelect id="f-site" name={field.name} value={field.value} onChange={field.onChange} onBlur={field.onBlur} options={siteOptions} placeholder="Select an option" />
+          )} />
         </Field>
       </fieldset>
       <fieldset className="grid gap-5">

@@ -80,7 +80,7 @@ export function Navbar() {
           })}
         </ul>
         <div className="hidden lg:block">
-          <Cta to="/locations" className="px-5 py-2.5" arrow={false}>Find a STOPWASH</Cta>
+          <Cta to="/franchise" className="px-5 py-2.5" arrow={false}>Build a STOPWASH</Cta>
         </div>
         <button
           className={cn("grid h-11 w-11 place-items-center rounded-full lg:hidden", overDark ? "hover:bg-snow/10" : "hover:bg-paper")}
@@ -115,8 +115,8 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-8 grid gap-3">
-            <Cta to="/locations">Find a STOPWASH</Cta>
-            <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>
+            <Cta to="/franchise">Build a STOPWASH</Cta>
+            <Cta to="/locations" variant="ink">Find a STOPWASH</Cta>
           </div>
         </div>
       )}

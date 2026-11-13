@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact, pageHead } from "@/data/site";
 import { LegalPage } from "@/components/site/LegalPage";
 
-// Template wording — have it reviewed by a qualified legal adviser before launch.
+// Template wording: have it reviewed by a qualified legal adviser before launch.
 export const Route = createFileRoute("/terms")({
   head: () =>
     pageHead({
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/terms")({
         },
         {
           heading: "Franchise information",
-          body: <p>Franchise content on this site is general information only. It is not an offer to sell a franchise, investment advice, or a promise of any financial outcome. Any franchise relationship is subject to a separate written agreement.</p>,
+          body: <p>Franchise content on this site is general information only. It is not an offer to sell a franchise, investment advice or a promise of any financial outcome. Any franchise relationship is subject to a separate written agreement.</p>,
         },
         {
           heading: "Enquiries",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/terms")({
         },
         {
           heading: "Acceptable use",
-          body: <p>Do not misuse the site, including attempting to disrupt it, gain unauthorised access, or submit spam or automated enquiries.</p>,
+          body: <p>Do not misuse the site. This includes attempting to disrupt it, gaining unauthorised access and submitting spam or automated enquiries.</p>,
         },
         {
           heading: "Liability",

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact, pageHead } from "@/data/site";
 import { LegalPage } from "@/components/site/LegalPage";
 
-// Template wording — have it reviewed by a qualified legal adviser before launch.
+// Template wording: have it reviewed by a qualified legal adviser before launch.
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>
     pageHead({
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/privacy-policy")({
         },
         {
           heading: "How we use it",
-          body: <p>To reply to your enquiry, assess franchise enquiries, arrange follow-up conversations and improve our service. We do not sell your personal information.</p>,
+          body: <p>We use it to reply to your enquiry, assess franchise enquiries, arrange follow-up conversations and improve our service. We do not sell your personal information.</p>,
         },
         {
           heading: "Storage and security",
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/privacy-policy")({
         },
         {
           heading: "Retention",
-          body: <p>We keep enquiry information only as long as needed for the purpose it was collected, or as required by law, and then delete it.</p>,
+          body: <p>We keep enquiry information only for as long as it is needed for the purpose for which it was collected, or as required by law. We then delete it.</p>,
         },
         {
           heading: "Your choices",

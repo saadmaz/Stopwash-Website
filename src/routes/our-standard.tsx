@@ -11,7 +11,7 @@ import { FinalCta } from "@/components/site/FinalCta";
 export const Route = createFileRoute("/our-standard")({
   head: () =>
     pageHead({
-      title: "The STOPWASH Standard — Consistent, Professional Car Cleaning | STOPWASH",
+      title: "The STOPWASH Standard: Consistent, Professional Car Cleaning | STOPWASH",
       description: "Defined service steps, trained teams, approved products, quality checks and service recovery. How STOPWASH keeps professional car cleaning consistent.",
       path: "/our-standard",
     }),
@@ -29,12 +29,12 @@ function OurStandard() {
   return (
     <>
       <PageHero eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." image={images.detailHands} imageAlt={alts.detailHands}>
-        <p>A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit. That is what STOPWASH is building toward.</p>
+        <p>A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit. That is what STOPWASH is building towards.</p>
       </PageHero>
 
       <section className="section-y">
         <Container>
-          <SectionHeading eyebrow="Our operating standard" title="A standard that travels. A finish that repeats." intro="A brand that gets stronger every time a customer returns — built on seven commitments." />
+          <SectionHeading eyebrow="Our operating standard" title="A standard that travels. A finish that repeats." intro="Seven commitments that make the brand stronger every time a customer returns." />
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {standards.map((s, i) => (
               <li key={s.title}>
@@ -58,7 +58,7 @@ function OurStandard() {
       <section className="section-paper section-y">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <SectionHeading eyebrow="The quality loop" title="Standards are not a poster on the wall." intro="Every service is defined before it is delivered, checked before the vehicle is handed back, and recovered properly if it falls short. The network gets sharper as it grows — not looser." />
+            <SectionHeading eyebrow="The quality loop" title="Standards are not a poster on the wall." intro="Every service is defined before it is delivered, checked before the vehicle is handed back, and recovered properly if it falls short. The network gets sharper as it grows, not looser." />
           </div>
           <Reveal delay={0.1}><Photo src={images.interior} alt={alts.interior} className="aspect-[4/3]" /></Reveal>
         </Container>

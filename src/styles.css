@@ -85,6 +85,24 @@
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
   ::selection { background: var(--lime); color: var(--ink); }
+
+  /* Keep browser-drawn UI on brand */
+  :root { color-scheme: light; accent-color: var(--navy); }
+  html { scrollbar-color: #c5cad2 transparent; scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #c5cad2; border-radius: 999px; border: 2px solid var(--snow); }
+  ::-webkit-scrollbar-thumb:hover { background: #9aa1ab; }
+  textarea { resize: vertical; }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--snow) inset;
+    -webkit-text-fill-color: var(--ink);
+    caret-color: var(--ink);
+    transition: background-color 9999s ease-out 0s;
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {

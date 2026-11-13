@@ -15,7 +15,7 @@ export const Route = createFileRoute("/contact")({
   },
   head: () =>
     pageHead({
-      title: "Contact STOPWASH — Customer, Fleet & Franchise Enquiries",
+      title: "Contact STOPWASH: Customer, Fleet & Franchise Enquiries",
       description: "Call +94 70 622 5252 or send us a message. Customer enquiries, fleet partnerships and franchise conversations with STOPWASH Sri Lanka.",
       path: "/contact",
     }),

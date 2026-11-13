@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Text wordmark placeholder — swap for the official STOPWASH logo file when supplied. */
+/** Text wordmark placeholder: swap for the official STOPWASH logo file when supplied. */
 export function Logo({ className = "", wash = "text-lime" }: { className?: string; wash?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-2 font-display text-xl font-bold tracking-tight", className)}>

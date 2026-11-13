@@ -1,6 +1,6 @@
 # STOPWASH Website
 
-Marketing, locations and franchise-acquisition site for **STOPWASH** — [stopwash.lk](https://stopwash.lk).
+Marketing, locations and franchise-acquisition site for **STOPWASH**: [stopwash.lk](https://stopwash.lk).
 
 Built with TanStack Start (React 19, SSR), TypeScript, Tailwind CSS v4, Framer Motion and Supabase.
 
@@ -21,7 +21,7 @@ bun run dev        # http://localhost:8080
 
 ## Environment
 
-Create `.env` with the Supabase project credentials (publishable key only — never the service-role key):
+Create `.env` with the Supabase project credentials (publishable key only, never the service-role key):
 
 ```sh
 SUPABASE_URL=https://<project>.supabase.co
@@ -36,17 +36,19 @@ src/
   routes/                 # File-based routes (one file per page)
   components/site/        # Site components (Navbar, Footer, Photo, StepTrack, forms…)
   lib/enquiries.*.ts      # Form schemas (zod) and server functions that write to Supabase
-  assets/                 # Images — placeholders until real STOPWASH photography is supplied
+  assets/                 # Images: placeholders until real STOPWASH photography is supplied
 supabase/migrations/      # Database schema for the enquiry tables
-public/                   # favicon, robots.txt, sitemap.xml
+public/                   # favicon, robots.txt, blog images
+src/content/blog/         # Blog posts (Markdown)
 ```
 
 ### Common edits
 
-- **Add a location** — add an entry to `locations` in `src/data/site.ts`. Set `coordinates` to enable the embedded map.
-- **Edit services** — update `serviceCatalogue` / `servicePreview` in `src/data/site.ts`.
-- **Swap photography** — replace the files in `src/assets/` (same names) and update `alts` in `src/data/site.ts`.
-- **New page** — add `src/routes/<slug>.tsx`, set `head: () => pageHead({...})`, and add the URL to `public/sitemap.xml`.
+- **Add a location:** add an entry to `locations` in `src/data/site.ts`. Set `coordinates` to enable the embedded map.
+- **Edit services:** update `serviceCatalogue` / `servicePreview` in `src/data/site.ts`.
+- **Swap photography:** replace the files in `src/assets/` (same names) and update `alts` in `src/data/site.ts`.
+- **New page:** add `src/routes/<slug>.tsx`, set `head: () => pageHead({...})` and add the path to the list in `src/routes/sitemap[.]xml.ts`.
+- **Write a blog post:** see `src/content/blog/README.md`. Posts appear on `/blog`, in the sitemap and in the RSS feed automatically.
 
 ## Forms & data
 

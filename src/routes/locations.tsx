@@ -9,7 +9,7 @@ import { Cta } from "@/components/site/Cta";
 export const Route = createFileRoute("/locations")({
   head: () =>
     pageHead({
-      title: "Locations — Car Wash in Katubedda, Sri Lanka | STOPWASH",
+      title: "Locations: Car Wash in Katubedda, Sri Lanka | STOPWASH",
       description: "Find STOPWASH. Our first outlet is in Katubedda, Sri Lanka. Get directions, call ahead and see where the STOPWASH network goes next.",
       path: "/locations",
     }),
@@ -42,7 +42,7 @@ function Locations() {
             <p className="eyebrow mb-4">Coming next</p>
             <h2 className="text-h2 mx-auto max-w-2xl">We are building the network carefully, one location at a time.</h2>
             <p className="text-lead mx-auto mt-5 max-w-xl text-muted-foreground">
-              New outlets are announced here when they are ready to welcome customers — not before. Want STOPWASH in your area? Register your interest, or build it with us.
+              New outlets are announced here when they are ready to welcome customers, and not before. Want STOPWASH in your area? Register your interest or build it with us.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>

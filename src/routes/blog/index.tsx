@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/")({
   }),
   head: () => ({
     ...pageHead({
-      title: "Blog — Car Care Tips & News | STOPWASH Sri Lanka",
+      title: "Blog: Car Care Tips & News | STOPWASH Sri Lanka",
       description: "Car care tips, STOPWASH news and notes from the road. Practical vehicle-care advice for drivers in Sri Lanka.",
       path: "/blog",
     }),
@@ -47,7 +47,7 @@ function Blog() {
           {!featured ? (
             <div className="rounded-3xl bg-paper px-6 py-16 text-center">
               <h2 className="text-h3">No posts yet{tag ? ` in “${tag}”` : ""}.</h2>
-              <p className="mt-2 text-muted-foreground">Check back soon — or follow us for updates.</p>
+              <p className="mt-2 text-muted-foreground">Check back soon, or follow us for updates.</p>
               <SocialLinks className="mt-6 justify-center" />
             </div>
           ) : (
@@ -70,7 +70,7 @@ function Blog() {
           <Reveal className="section-dark flex flex-col items-start justify-between gap-6 rounded-3xl px-7 py-10 md:flex-row md:items-center md:px-12">
             <div>
               <h2 className="font-display text-2xl font-bold tracking-tight">Follow along</h2>
-              <p className="mt-1 text-muted-foreground">New posts, outlet updates and behind-the-scenes from the clean squad.</p>
+              <p className="mt-1 text-muted-foreground">New posts, outlet updates and behind-the-scenes stories from the clean squad.</p>
             </div>
             <SocialLinks tone="dark" />
           </Reveal>

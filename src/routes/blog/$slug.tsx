@@ -139,7 +139,7 @@ function ShareButtons({ title, slug }: { title: string; slug: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      /* clipboard unavailable — ignore */
+      /* clipboard unavailable: ignore */
     }
   };
   const btn = "grid h-9 w-9 place-items-center rounded-full bg-snow text-ink ring-1 ring-border transition-colors hover:bg-[var(--brand)] hover:text-white hover:ring-transparent";

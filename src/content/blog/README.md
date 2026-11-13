@@ -6,7 +6,7 @@
 3. Write the post below them in Markdown (headings `##`, **bold**, lists, links, images, quotes).
 4. Put images in `public/blog/` and reference them as `/blog/your-image.jpg`.
    Use JPG or PNG for the cover so it shows in link previews on WhatsApp / Facebook / LinkedIn.
-5. Set `draft: true` while writing — drafts only appear when running the site locally.
+5. Set `draft: true` while writing. Drafts only appear when running the site locally.
 
 The blog index, post page, sitemap and RSS feed update automatically.
 

@@ -28,10 +28,10 @@ So STOPWASH is designed around the clock as much as the car:
 
 ## Katubedda is where it starts
 
-Our first outlet in Katubedda is where the idea meets the road. It is the first proof point for a bigger idea: vehicle care can be faster without becoming careless, more professional without becoming complicated, and more consistent without losing its human touch.
+Our first outlet in Katubedda is where the idea meets the road. It is the first proof point for a bigger idea: vehicle care can be faster without becoming careless, more professional without becoming complicated and more consistent without losing its human touch.
 
 ## What comes next
 
-One outlet proves a point. A network changes a category. We are building STOPWASH one stop at a time — and if you want to build the next one with us, [start the franchise conversation](/franchise).
+One outlet proves a point. A network changes a category. We are building STOPWASH one stop at a time. If you want to build the next one with us, [start the franchise conversation](/franchise).
 
 Until then, [find us in Katubedda](/locations). Keep moving.

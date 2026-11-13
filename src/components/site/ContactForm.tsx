@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -9,11 +9,12 @@ import { submitContact } from "@/lib/enquiries.functions";
 import { enquiryTypes, type EnquiryType } from "@/data/site";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
+import { ThemedSelect } from "./ThemedSelect";
 
 export function ContactForm({ defaultType = "General enquiry" }: { defaultType?: EnquiryType }) {
   const send = useServerFn(submitContact);
   const [done, setDone] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactInput>({
+  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
     defaultValues: { startedAt: Date.now(), enquiryType: defaultType },
   });
@@ -48,9 +49,9 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
         <Field label="Email" htmlFor="c-email" error={errors.email?.message}><input id="c-email" type="email" className={inputCls} autoComplete="email" {...register("email")} /></Field>
         <Field label="Phone" htmlFor="c-phone" optional error={errors.phone?.message}><input id="c-phone" type="tel" className={inputCls} autoComplete="tel" {...register("phone")} /></Field>
         <Field label="Enquiry type" htmlFor="c-type" error={errors.enquiryType?.message}>
-          <select id="c-type" className={`${inputCls}`} {...register("enquiryType")}>
-            {enquiryTypes.map((t) => <option key={t}>{t}</option>)}
-          </select>
+          <Controller control={control} name="enquiryType" render={({ field }) => (
+            <ThemedSelect id="c-type" name={field.name} value={field.value} onChange={field.onChange} onBlur={field.onBlur} options={enquiryTypes} invalid={!!errors.enquiryType} />
+          )} />
         </Field>
       </div>
       <Field label="Message" htmlFor="c-msg" error={errors.message?.message}><textarea id="c-msg" rows={5} className={inputCls} {...register("message")} /></Field>

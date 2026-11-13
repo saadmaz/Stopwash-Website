@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/services")({
   head: () =>
     pageHead({
-      title: "Services — Car Wash, Interior, Detail & Fleet Vehicle Care | STOPWASH",
+      title: "Services: Car Wash, Interior, Detail & Fleet Vehicle Care | STOPWASH",
       description: "Routine, interior, exterior, full, detail, fleet and repeat care. Professional car cleaning and fleet vehicle cleaning in Sri Lanka from STOPWASH.",
       path: "/services",
     }),

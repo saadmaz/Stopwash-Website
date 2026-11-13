@@ -11,7 +11,7 @@ import { Container, SectionHeading } from "@/components/site/SectionHeading";
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead({
-      title: "STOPWASH — The Queue Ends Here | Car Wash & Vehicle Care in Sri Lanka",
+      title: "STOPWASH: The Queue Ends Here | Car Wash & Vehicle Care in Sri Lanka",
       description:
         "STOPWASH is building a faster, sharper and more dependable way to care for your vehicle. Professional car wash and vehicle care in Katubedda, Sri Lanka.",
       path: "/",
@@ -40,7 +40,7 @@ function Home() {
   );
 }
 
-/* Hero — full-bleed photograph, one confident line, two actions. */
+/* Hero: full-bleed photograph, one confident line, two actions. */
 function Hero() {
   return (
     <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink text-snow md:h-[92svh] md:max-h-[900px]" aria-labelledby="hero-title">
@@ -85,7 +85,7 @@ function Intro() {
             <p className="border-l-4 border-lime pl-5 font-display text-2xl font-bold leading-snug tracking-tight text-foreground md:text-[1.75rem]">
               Vehicle care should not cost you your momentum.
             </p>
-            <p>We are building a better way to do it — with a clear process, a trained clean squad, a visible standard and a finish that earns the return visit.</p>
+            <p>So we are building a better way to do it, with a clear process, a trained clean squad, a visible standard and a finish that earns the return visit.</p>
           </Reveal>
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-3">
@@ -97,7 +97,7 @@ function Intro() {
   );
 }
 
-/* What STOPWASH is building — the engine behind the outlet. */
+/* What STOPWASH is building: the engine behind the outlet. */
 function Building() {
   return (
     <section className="section-y">
@@ -280,7 +280,7 @@ function Standard() {
     <section className="section-dark section-y">
       <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <SectionHeading eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." intro="A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location — months after the first visit." />
+          <SectionHeading eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." intro="A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit." />
           <Reveal delay={0.1} className="mt-8"><Cta to="/our-standard" variant="outline">Read about our standard</Cta></Reveal>
         </div>
         <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:col-span-7">
@@ -312,7 +312,7 @@ function Expansion() {
           </div>
           <div>
             <p className="text-lead text-muted-foreground">
-              STOPWASH is building the vehicle-care ecosystem for Sri Lanka. We are building the network one stop at a time — but the ambition is national.
+              STOPWASH is building the vehicle-care ecosystem for Sri Lanka. We are building the network one stop at a time, but the ambition is national.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>

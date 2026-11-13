@@ -6,7 +6,7 @@ import { SocialLinks } from "./SocialIcon";
 
 export function Footer() {
   return (
-    <footer className="section-dark">
+    <footer className="section-dark border-t border-snow/10">
       <Container className="pb-10 pt-16 md:pt-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">

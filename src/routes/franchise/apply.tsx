@@ -8,7 +8,7 @@ import { FranchiseForm } from "@/components/site/FranchiseForm";
 export const Route = createFileRoute("/franchise/apply")({
   head: () =>
     pageHead({
-      title: "Apply to Franchise — Start the Conversation | STOPWASH",
+      title: "Apply to Franchise: Start the Conversation | STOPWASH",
       description: "Tell us about your market, your operating experience and the STOPWASH you want to build. Franchise enquiry form for STOPWASH Sri Lanka.",
       path: "/franchise/apply",
     }),

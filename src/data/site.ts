@@ -6,7 +6,7 @@ import foam from "@/assets/foam.webp";
 import ogImage from "@/assets/hero-bay.jpg";
 
 /**
- * PLACEHOLDER IMAGERY — these are mood images, not photographs of the STOPWASH
+ * PLACEHOLDER IMAGERY: these are mood images, not photographs of the STOPWASH
  * outlet or team. Swap each file for real STOPWASH photography (same keys) and
  * update the alt text. Nothing else in the site needs to change.
  */
@@ -52,7 +52,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Services", to: "/services" },
-  { label: "Locations", to: "/locations" },
   { label: "Franchise", to: "/franchise" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
@@ -70,14 +69,14 @@ export const footerNav = [
   { label: "Contact", to: "/contact" },
 ];
 
-/** Preliminary service concepts — final names and inclusions to be confirmed. */
+/** Preliminary service concepts: final names and inclusions to be confirmed. */
 export const servicePreview = [
   { code: "01", name: "The Quick One", text: "For the days when the car needs a reset and you need to keep moving.", image: foam },
   { code: "02", name: "The Proper Clean", text: "For the inside, the outside and all the evidence of daily life the vehicle has collected along the way.", image: interior },
   { code: "03", name: "The Full Reset", text: "For vehicles that need more than a passing clean. A complete refresh from cabin to exterior.", image: heroBay },
   { code: "04", name: "The Detail Stop", text: "For customers who notice the finish, care about the surfaces and expect more from vehicle care.", image: detailHands },
   { code: "05", name: "The Repeat Route", text: "Memberships and scheduled visits for people who prefer their vehicle care handled before it becomes a problem.", image: null },
-  { code: "06", name: "Fleet Lane", text: "Structured vehicle care for businesses whose vehicles are part of the business — not just parked outside it.", image: null },
+  { code: "06", name: "Fleet Lane", text: "Structured vehicle care for businesses whose vehicles are part of the business, not just parked outside it.", image: null },
 ];
 
 export type Service = {
@@ -97,9 +96,9 @@ export const serviceCatalogue: Service[] = [
   { slug: "routine", name: "Routine Care", tag: "Everyday", text: "The regular clean that keeps the vehicle ready for the road.", forWho: "Daily drivers who want the car kept in order without planning around it.", image: foam, alt: alts.foam, enquiryType: "Service enquiry" },
   { slug: "interior", name: "Interior Care", tag: "Cabin", text: "A focused reset for the space you spend your time in.", forWho: "Family cars, commuter cabins and anything that carries more than people.", image: interior, alt: alts.interior, enquiryType: "Service enquiry" },
   { slug: "exterior", name: "Exterior Care", tag: "Body", text: "A sharper finish for the surfaces that take the daily punishment.", forWho: "Vehicles that need to look right on the road, not just in the driveway.", image: heroBay, alt: alts.heroBay, enquiryType: "Service enquiry" },
-  { slug: "full", name: "Full Care", tag: "Inside + out", text: "A complete inside-and-out service for when the vehicle needs more attention.", forWho: "Before a trip, after a long month, or when the car simply needs starting over.", image: null, alt: "", enquiryType: "Service enquiry" },
+  { slug: "full", name: "Full Care", tag: "Inside + out", text: "A complete inside-and-out service for when the vehicle needs more attention.", forWho: "Before a trip, after a long month or when the car simply needs starting over.", image: null, alt: "", enquiryType: "Service enquiry" },
   { slug: "detail", name: "Detail Care", tag: "Finish", text: "More time, more precision and more focus on the finish.", forWho: "Owners who care about surfaces as much as cleanliness.", image: detailHands, alt: alts.detailHands, enquiryType: "Service enquiry" },
-  { slug: "fleet", name: "Fleet Care", tag: "Business", text: "A reliable operating programme for businesses with vehicles to keep moving.", forWho: "Businesses whose vehicles are part of the business — not just parked outside it.", image: null, alt: "", enquiryType: "Fleet partnership" },
+  { slug: "fleet", name: "Fleet Care", tag: "Business", text: "A reliable operating programme for businesses with vehicles to keep moving.", forWho: "Businesses whose vehicles are part of the business, not just parked outside it.", image: null, alt: "", enquiryType: "Fleet partnership" },
   { slug: "repeat", name: "Repeat Care", tag: "Membership", text: "Memberships and scheduled programmes that make good vehicle care automatic.", forWho: "People who would rather not think about it again.", image: null, alt: "", enquiryType: "Service enquiry" },
 ];
 
@@ -169,7 +168,7 @@ export const standards = [
 ];
 
 export const franchiseWhy = [
-  { title: "A brand with a point of view", text: "Built around movement, time and a better vehicle-care experience — not generic claims about being the best." },
+  { title: "A brand with a point of view", text: "Built around movement, time and a better vehicle-care experience, not generic claims about being the best." },
   { title: "A proposition people understand", text: "Less waiting. A better finish. Clearer service. A reason to return." },
   { title: "A repeat-demand category", text: "Vehicle care is not a one-time purchase. The opportunity is a regular customer habit." },
   { title: "A defined operating system", text: "Service formats, process design, training, quality control and reporting are built into the model." },
@@ -186,7 +185,7 @@ export const partnerBrings = [
   "Customer relationships", "Local marketing execution", "Compliance with STOPWASH standards", "Performance and profitability",
 ];
 export const franchiseJourney = [
-  { title: "Raise your hand", text: "Tell us who you are, where you want to build and why STOPWASH." },
+  { title: "Raise your hand", text: "Tell us who you are, where you want to build and why you want to build with STOPWASH." },
   { title: "Test the fit", text: "We assess the partner, location, capital plan, market and operating capability." },
   { title: "Design the stop", text: "We agree the site, format, investment plan, timeline and operating requirements." },
   { title: "Build the outlet", text: "The location, equipment, team and launch plan come together." },
@@ -206,7 +205,7 @@ export const buildingEngine = [
   "A network built to scale",
 ];
 
-/** Brand promise — what every visit should deliver. */
+/** Brand promise: what every visit should deliver. */
 export const brandPromise = [
   "A clear choice",
   "A clear process",
@@ -240,7 +239,7 @@ export const partnerTraits = [
   "Wants to lead a real business",
   "Understands that standards are operational, not decorative",
   "Can recruit and develop a frontline team",
-  "Knows the local market — or is prepared to learn it deeply",
+  "Knows the local market, or is prepared to learn it deeply",
   "Has the financial capacity to build and sustain the outlet",
   "Can follow a system without losing entrepreneurial energy",
   "Wants to grow with the brand over time",

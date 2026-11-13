@@ -1,17 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { alts, franchiseBrings, franchiseJourney, franchiseWhy, images, pageHead, partnerBrings, partnerTraits } from "@/data/site";
+import { alts, franchiseBrings, franchiseJourney, franchiseWhy, images, locations, pageHead, partnerBrings, partnerTraits } from "@/data/site";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
 import { Cta } from "@/components/site/Cta";
+import { LocationCard } from "@/components/site/LocationCard";
 
 export const Route = createFileRoute("/franchise/")({
   head: () =>
     pageHead({
-      title: "Franchise With Us — Car Wash Franchise in Sri Lanka | STOPWASH",
-      description: "Do not open another car wash. Build the next STOPWASH — a serious vehicle-care brand, a defined operating model and the support to build a local business. Selective by design.",
+      title: "Franchise With Us: Car Wash Franchise in Sri Lanka | STOPWASH",
+      description: "Do not open another car wash. Build the next STOPWASH: a serious vehicle-care brand, a defined operating model and the support to build a local business. Selective by design.",
       path: "/franchise",
     }),
   component: Franchise,
@@ -44,7 +45,7 @@ function Franchise() {
             <SectionHeading eyebrow="The opportunity" title="The demand is local. The system is shared." />
             <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
               <p className="text-foreground">Every city has vehicles. Every vehicle needs care.</p>
-              <p>The opportunity is to bring a better standard to a local market — without asking every operator to invent the brand, process, training model and customer experience from zero.</p>
+              <p>The opportunity is to bring a better standard to a local market without asking every operator to invent the brand, process, training model and customer experience from zero.</p>
               <p>STOPWASH provides the shared architecture. The franchise partner brings local leadership and the discipline to run it properly.</p>
             </Reveal>
             <Reveal delay={0.15} className="mt-8 rounded-2xl bg-paper p-6">
@@ -109,7 +110,7 @@ function Franchise() {
                   <li key={b} className="flex gap-3"><Check className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />{b}</li>
                 ))}
               </ul>
-              <p className="mt-auto border-t border-snow/15 pt-6 text-snow/80">The partner is not left to figure out the hard parts alone — and is expected to operate the system with discipline.</p>
+              <p className="mt-auto border-t border-snow/15 pt-6 text-snow/80">The partner is never left to figure out the hard parts alone. In return, the partner is expected to operate the system with discipline.</p>
             </Reveal>
             <Reveal delay={0.08} className="flex flex-col rounded-3xl bg-lime p-8 text-ink md:p-10">
               <h3 className="font-display text-2xl font-bold tracking-tight">What the partner brings</h3>
@@ -129,6 +130,17 @@ function Franchise() {
         <Container>
           <SectionHeading eyebrow="Franchise journey" title="From first conversation to first customer." />
           <StepTrack steps={franchiseJourney} className="mt-12" />
+        </Container>
+      </section>
+
+      <section className="section-y">
+        <Container>
+          <SectionHeading eyebrow="Visit the first stop" title="See the system working in Katubedda." intro="Before you build, see the standard for yourself. Our first outlet is where the process, the team and the finish are tested every day." />
+          <div className="mt-12 grid gap-6">
+            {locations.filter((l) => l.status === "open").map((l) => (
+              <Reveal key={l.slug}><LocationCard location={l} /></Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 

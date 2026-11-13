@@ -9,7 +9,7 @@ import { FinalCta } from "@/components/site/FinalCta";
 export const Route = createFileRoute("/our-vision")({
   head: () =>
     pageHead({
-      title: "Our Vision — Vehicle Care in the Rhythm of the Day | STOPWASH",
+      title: "Our Vision: Vehicle Care in the Rhythm of the Day | STOPWASH",
       description: "STOPWASH's vision: professional vehicle care as convenient, repeatable and accessible as the fuel stop or the coffee stop, across Sri Lanka.",
       path: "/our-vision",
     }),
@@ -66,7 +66,7 @@ function OurVision() {
         </Container>
       </section>
 
-      <FinalCta title="Keep moving." text="See where the vision is already working — and where it goes next." cta="Find a STOPWASH" />
+      <FinalCta title="Keep moving." text="See where the vision is already working, and where it goes next." cta="Find a STOPWASH" />
     </>
   );
 }

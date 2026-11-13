@@ -11,7 +11,7 @@ import { FinalCta } from "@/components/site/FinalCta";
 export const Route = createFileRoute("/our-story")({
   head: () =>
     pageHead({
-      title: "Our Story — Why STOPWASH Exists | STOPWASH Sri Lanka",
+      title: "Our Story: Why STOPWASH Exists | STOPWASH Sri Lanka",
       description: "STOPWASH began with a familiar feeling: watching time disappear in car-wash queues. This is the story behind Sri Lanka's new vehicle-care brand.",
       path: "/our-story",
     }),
@@ -25,7 +25,7 @@ function OurStory() {
 
       <section className="section-y">
         <Container className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <SectionHeading className="lg:col-span-5" eyebrow="How it started" title="It didn't start with foam and polishing cloths." />
+          <SectionHeading className="lg:col-span-5" eyebrow="How it started" title="It did not start with foam and polishing cloths." />
           <Reveal delay={0.1} className="text-lead space-y-5 text-muted-foreground lg:col-span-7 lg:pt-10">
             <p className="text-foreground">The idea behind STOPWASH did not begin with a fascination for hoses, foam or polishing cloths.</p>
             <p>It began with a familiar feeling: arriving at a car wash and realising the next part of your day had just been handed over to a queue.</p>
@@ -46,7 +46,7 @@ function OurStory() {
               <p>A customer is not only paying for a clean vehicle. They are paying to get their vehicle back without losing the momentum of their day.</p>
               <p>That changed the way we thought about the category. We did not ask, “How do we wash more cars?” We asked:</p>
               <ul className="space-y-2 text-ink">
-                {storyQuestions.map((q) => <li key={q} className="flex gap-3"><span aria-hidden>—</span>{q}</li>)}
+                {storyQuestions.map((q) => <li key={q} className="flex gap-3"><span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-leaf" />{q}</li>)}
               </ul>
               <p className="font-semibold text-ink">STOPWASH is the answer we are building.</p>
             </div>
@@ -59,7 +59,7 @@ function OurStory() {
           <div>
             <SectionHeading eyebrow="The first stop" title="Katubedda is the first chapter, not the full story." />
             <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
-              <p>The first STOPWASH outlet in Katubedda is where the idea meets the road — the beginning of a network built around a simple promise: vehicle care should fit into life, not swallow it.</p>
+              <p>The first STOPWASH outlet in Katubedda is where the idea meets the road. It is the beginning of a network built around a simple promise: vehicle care should fit into life, not swallow it.</p>
               <p>The first location gives us the operating ground to test, improve and prove the standard. The next locations will carry that standard further.</p>
             </Reveal>
             <Reveal delay={0.15} className="mt-8"><Cta to="/locations" variant="ink">Visit Katubedda</Cta></Reveal>
