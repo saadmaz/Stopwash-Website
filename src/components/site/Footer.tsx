@@ -39,8 +39,8 @@ export function Footer() {
         <div className="mt-8 flex flex-col gap-4 border-t border-border pt-6 text-sm text-steel md:flex-row md:items-center md:justify-between">
           <p>© 2026 STOPWASH PVT LTD. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="hover:text-lime">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-lime">Terms and Conditions</Link>
+            <Link to={"/privacy-policy" as "/"} className="hover:text-lime">Privacy Policy</Link>
+            <Link to={"/terms" as "/"} className="hover:text-lime">Terms and Conditions</Link>
           </div>
         </div>
       </div>

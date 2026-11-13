@@ -35,6 +35,6 @@ export type FranchiseInput = z.infer<typeof franchiseSchema>;
 
 /** Submissions faster than this are treated as bots. */
 export const MIN_FILL_MS = 3000;
-export function looksLikeBot(input: { website?: string; startedAt: number }, now = Date.now()) {
+export function looksLikeBot(input: { website?: string | undefined; startedAt: number }, now = Date.now()) {
   return Boolean(input.website) || now - input.startedAt < MIN_FILL_MS;
 }
