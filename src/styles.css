@@ -127,6 +127,17 @@
   --ring: var(--lime);
   --eyebrow: var(--lime);
 }
+/* Restores light-theme tokens inside a dark section (e.g. a white form card on navy). */
+@utility theme-light {
+  --foreground: var(--ink);
+  --muted-foreground: #5a6372;
+  --border: rgb(5 10 18 / 0.1);
+  --input: rgb(5 10 18 / 0.16);
+  --card: var(--snow);
+  --card-foreground: var(--ink);
+  --ring: var(--navy);
+  --eyebrow: var(--leaf);
+}
 @utility section-paper {
   background: var(--paper);
   color: var(--ink);

@@ -7,7 +7,6 @@ const pages: { path: string; priority: string; freq: string }[] = [
   { path: "/services", priority: "0.9", freq: "monthly" },
   { path: "/locations", priority: "0.9", freq: "weekly" },
   { path: "/franchise", priority: "0.9", freq: "monthly" },
-  { path: "/franchise/apply", priority: "0.7", freq: "monthly" },
   { path: "/contact", priority: "0.8", freq: "monthly" },
   { path: "/blog", priority: "0.8", freq: "weekly" },
   { path: "/our-story", priority: "0.7", freq: "monthly" },

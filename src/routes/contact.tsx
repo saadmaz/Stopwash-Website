@@ -63,7 +63,7 @@ function Contact() {
             <Reveal delay={0.15} className="rounded-2xl bg-navy p-6 text-snow">
               <h2 className="font-semibold">Thinking bigger?</h2>
               <p className="mt-2 text-snow/75">Franchise enquiries have their own form.</p>
-              <Link to="/franchise/apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline">
+              <Link to="/franchise" hash="apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline">
                 Start the franchise conversation <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </Reveal>

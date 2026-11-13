@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { alts, franchiseBrings, franchiseJourney, franchiseWhy, images, locations, pageHead, partnerBrings, partnerTraits } from "@/data/site";
+import { alts, franchiseBrings, franchiseFaqs, franchiseJourney, franchiseWhy, images, locations, pageHead, partnerBrings, partnerTraits } from "@/data/site";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
 import { Cta } from "@/components/site/Cta";
 import { LocationCard } from "@/components/site/LocationCard";
+import { FaqList } from "@/components/site/FaqList";
+import { FranchiseApply } from "@/components/site/FranchiseApply";
 
 export const Route = createFileRoute("/franchise/")({
   head: () =>
@@ -34,7 +36,10 @@ function Franchise() {
             <p className="text-lead fade-up mt-4 max-w-2xl text-snow/75" style={{ ["--d" as string]: "0.15s" }}>
               STOPWASH gives franchise partners a serious vehicle-care brand, a defined operating model and the support required to build a local business that customers return to.
             </p>
-            <div className="fade-up mt-9" style={{ ["--d" as string]: "0.25s" }}><Cta to="/franchise/apply">Apply to become a franchise partner</Cta></div>
+            <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.25s" }}>
+              <Cta href="#apply">Apply to become a franchise partner</Cta>
+              <Cta href="#faq" variant="outline" className="text-snow" arrow={false}>Read the FAQ</Cta>
+            </div>
           </div>
         </Container>
       </section>
@@ -144,19 +149,19 @@ function Franchise() {
         </Container>
       </section>
 
-      <section className="section-dark section-y">
-        <Container className="text-center">
-          <Reveal className="mx-auto max-w-3xl">
-            <h2 className="text-h2">If you have the drive, we have the system.</h2>
-            <p className="text-lead mx-auto mt-5 max-w-2xl text-muted-foreground">Tell us about the city you want to build in, the experience you bring and the standard you are willing to protect.</p>
-            <div className="mt-9"><Cta to="/franchise/apply">Apply to become a franchise partner</Cta></div>
-            <p className="mt-5 text-sm font-medium text-lime">Selective by design. Built for serious operators.</p>
-            <p className="mx-auto mt-10 max-w-2xl text-sm text-muted-foreground">
-              STOPWASH does not publish investment amounts, fees, royalties or projected returns. These are discussed directly with qualified applicants, and no franchise outcome or profitability is guaranteed.
-            </p>
+      <section id="faq" className="section-paper section-y scroll-mt-16">
+        <Container className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-4">
+            <SectionHeading eyebrow="Franchise FAQ" title="Questions serious operators ask." intro="Straight answers to the questions we hear most. Anything else, ask us directly in your application." />
+            <p className="mt-6 text-sm text-muted-foreground">STOPWASH does not publish investment amounts, fees, royalties or projected returns. These are discussed directly with qualified applicants, and no franchise outcome or profitability is guaranteed.</p>
+          </div>
+          <Reveal delay={0.05} className="lg:col-span-8">
+            <FaqList items={franchiseFaqs} />
           </Reveal>
         </Container>
       </section>
+
+      <FranchiseApply />
     </>
   );
 }

@@ -80,7 +80,7 @@ export function FranchiseForm() {
         <Field label="What will you bring to the network?" htmlFor="f-bring" optional><textarea id="f-bring" rows={3} className={inputCls} {...register("contribution")} /></Field>
         <Field label="Preferred time to speak" htmlFor="f-time" optional><input id="f-time" placeholder="e.g. Weekday mornings" className={inputCls} {...register("preferredTime")} /></Field>
       </fieldset>
-      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "ink", className: "w-full md:w-auto md:justify-self-start" })}>
+      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "lime", className: "w-full md:w-auto md:justify-self-start" })}>
         {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : "Start the franchise conversation"}
       </button>
       <p className="text-sm text-muted-foreground">Your details are stored securely and only seen by the STOPWASH franchise team.</p>

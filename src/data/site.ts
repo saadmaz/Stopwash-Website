@@ -270,3 +270,42 @@ export function pageHead(opts: { title: string; description: string; path: strin
     links: [{ rel: "canonical", href: url }],
   };
 }
+
+/**
+ * Franchise FAQ. Answers only use confirmed positions; no fees, returns or timelines
+ * are published until they are approved.
+ */
+export const franchiseFaqs = [
+  {
+    q: "How much does a STOPWASH franchise cost?",
+    a: "The investment depends on the site, the outlet format and the location. STOPWASH does not publish investment amounts, fees, royalties or projected returns. These are discussed directly with qualified applicants once we understand your market and your plan.",
+  },
+  {
+    q: "Do I need car-wash or vehicle-care experience?",
+    a: "Not necessarily. We look for operators: people who can lead a team, run a disciplined business and protect a standard. STOPWASH provides a training framework, and the partner and team complete the required training before opening.",
+  },
+  {
+    q: "What support does STOPWASH provide?",
+    a: "Brand standards, outlet format and customer-experience design, site and location assessment, operating procedures, equipment and product guidance, training, pre-opening planning, launch support, marketing assets, quality audits, performance reporting and ongoing network support.",
+  },
+  {
+    q: "Do I need to find my own site?",
+    a: "Site development is the partner's responsibility, and STOPWASH supports it with site and location assessment. If you already have a potential site in mind, tell us about it in your application.",
+  },
+  {
+    q: "Can I run a STOPWASH alongside another business?",
+    a: "STOPWASH is an operating opportunity, not a passive investment. Partners are expected to lead the business actively and take responsibility for day-to-day operations, the team and performance. Tell us how you plan to do that in your application.",
+  },
+  {
+    q: "Can I own more than one outlet?",
+    a: "Yes, potentially. Strong partners may have the opportunity to develop additional locations, subject to performance and capability.",
+  },
+  {
+    q: "How long does it take to open?",
+    a: "It depends on the site, the build and the approvals involved. The timeline is agreed together during the \"Design the stop\" stage, before any work begins.",
+  },
+  {
+    q: "What happens after I apply?",
+    a: "We review every enquiry carefully. If the market, the partner and the opportunity are aligned, our team will contact you for the next conversation. Submitting an enquiry does not create any obligation for either party.",
+  },
+];
