@@ -3,7 +3,18 @@ import detailHands from "@/assets/detail-hands.jpg";
 import interior from "@/assets/interior.jpg";
 import foam from "@/assets/foam.jpg";
 
+/**
+ * PLACEHOLDER IMAGERY — these are mood images, not photographs of the STOPWASH
+ * outlet or team. Swap each file for real STOPWASH photography (same keys) and
+ * update the alt text. Nothing else in the site needs to change.
+ */
 export const images = { heroBay, detailHands, interior, foam };
+export const alts: Record<keyof typeof images, string> = {
+  heroBay: "A dark vehicle covered in foam inside a wash bay lit in green",
+  detailHands: "A gloved hand drying a freshly washed vehicle panel with a microfibre cloth",
+  interior: "A vehicle cabin being vacuumed during an interior clean",
+  foam: "A vehicle being rinsed with a high-pressure water jet",
+};
 
 export const contact = {
   phone: "+94 70 622 5252",
@@ -13,10 +24,11 @@ export const contact = {
   generalEmail: "info.stopwash@gmail.com",
   website: "www.stopwash.lk",
   siteUrl: "https://stopwash.lk",
+  // TODO: replace with the official STOPWASH profile URLs.
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Facebook", href: "https://facebook.com" },
-    { label: "TikTok", href: "https://tiktok.com" },
+    { label: "Instagram", href: "https://www.instagram.com/" },
+    { label: "Facebook", href: "https://www.facebook.com/" },
+    { label: "TikTok", href: "https://www.tiktok.com/" },
   ],
 };
 
@@ -30,7 +42,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: "Our Story", to: "/our-story" },
       { label: "Our Vision", to: "/our-vision" },
-      { label: "Our Standard", to: "/standard" },
+      { label: "Our Standard", to: "/our-standard" },
     ],
   },
   { label: "Services", to: "/services" },
@@ -59,14 +71,27 @@ export const servicePreview = [
   { code: "06", name: "Fleet Lane", text: "Structured vehicle care for businesses whose vehicles are part of the business — not just parked outside it.", image: null },
 ];
 
-export const serviceCatalogue = [
-  { slug: "routine", name: "Routine Care", tag: "Everyday", text: "Regular care that keeps the vehicle presentable between bigger cleans — designed to fit into a normal week.", image: foam },
-  { slug: "interior", name: "Interior Care", tag: "Cabin", text: "Attention for the space you actually sit in: seats, surfaces, floors and the details daily life leaves behind.", image: interior },
-  { slug: "exterior", name: "Exterior Care", tag: "Body", text: "A careful clean for paint, glass, wheels and trim, following a defined process every time.", image: heroBay },
-  { slug: "full", name: "Full Care", tag: "Inside + out", text: "Cabin and exterior handled together, for when the whole vehicle needs a reset.", image: null },
-  { slug: "detail", name: "Detail Care", tag: "Finish", text: "For customers who notice the finish and want a deeper level of attention to surfaces.", image: detailHands },
-  { slug: "fleet", name: "Fleet Care", tag: "Business", text: "Structured vehicle care for companies running vehicles as part of their operation.", image: null },
-  { slug: "repeat", name: "Repeat Care", tag: "Membership", text: "Scheduled visits and memberships for people who prefer vehicle care handled before it becomes a problem.", image: null },
+export type Service = {
+  slug: string;
+  name: string;
+  tag: string;
+  text: string;
+  /** Short "who it's for" line. Keep factual: no prices, durations or technical claims. */
+  forWho: string;
+  image: string | null;
+  alt: string;
+  enquiryType: EnquiryType;
+};
+
+/** Service architecture. Inclusions, durations and pricing are intentionally not listed until confirmed. */
+export const serviceCatalogue: Service[] = [
+  { slug: "routine", name: "Routine Care", tag: "Everyday", text: "Regular care that keeps the vehicle presentable between bigger cleans — designed to fit into a normal week.", forWho: "Daily drivers who want the car kept in order without planning around it.", image: foam, alt: alts.foam, enquiryType: "Service enquiry" },
+  { slug: "interior", name: "Interior Care", tag: "Cabin", text: "Attention for the space you actually sit in: seats, surfaces, floors and the details daily life leaves behind.", forWho: "Family cars, commuter cabins and anything that carries more than people.", image: interior, alt: alts.interior, enquiryType: "Service enquiry" },
+  { slug: "exterior", name: "Exterior Care", tag: "Body", text: "A careful clean for paint, glass, wheels and trim, following a defined process every time.", forWho: "Vehicles that need to look right on the road, not just in the driveway.", image: heroBay, alt: alts.heroBay, enquiryType: "Service enquiry" },
+  { slug: "full", name: "Full Care", tag: "Inside + out", text: "Cabin and exterior handled together, for when the whole vehicle needs a reset.", forWho: "Before a trip, after a long month, or when the car simply needs starting over.", image: null, alt: "", enquiryType: "Service enquiry" },
+  { slug: "detail", name: "Detail Care", tag: "Finish", text: "For customers who notice the finish and want a deeper level of attention to surfaces.", forWho: "Owners who care about surfaces as much as cleanliness.", image: detailHands, alt: alts.detailHands, enquiryType: "Service enquiry" },
+  { slug: "fleet", name: "Fleet Care", tag: "Business", text: "Structured vehicle care for companies running vehicles as part of their operation.", forWho: "Businesses whose vehicles are part of the business — not just parked outside it.", image: null, alt: "", enquiryType: "Fleet partnership" },
+  { slug: "repeat", name: "Repeat Care", tag: "Membership", text: "Scheduled visits and memberships for people who prefer vehicle care handled before it becomes a problem.", forWho: "People who would rather not think about it again.", image: null, alt: "", enquiryType: "Service enquiry" },
 ];
 
 export type Location = {
@@ -77,9 +102,22 @@ export type Location = {
   address: string | null;
   phone: string;
   hours: string | null;
+  /** Used for "Get directions" until exact coordinates are confirmed. */
   mapsQuery: string;
+  /** Set once the exact pin is confirmed. Enables the embedded Google Map. */
+  coordinates: { lat: number; lng: number } | null;
   image: string;
+  alt: string;
 };
+
+export function directionsUrl(l: Location) {
+  const dest = l.coordinates ? `${l.coordinates.lat},${l.coordinates.lng}` : l.mapsQuery;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`;
+}
+export function mapEmbedUrl(l: Location) {
+  if (!l.coordinates) return null;
+  return `https://www.google.com/maps?q=${l.coordinates.lat},${l.coordinates.lng}&z=16&output=embed`;
+}
 
 export const locations: Location[] = [
   {
@@ -90,8 +128,10 @@ export const locations: Location[] = [
     address: null, // exact address to be confirmed
     phone: contact.phone,
     hours: null, // opening hours to be confirmed
-    mapsQuery: "Katubedda, Moratuwa, Sri Lanka",
+    mapsQuery: "STOPWASH Katubedda, Moratuwa, Sri Lanka",
+    coordinates: null, // exact pin to be confirmed
     image: heroBay,
+    alt: alts.heroBay,
   },
 ];
 
@@ -137,15 +177,26 @@ export const partnerBrings = [
   "Customer relationships", "Local marketing execution", "Compliance with STOPWASH standards", "Performance and profitability",
 ];
 export const franchiseJourney = [
-  "Raise Your Hand", "Test the Fit", "Design the Stop", "Build the Outlet", "Learn the System", "Open With Intent", "Earn the Next Stop",
+  { title: "Raise Your Hand", text: "Send us your plan through the franchise enquiry form." },
+  { title: "Test the Fit", text: "Conversations about your market, your experience and your ambitions." },
+  { title: "Design the Stop", text: "Site assessment and outlet format planning." },
+  { title: "Build the Outlet", text: "Site development to STOPWASH brand and operating standards." },
+  { title: "Learn the System", text: "Training on the procedures, the people and the standard." },
+  { title: "Open With Intent", text: "Pre-opening planning and launch support." },
+  { title: "Earn the Next Stop", text: "Perform, improve and grow with the network." },
 ];
 
 export const enquiryTypes = ["General enquiry", "Service enquiry", "Franchise enquiry", "Fleet partnership", "Other"] as const;
+export type EnquiryType = (typeof enquiryTypes)[number];
 
-export function pageHead(opts: { title: string; description: string; path: string }) {
+export function pageHead(opts: { title: string; description: string; path: string; image?: string }) {
   const url = `${contact.siteUrl}${opts.path}`;
+  const image = opts.image ? (opts.image.startsWith("http") ? opts.image : `${contact.siteUrl}${opts.image}`) : null;
   return {
     meta: [
+      ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+      { name: "twitter:title", content: opts.title },
+      { name: "twitter:description", content: opts.description },
       { title: opts.title },
       { name: "description", content: opts.description },
       { property: "og:title", content: opts.title },

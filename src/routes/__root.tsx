@@ -4,11 +4,13 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { MotionConfig } from "framer-motion";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -19,23 +21,18 @@ import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+    <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-navy px-5 pb-20 pt-36 md:px-10">
+      <div className="motion-lines pointer-events-none absolute -right-20 top-0 h-full w-1/3 opacity-60" aria-hidden />
+      <div className="relative mx-auto w-full max-w-[1440px]">
+        <p className="micro mb-6 text-lime">Error 404 · Wrong turn</p>
+        <h1 className="display-xl text-snow">This stop <span className="text-outline">doesn&apos;t exist.</span></h1>
+        <p className="mt-6 max-w-lg text-lg text-snow/75">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link to="/" className="inline-flex items-center rounded-md bg-lime px-6 py-4 font-display text-sm font-bold uppercase tracking-wider text-ink hover:bg-snow">Back to home</Link>
+          <Link to="/locations" className="inline-flex items-center rounded-md border border-snow px-6 py-4 font-display text-sm font-bold uppercase tracking-wider text-snow hover:bg-snow hover:text-ink">Find a Stopwash</Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -141,18 +138,21 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <QueryClientProvider client={queryClient}>
+      <MotionConfig reducedMotion="user">
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
       <Navbar />
-      <main id="main">
+      <main id="main" key={pathname} className="page-fade">
         <Outlet />
       </main>
       <Footer />
       <BackToTop />
       <Toaster />
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

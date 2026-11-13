@@ -6,23 +6,23 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { contactSchema, type ContactInput } from "@/lib/enquiries.schema";
 import { submitContact } from "@/lib/enquiries.functions";
-import { enquiryTypes } from "@/data/site";
+import { enquiryTypes, type EnquiryType } from "@/data/site";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
 
-export function ContactForm() {
+export function ContactForm({ defaultType = "General enquiry" }: { defaultType?: EnquiryType }) {
   const send = useServerFn(submitContact);
   const [done, setDone] = useState(false);
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { startedAt: Date.now(), enquiryType: "General enquiry" },
+    defaultValues: { startedAt: Date.now(), enquiryType: defaultType },
   });
 
   const onSubmit = async (values: ContactInput) => {
     try {
       await send({ data: values });
       setDone(true);
-      reset({ startedAt: Date.now(), enquiryType: "General enquiry" });
+      reset({ startedAt: Date.now(), enquiryType: defaultType });
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Something went wrong. Please try again.");
     }

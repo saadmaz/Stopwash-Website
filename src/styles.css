@@ -83,8 +83,71 @@
   ::selection { background: var(--lime); color: var(--ink); }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      animation-delay: 0s !important;
+      transition-duration: 0.01ms !important;
+    }
+    .marquee { animation: none !important; }
   }
+}
+
+/* Entrance keyframes run in CSS so SSR'd hero content animates before hydration. */
+@keyframes rise {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes wipe-in {
+  from { clip-path: inset(0 0 0 100%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@utility rise {
+  display: block;
+  animation: rise 1s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--d, 0s);
+}
+@utility fade-up {
+  animation: fade-up 0.9s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--d, 0s);
+}
+@utility wipe-in {
+  animation: wipe-in 1.3s cubic-bezier(.77,0,.18,1) both;
+  animation-delay: var(--d, 0s);
+}
+@utility page-fade {
+  animation: page-fade 0.45s ease-out both;
+}
+/* Lime highlighter behind inline text */
+@utility mark-lime {
+  background-image: linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@utility hero-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  font-size: clamp(3.3rem, 8.6vw, 9.25rem);
+}
+@utility clip-diagonal {
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+}
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 /* Light section scope: flips tokens for off-white sections */
@@ -143,7 +206,8 @@
   text-transform: uppercase;
 }
 @utility text-outline {
-  color: transparent;
+  /* Fill is transparent; the stroke follows the element's text colour. */
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1.5px currentColor;
 }
 @utility motion-lines {

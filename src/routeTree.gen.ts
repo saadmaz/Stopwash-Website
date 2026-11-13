@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as OurStandardRouteImport } from './routes/our-standard'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as OurVisionRouteImport } from './routes/our-vision'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as FranchiseIndexRouteImport } from './routes/franchise/index'
+import { Route as FranchiseApplyRouteImport } from './routes/franchise/apply'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStandardRoute = OurStandardRouteImport.update({
+  id: '/our-standard',
+  path: '/our-standard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurVisionRoute = OurVisionRouteImport.update({
+  id: '/our-vision',
+  path: '/our-vision',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FranchiseIndexRoute = FranchiseIndexRouteImport.update({
+  id: '/franchise/',
+  path: '/franchise/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FranchiseApplyRoute = FranchiseApplyRouteImport.update({
+  id: '/franchise/apply',
+  path: '/franchise/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/locations': typeof LocationsRoute
+  '/our-standard': typeof OurStandardRoute
+  '/our-story': typeof OurStoryRoute
+  '/our-vision': typeof OurVisionRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
+  '/franchise/apply': typeof FranchiseApplyRoute
+  '/franchise/': typeof FranchiseIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/locations': typeof LocationsRoute
+  '/our-standard': typeof OurStandardRoute
+  '/our-story': typeof OurStoryRoute
+  '/our-vision': typeof OurVisionRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
+  '/franchise/apply': typeof FranchiseApplyRoute
+  '/franchise': typeof FranchiseIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/locations': typeof LocationsRoute
+  '/our-standard': typeof OurStandardRoute
+  '/our-story': typeof OurStoryRoute
+  '/our-vision': typeof OurVisionRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
+  '/franchise/apply': typeof FranchiseApplyRoute
+  '/franchise/': typeof FranchiseIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/locations'
+    | '/our-standard'
+    | '/our-story'
+    | '/our-vision'
+    | '/privacy-policy'
+    | '/services'
+    | '/terms'
+    | '/franchise/apply'
+    | '/franchise/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/locations'
+    | '/our-standard'
+    | '/our-story'
+    | '/our-vision'
+    | '/privacy-policy'
+    | '/services'
+    | '/terms'
+    | '/franchise/apply'
+    | '/franchise'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/locations'
+    | '/our-standard'
+    | '/our-story'
+    | '/our-vision'
+    | '/privacy-policy'
+    | '/services'
+    | '/terms'
+    | '/franchise/apply'
+    | '/franchise/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  LocationsRoute: typeof LocationsRoute
+  OurStandardRoute: typeof OurStandardRoute
+  OurStoryRoute: typeof OurStoryRoute
+  OurVisionRoute: typeof OurVisionRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ServicesRoute: typeof ServicesRoute
+  TermsRoute: typeof TermsRoute
+  FranchiseApplyRoute: typeof FranchiseApplyRoute
+  FranchiseIndexRoute: typeof FranchiseIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-standard': {
+      id: '/our-standard'
+      path: '/our-standard'
+      fullPath: '/our-standard'
+      preLoaderRoute: typeof OurStandardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-vision': {
+      id: '/our-vision'
+      path: '/our-vision'
+      fullPath: '/our-vision'
+      preLoaderRoute: typeof OurVisionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/franchise/': {
+      id: '/franchise/'
+      path: '/franchise'
+      fullPath: '/franchise/'
+      preLoaderRoute: typeof FranchiseIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/franchise/apply': {
+      id: '/franchise/apply'
+      path: '/franchise/apply'
+      fullPath: '/franchise/apply'
+      preLoaderRoute: typeof FranchiseApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  LocationsRoute: LocationsRoute,
+  OurStandardRoute: OurStandardRoute,
+  OurStoryRoute: OurStoryRoute,
+  OurVisionRoute: OurVisionRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ServicesRoute: ServicesRoute,
+  TermsRoute: TermsRoute,
+  FranchiseApplyRoute: FranchiseApplyRoute,
+  FranchiseIndexRoute: FranchiseIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
