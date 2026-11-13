@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { alts, images, pageHead } from "@/data/site";
-import { PageHero, SectionLabel } from "@/components/site/PageHero";
-import { Container } from "@/components/site/SectionHeading";
+import { PageHero } from "@/components/site/PageHero";
+import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/our-vision")({
       title: "Our Vision — Vehicle Care in the Rhythm of the Day | STOPWASH",
       description: "STOPWASH's vision: professional vehicle care as convenient, repeatable and accessible as the fuel stop or the coffee stop, across Sri Lanka.",
       path: "/our-vision",
-      image: images.detailHands,
     }),
   component: OurVision,
 });
@@ -27,62 +26,45 @@ const pov = [
 function OurVision() {
   return (
     <>
-      <PageHero label="Our vision" title={<>Make vehicle care disappear into <span className="text-lime">the rhythm of the day.</span></>} />
+      <PageHero eyebrow="Our vision" title="Make vehicle care disappear into the rhythm of the day." />
 
-      <section className="section-light section-y">
-        <Container className="grid gap-14 lg:grid-cols-12">
-          <Reveal className="lg:col-span-3">
-            <SectionLabel n="01">Vision</SectionLabel>
-          </Reveal>
-          <Reveal delay={0.05} className="lg:col-span-9">
-            <p className="statement">
-              To make professional vehicle care as convenient, repeatable and accessible as{" "}
-              <span className="mark-lime">the fuel stop, the coffee stop</span> or the next stop on the road.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
-
-      <section className="relative h-[45vh] max-h-[32rem] min-h-64 overflow-hidden">
-        <Photo src={images.detailHands} alt={alts.detailHands} className="absolute inset-0 rounded-none" imgClassName="object-[50%_40%]" />
-      </section>
-
-      <section className="bg-navy section-y">
-        <Container className="grid gap-14 lg:grid-cols-12">
-          <Reveal className="lg:col-span-3">
-            <SectionLabel n="02">Mission</SectionLabel>
-          </Reveal>
-          <Reveal delay={0.05} className="lg:col-span-9">
-            <p className="text-xl leading-snug text-snow/85 md:text-3xl md:leading-tight">
-              We make vehicle care <span className="text-lime">easier for customers</span> and <span className="text-lime">more scalable for operators</span> by combining strong locations, sharp systems, trained teams and a service experience people want to repeat.
-            </p>
-          </Reveal>
-        </Container>
-      </section>
-
-      <section className="section-ink section-y">
+      <section className="section-y">
         <Container>
-          <Reveal>
-            <SectionLabel n="03">Point of view</SectionLabel>
-            <h2 className="display-lg">The STOPWASH point of view</h2>
-          </Reveal>
-          <ol className="mt-12 md:mt-16">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Reveal className="flex flex-col rounded-3xl bg-navy p-8 text-snow md:p-12">
+              <p className="eyebrow text-lime">Vision</p>
+              <p className="mt-5 font-display text-2xl font-bold leading-snug tracking-tight md:text-3xl">
+                To make professional vehicle care as convenient, repeatable and accessible as the fuel stop, the coffee stop or the next stop on the road.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="flex flex-col rounded-3xl bg-lime p-8 text-ink md:p-12">
+              <p className="eyebrow text-ink">Mission</p>
+              <p className="mt-5 font-display text-2xl font-bold leading-snug tracking-tight md:text-3xl">
+                We make vehicle care easier for customers and more scalable for operators by combining strong locations, sharp systems, trained teams and a service experience people want to repeat.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal className="mt-4"><Photo src={images.detailHands} alt={alts.detailHands} className="aspect-[21/9]" imgClassName="object-[50%_40%]" /></Reveal>
+        </Container>
+      </section>
+
+      <section className="section-paper section-y">
+        <Container>
+          <SectionHeading center eyebrow="What we believe" title="The STOPWASH point of view" />
+          <ul className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-2">
             {pov.map((p, i) => (
-              <li key={p.not} className="group grid gap-3 border-t border-border py-8 md:grid-cols-12 md:gap-8 md:py-10">
-                <span className="micro text-lime md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
-                <Reveal className="md:col-span-5">
-                  <p className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-snow/40 transition-colors duration-500 group-hover:text-snow/70 md:text-3xl">{p.not}</p>
-                </Reveal>
-                <Reveal delay={0.12} className="md:col-span-6">
-                  <p className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-lime md:text-3xl">{p.is}</p>
+              <li key={p.not}>
+                <Reveal delay={(i % 2) * 0.06} className="h-full rounded-2xl bg-snow p-8">
+                  <p className="text-lg text-muted-foreground">{p.not}</p>
+                  <p className="mt-2 font-display text-2xl font-bold leading-snug tracking-tight">{p.is}</p>
                 </Reveal>
               </li>
             ))}
-          </ol>
+          </ul>
         </Container>
       </section>
 
-      <FinalCta title="Keep moving." text="See where the vision is already working — and where it goes next." cta="Find a Stopwash" />
+      <FinalCta title="Keep moving." text="See where the vision is already working — and where it goes next." cta="Find a STOPWASH" />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 import { contact, enquiryTypes, pageHead, type EnquiryType } from "@/data/site";
-import { PageHero, SectionLabel } from "@/components/site/PageHero";
+import { PageHero } from "@/components/site/PageHero";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -32,49 +32,44 @@ function Contact() {
   const type = raw && enquiryTypes.includes(raw) ? raw : undefined;
   return (
     <>
-      <PageHero label="Contact" title={<>Keep the conversation <span className="text-lime">moving.</span></>}>
-        <p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH?</p>
-        <p className="mt-3 font-display text-2xl font-bold text-snow">Tell us where you are going.</p>
+      <PageHero eyebrow="Contact" title="Keep the conversation moving.">
+        <p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH? Tell us where you are going.</p>
       </PageHero>
 
-      <section className="border-t border-border bg-navy">
-        <Container className="grid md:grid-cols-3">
-          {channels.map((c, i) => (
-            <Reveal key={c.label} delay={i * 0.08} className="border-b border-border py-10 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0">
-              <p className="micro text-lime">{String(i + 1).padStart(2, "0")} — {c.label}</p>
-              <ul className="mt-5 space-y-3">
-                {c.lines.map((l) => (
-                  <li key={l.text}>
-                    <a href={l.href} className="group flex items-center gap-3 font-display text-xl font-bold tracking-tight text-snow transition-colors hover:text-lime md:text-2xl">
-                      <l.icon className="h-5 w-5 shrink-0 text-lime" aria-hidden />
-                      <span className="break-all">{l.text}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </Container>
-      </section>
-
-      <section className="section-light section-y">
-        <Container className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <SectionLabel>Send a message</SectionLabel>
-              <h2 className="display-md">Write to us.</h2>
-              <p className="mt-6 text-lg text-muted-foreground">We read every message. For anything urgent at the outlet, calling is fastest.</p>
-            </Reveal>
-            <Reveal delay={0.1} className="mt-10 rounded-md bg-ink p-7 text-snow">
-              <p className="micro text-lime">Thinking bigger?</p>
-              <p className="mt-3 font-display text-2xl font-bold uppercase leading-tight">Franchise enquiries have their own form.</p>
-              <Link to="/franchise/apply" className="micro mt-6 inline-flex items-center gap-2 text-lime hover:underline">
-                Start the franchise conversation <ArrowUpRight className="h-4 w-4" aria-hidden />
+      <section className="section-y">
+        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="space-y-4 lg:col-span-4">
+            {channels.map((c, i) => (
+              <Reveal key={c.label} delay={i * 0.05} className="rounded-2xl bg-paper p-6">
+                <h2 className="font-semibold">{c.label}</h2>
+                <ul className="mt-3 space-y-2">
+                  {c.lines.map((l) => (
+                    <li key={l.text}>
+                      <a href={l.href} className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink">
+                        <l.icon className="h-4 w-4 shrink-0" aria-hidden />
+                        <span className="break-all">{l.text}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+            <Reveal delay={0.15} className="rounded-2xl bg-navy p-6 text-snow">
+              <h2 className="font-semibold">Thinking bigger?</h2>
+              <p className="mt-2 text-snow/75">Franchise enquiries have their own form.</p>
+              <Link to="/franchise/apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline">
+                Start the franchise conversation <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </Reveal>
           </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <ContactForm key={type ?? "default"} {...(type ? { defaultType: type } : {})} />
+          <div className="lg:col-span-8">
+            <Reveal className="rounded-3xl border border-border p-6 md:p-10">
+              <h2 className="font-display text-2xl font-bold tracking-tight">Send us a message</h2>
+              <p className="mt-2 text-muted-foreground">We read every message. For anything urgent at the outlet, calling is fastest.</p>
+              <div className="mt-8">
+                <ContactForm key={type ?? "default"} {...(type ? { defaultType: type } : {})} />
+              </div>
+            </Reveal>
           </div>
         </Container>
       </section>

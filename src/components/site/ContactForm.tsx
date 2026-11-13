@@ -30,9 +30,9 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
 
   if (done) {
     return (
-      <div className="rounded-md border border-border p-10">
-        <CheckCircle2 className="h-10 w-10 text-lime" />
-        <h3 className="display-md mt-6">Message received.</h3>
+      <div className="rounded-2xl border border-border bg-paper p-8 md:p-10">
+        <CheckCircle2 className="h-10 w-10 text-leaf" />
+        <h3 className="text-h2 mt-5">Message received.</h3>
         <p className="mt-4 text-muted-foreground">Thanks for reaching out. Our team will get back to you shortly.</p>
         <button className="mt-8 text-sm underline underline-offset-4" onClick={() => setDone(false)}>Send another message</button>
       </div>
@@ -48,7 +48,7 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
         <Field label="Email" htmlFor="c-email" error={errors.email?.message}><input id="c-email" type="email" className={inputCls} autoComplete="email" {...register("email")} /></Field>
         <Field label="Phone" htmlFor="c-phone" optional error={errors.phone?.message}><input id="c-phone" type="tel" className={inputCls} autoComplete="tel" {...register("phone")} /></Field>
         <Field label="Enquiry type" htmlFor="c-type" error={errors.enquiryType?.message}>
-          <select id="c-type" className={`${inputCls} [&>option]:bg-navy [&>option]:text-snow`} {...register("enquiryType")}>
+          <select id="c-type" className={`${inputCls}`} {...register("enquiryType")}>
             {enquiryTypes.map((t) => <option key={t}>{t}</option>)}
           </select>
         </Field>

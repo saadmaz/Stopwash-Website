@@ -9,7 +9,7 @@ import { submitFranchise } from "@/lib/enquiries.functions";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
 
-const sel = `${inputCls} [&>option]:bg-paper [&>option]:text-ink`;
+const sel = inputCls;
 
 export function FranchiseForm() {
   const send = useServerFn(submitFranchise);
@@ -31,9 +31,9 @@ export function FranchiseForm() {
 
   if (done) {
     return (
-      <div className="rounded-md border border-border bg-card p-10 md:p-14">
-        <CheckCircle2 className="h-12 w-12" />
-        <h3 className="display-md mt-6">Enquiry received.</h3>
+      <div className="rounded-2xl border border-border bg-snow p-8 md:p-12">
+        <CheckCircle2 className="h-12 w-12 text-leaf" />
+        <h3 className="text-h2 mt-5">Enquiry received.</h3>
         <p className="mt-5 max-w-2xl text-lg">Thank you for your interest in building with STOPWASH. We review every enquiry carefully. If the market, partner and opportunity are aligned, our team will contact you for the next conversation.</p>
       </div>
     );
@@ -45,14 +45,14 @@ export function FranchiseForm() {
       <Honeypot register={() => register("website")} />
       <input type="hidden" {...register("startedAt", { valueAsNumber: true })} />
       <fieldset className="grid gap-5 md:grid-cols-2">
-        <legend className="micro mb-5 font-bold">01 — About you</legend>
+        <legend className="text-h3 mb-5">About you</legend>
         <Field label="Full name" htmlFor="f-name" error={e.fullName?.message}><input id="f-name" className={inputCls} autoComplete="name" {...register("fullName")} /></Field>
         <Field label="Email address" htmlFor="f-email" error={e.email?.message}><input id="f-email" type="email" className={inputCls} autoComplete="email" {...register("email")} /></Field>
         <Field label="Phone number" htmlFor="f-phone" error={e.phone?.message}><input id="f-phone" type="tel" className={inputCls} autoComplete="tel" {...register("phone")} /></Field>
         <Field label="Current business or occupation" htmlFor="f-occ" optional><input id="f-occ" className={inputCls} {...register("occupation")} /></Field>
       </fieldset>
       <fieldset className="grid gap-5 md:grid-cols-2">
-        <legend className="micro mb-5 font-bold">02 — The opportunity</legend>
+        <legend className="text-h3 mb-5">The opportunity</legend>
         <Field label="Preferred city or territory" htmlFor="f-terr" error={e.territory?.message}><input id="f-terr" className={inputCls} {...register("territory")} /></Field>
         <Field label="Available investment range" htmlFor="f-inv" optional>
           <select id="f-inv" className={sel} {...register("investmentRange")}>
@@ -72,7 +72,7 @@ export function FranchiseForm() {
         </Field>
       </fieldset>
       <fieldset className="grid gap-5">
-        <legend className="micro mb-5 font-bold">03 — Your plan</legend>
+        <legend className="text-h3 mb-5">Your plan</legend>
         <Field label="Relevant operating experience" htmlFor="f-exp" optional><textarea id="f-exp" rows={3} className={inputCls} {...register("experience")} /></Field>
         <Field label="Why STOPWASH?" htmlFor="f-why" error={e.whyStopwash?.message}><textarea id="f-why" rows={4} className={inputCls} {...register("whyStopwash")} /></Field>
         <Field label="What will you bring to the network?" htmlFor="f-bring" optional><textarea id="f-bring" rows={3} className={inputCls} {...register("contribution")} /></Field>

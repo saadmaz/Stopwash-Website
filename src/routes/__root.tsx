@@ -20,15 +20,14 @@ import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
-    <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-navy px-5 pb-20 pt-36 md:px-10">
-      <div className="motion-lines pointer-events-none absolute -right-20 top-0 h-full w-1/3 opacity-60" aria-hidden />
-      <div className="relative mx-auto w-full max-w-[1440px]">
-        <p className="micro mb-6 text-lime">Error 404 · Wrong turn</p>
-        <h1 className="display-xl text-snow">This stop <span className="text-outline">doesn&apos;t exist.</span></h1>
-        <p className="mt-6 max-w-lg text-lg text-snow/75">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link to="/" className="inline-flex items-center rounded-md bg-lime px-6 py-4 font-display text-sm font-bold uppercase tracking-wider text-ink hover:bg-snow">Back to home</Link>
-          <Link to="/locations" className="inline-flex items-center rounded-md border border-snow px-6 py-4 font-display text-sm font-bold uppercase tracking-wider text-snow hover:bg-snow hover:text-ink">Find a Stopwash</Link>
+    <section className="section-paper flex min-h-[80vh] items-center px-5 pb-20 pt-36 md:px-8">
+      <div className="mx-auto w-full max-w-[1240px]">
+        <p className="eyebrow mb-5">Page not found</p>
+        <h1 className="text-h1 max-w-2xl">Looks like a wrong turn.</h1>
+        <p className="text-lead mt-5 max-w-lg text-muted-foreground">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
+        <div className="mt-9 flex flex-wrap gap-3">
+          <Link to="/" className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c9ff4d]">Back to home</Link>
+          <Link to="/locations" className="inline-flex items-center rounded-full border border-ink/25 px-6 py-3.5 font-semibold hover:border-ink/60">Find a STOPWASH</Link>
         </div>
       </div>
     </section>
@@ -79,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "STOPWASH — The Queue Ends Here" },
       { name: "description", content: "STOPWASH is building a faster, sharper vehicle-care network in Sri Lanka." },
       { name: "author", content: "STOPWASH PVT LTD" },
-      { name: "theme-color", content: "#0B1728" },
+      { name: "theme-color", content: "#FFFFFF" },
       { property: "og:site_name", content: "STOPWASH" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -94,7 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
     scripts: [
       {
@@ -140,7 +139,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
       <Navbar />
       <main id="main" key={pathname} className="page-fade">
         <Outlet />

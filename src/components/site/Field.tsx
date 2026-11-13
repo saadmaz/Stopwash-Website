@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 
 export const inputCls =
-  "w-full rounded-md border border-input bg-transparent px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/70 transition-colors focus:border-lime focus:outline-none focus:ring-2 focus:ring-lime/40";
+  "w-full rounded-xl border border-input bg-snow px-4 py-3 text-base text-ink placeholder:text-ink/40 transition-colors focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10";
 
 export function Field({ label, error, children, htmlFor, optional }: { label: string; error?: string | undefined; children: ReactNode; htmlFor: string; optional?: boolean }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="micro mb-2 block text-muted-foreground">
-        {label} {optional && <span className="opacity-60">(optional)</span>}
+      <label htmlFor={htmlFor} className="mb-2 block text-sm font-medium text-ink">
+        {label} {optional && <span className="font-normal text-muted-foreground">(optional)</span>}
       </label>
       {children}
       {error && <p role="alert" className="mt-1.5 text-sm text-destructive">{error}</p>}

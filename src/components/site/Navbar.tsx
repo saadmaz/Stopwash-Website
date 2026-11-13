@@ -12,13 +12,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 24);
+    const on = () => setScrolled(window.scrollY > 16);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
 
-  // Close the mobile menu whenever the route changes.
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
@@ -32,14 +31,22 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Only the homepage starts over a dark photo; everywhere else the bar is light.
+  const overDark = pathname === "/" && !scrolled && !open;
+
   const isActive = (item: (typeof mainNav)[number]) =>
     item.to === "/" ? pathname === "/" : item.children ? item.children.some((c) => pathname.startsWith(c.to)) : pathname.startsWith(item.to);
 
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50 transition-colors duration-300", scrolled || open ? "border-b border-border bg-navy/95 backdrop-blur" : "bg-transparent")}>
-      <nav className="mx-auto flex h-18 max-w-[1440px] items-center justify-between px-5 py-4 md:px-10" aria-label="Main">
-        <Link to="/" aria-label="STOPWASH home"><Logo className="text-snow" /></Link>
-        <ul className="hidden items-center gap-8 lg:flex">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,color] duration-300",
+        overDark ? "bg-transparent text-snow" : "bg-snow/95 text-ink shadow-[0_1px_0_rgb(5_10_18/0.08)] backdrop-blur",
+      )}
+    >
+      <nav className="mx-auto flex h-[4.5rem] w-full max-w-[1240px] items-center justify-between px-5 md:px-8" aria-label="Main">
+        <Link to="/" aria-label="STOPWASH home"><Logo className={overDark ? "text-snow" : "text-ink"} wash={overDark ? "text-lime" : "text-leaf"} /></Link>
+        <ul className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) => {
             const active = isActive(item);
             return (
@@ -48,20 +55,21 @@ export function Navbar() {
                   to={item.to as "/"}
                   aria-current={active ? "page" : undefined}
                   aria-haspopup={item.children ? "true" : undefined}
-                  className={cn("relative flex items-center gap-1 py-2 text-sm font-medium transition-colors hover:text-lime", active ? "text-lime" : "text-snow/85")}
+                  className={cn(
+                    "flex items-center gap-1 rounded-full px-4 py-2 text-[0.9375rem] font-medium transition-colors",
+                    overDark ? "hover:bg-snow/10" : "hover:bg-paper",
+                    active && (overDark ? "bg-snow/10" : "bg-paper"),
+                  )}
                 >
                   {item.label}
-                  {item.children && <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden />}
-                  <span className={cn("absolute -bottom-0.5 left-0 h-0.5 bg-lime transition-all duration-300 group-hover:w-full", active ? "w-full" : "w-0")} />
+                  {item.children && <ChevronDown className="h-4 w-4 opacity-60 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden />}
                 </Link>
                 {item.children && (
-                  <div className="invisible absolute -left-3 top-full translate-y-1 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                    <ul className="min-w-56 rounded-md border border-border bg-ink p-2">
-                      {item.children.map((c, i) => (
+                  <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <ul className="min-w-52 rounded-2xl border border-border bg-snow p-2 text-ink shadow-lg shadow-ink/5">
+                      {item.children.map((c) => (
                         <li key={c.to}>
-                          <Link to={c.to as "/"} className="flex items-center gap-3 rounded px-3 py-2.5 text-sm text-snow/85 transition-colors hover:bg-lime hover:text-ink">
-                            <span className="micro opacity-60">{String(i + 1).padStart(2, "0")}</span>{c.label}
-                          </Link>
+                          <Link to={c.to as "/"} className="block rounded-xl px-4 py-2.5 text-[0.9375rem] hover:bg-paper">{c.label}</Link>
                         </li>
                       ))}
                     </ul>
@@ -72,43 +80,43 @@ export function Navbar() {
           })}
         </ul>
         <div className="hidden lg:block">
-          <Cta to="/locations" className="px-5 py-3 text-xs">Find a Stopwash</Cta>
+          <Cta to="/locations" className="px-5 py-2.5" arrow={false}>Find a STOPWASH</Cta>
         </div>
         <button
-          className="grid h-11 w-11 place-items-center rounded-md border border-border text-snow lg:hidden"
+          className={cn("grid h-11 w-11 place-items-center rounded-full lg:hidden", overDark ? "hover:bg-snow/10" : "hover:bg-paper")}
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
       {open && (
-        <div id="mobile-menu" className="page-fade h-[calc(100dvh-4.5rem)] overflow-y-auto bg-navy px-5 pb-10 lg:hidden">
+        <div id="mobile-menu" className="page-fade h-[calc(100dvh-4.5rem)] overflow-y-auto bg-snow px-5 pb-10 pt-2 lg:hidden">
           <ul className="divide-y divide-border">
             {mainNav.map((item) => (
-              <li key={item.label} className="py-3">
+              <li key={item.label} className="py-2">
                 {item.children ? (
                   <>
-                    <p className="micro pb-2 pt-2 text-steel">{item.label}</p>
+                    <p className="eyebrow py-2 text-muted-foreground">{item.label}</p>
                     <ul>
                       {item.children.map((c) => (
                         <li key={c.to}>
-                          <Link to={c.to as "/"} className={cn("block py-1.5 font-display text-3xl font-bold uppercase tracking-tight hover:text-lime", pathname.startsWith(c.to) ? "text-lime" : "text-snow")}>{c.label}</Link>
+                          <Link to={c.to as "/"} className={cn("block py-2 font-display text-2xl font-bold tracking-tight", pathname.startsWith(c.to) && "text-leaf")}>{c.label}</Link>
                         </li>
                       ))}
                     </ul>
                   </>
                 ) : (
-                  <Link to={item.to as "/"} className={cn("block py-1.5 font-display text-3xl font-bold uppercase tracking-tight hover:text-lime", isActive(item) ? "text-lime" : "text-snow")}>{item.label}</Link>
+                  <Link to={item.to as "/"} className={cn("block py-2 font-display text-2xl font-bold tracking-tight", isActive(item) && "text-leaf")}>{item.label}</Link>
                 )}
               </li>
             ))}
           </ul>
           <div className="mt-8 grid gap-3">
-            <Cta to="/locations">Find a Stopwash</Cta>
-            <Cta to="/franchise" variant="outline">Build a Stopwash</Cta>
+            <Cta to="/locations">Find a STOPWASH</Cta>
+            <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>
           </div>
         </div>
       )}

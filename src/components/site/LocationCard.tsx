@@ -1,50 +1,26 @@
+import type { ReactNode } from "react";
 import { Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { contact, directionsUrl, mapEmbedUrl, type Location } from "@/data/site";
 import { ctaVariants } from "./Cta";
 import { Photo } from "./Photo";
-import { RouteMap } from "./RouteMap";
-import { Reveal } from "./Reveal";
 
-/** Full location feature. Renders a live map only once exact coordinates exist. */
-export function LocationCard({ location, index }: { location: Location; index: number }) {
+/** Location feature card. Embeds Google Maps once exact coordinates are set. */
+export function LocationCard({ location }: { location: Location }) {
   const map = mapEmbedUrl(location);
   return (
-    <article className="grid overflow-hidden rounded-md border border-border lg:grid-cols-12" aria-labelledby={`loc-${location.slug}`}>
-      <div className="relative flex flex-col justify-between gap-10 p-6 md:p-10 lg:col-span-5">
-        <Reveal>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="micro rounded-sm bg-lime px-2.5 py-1.5 font-bold text-ink">Stop {String(index + 1).padStart(3, "0")}</span>
-            <span className="micro flex items-center gap-2 text-lime">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-lime" /> {location.status === "open" ? "Open" : "Coming soon"}
-            </span>
-          </div>
-          <h3 id={`loc-${location.slug}`} className="display-lg mt-6">{location.name}</h3>
-          <p className="mt-3 text-lg text-muted-foreground">{location.label}</p>
-        </Reveal>
-        <dl className="grid gap-5 text-base">
-          <div className="flex gap-4">
-            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
-            <div>
-              <dt className="micro text-muted-foreground">Address</dt>
-              <dd className="mt-1">{location.address ?? `${location.name}, Sri Lanka — full address to be confirmed`}</dd>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <Phone className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
-            <div>
-              <dt className="micro text-muted-foreground">Phone</dt>
-              <dd className="mt-1"><a href={contact.phoneHref} className="hover:text-lime">{location.phone}</a></dd>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <Clock className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
-            <div>
-              <dt className="micro text-muted-foreground">Opening hours</dt>
-              <dd className="mt-1">{location.hours ?? "Call ahead for today's hours"}</dd>
-            </div>
-          </div>
+    <article className="grid overflow-hidden rounded-3xl border border-border bg-snow lg:grid-cols-2" aria-labelledby={`loc-${location.slug}`}>
+      <div className="flex flex-col p-7 md:p-10">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-lime/30 px-3 py-1 text-sm font-semibold text-ink">
+          <span className="h-2 w-2 rounded-full bg-leaf" /> {location.status === "open" ? "Open now" : "Coming soon"}
+        </span>
+        <h2 id={`loc-${location.slug}`} className="text-h2 mt-5">{location.name}</h2>
+        <p className="mt-2 text-lg text-muted-foreground">{location.label}</p>
+        <dl className="mt-8 grid gap-5">
+          <Detail icon={MapPin} label="Address">{location.address ?? `${location.name}, Sri Lanka. Full address coming soon.`}</Detail>
+          <Detail icon={Phone} label="Phone"><a href={contact.phoneHref} className="hover:underline">{location.phone}</a></Detail>
+          <Detail icon={Clock} label="Opening hours">{location.hours ?? "Please call ahead for today's hours."}</Detail>
         </dl>
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="mt-auto flex flex-col gap-3 pt-10 sm:flex-row">
           <a href={directionsUrl(location)} target="_blank" rel="noopener noreferrer" className={ctaVariants({ variant: "lime" })}>
             <Navigation className="h-4 w-4" aria-hidden /> Get directions
           </a>
@@ -53,20 +29,23 @@ export function LocationCard({ location, index }: { location: Location; index: n
           </a>
         </div>
       </div>
-      <div className="grid gap-px bg-border lg:col-span-7 lg:h-[34rem] lg:grid-rows-2">
-        <Photo src={location.image} alt={location.alt} className="h-72 rounded-none lg:h-full lg:min-h-0" />
-        {map ? (
-          <iframe
-            title={`Map of STOPWASH ${location.name}`}
-            src={map}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-72 w-full border-0 lg:h-full grayscale-[0.6] invert-[0.9] hue-rotate-180"
-          />
-        ) : (
-          <RouteMap tone="navy" stopLabel={location.name} stopCode={`Stop ${String(index + 1).padStart(3, "0")}`} className="h-72 rounded-none lg:h-full lg:min-h-0" />
-        )}
-      </div>
+      {map ? (
+        <iframe title={`Map of STOPWASH ${location.name}`} src={map} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="min-h-80 w-full border-0" />
+      ) : (
+        <Photo src={location.image} alt={location.alt} className="min-h-80 rounded-none" />
+      )}
     </article>
+  );
+}
+
+function Detail({ icon: Icon, label, children }: { icon: typeof MapPin; label: string; children: ReactNode }) {
+  return (
+    <div className="flex gap-4">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-paper"><Icon className="h-[1.1rem] w-[1.1rem]" aria-hidden /></span>
+      <div>
+        <dt className="text-sm text-muted-foreground">{label}</dt>
+        <dd className="mt-0.5 font-medium">{children}</dd>
+      </div>
+    </div>
   );
 }

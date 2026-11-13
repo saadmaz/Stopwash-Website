@@ -5,13 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 6px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -34,39 +33,44 @@
   --color-navy: var(--navy);
   --color-ink: var(--ink);
   --color-lime: var(--lime);
+  --color-leaf: var(--leaf);
   --color-paper: var(--paper);
   --color-snow: var(--snow);
   --color-steel: var(--steel);
 }
 
+/* Brand palette: #B6FF00 lime · #0B1728 navy · #050A12 ink · #F5F6F2 paper · #A6ADB8 steel */
 :root {
-  --radius: 0.375rem;
-  --navy: oklch(0.2 0.035 255);
-  --ink: oklch(0.13 0.02 255);
-  --lime: oklch(0.92 0.23 128);
-  --paper: oklch(0.966 0.006 120);
-  --snow: oklch(1 0 0);
-  --steel: oklch(0.74 0.02 255);
+  --radius: 1rem;
+  --navy: #0b1728;
+  --ink: #050a12;
+  --lime: #b6ff00;
+  --leaf: #4a7300; /* lime darkened for readable accent text on light backgrounds */
+  --paper: #f5f6f2;
+  --snow: #ffffff;
+  --steel: #a6adb8;
 
-  --background: var(--navy);
-  --foreground: var(--snow);
-  --card: oklch(0.24 0.035 255);
-  --card-foreground: var(--snow);
-  --popover: var(--navy);
-  --popover-foreground: var(--snow);
+  /* Light by default; dark sections opt in with .section-dark */
+  --background: var(--snow);
+  --foreground: var(--ink);
+  --card: var(--snow);
+  --card-foreground: var(--ink);
+  --popover: var(--snow);
+  --popover-foreground: var(--ink);
   --primary: var(--lime);
   --primary-foreground: var(--ink);
   --secondary: var(--paper);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.26 0.03 255);
-  --muted-foreground: var(--steel);
+  --muted: var(--paper);
+  --muted-foreground: #5a6372;
   --accent: var(--lime);
   --accent-foreground: var(--ink);
-  --destructive: oklch(0.65 0.22 27);
+  --destructive: #d93025;
   --destructive-foreground: var(--snow);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 18%);
-  --ring: var(--lime);
+  --border: rgb(5 10 18 / 0.1);
+  --input: rgb(5 10 18 / 0.16);
+  --ring: var(--navy);
+  --eyebrow: var(--leaf);
 }
 
 @layer base {
@@ -79,7 +83,7 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.035em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
   ::selection { background: var(--lime); color: var(--ink); }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -89,172 +93,94 @@
       animation-delay: 0s !important;
       transition-duration: 0.01ms !important;
     }
-    .marquee { animation: none !important; }
   }
 }
 
-/* Entrance keyframes run in CSS so SSR'd hero content animates before hydration. */
-@keyframes rise {
-  from { transform: translateY(105%); }
-  to { transform: translateY(0); }
+/* ── Section themes ─────────────────────────────── */
+@utility section-dark {
+  background: var(--navy);
+  color: var(--snow);
+  --foreground: var(--snow);
+  --muted-foreground: #b4bcc8;
+  --border: rgb(255 255 255 / 0.12);
+  --input: rgb(255 255 255 / 0.2);
+  --card: rgb(255 255 255 / 0.04);
+  --card-foreground: var(--snow);
+  --ring: var(--lime);
+  --eyebrow: var(--lime);
 }
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes wipe-in {
-  from { clip-path: inset(0 0 0 100%); }
-  to { clip-path: inset(0 0 0 0); }
-}
-@keyframes page-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@utility rise {
-  display: block;
-  animation: rise 1s cubic-bezier(.22,1,.36,1) both;
-  animation-delay: var(--d, 0s);
-}
-@utility fade-up {
-  animation: fade-up 0.9s cubic-bezier(.22,1,.36,1) both;
-  animation-delay: var(--d, 0s);
-}
-@utility wipe-in {
-  animation: wipe-in 1.3s cubic-bezier(.77,0,.18,1) both;
-  animation-delay: var(--d, 0s);
-}
-@utility page-fade {
-  animation: page-fade 0.45s ease-out both;
-}
-/* Lime highlighter behind inline text */
-@utility mark-lime {
-  background-image: linear-gradient(transparent 58%, var(--lime) 58%, var(--lime) 92%, transparent 92%);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-@utility hero-xl {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.84;
-  letter-spacing: -0.055em;
-  text-transform: uppercase;
-  /* Width- and height-aware so the hero always fits a laptop screen. */
-  font-size: clamp(3rem, min(8vw, 13vh), 8.25rem);
-}
-/* Fluid vertical rhythm for every full-width section. */
-@utility section-y {
-  padding-block: clamp(3.5rem, 7vw, 6.5rem);
-}
-@utility section-y-lg {
-  padding-block: clamp(4.5rem, 9vw, 8rem);
-}
-/* Large editorial statement (quotes, vision lines). */
-@utility statement {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  font-size: clamp(1.625rem, 3.4vw, 3rem);
-}
-@utility clip-diagonal {
-  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
-}
-@utility grid-lines {
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, currentColor 8%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Light section scope: flips tokens for off-white sections */
-@utility section-light {
+@utility section-paper {
   background: var(--paper);
   color: var(--ink);
-  --foreground: var(--ink);
-  --muted-foreground: oklch(0.45 0.02 255);
-  --border: oklch(0.13 0.02 255 / 14%);
-  --input: oklch(0.13 0.02 255 / 22%);
-  --card: var(--snow);
-  --card-foreground: var(--ink);
 }
 @utility section-lime {
   background: var(--lime);
   color: var(--ink);
-  --foreground: var(--ink);
-  --muted-foreground: oklch(0.3 0.04 140);
-  --border: oklch(0.13 0.02 255 / 20%);
-  --primary: var(--ink);
-  --primary-foreground: var(--lime);
-}
-@utility section-ink {
-  background: var(--ink);
-  color: var(--snow);
+  --muted-foreground: rgb(5 10 18 / 0.72);
+  --border: rgb(5 10 18 / 0.18);
+  --eyebrow: var(--ink);
 }
 
-@utility display-xl {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.86;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  font-size: clamp(2.75rem, 7vw, 7rem);
-}
-@utility display-lg {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-  font-size: clamp(2.125rem, 4.4vw, 4.5rem);
-}
-@utility display-md {
+/* ── Type scale ─────────────────────────────────── */
+@utility text-hero {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  font-size: clamp(1.625rem, 2.8vw, 2.5rem);
+  font-size: clamp(2.75rem, min(7.2vw, 11vh), 6.25rem);
 }
-@utility micro {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+@utility text-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.375rem, 5vw, 4.25rem);
+}
+@utility text-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.875rem, 3.4vw, 3rem);
+}
+@utility text-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-size: 1.25rem;
+}
+@utility text-lead {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+}
+@utility eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--eyebrow);
 }
-@utility text-outline {
-  /* Fill is transparent; the stroke follows the element's text colour. */
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px currentColor;
+
+/* ── Rhythm ─────────────────────────────────────── */
+@utility section-y {
+  padding-block: clamp(4rem, 8vw, 7rem);
 }
-@utility motion-lines {
-  background-image: repeating-linear-gradient(
-    -60deg,
-    color-mix(in oklab, var(--lime) 18%, transparent) 0 2px,
-    transparent 2px 22px
-  );
+
+/* ── Motion: CSS so SSR'd hero content animates before hydration ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-@utility grain-overlay {
-  background: linear-gradient(180deg, color-mix(in oklab, var(--ink) 30%, transparent), color-mix(in oklab, var(--ink) 92%, transparent));
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-@utility marquee {
-  animation: marquee 28s linear infinite;
+@utility fade-up {
+  animation: fade-up 0.8s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--d, 0s);
 }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@keyframes dash {
-  to { stroke-dashoffset: 0; }
-}
-@utility route-line {
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-  animation: dash 2.6s cubic-bezier(.6,0,.2,1) 0.4s forwards;
-}
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--lime) 70%, transparent); }
-  50% { box-shadow: 0 0 0 8px transparent; }
-}
-@utility pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
+@utility page-fade {
+  animation: page-fade 0.35s ease-out both;
 }

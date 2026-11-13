@@ -1,49 +1,51 @@
 import { Link } from "@tanstack/react-router";
 import { contact, footerNav } from "@/data/site";
 import { Logo } from "./Logo";
+import { Container } from "./SectionHeading";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-navy">
-      <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-20 md:px-10">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Logo className="text-2xl text-snow" />
-            <p className="mt-6 max-w-sm text-lg text-snow/80">The vehicle-care ecosystem for people who keep moving.</p>
-            <p className="micro mt-4 text-lime">Better car care. Made convenient.</p>
+    <footer className="section-dark">
+      <Container className="pb-10 pt-16 md:pt-20">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Logo className="text-snow" />
+            <p className="mt-5 max-w-sm text-lg leading-relaxed text-snow/75">The vehicle-care ecosystem for people who keep moving.</p>
+            <p className="mt-3 font-medium text-lime">Better car care. Made convenient.</p>
           </div>
-          <div className="lg:col-span-3">
-            <p className="micro mb-5 text-steel">Navigate</p>
-            <ul className="space-y-2.5">
+          <nav aria-label="Footer" className="md:col-span-3">
+            <p className="text-sm font-semibold text-snow">Explore</p>
+            <ul className="mt-4 space-y-2.5">
               {footerNav.map((n) => (
-                <li key={n.to}><Link to={n.to as "/"} className="text-snow/85 transition-colors hover:text-lime">{n.label}</Link></li>
+                <li key={n.to}><Link to={n.to as "/"} className="text-snow/70 transition-colors hover:text-lime">{n.label}</Link></li>
               ))}
             </ul>
-          </div>
-          <div className="lg:col-span-4">
-            <p className="micro mb-5 text-steel">Reach us</p>
-            <ul className="space-y-2.5 text-snow/85">
-              <li><a href={contact.phoneHref} className="hover:text-lime">{contact.phone}</a></li>
-              <li><a href={`mailto:${contact.customerEmail}`} className="hover:text-lime">{contact.customerEmail}</a></li>
-              <li><a href={`mailto:${contact.generalEmail}`} className="hover:text-lime">{contact.generalEmail}</a></li>
-              <li><a href={contact.siteUrl} className="hover:text-lime">{contact.website}</a></li>
+          </nav>
+          <div className="md:col-span-4">
+            <p className="text-sm font-semibold text-snow">Get in touch</p>
+            <ul className="mt-4 space-y-2.5 text-snow/70">
+              <li><a href={contact.phoneHref} className="transition-colors hover:text-lime">{contact.phone}</a></li>
+              <li><a href={`mailto:${contact.customerEmail}`} className="transition-colors hover:text-lime">{contact.customerEmail}</a></li>
+              <li><a href={`mailto:${contact.generalEmail}`} className="transition-colors hover:text-lime">{contact.generalEmail}</a></li>
+              <li><a href={contact.siteUrl} className="transition-colors hover:text-lime">{contact.website}</a></li>
             </ul>
-            <div className="mt-6 flex gap-5">
+            <ul className="mt-6 flex gap-2">
               {contact.socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="micro text-snow/70 hover:text-lime">{s.label}</a>
+                <li key={s.label}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full border border-snow/15 px-4 py-2 text-sm text-snow/80 transition-colors hover:border-lime hover:text-lime">{s.label}</a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
-        <p aria-hidden className="display-xl mt-20 select-none text-outline text-snow/15">Keep Moving.</p>
-        <div className="mt-8 flex flex-col gap-4 border-t border-border pt-6 text-sm text-steel md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-snow/10 pt-6 text-sm text-snow/55 md:flex-row md:items-center md:justify-between">
           <p>© 2026 STOPWASH PVT LTD. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to={"/privacy-policy" as "/"} className="hover:text-lime">Privacy Policy</Link>
-            <Link to={"/terms" as "/"} className="hover:text-lime">Terms and Conditions</Link>
+            <Link to="/privacy-policy" className="hover:text-snow">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-snow">Terms and Conditions</Link>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
