@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { Check, Timer } from "lucide-react";
 import { alts, images, networkParts, pageHead, storyQuestions } from "@/data/site";
 import { PageHero } from "@/components/site/PageHero";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/our-story")({
   head: () =>
     pageHead({
       title: "Our Story: Why STOPWASH Exists | STOPWASH Sri Lanka",
-      description: "STOPWASH began with a familiar feeling: watching time disappear in car-wash queues. This is the story behind Sri Lanka's new vehicle-care brand.",
+      description: "Named after the stopwatch, STOPWASH was built to sell time, not just a car wash. The story behind Sri Lanka's new vehicle-care brand.",
       path: "/our-story",
     }),
   component: OurStory,
@@ -35,7 +35,32 @@ function OurStory() {
         </Container>
       </section>
 
-      <section className="section-y pt-0">
+      <section id="the-name" className="section-dark section-y scroll-mt-20">
+        <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-lime"><Timer className="h-7 w-7 text-ink" aria-hidden /></span>
+            <p className="sr-only">STOPWATCH became STOPWASH.</p>
+            <div aria-hidden className="mt-8 font-display font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(2.75rem,7vw,5.25rem)]">
+              <p className="text-snow/35">STOPWA<span className="line-through decoration-lime decoration-[0.08em]">TCH</span></p>
+              <p>STOP<span className="text-lime">WASH</span></p>
+            </div>
+          </Reveal>
+          <div>
+            <SectionHeading eyebrow="The name" title="We named it after a stopwatch." />
+            <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
+              <p>Say it quickly and you will hear it. STOPWASH comes from the stopwatch, the simplest instrument ever made for respecting time.</p>
+              <p>That was deliberate. We never set out to sell soap, foam or shine. We set out to sell time: the hour you get back, the afternoon that stays yours, the day that keeps moving.</p>
+              <p>A stopwatch does one thing honestly. It shows you exactly where the time went. We hold every STOPWASH visit to the same test.</p>
+            </Reveal>
+            <Reveal delay={0.15} className="mt-8 border-l-2 border-lime pl-5">
+              <p className="text-lg text-muted-foreground">The car wash is what we do.</p>
+              <p className="font-display text-2xl font-bold tracking-tight">Time is what we sell.</p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-y">
         <Container>
           <Reveal className="section-lime grid gap-8 rounded-3xl px-7 py-12 md:px-14 md:py-16 lg:grid-cols-2 lg:gap-16">
             <div>

@@ -14,6 +14,12 @@ It began with a familiar feeling: arriving at a car wash and realising the next 
 
 That felt like a problem waiting for a better answer.
 
+## Why the name
+
+Say it quickly and you will hear it. STOPWASH comes from the stopwatch.
+
+We never set out to sell soap, foam or shine. We set out to sell time: the hour you get back, the afternoon that stays yours, the day that keeps moving. A stopwatch shows you exactly where the time went, and we hold every STOPWASH visit to the same test.
+
 ## The car wash was not the product. The time was.
 
 Customers are not only paying for a clean vehicle. They are paying to get their vehicle back without losing the momentum of their day.

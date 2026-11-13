@@ -92,6 +92,18 @@ function Intro() {
           <Reveal className="md:col-span-2"><Photo src={images.interior} alt={alts.interior} className="h-64 md:h-[26rem]" /></Reveal>
           <Reveal delay={0.08}><Photo src={images.detailHands} alt={alts.detailHands} className="h-64 md:h-[26rem]" /></Reveal>
         </div>
+        <Reveal className="mt-4">
+          <Link to="/our-story" hash="the-name" className="group flex flex-col gap-5 rounded-3xl bg-navy p-7 text-snow sm:flex-row sm:items-center md:p-9">
+            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-lime"><Timer className="h-7 w-7 text-ink" aria-hidden /></span>
+            <div className="flex-1">
+              <p className="eyebrow text-lime">Why the name?</p>
+              <p className="mt-2 font-display text-xl font-bold leading-snug tracking-tight md:text-2xl">STOPWASH comes from the stopwatch. We never set out to sell a car wash. We set out to sell time.</p>
+            </div>
+            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold text-lime">
+              Read the story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </span>
+          </Link>
+        </Reveal>
       </Container>
     </section>
   );
