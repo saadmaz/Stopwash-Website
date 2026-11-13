@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Crosshair, Navigation, Phone, Repeat, Timer } from "lucide-react";
-import { alts, contact, directionsUrl, images, journey, locations, pageHead, pillars, servicePreview, standards } from "@/data/site";
+import { alts, brandPromise, buildingEngine, contact, directionsUrl, images, journey, locations, pageHead, pillars, servicePreview, standards } from "@/data/site";
 import { Cta, ctaVariants } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -27,8 +27,10 @@ function Home() {
       <Hero />
       <Intro />
       <Difference />
+      <Building />
       <FirstOutlet />
       <ServicesPreview />
+      <BrandPromise />
       <HowItWorks />
       <CleanSquad />
       <Standard />
@@ -95,6 +97,68 @@ function Intro() {
   );
 }
 
+/* What STOPWASH is building — the engine behind the outlet. */
+function Building() {
+  return (
+    <section className="section-y">
+      <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-6">
+          <SectionHeading eyebrow="What we are building" title="A network of pit stops for people who keep moving." />
+          <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
+            <p>STOPWASH is building more than outlets. We are building a connected vehicle-care system designed around the real rhythm of modern life: work, school, errands, meetings, traffic, family and the next place you need to be.</p>
+            <p className="text-foreground">The outlet is the visible part. Behind it is the real engine.</p>
+          </Reveal>
+        </div>
+        <div className="lg:col-span-6 lg:pt-10">
+          <ul className="divide-y divide-border rounded-2xl bg-paper px-6">
+            {buildingEngine.map((item, i) => (
+              <li key={item}>
+                <Reveal delay={i * 0.03} className="flex items-center justify-between gap-4 py-4">
+                  <span className="font-medium">{item}</span>
+                  <span className="text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <Reveal delay={0.1} className="mt-6 text-lg leading-relaxed">
+            <p className="text-muted-foreground">The goal is not to make customers better at waiting.</p>
+            <p className="font-display text-xl font-bold tracking-tight">The goal is to remove the waiting from the experience.</p>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* Brand promise. */
+function BrandPromise() {
+  return (
+    <section className="section-dark section-y">
+      <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <SectionHeading eyebrow="Our promise" title="Your time is not a spare part." intro="We do not treat your time as something that can be left idling beside the wash bay. Every visit is designed to give you what a modern vehicle-care service should." />
+        </div>
+        <div className="lg:pt-10">
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {brandPromise.map((item, i) => (
+              <li key={item} className={i === brandPromise.length - 1 ? "sm:col-span-2" : ""}>
+                <Reveal delay={i * 0.04} className="flex items-center gap-3 rounded-2xl bg-card px-5 py-4">
+                  <Check className="h-5 w-5 shrink-0 text-lime" aria-hidden />
+                  <span className="font-medium">{item}</span>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <Reveal delay={0.15} className="mt-8 border-l-2 border-lime pl-5">
+            <p className="text-lg text-muted-foreground">The vehicle leaves cleaner.</p>
+            <p className="font-display text-xl font-bold tracking-tight">You leave with your day intact.</p>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function Difference() {
   return (
     <section className="section-paper section-y">
@@ -152,7 +216,7 @@ function ServicesPreview() {
       <Container>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading eyebrow="Services" title="Pick your pit stop." intro="Clear levels of care, so you can choose what your vehicle needs today." />
-          <Reveal delay={0.1}><Cta to="/services" variant="link">Explore all services</Cta></Reveal>
+          <Reveal delay={0.1}><Cta to="/services" variant="link">See the services</Cta></Reveal>
         </div>
         <ul className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {servicePreview.map((s, i) => (
@@ -216,7 +280,7 @@ function Standard() {
     <section className="section-dark section-y">
       <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <SectionHeading eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." intro="Consistency is designed, not hoped for. These are the controls behind every visit." />
+          <SectionHeading eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." intro="A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location — months after the first visit." />
           <Reveal delay={0.1} className="mt-8"><Cta to="/our-standard" variant="outline">Read about our standard</Cta></Reveal>
         </div>
         <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:col-span-7">
@@ -248,7 +312,7 @@ function Expansion() {
           </div>
           <div>
             <p className="text-lead text-muted-foreground">
-              STOPWASH is building the vehicle-care ecosystem for Sri Lanka — a connected system designed around convenience, operational excellence and a consistent customer experience.
+              STOPWASH is building the vehicle-care ecosystem for Sri Lanka. We are building the network one stop at a time — but the ambition is national.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>

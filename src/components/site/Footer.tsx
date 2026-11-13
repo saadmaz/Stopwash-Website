@@ -34,7 +34,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-snow/10 pt-6 text-sm text-snow/55 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 STOPWASH PVT LTD. All rights reserved.</p>
+          <p>© 2026 STOPWASH PVT LTD. All rights reserved. <span className="text-snow/80">Stop washing time away.</span></p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-snow">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-snow">Terms and Conditions</Link>

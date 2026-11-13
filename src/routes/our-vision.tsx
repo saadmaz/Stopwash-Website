@@ -26,7 +26,9 @@ const pov = [
 function OurVision() {
   return (
     <>
-      <PageHero eyebrow="Our vision" title="Make vehicle care disappear into the rhythm of the day." />
+      <PageHero eyebrow="Our vision" title="Make vehicle care disappear into the rhythm of the day.">
+        <p>The best vehicle-care experience is not the one that demands attention. It is the one that fits neatly into the day, delivers exactly what was expected and leaves you moving better than before. That is the future STOPWASH is building.</p>
+      </PageHero>
 
       <section className="section-y">
         <Container>

@@ -22,7 +22,7 @@ function Services() {
   return (
     <>
       <PageHero eyebrow="Services" title="Your vehicle has a schedule. So should its care.">
-        <p>STOPWASH care is organised into clear levels, so you can choose what your vehicle needs today and plan what it needs next. Ask the team at the outlet for current inclusions.</p>
+        <p>STOPWASH services are designed around real moments: the quick reset, the weekly clean, the full refresh, the pre-sale presentation and the fleet that needs to be ready every morning.</p>
       </PageHero>
 
       <nav aria-label="Services on this page" className="sticky top-[4.5rem] z-30 border-b border-border bg-snow/95 backdrop-blur">

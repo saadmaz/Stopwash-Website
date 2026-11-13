@@ -29,12 +29,12 @@ function OurStandard() {
   return (
     <>
       <PageHero eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." image={images.detailHands} imageAlt={alts.detailHands}>
-        <p>A clean car on a quiet morning proves very little. The STOPWASH standard is how we deliver the same confidence on the busiest afternoon of the month — in this outlet and in every one that follows.</p>
+        <p>A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit. That is what STOPWASH is building toward.</p>
       </PageHero>
 
       <section className="section-y">
         <Container>
-          <SectionHeading eyebrow="What it's made of" title="Seven commitments behind every visit." />
+          <SectionHeading eyebrow="Our operating standard" title="A standard that travels. A finish that repeats." intro="A brand that gets stronger every time a customer returns — built on seven commitments." />
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {standards.map((s, i) => (
               <li key={s.title}>

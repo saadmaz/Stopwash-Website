@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { alts, images, pageHead } from "@/data/site";
+import { Check } from "lucide-react";
+import { alts, images, networkParts, pageHead, storyQuestions } from "@/data/site";
 import { PageHero } from "@/components/site/PageHero";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
@@ -27,7 +28,7 @@ function OurStory() {
           <SectionHeading className="lg:col-span-5" eyebrow="How it started" title="It didn't start with foam and polishing cloths." />
           <Reveal delay={0.1} className="text-lead space-y-5 text-muted-foreground lg:col-span-7 lg:pt-10">
             <p className="text-foreground">The idea behind STOPWASH did not begin with a fascination for hoses, foam or polishing cloths.</p>
-            <p>It began with a familiar feeling: arriving at a car wash and realizing the next part of your day had just been handed over to a queue.</p>
+            <p>It began with a familiar feeling: arriving at a car wash and realising the next part of your day had just been handed over to a queue.</p>
             <p>The wait was slow. The result was unpredictable. The process had no rhythm.</p>
             <p>That felt like a business problem waiting for a better answer.</p>
           </Reveal>
@@ -42,8 +43,12 @@ function OurStory() {
               <h2 className="text-h2">The car wash was not the product. The time was.</h2>
             </div>
             <div className="text-lead space-y-4 text-muted-foreground">
-              <p>Customers are not only paying for a clean vehicle. They are paying to get their vehicle back without losing the momentum of their day.</p>
-              <p>So STOPWASH is designed around the clock as much as the car: a clear process, a predictable experience and a finish worth the stop.</p>
+              <p>A customer is not only paying for a clean vehicle. They are paying to get their vehicle back without losing the momentum of their day.</p>
+              <p>That changed the way we thought about the category. We did not ask, “How do we wash more cars?” We asked:</p>
+              <ul className="space-y-2 text-ink">
+                {storyQuestions.map((q) => <li key={q} className="flex gap-3"><span aria-hidden>—</span>{q}</li>)}
+              </ul>
+              <p className="font-semibold text-ink">STOPWASH is the answer we are building.</p>
             </div>
           </Reveal>
         </Container>
@@ -54,8 +59,8 @@ function OurStory() {
           <div>
             <SectionHeading eyebrow="The first stop" title="Katubedda is the first chapter, not the full story." />
             <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
-              <p>The first STOPWASH outlet is where the process is tested on real vehicles, real schedules and real expectations — every day.</p>
-              <p>It is also where the team behind the operation learns what it takes to deliver the same confidence on a busy day as on a quiet one.</p>
+              <p>The first STOPWASH outlet in Katubedda is where the idea meets the road — the beginning of a network built around a simple promise: vehicle care should fit into life, not swallow it.</p>
+              <p>The first location gives us the operating ground to test, improve and prove the standard. The next locations will carry that standard further.</p>
             </Reveal>
             <Reveal delay={0.15} className="mt-8"><Cta to="/locations" variant="ink">Visit Katubedda</Cta></Reveal>
           </div>
@@ -72,8 +77,16 @@ function OurStory() {
           <SectionHeading className="lg:col-span-6" eyebrow="The bigger build" title="One outlet proves a point. A network changes a category." />
           <Reveal delay={0.1} className="lg:col-span-6 lg:pt-10">
             <div className="text-lead space-y-4 text-muted-foreground">
-              <p>The long-term ambition is a connected vehicle-care ecosystem across Sri Lanka — outlets that share one brand, one operating system and one standard of finish.</p>
-              <p>Local operators bring leadership to their market. STOPWASH brings the brand, the systems and the support. Customers get the same confidence wherever they pull in.</p>
+              <p>STOPWASH is building the vehicle-care ecosystem for Sri Lanka. That means more than opening locations. It means connecting the parts that make the experience better:</p>
+            </div>
+            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+              {networkParts.map((n) => (
+                <li key={n} className="flex gap-3 text-[0.9375rem]"><Check className="mt-0.5 h-4 w-4 shrink-0 text-leaf" aria-hidden />{n}</li>
+              ))}
+            </ul>
+            <div className="mt-6 text-lg">
+              <p className="text-muted-foreground">We are building the network one stop at a time.</p>
+              <p className="font-display text-xl font-bold tracking-tight">But the ambition is national.</p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>
