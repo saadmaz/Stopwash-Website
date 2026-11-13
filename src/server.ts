@@ -44,9 +44,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-// Hosting compresses every response at the edge. Never compress a body (gzip, brotli,
-// CompressionStream) or set content-encoding here or in a server route: the body gets encoded
-// twice and renders garbled.
+// Wraps TanStack Start's handler so unexpected SSR failures render a branded 500 page.
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
