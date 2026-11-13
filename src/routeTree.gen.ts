@@ -17,7 +17,11 @@ import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as OurVisionRouteImport } from './routes/our-vision'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as BlogRssDotxmlRouteImport } from './routes/blog/rss[.]xml'
 import { Route as FranchiseIndexRouteImport } from './routes/franchise/index'
 import { Route as FranchiseApplyRouteImport } from './routes/franchise/apply'
 
@@ -61,9 +65,29 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRssDotxmlRoute = BlogRssDotxmlRouteImport.update({
+  id: '/blog/rss.xml',
+  path: '/blog/rss.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FranchiseIndexRoute = FranchiseIndexRouteImport.update({
@@ -86,8 +110,12 @@ export interface FileRoutesByFullPath {
   '/our-vision': typeof OurVisionRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/rss.xml': typeof BlogRssDotxmlRoute
   '/franchise/apply': typeof FranchiseApplyRoute
+  '/blog/': typeof BlogIndexRoute
   '/franchise/': typeof FranchiseIndexRoute
 }
 export interface FileRoutesByTo {
@@ -99,8 +127,12 @@ export interface FileRoutesByTo {
   '/our-vision': typeof OurVisionRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/rss.xml': typeof BlogRssDotxmlRoute
   '/franchise/apply': typeof FranchiseApplyRoute
+  '/blog': typeof BlogIndexRoute
   '/franchise': typeof FranchiseIndexRoute
 }
 export interface FileRoutesById {
@@ -113,8 +145,12 @@ export interface FileRoutesById {
   '/our-vision': typeof OurVisionRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/rss.xml': typeof BlogRssDotxmlRoute
   '/franchise/apply': typeof FranchiseApplyRoute
+  '/blog/': typeof BlogIndexRoute
   '/franchise/': typeof FranchiseIndexRoute
 }
 export interface FileRouteTypes {
@@ -128,8 +164,12 @@ export interface FileRouteTypes {
     | '/our-vision'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
+    | '/blog/rss.xml'
     | '/franchise/apply'
+    | '/blog/'
     | '/franchise/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -141,8 +181,12 @@ export interface FileRouteTypes {
     | '/our-vision'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
+    | '/blog/rss.xml'
     | '/franchise/apply'
+    | '/blog'
     | '/franchise'
   id:
     | '__root__'
@@ -154,8 +198,12 @@ export interface FileRouteTypes {
     | '/our-vision'
     | '/privacy-policy'
     | '/services'
+    | '/sitemap.xml'
     | '/terms'
+    | '/blog/$slug'
+    | '/blog/rss.xml'
     | '/franchise/apply'
+    | '/blog/'
     | '/franchise/'
   fileRoutesById: FileRoutesById
 }
@@ -168,8 +216,12 @@ export interface RootRouteChildren {
   OurVisionRoute: typeof OurVisionRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogRssDotxmlRoute: typeof BlogRssDotxmlRoute
   FranchiseApplyRoute: typeof FranchiseApplyRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   FranchiseIndexRoute: typeof FranchiseIndexRoute
 }
 
@@ -231,11 +283,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/rss.xml': {
+      id: '/blog/rss.xml'
+      path: '/blog/rss.xml'
+      fullPath: '/blog/rss.xml'
+      preLoaderRoute: typeof BlogRssDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/franchise/': {
@@ -264,8 +344,12 @@ const rootRouteChildren: RootRouteChildren = {
   OurVisionRoute: OurVisionRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogRssDotxmlRoute: BlogRssDotxmlRoute,
   FranchiseApplyRoute: FranchiseApplyRoute,
+  BlogIndexRoute: BlogIndexRoute,
   FranchiseIndexRoute: FranchiseIndexRoute,
 }
 export const routeTree = rootRouteImport

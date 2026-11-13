@@ -26,12 +26,16 @@ export const contact = {
   generalEmail: "info.stopwash@gmail.com",
   website: "www.stopwash.lk",
   siteUrl: "https://stopwash.lk",
-  // TODO: replace with the official STOPWASH profile URLs.
+  /** WhatsApp chat link for the customer line (assumes +94 70 622 5252 is on WhatsApp). */
+  whatsappHref: "https://wa.me/94706225252",
+  // TODO: replace each href with the official STOPWASH profile URL.
   socials: [
-    { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "Facebook", href: "https://www.facebook.com/" },
-    { label: "TikTok", href: "https://www.tiktok.com/" },
-  ],
+    { network: "instagram", label: "Instagram", href: "https://www.instagram.com/" },
+    { network: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
+    { network: "tiktok", label: "TikTok", href: "https://www.tiktok.com/" },
+    { network: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/" },
+    { network: "youtube", label: "YouTube", href: "https://www.youtube.com/" },
+  ] as const,
 };
 
 export type NavItem = { label: string; to: string; children?: { label: string; to: string }[] };
@@ -50,6 +54,7 @@ export const mainNav: NavItem[] = [
   { label: "Services", to: "/services" },
   { label: "Locations", to: "/locations" },
   { label: "Franchise", to: "/franchise" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -60,6 +65,7 @@ export const footerNav = [
   { label: "Services", to: "/services" },
   { label: "Locations", to: "/locations" },
   { label: "Franchise With Us", to: "/franchise" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];
 

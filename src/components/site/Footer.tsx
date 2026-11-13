@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { contact, footerNav } from "@/data/site";
 import { Logo } from "./Logo";
 import { Container } from "./SectionHeading";
+import { SocialLinks } from "./SocialIcon";
 
 export function Footer() {
   return (
@@ -29,13 +30,7 @@ export function Footer() {
               <li><a href={`mailto:${contact.generalEmail}`} className="transition-colors hover:text-lime">{contact.generalEmail}</a></li>
               <li><a href={contact.siteUrl} className="transition-colors hover:text-lime">{contact.website}</a></li>
             </ul>
-            <ul className="mt-6 flex gap-2">
-              {contact.socials.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full border border-snow/15 px-4 py-2 text-sm text-snow/80 transition-colors hover:border-lime hover:text-lime">{s.label}</a>
-                </li>
-              ))}
-            </ul>
+            <SocialLinks tone="dark" className="mt-6" />
           </div>
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-snow/10 pt-6 text-sm text-snow/55 md:flex-row md:items-center md:justify-between">

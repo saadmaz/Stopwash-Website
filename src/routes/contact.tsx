@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import { contact, enquiryTypes, pageHead, type EnquiryType } from "@/data/site";
 import { PageHero } from "@/components/site/PageHero";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
+import { SocialLinks, socialProfiles } from "@/components/site/SocialIcon";
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: { type?: string }): { type?: EnquiryType | undefined } => {
@@ -21,7 +23,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const channels = [
-  { label: "Customer enquiries", lines: [{ icon: Phone, text: contact.phone, href: contact.phoneHref }, { icon: Mail, text: contact.customerEmail, href: `mailto:${contact.customerEmail}` }] },
+  { label: "Customer enquiries", lines: [{ icon: Phone, text: contact.phone, href: contact.phoneHref }, { icon: FaWhatsapp, text: "Chat on WhatsApp", href: contact.whatsappHref }, { icon: Mail, text: contact.customerEmail, href: `mailto:${contact.customerEmail}` }] },
   { label: "Franchise enquiries", lines: [{ icon: Mail, text: contact.franchiseEmail, href: `mailto:${contact.franchiseEmail}` }] },
   { label: "General enquiries", lines: [{ icon: Mail, text: contact.generalEmail, href: `mailto:${contact.generalEmail}` }] },
 ];
@@ -45,7 +47,7 @@ function Contact() {
                 <ul className="mt-3 space-y-2">
                   {c.lines.map((l) => (
                     <li key={l.text}>
-                      <a href={l.href} className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink">
+                      <a href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink">
                         <l.icon className="h-4 w-4 shrink-0" aria-hidden />
                         <span className="break-all">{l.text}</span>
                       </a>
@@ -54,6 +56,10 @@ function Contact() {
                 </ul>
               </Reveal>
             ))}
+            <Reveal delay={0.12} className="rounded-2xl bg-paper p-6">
+              <h2 className="font-semibold">Follow STOPWASH</h2>
+              <SocialLinks className="mt-4" tone="white" links={socialProfiles} />
+            </Reveal>
             <Reveal delay={0.15} className="rounded-2xl bg-navy p-6 text-snow">
               <h2 className="font-semibold">Thinking bigger?</h2>
               <p className="mt-2 text-snow/75">Franchise enquiries have their own form.</p>
