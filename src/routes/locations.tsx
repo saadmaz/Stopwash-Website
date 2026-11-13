@@ -26,14 +26,14 @@ function Locations() {
         <p>{open.length === 1 ? "One outlet open today. Built to be the first of many." : `${open.length} outlets open today.`}</p>
       </PageHero>
 
-      <section className="bg-navy pb-24 md:pb-36">
+      <section className="bg-navy pb-16 md:pb-24">
         <Container className="grid gap-8">
           <Reveal><SectionLabel n={String(open.length).padStart(2, "0")}>Open now</SectionLabel></Reveal>
           {open.map((l, i) => <LocationCard key={l.slug} location={l} index={i} />)}
         </Container>
       </section>
 
-      <section className="section-lime relative overflow-hidden py-24 md:py-36">
+      <section className="section-lime relative overflow-hidden section-y">
         <Container className="grid gap-14 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <Reveal>

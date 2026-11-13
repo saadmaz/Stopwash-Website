@@ -26,11 +26,11 @@ function OurStory() {
     <>
       <PageHero label="Our story" title={<>We got tired of watching time disappear in <span className="text-lime">car-wash queues.</span></>} />
 
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container className="grid gap-14 lg:grid-cols-12">
-          <div className="space-y-8 text-xl leading-relaxed lg:col-span-6 lg:col-start-2">
+          <div className="space-y-6 text-lg leading-relaxed md:text-xl lg:col-span-6 lg:col-start-2">
             <Reveal>
-              <p className="font-display text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+              <p className="statement">
                 The idea behind STOPWASH did not begin with a fascination for hoses, foam or polishing cloths.
               </p>
             </Reveal>
@@ -54,7 +54,7 @@ function OurStory() {
         </Container>
       </section>
 
-      <section className="section-lime py-24 md:py-36">
+      <section className="section-lime section-y">
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-8">
             <SectionLabel n="01">The insight</SectionLabel>
@@ -68,20 +68,20 @@ function OurStory() {
         </Container>
       </section>
 
-      <section className="bg-navy py-24 md:py-36">
+      <section className="bg-navy section-y">
         <Container>
           <Reveal>
             <SectionLabel n="02">The first stop</SectionLabel>
             <h2 className="display-lg max-w-5xl">Katubedda is the first chapter, <span className="text-lime">not the full story.</span></h2>
           </Reveal>
-          <div className="mt-16 grid gap-4 md:grid-cols-12">
-            <Photo src={images.heroBay} alt={alts.heroBay} className="aspect-[4/3] md:col-span-7 md:aspect-auto md:min-h-[28rem]" caption="Stop 001" />
+          <div className="mt-12 grid gap-4 md:grid-cols-12">
+            <Photo src={images.heroBay} alt={alts.heroBay} className="aspect-[4/3] md:col-span-7 md:aspect-auto md:min-h-[24rem]" caption="Stop 001" />
             <div className="grid gap-4 md:col-span-5">
               <Photo src={images.detailHands} alt={alts.detailHands} className="aspect-[16/10]" />
               <BrandPanel word="001" label="Katubedda" tone="lime" className="aspect-[16/10]" />
             </div>
           </div>
-          <div className="mt-14 grid gap-10 md:grid-cols-12">
+          <div className="mt-10 grid gap-10 md:grid-cols-12">
             <Reveal className="text-lg leading-relaxed text-snow/75 md:col-span-6">
               <p>The first STOPWASH outlet is where the thinking meets the road. It is where the process is tested on real vehicles, real schedules and real expectations — every day.</p>
             </Reveal>
@@ -95,7 +95,7 @@ function OurStory() {
 
       <Marquee items={["One outlet proves a point", "A network changes a category", "Keep moving"]} />
 
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container className="grid gap-14 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <Reveal>

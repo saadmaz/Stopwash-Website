@@ -25,17 +25,17 @@ function Franchise() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-navy pb-20 pt-36 md:pb-28 md:pt-44">
+      <section className="relative overflow-hidden bg-navy pb-14 pt-28 md:pb-20 md:pt-36">
         <div className="motion-lines pointer-events-none absolute -right-20 top-0 h-full w-1/3 opacity-60" aria-hidden />
         <Container className="relative">
           <p className="micro fade-up mb-8 flex items-center gap-3 text-lime"><span className="h-px w-10 bg-lime" />Franchise with us</p>
           <h1 className="hero-xl text-snow">
             <span className="block overflow-hidden pb-[0.06em]"><span className="rise text-outline" style={{ ["--d" as string]: "0.1s" }}>Do not open</span></span>
             <span className="block overflow-hidden pb-[0.06em]"><span className="rise text-outline" style={{ ["--d" as string]: "0.2s" }}>another car wash.</span></span>
-            <span className="mt-4 block overflow-hidden pb-[0.06em]"><span className="rise text-lime" style={{ ["--d" as string]: "0.4s" }}>Build the next</span></span>
+            <span className="mt-2 block overflow-hidden pb-[0.06em]"><span className="rise text-lime" style={{ ["--d" as string]: "0.4s" }}>Build the next</span></span>
             <span className="block overflow-hidden pb-[0.06em]"><span className="rise text-lime" style={{ ["--d" as string]: "0.5s" }}>Stopwash.</span></span>
           </h1>
-          <div className="fade-up mt-12 grid gap-10 md:grid-cols-2" style={{ ["--d" as string]: "0.7s" }}>
+          <div className="fade-up mt-10 grid gap-8 md:grid-cols-2 md:items-end" style={{ ["--d" as string]: "0.7s" }}>
             <p className="max-w-xl text-lg text-snow/80 md:text-xl">
               STOPWASH gives franchise partners a serious vehicle-care brand, a defined operating model and the support required to build a local business that customers can return to.
             </p>
@@ -45,7 +45,7 @@ function Franchise() {
       </section>
 
       {/* OPPORTUNITY */}
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container className="grid gap-14 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <Reveal>
@@ -60,11 +60,11 @@ function Franchise() {
           <div className="grid grid-cols-2 gap-4 lg:col-span-6">
             <div className="flex aspect-square flex-col justify-between rounded-md bg-ink p-6 text-snow">
               <span className="micro text-lime">STOPWASH</span>
-              <p className="font-display text-2xl font-bold uppercase leading-tight md:text-3xl">Brand.<br />System.<br />Support.</p>
+              <p className="font-display text-xl font-bold uppercase leading-tight md:text-2xl lg:text-3xl">Brand.<br />System.<br />Support.</p>
             </div>
             <div className="flex aspect-square flex-col justify-between rounded-md bg-lime p-6 text-ink">
               <span className="micro">Partner</span>
-              <p className="font-display text-2xl font-bold uppercase leading-tight md:text-3xl">Capital.<br />Leadership.<br />Discipline.</p>
+              <p className="font-display text-xl font-bold uppercase leading-tight md:text-2xl lg:text-3xl">Capital.<br />Leadership.<br />Discipline.</p>
             </div>
             <Photo src={images.foam} alt="" className="col-span-2 aspect-[2/1]" />
           </div>
@@ -72,20 +72,20 @@ function Franchise() {
       </section>
 
       {/* WHY */}
-      <section className="bg-navy py-24 md:py-36">
+      <section className="bg-navy section-y">
         <Container>
           <Reveal>
             <SectionLabel n="02">Why STOPWASH</SectionLabel>
             <h2 className="display-lg max-w-4xl">Six reasons this is <span className="text-lime">not another car wash.</span></h2>
           </Reveal>
-          <ol className="mt-16 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+          <ol className="mt-12 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
             {franchiseWhy.map((w, i) => (
-              <li key={w} className="group border-t border-border py-10">
+              <li key={w} className="group border-t border-border py-8">
                 <Reveal delay={(i % 3) * 0.08}>
-                  <span className="font-display text-7xl font-bold leading-none tracking-tighter text-outline text-snow/30 transition-colors group-hover:text-lime md:text-8xl">
+                  <span className="font-display text-6xl font-bold leading-none tracking-tighter text-outline text-snow/30 transition-colors group-hover:text-lime md:text-7xl">
                     <Counter to={i + 1} />
                   </span>
-                  <p className="mt-6 font-display text-2xl font-bold uppercase leading-tight tracking-tight">{w}</p>
+                  <p className="mt-5 font-display text-xl font-bold uppercase leading-tight tracking-tight md:text-2xl">{w}</p>
                 </Reveal>
               </li>
             ))}
@@ -97,7 +97,7 @@ function Franchise() {
 
       {/* WHO BRINGS WHAT */}
       <section className="grid lg:grid-cols-2">
-        <div className="section-ink px-5 py-20 md:px-14 md:py-28">
+        <div className="section-ink section-y px-5 md:px-10 lg:px-14">
           <Reveal>
             <SectionLabel n="03">What STOPWASH brings</SectionLabel>
             <h2 className="display-md">The system.</h2>
@@ -110,7 +110,7 @@ function Franchise() {
             ))}
           </ul>
         </div>
-        <div className="section-lime px-5 py-20 md:px-14 md:py-28">
+        <div className="section-lime section-y px-5 md:px-10 lg:px-14">
           <Reveal>
             <SectionLabel n="04">What the partner brings</SectionLabel>
             <h2 className="display-md">The drive.</h2>
@@ -126,18 +126,18 @@ function Franchise() {
       </section>
 
       {/* JOURNEY */}
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container>
           <Reveal>
             <SectionLabel n="05">Franchise journey</SectionLabel>
             <h2 className="display-lg max-w-4xl">Seven steps from first hello to the next stop.</h2>
           </Reveal>
-          <StepTrack steps={franchiseJourney} tone="light" className="mt-16 md:mt-24" />
+          <StepTrack steps={franchiseJourney} tone="light" className="mt-12 md:mt-16" />
         </Container>
       </section>
 
       {/* FINAL */}
-      <section className="relative overflow-hidden bg-navy py-24 md:py-36">
+      <section className="relative overflow-hidden bg-navy section-y">
         <div className="motion-lines pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-40" aria-hidden />
         <Container className="relative">
           <Reveal>

@@ -13,7 +13,7 @@ export function Marquee({ items, className, separator = "✦" }: { items: string
     </div>
   );
   return (
-    <div aria-hidden className={cn("overflow-hidden whitespace-nowrap border-y border-ink/10 bg-lime py-4 font-display text-2xl font-bold uppercase tracking-tight text-ink md:text-4xl", className)}>
+    <div aria-hidden className={cn("overflow-hidden whitespace-nowrap border-y border-ink/10 bg-lime py-3 font-display text-xl font-bold uppercase tracking-tight text-ink md:py-4 md:text-3xl", className)}>
       <div className="marquee flex w-max">
         {row}
         {row}

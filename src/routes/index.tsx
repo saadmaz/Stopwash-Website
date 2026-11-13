@@ -67,9 +67,9 @@ function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-navy pt-24 md:pt-28" aria-labelledby="hero-title">
       <div className="motion-lines pointer-events-none absolute -left-40 bottom-0 h-1/2 w-1/2 opacity-40" aria-hidden />
-      <Container className="relative grid min-h-[calc(100svh-6rem)] items-center gap-10 pb-12 lg:grid-cols-12 lg:gap-6 lg:pb-16">
+      <Container className="relative grid items-center gap-10 pb-12 lg:min-h-[calc(100svh-6rem)] lg:max-h-[60rem] lg:grid-cols-12 lg:gap-6 lg:pb-16">
         <div className="relative z-10 lg:col-span-7">
-          <p className="micro fade-up mb-8 inline-flex items-center gap-3 rounded-sm border border-border px-3 py-2 text-snow/90" style={{ ["--d" as string]: "0.1s" }}>
+          <p className="micro fade-up mb-6 inline-flex items-center gap-3 rounded-sm border border-border px-3 py-2 text-snow/90" style={{ ["--d" as string]: "0.1s" }}>
             <span className="pulse-dot h-2 w-2 rounded-full bg-lime" />
             Katubedda <span className="text-lime">|</span> First outlet
           </p>
@@ -80,25 +80,25 @@ function Hero() {
               </span>
             ))}
           </h1>
-          <div className="fade-up mt-8 max-w-xl" style={{ ["--d" as string]: "0.6s" }}>
-            <p className="font-display text-2xl font-bold leading-tight tracking-tight text-snow md:text-3xl">
+          <div className="fade-up mt-6 max-w-xl lg:mt-8" style={{ ["--d" as string]: "0.6s" }}>
+            <p className="font-display text-xl font-bold leading-tight tracking-tight text-snow md:text-2xl">
               Vehicle care without the <span className="text-lime">lost afternoon.</span>
             </p>
             <p className="mt-4 text-lg text-snow/75">
               STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
             </p>
           </div>
-          <div className="fade-up mt-10 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.75s" }}>
+          <div className="fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.75s" }}>
             <Cta to="/locations">Find a Stopwash</Cta>
             <Cta to="/franchise" variant="outline">Build a Stopwash</Cta>
           </div>
-          <p className="micro fade-up mt-10 flex items-center gap-3 text-steel" style={{ ["--d" as string]: "0.9s" }}>
+          <p className="micro fade-up mt-8 flex items-center gap-3 text-steel" style={{ ["--d" as string]: "0.9s" }}>
             <span className="h-px w-10 bg-lime" /> Better car care. Made convenient.
           </p>
         </div>
 
         <div className="relative lg:col-span-5 lg:self-stretch">
-          <div className="wipe-in relative h-[60vh] min-h-80 lg:absolute lg:inset-y-0 lg:-right-10 lg:left-0 lg:h-auto" style={{ ["--d" as string]: "0.2s" }}>
+          <div className="wipe-in relative aspect-[4/3] sm:aspect-[16/10] lg:absolute lg:aspect-auto lg:inset-y-0 lg:-right-10 lg:left-0 lg:h-auto" style={{ ["--d" as string]: "0.2s" }}>
             <div className="relative h-full w-full overflow-hidden rounded-md lg:rounded-r-none lg:clip-diagonal">
             <img
               src={images.heroBay}
@@ -133,7 +133,7 @@ function Hero() {
 /* ───────────── 02 INTRO ───────────── */
 function Intro() {
   return (
-    <section id="intro" className="section-light relative overflow-hidden py-24 md:py-36">
+    <section id="intro" className="section-light relative overflow-hidden section-y">
       <Container className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
@@ -142,7 +142,7 @@ function Intro() {
               A car wash should be a <span className="mark-lime">pit stop,</span> not a lifestyle.
             </h2>
           </Reveal>
-          <div className="mt-14 grid gap-10 md:grid-cols-2">
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
             <Reveal delay={0.05}>
               <p className="text-xl leading-relaxed">Somewhere along the way, washing a car became a test of patience.</p>
             </Reveal>
@@ -153,18 +153,18 @@ function Intro() {
             </Reveal>
           </div>
         </div>
-        <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-24">
-          <Photo src={images.interior} alt={alts.interior} className="aspect-[4/3] lg:aspect-[4/5]" caption="Cabin · Step 03" />
+        <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-10">
+          <Photo src={images.interior} alt={alts.interior} className="aspect-[4/3]" caption="Cabin · Step 03" />
         </div>
         <div className="lg:col-span-10 lg:col-start-3">
           <Reveal>
             <p className="micro text-muted-foreground">STOPWASH was built on a simple refusal:</p>
-            <blockquote className="mt-5 border-l-4 border-lime pl-6 font-display text-3xl font-bold leading-[1.05] tracking-tight md:pl-10 md:text-6xl">
+            <blockquote className="statement mt-5 border-l-4 border-lime pl-6 md:pl-10">
               Vehicle care should not cost you your momentum.
             </blockquote>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:ml-10">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:ml-10">
               We are building a better way to do it — with a clear process, a trained clean squad, a visible standard and a finish that earns the return visit.
             </p>
           </Reveal>
@@ -177,17 +177,17 @@ function Intro() {
 /* ───────────── 03 DIFFERENCE ───────────── */
 function Difference() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 md:py-36">
+    <section className="relative overflow-hidden bg-navy section-y">
       <Container>
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading n="02" label="The STOPWASH difference" title={<>Less waiting.<br /><span className="text-lime">More moving.</span></>} />
           <Reveal delay={0.1}><p className="max-w-sm text-steel">Three principles every STOPWASH outlet is built around — from the first bay to the next.</p></Reveal>
         </div>
-        <ul className="mt-16 border-t border-border md:mt-24">
+        <ul className="mt-12 border-t border-border md:mt-16">
           {pillars.map((p, i) => (
             <li key={p.n} className="group relative border-b border-border">
-              <Reveal delay={i * 0.08} className="grid items-center gap-4 py-10 md:grid-cols-12 md:gap-8 md:py-14">
-                <span className="font-display text-[5.5rem] font-bold leading-[0.8] tracking-tighter text-outline text-snow/30 transition-colors duration-500 group-hover:text-lime md:col-span-3 md:text-[10rem]">
+              <Reveal delay={i * 0.08} className="grid items-center gap-3 py-8 md:grid-cols-12 md:gap-8 md:py-10">
+                <span className="font-display text-[4rem] font-bold leading-[0.8] tracking-tighter text-outline text-snow/30 transition-colors duration-500 group-hover:text-lime md:col-span-3 md:text-[6rem] lg:text-[7rem]">
                   <Counter to={Number(p.n)} />
                 </span>
                 <h3 className="display-md md:col-span-4">{p.title}</h3>
@@ -209,7 +209,7 @@ function Difference() {
 function FirstOutlet() {
   const loc = locations[0]!;
   return (
-    <section className="section-lime relative overflow-hidden py-24 md:py-32">
+    <section className="section-lime relative overflow-hidden section-y">
       <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-6">
           <Reveal>
@@ -217,7 +217,7 @@ function FirstOutlet() {
             <h2 className="display-lg">Katubedda is where the movement starts.</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-8 text-xl font-medium leading-snug">The first STOPWASH outlet in Katubedda is where the idea meets the road.</p>
+            <p className="mt-6 text-xl font-medium leading-snug">The first STOPWASH outlet in Katubedda is where the idea meets the road.</p>
             <p className="mt-5 text-lg leading-relaxed text-ink/75">
               It is the first proof point for a bigger idea: vehicle care can be faster without becoming careless, more professional without becoming complicated and more consistent without losing its human touch.
             </p>
@@ -249,13 +249,13 @@ function ServicesPreview() {
   const [active, setActive] = useState(0);
   const current = servicePreview[active]!;
   return (
-    <section className="section-light py-24 md:py-36">
+    <section className="section-light section-y">
       <Container>
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading n="04" label="Services" title="Pick your pit stop." />
           <Reveal delay={0.1}><Cta to="/services" variant="ghost">Explore our services</Cta></Reveal>
         </div>
-        <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
           <ol className="lg:col-span-7" aria-label="Service concepts">
             {servicePreview.map((s, i) => (
               <li key={s.code} className="border-t border-border last:border-b">
@@ -265,11 +265,11 @@ function ServicesPreview() {
                   onFocus={() => setActive(i)}
                   onClick={() => setActive(i)}
                   aria-pressed={active === i}
-                  className="group grid w-full grid-cols-[3rem_1fr_auto] items-baseline gap-4 py-6 text-left md:grid-cols-[4rem_1fr_auto] md:py-7"
+                  className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-baseline gap-3 py-5 text-left md:grid-cols-[3.5rem_1fr_auto] md:py-6"
                 >
                   <span className={cn("micro transition-colors", active === i ? "text-ink" : "text-muted-foreground")}>{s.code}</span>
                   <span>
-                    <span className={cn("block font-display text-3xl font-bold uppercase leading-none tracking-tight transition-all duration-300 md:text-5xl", active === i ? "translate-x-2 text-ink" : "text-ink/35 group-hover:text-ink/70")}>
+                    <span className={cn("block font-display text-2xl font-bold uppercase leading-none tracking-tight transition-all duration-300 md:text-4xl", active === i ? "translate-x-2 text-ink" : "text-ink/35 group-hover:text-ink/70")}>
                       {s.name}
                     </span>
                     <span className={cn("grid transition-all duration-500", active === i ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}>
@@ -282,7 +282,7 @@ function ServicesPreview() {
             ))}
           </ol>
           <div className="hidden lg:col-span-5 lg:block">
-            <div className="sticky top-28 aspect-[4/5] overflow-hidden rounded-md">
+            <div className="sticky top-28 aspect-[4/5] max-h-[34rem] w-full overflow-hidden rounded-md">
               <motion.div
                 key={current.code}
                 initial={{ opacity: 0, scale: 1.04 }}
@@ -308,7 +308,7 @@ function ServicesPreview() {
 /* ───────────── 06 HOW IT WORKS ───────────── */
 function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 md:py-36">
+    <section className="relative overflow-hidden bg-navy section-y">
       <div className="motion-lines pointer-events-none absolute right-0 top-0 h-64 w-1/2 opacity-40" aria-hidden />
       <Container>
         <SectionHeading
@@ -316,7 +316,7 @@ function HowItWorks() {
           label="How it works"
           title={<>No mystery. No wandering around. <span className="text-lime">No lost afternoon.</span></>}
         />
-        <StepTrack steps={journey} className="mt-16 md:mt-24" />
+        <StepTrack steps={journey} className="mt-12 md:mt-16" />
       </Container>
     </section>
   );
@@ -325,14 +325,14 @@ function HowItWorks() {
 /* ───────────── 07 CLEAN SQUAD ───────────── */
 function CleanSquad() {
   return (
-    <section className="section-ink relative overflow-hidden py-24 md:py-36">
+    <section className="section-ink relative overflow-hidden section-y">
       <Container className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Reveal>
             <SectionLabel n="06">The clean squad</SectionLabel>
             <h2 className="display-lg">Fast hands. Sharp eyes. <span className="text-lime">No autopilot.</span></h2>
           </Reveal>
-          <Reveal delay={0.1} className="mt-10 space-y-5 text-lg leading-relaxed text-snow/75">
+          <Reveal delay={0.1} className="mt-8 space-y-4 text-lg leading-relaxed text-snow/75">
             <p className="font-display text-2xl font-bold leading-tight text-snow">A clean vehicle is visible.<br />Good work is visible too.</p>
             <p>The STOPWASH clean squad is trained to move with purpose, pay attention to the details and understand that every vehicle is someone's time, money and responsibility on four wheels.</p>
             <p>We do not want a team that simply completes tasks.</p>
@@ -346,9 +346,9 @@ function CleanSquad() {
           <Photo src={images.foam} alt={alts.foam} className="col-span-2 aspect-[16/9] md:col-span-6 md:aspect-[16/7]" caption="Pre-wash · Step 02" />
         </div>
       </Container>
-      <Container className="mt-20 md:mt-28">
+      <Container className="mt-14 md:mt-20">
         <Reveal>
-          <p className="font-display text-3xl font-bold uppercase leading-[0.95] tracking-tight md:text-6xl">
+          <p className="display-md">
             The system sets the pace.<br />
             <span className="text-lime">The people create the difference.</span>
           </p>
@@ -361,7 +361,7 @@ function CleanSquad() {
 /* ───────────── 08 STANDARD ───────────── */
 function Standard() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 md:py-36">
+    <section className="relative overflow-hidden bg-navy section-y">
       <Container className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
@@ -374,11 +374,11 @@ function Standard() {
         </div>
         <ol className="lg:col-span-7">
           {standards.map((s, i) => (
-            <li key={s.title} className="group border-t border-border py-7 last:border-b">
+            <li key={s.title} className="group border-t border-border py-5 last:border-b md:py-6">
               <Reveal delay={i * 0.04} className="grid grid-cols-[4.5rem_1fr] gap-4 md:grid-cols-[6rem_1fr_auto] md:items-center">
                 <span className="micro text-lime">STD-{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <h3 className="font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">{s.title}</h3>
+                  <h3 className="font-display text-xl font-bold uppercase tracking-tight md:text-2xl">{s.title}</h3>
                   <p className="mt-1 text-snow/65">{s.text}</p>
                 </div>
                 <StandardMeter delay={i * 0.08} />
@@ -411,7 +411,7 @@ function StandardMeter({ delay }: { delay: number }) {
 /* ───────────── 09 EXPANSION ───────────── */
 function Expansion() {
   return (
-    <section className="section-light relative overflow-hidden py-24 md:py-36">
+    <section className="section-light relative overflow-hidden section-y">
       <Container>
         <Reveal>
           <SectionLabel n="08">The bigger build</SectionLabel>
@@ -420,9 +420,9 @@ function Expansion() {
         <Reveal delay={0.1}>
           <p className="display-xl mt-2 max-w-[16ch] text-outline text-ink">A network changes a category.</p>
         </Reveal>
-        <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-6">
-            <p className="font-display text-2xl font-bold leading-tight md:text-3xl">STOPWASH is building the vehicle-care ecosystem for Sri Lanka.</p>
+            <p className="font-display text-xl font-bold leading-tight md:text-2xl">STOPWASH is building the vehicle-care ecosystem for Sri Lanka.</p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               We are building more than outlets. We are building a connected vehicle-care system designed around convenience, operational excellence and a consistent customer experience.
             </p>
@@ -442,7 +442,7 @@ function Expansion() {
 function NetworkDots({ className }: { className?: string }) {
   const reduce = useReducedMotion();
   return (
-    <div className={cn("grid grid-cols-8 gap-3 md:gap-4", className)} aria-hidden>
+    <div className={cn("grid w-full max-w-md grid-cols-8 gap-2.5 lg:justify-self-end md:gap-3", className)} aria-hidden>
       {Array.from({ length: 24 }).map((_, i) => (
         <motion.span
           key={i}

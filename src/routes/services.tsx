@@ -46,7 +46,7 @@ function Services() {
       {serviceCatalogue.map((s, i) => {
         const flip = i % 2 === 1;
         return (
-          <section key={s.slug} id={s.slug} className={cn("scroll-mt-32 py-20 md:py-28", tones[i % tones.length])} aria-labelledby={`svc-${s.slug}`}>
+          <section key={s.slug} id={s.slug} className={cn("scroll-mt-32 section-y", tones[i % tones.length])} aria-labelledby={`svc-${s.slug}`}>
             <Container className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
               <div className={cn("lg:col-span-6", flip && "lg:order-2")}>
                 <Reveal>

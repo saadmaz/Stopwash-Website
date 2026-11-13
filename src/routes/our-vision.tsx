@@ -29,13 +29,13 @@ function OurVision() {
     <>
       <PageHero label="Our vision" title={<>Make vehicle care disappear into <span className="text-lime">the rhythm of the day.</span></>} />
 
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container className="grid gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
             <SectionLabel n="01">Vision</SectionLabel>
           </Reveal>
           <Reveal delay={0.05} className="lg:col-span-9">
-            <p className="font-display text-3xl font-bold leading-[1.08] tracking-tight md:text-6xl">
+            <p className="statement">
               To make professional vehicle care as convenient, repeatable and accessible as{" "}
               <span className="mark-lime">the fuel stop, the coffee stop</span> or the next stop on the road.
             </p>
@@ -43,38 +43,38 @@ function OurVision() {
         </Container>
       </section>
 
-      <section className="relative h-[60vh] min-h-80 overflow-hidden">
+      <section className="relative h-[45vh] max-h-[32rem] min-h-64 overflow-hidden">
         <Photo src={images.detailHands} alt={alts.detailHands} className="absolute inset-0 rounded-none" imgClassName="object-[50%_40%]" />
       </section>
 
-      <section className="bg-navy py-24 md:py-36">
+      <section className="bg-navy section-y">
         <Container className="grid gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
             <SectionLabel n="02">Mission</SectionLabel>
           </Reveal>
           <Reveal delay={0.05} className="lg:col-span-9">
-            <p className="text-2xl leading-snug text-snow/85 md:text-4xl md:leading-tight">
+            <p className="text-xl leading-snug text-snow/85 md:text-3xl md:leading-tight">
               We make vehicle care <span className="text-lime">easier for customers</span> and <span className="text-lime">more scalable for operators</span> by combining strong locations, sharp systems, trained teams and a service experience people want to repeat.
             </p>
           </Reveal>
         </Container>
       </section>
 
-      <section className="section-ink py-24 md:py-36">
+      <section className="section-ink section-y">
         <Container>
           <Reveal>
             <SectionLabel n="03">Point of view</SectionLabel>
             <h2 className="display-lg">The STOPWASH point of view</h2>
           </Reveal>
-          <ol className="mt-16 md:mt-24">
+          <ol className="mt-12 md:mt-16">
             {pov.map((p, i) => (
-              <li key={p.not} className="group grid gap-4 border-t border-border py-10 md:grid-cols-12 md:gap-8 md:py-14">
+              <li key={p.not} className="group grid gap-3 border-t border-border py-8 md:grid-cols-12 md:gap-8 md:py-10">
                 <span className="micro text-lime md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
                 <Reveal className="md:col-span-5">
-                  <p className="font-display text-2xl font-bold uppercase leading-tight tracking-tight text-snow/40 transition-colors duration-500 group-hover:text-snow/70 md:text-4xl">{p.not}</p>
+                  <p className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-snow/40 transition-colors duration-500 group-hover:text-snow/70 md:text-3xl">{p.not}</p>
                 </Reveal>
                 <Reveal delay={0.12} className="md:col-span-6">
-                  <p className="font-display text-2xl font-bold uppercase leading-tight tracking-tight text-lime md:text-4xl">{p.is}</p>
+                  <p className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-lime md:text-3xl">{p.is}</p>
                 </Reveal>
               </li>
             ))}

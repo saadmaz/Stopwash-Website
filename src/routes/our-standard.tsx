@@ -28,33 +28,33 @@ function OurStandard() {
         <p>A clean car on a quiet morning proves very little. The STOPWASH standard is how we deliver the same confidence on the busiest afternoon of the month — in this outlet and in every one that follows.</p>
       </PageHero>
 
-      <section className="section-light py-24 md:py-36">
+      <section className="section-light section-y">
         <Container>
           <Reveal>
             <SectionLabel n="01">Seven controls</SectionLabel>
             <h2 className="display-lg max-w-4xl">What the standard is made of.</h2>
           </Reveal>
-          <ol className="mt-16 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          <ol className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
             {standards.map((s, i) => (
               <li key={s.title} className={`group relative bg-paper p-8 transition-colors duration-300 hover:bg-lime md:p-10 ${i === 0 ? "lg:col-span-2 lg:row-span-1" : ""}`}>
                 <Reveal delay={(i % 3) * 0.06}>
-                  <span className="font-display text-6xl font-bold leading-none tracking-tighter text-outline text-ink/40 group-hover:text-ink md:text-7xl">
+                  <span className="font-display text-5xl font-bold leading-none tracking-tighter text-outline text-ink/40 group-hover:text-ink md:text-6xl">
                     <Counter to={i + 1} />
                   </span>
-                  <h3 className="mt-8 font-display text-2xl font-bold uppercase tracking-tight">{s.title}</h3>
+                  <h3 className="mt-6 font-display text-xl md:text-2xl font-bold uppercase tracking-tight">{s.title}</h3>
                   <p className="mt-3 text-muted-foreground group-hover:text-ink/75">{s.text}</p>
                 </Reveal>
               </li>
             ))}
             <li className="flex flex-col justify-between gap-6 bg-ink p-8 text-snow md:p-10 lg:col-span-2">
-              <p className="font-display text-3xl font-bold uppercase leading-tight tracking-tight">The system sets the pace. <span className="text-lime">The people create the difference.</span></p>
+              <p className="display-md">The system sets the pace. <span className="text-lime">The people create the difference.</span></p>
               <div><Cta to="/contact" variant="lime">Tell us how we did</Cta></div>
             </li>
           </ol>
         </Container>
       </section>
 
-      <section className="bg-navy py-24 md:py-36">
+      <section className="bg-navy section-y">
         <Container className="grid gap-14 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <Reveal>

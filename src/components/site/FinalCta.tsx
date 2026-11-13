@@ -7,7 +7,7 @@ export function FinalCta({ title = "Your time is too valuable to waste.", text =
     <section className="relative overflow-hidden section-ink">
       <img src={images.foam} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-40" />
       <div className="grain-overlay absolute inset-0" />
-      <div className="relative mx-auto max-w-[1440px] px-5 py-28 md:px-10 md:py-40">
+      <div className="relative mx-auto max-w-[1440px] px-5 section-y-lg md:px-10">
         <Reveal>
           <h2 className="display-lg max-w-5xl text-snow">{title}</h2>
           <p className="mt-6 max-w-xl text-lg text-snow/80">{text}</p>

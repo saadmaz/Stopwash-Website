@@ -17,7 +17,7 @@ export const Route = createFileRoute("/franchise/apply")({
 function Apply() {
   return (
     <>
-      <section className="relative overflow-hidden bg-navy pb-16 pt-36 md:pb-20 md:pt-44">
+      <section className="relative overflow-hidden bg-navy pb-12 pt-28 md:pb-16 md:pt-36">
         <div className="motion-lines pointer-events-none absolute -right-20 top-0 h-full w-1/3 opacity-60" aria-hidden />
         <Container className="relative">
           <p className="micro fade-up mb-8 flex items-center gap-3 text-lime"><span className="h-px w-10 bg-lime" />Franchise enquiry</p>

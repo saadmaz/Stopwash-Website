@@ -57,7 +57,7 @@ function Contact() {
         </Container>
       </section>
 
-      <section className="section-light py-20 md:py-28">
+      <section className="section-light section-y">
         <Container className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>

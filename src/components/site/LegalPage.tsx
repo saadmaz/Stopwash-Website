@@ -10,7 +10,7 @@ export function LegalPage({ label, title, updated, intro, sections }: { label: s
       <PageHero label={label} title={title}>
         <p className="micro text-steel">Last updated {updated}</p>
       </PageHero>
-      <section className="section-light py-20 md:py-28">
+      <section className="section-light section-y">
         <Container className="grid gap-12 lg:grid-cols-12">
           <nav aria-label="On this page" className="lg:col-span-3">
             <ol className="space-y-2 lg:sticky lg:top-28">

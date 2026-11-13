@@ -1,7 +1,9 @@
-import heroBay from "@/assets/hero-bay.jpg";
-import detailHands from "@/assets/detail-hands.jpg";
-import interior from "@/assets/interior.jpg";
-import foam from "@/assets/foam.jpg";
+import heroBay from "@/assets/hero-bay.webp";
+import detailHands from "@/assets/detail-hands.webp";
+import interior from "@/assets/interior.webp";
+import foam from "@/assets/foam.webp";
+// JPEG kept for link previews: some social platforms do not render WebP og:images.
+import ogImage from "@/assets/hero-bay.jpg";
 
 /**
  * PLACEHOLDER IMAGERY — these are mood images, not photographs of the STOPWASH
@@ -191,10 +193,13 @@ export type EnquiryType = (typeof enquiryTypes)[number];
 
 export function pageHead(opts: { title: string; description: string; path: string; image?: string }) {
   const url = `${contact.siteUrl}${opts.path}`;
-  const image = opts.image ? (opts.image.startsWith("http") ? opts.image : `${contact.siteUrl}${opts.image}`) : null;
+  // Every page shares one JPEG preview card; opts.image is accepted for future per-page cards.
+  const src = opts.image && /\.(jpe?g|png)$/i.test(opts.image) ? opts.image : ogImage;
+  const image = src.startsWith("http") ? src : `${contact.siteUrl}${src}`;
   return {
     meta: [
-      ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+      { property: "og:image", content: image },
+      { name: "twitter:image", content: image },
       { name: "twitter:title", content: opts.title },
       { name: "twitter:description", content: opts.description },
       { title: opts.title },

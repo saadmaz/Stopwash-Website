@@ -53,7 +53,7 @@ export function LocationCard({ location, index }: { location: Location; index: n
           </a>
         </div>
       </div>
-      <div className="grid gap-px bg-border lg:col-span-7 lg:h-[40rem] lg:grid-rows-2">
+      <div className="grid gap-px bg-border lg:col-span-7 lg:h-[34rem] lg:grid-rows-2">
         <Photo src={location.image} alt={location.alt} className="h-72 rounded-none lg:h-full lg:min-h-0" />
         {map ? (
           <iframe
