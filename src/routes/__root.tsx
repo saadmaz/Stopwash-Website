@@ -12,6 +12,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { BackToTop } from "@/components/site/BackToTop";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -81,14 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "STOPWASH — The Queue Ends Here" },
+      { name: "description", content: "STOPWASH is building a faster, sharper vehicle-care network in Sri Lanka." },
+      { name: "author", content: "STOPWASH PVT LTD" },
+      { name: "theme-color", content: "#0B1728" },
+      { property: "og:site_name", content: "STOPWASH" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -96,6 +99,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoWash",
+          name: "STOPWASH Katubedda",
+          url: "https://stopwash.lk",
+          telephone: "+94706225252",
+          email: "hello@stopwash.lk",
+          address: { "@type": "PostalAddress", addressLocality: "Katubedda", addressCountry: "LK" },
+          parentOrganization: { "@type": "Organization", name: "STOPWASH PVT LTD" },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -124,7 +145,14 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
+      <Navbar />
+      <main id="main">
+        <Outlet />
+      </main>
+      <Footer />
+      <BackToTop />
+      <Toaster />
     </QueryClientProvider>
   );
 }
