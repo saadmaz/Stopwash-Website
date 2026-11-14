@@ -4,7 +4,7 @@ Marketing, locations and franchise-acquisition site for **STOPWASH**: [stopwash.
 
 Built with TanStack Start (React 19, SSR), TypeScript, Tailwind CSS v4, Framer Motion and Supabase.
 
-## Getting started
+## Getting startedd
 
 ```sh
 bun install        # or npm install
