@@ -32,7 +32,7 @@ export function FranchiseApply() {
               </ol>
               <p className="mt-8 flex gap-3 text-sm text-muted-foreground">
                 <Lock className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-                <span>Your enquiry is stored privately and only reviewed by the STOPWASH franchise team. Prefer email? Write to <a className="font-medium text-snow underline underline-offset-4" href={`mailto:${contact.franchiseEmail}`}>{contact.franchiseEmail}</a>.</span>
+                <span>Your application goes privately to the STOPWASH franchise team by email. Prefer to write it yourself? Email <a className="font-medium text-snow underline underline-offset-4" href={`mailto:${contact.franchiseEmail}`}>{contact.franchiseEmail}</a>.</span>
               </p>
             </Reveal>
           </div>

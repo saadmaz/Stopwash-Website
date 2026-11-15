@@ -1,41 +1,43 @@
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { contactSchema, type ContactInput } from "@/lib/enquiries.schema";
-import { submitContact } from "@/lib/enquiries.functions";
-import { enquiryTypes, type EnquiryType } from "@/data/site";
+import { MailCheck } from "lucide-react";
+import { contactSchema, looksLikeBot, type ContactInput } from "@/lib/enquiries.schema";
+import { contactEmailLink } from "@/lib/enquiries.email";
+import { contact, enquiryTypes, type EnquiryType } from "@/data/site";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
 import { ThemedSelect } from "./ThemedSelect";
 
 export function ContactForm({ defaultType = "General enquiry" }: { defaultType?: EnquiryType }) {
-  const send = useServerFn(submitContact);
-  const [done, setDone] = useState(false);
-  const { register, control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactInput>({
+  const [link, setLink] = useState<string | null>(null);
+  const { register, control, handleSubmit, reset, formState: { errors } } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
     defaultValues: { startedAt: Date.now(), enquiryType: defaultType },
   });
 
-  const onSubmit = async (values: ContactInput) => {
-    try {
-      await send({ data: values });
-      setDone(true);
-      reset({ startedAt: Date.now(), enquiryType: defaultType });
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Something went wrong. Please try again.");
-    }
+  // No backend: the message opens in the visitor's email app, addressed to STOPWASH and ready to send.
+  const onSubmit = (values: ContactInput) => {
+    if (looksLikeBot(values)) { setLink(""); return; }
+    const href = contactEmailLink(values);
+    setLink(href);
+    window.location.href = href;
+    reset({ startedAt: Date.now(), enquiryType: defaultType });
   };
 
-  if (done) {
+  if (link !== null) {
     return (
       <div className="rounded-2xl border border-border bg-paper p-8 md:p-10">
-        <CheckCircle2 className="h-10 w-10 text-leaf" />
-        <h3 className="text-h2 mt-5">Message received.</h3>
-        <p className="mt-4 text-muted-foreground">Thanks for reaching out. Our team will get back to you shortly.</p>
-        <button className="mt-8 text-sm underline underline-offset-4" onClick={() => setDone(false)}>Send another message</button>
+        <MailCheck className="h-10 w-10 text-leaf" aria-hidden />
+        <h3 className="text-h2 mt-5">Almost there.</h3>
+        <p className="mt-4 text-muted-foreground">Your email app has opened with your message ready. Press <strong className="text-foreground">Send</strong> and it comes straight to our team.</p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Nothing opened?{" "}
+          {link ? <a className="font-medium text-foreground underline underline-offset-4" href={link}>Open it again</a> : null}
+          {link ? " or email " : "Email "}
+          <a className="font-medium text-foreground underline underline-offset-4" href={`mailto:${contact.customerEmail}`}>{contact.customerEmail}</a>.
+        </p>
+        <button className="mt-8 text-sm underline underline-offset-4" onClick={() => setLink(null)}>Write another message</button>
       </div>
     );
   }
@@ -55,9 +57,10 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
         </Field>
       </div>
       <Field label="Message" htmlFor="c-msg" error={errors.message?.message}><textarea id="c-msg" rows={5} className={inputCls} {...register("message")} /></Field>
-      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "lime", className: "w-full md:w-auto md:justify-self-start" })}>
-        {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : "Send message"}
-      </button>
+      <div className="grid gap-2 md:justify-items-start">
+        <button type="submit" className={ctaVariants({ variant: "lime", className: "w-full md:w-auto" })}>Send message</button>
+        <p className="text-sm text-muted-foreground">Opens your email app with your message ready to send.</p>
+      </div>
     </form>
   );
 }

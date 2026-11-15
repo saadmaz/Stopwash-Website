@@ -36,7 +36,7 @@ export const Route = createFileRoute("/privacy-policy")({
         },
         {
           heading: "Storage and security",
-          body: <p>Submissions are stored in a secured database that is not publicly readable. Access is restricted to authorised STOPWASH team members who need it to respond to you.</p>,
+          body: <p>Messages and applications sent through our forms arrive by email at hello@stopwash.lk. They are read only by authorised STOPWASH team members who need them to respond to you, and are not published or shared.</p>,
         },
         {
           heading: "Retention",

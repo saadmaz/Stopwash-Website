@@ -65,7 +65,7 @@ content(blog): publish monsoon car-care tips
 - **Use the design tokens.** Colours, type and spacing come from `src/styles.css`. Don't hard-code new colour values in components.
 - **Accessibility.** Every image needs meaningful `alt` text (or `alt=""` if decorative). Interactive elements must be keyboard-reachable with a visible focus state. Keep text contrast at WCAG AA or better.
 - **New pages** must set `head: () => pageHead({...})` and be added to the sitemap.
-- **Secrets.** Never commit secret keys. Only the Supabase publishable key may appear in configuration.
+- **Secrets.** Never commit API keys, tokens or passwords. Use Cloudflare secrets (`npx wrangler secret put`) if one is ever needed.
 
 ## Releases
 

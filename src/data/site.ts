@@ -59,11 +59,9 @@ export const contact = {
   whatsappHref: "https://wa.me/94706225252",
   // TODO: replace each href with the official STOPWASH profile URL.
   socials: [
-    { network: "instagram", label: "Instagram", href: "https://www.instagram.com/" },
-    { network: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
-    { network: "tiktok", label: "TikTok", href: "https://www.tiktok.com/" },
-    { network: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/" },
-    { network: "youtube", label: "YouTube", href: "https://www.youtube.com/" },
+    { network: "instagram", label: "Instagram", href: "https://www.instagram.com/stopwash.lk/" },
+    { network: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@stopwash.lk" },
+    { network: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/stopwash/" },
   ] as const,
 };
 

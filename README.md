@@ -23,10 +23,9 @@ The official website of STOPWASH: a faster, sharper and more dependable vehicle-
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Getting started](#getting-started)
-- [Configuration](#configuration)
 - [Project structure](#project-structure)
 - [Content management](#content-management)
-- [Forms and data](#forms-and-data)
+- [Forms](#forms)
 - [Quality checks](#quality-checks)
 - [Deployment](#deployment)
 - [Releases and versioning](#releases-and-versioning)
@@ -57,7 +56,7 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 - **Blog:** Markdown posts with tags, reading time, drafts and an RSS feed.
 - **Server-side rendering** for fast first paint and complete HTML for search engines.
 - **SEO built in:** Per-page titles, descriptions and Open Graph images, a generated `sitemap.xml`, `robots.txt` and `AutoWash` structured data.
-- **Spam-resistant forms:** Schema validation, a honeypot field and a minimum fill time, with insert-only database access.
+- **Spam-resistant forms:** Schema validation, a honeypot field and a minimum fill time. Enquiries arrive by email, with no database to manage.
 - **Accessible by default:** Skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.
 
 ## Tech stack
@@ -69,7 +68,6 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 | Styling | Tailwind CSS v4 with design tokens in `src/styles.css` |
 | Motion | Framer Motion, with CSS animations for server-rendered content |
 | Forms | React Hook Form + Zod |
-| Data | Supabase (Postgres with row-level security) |
 | Content | Markdown via `marked` |
 | Build | Vite 8 + Nitro |
 | Hosting | Cloudflare Workers (default) |
@@ -88,7 +86,6 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 git clone https://github.com/saadmaz/Stopwash-Website.git
 cd Stopwash-Website
 bun install
-cp .env.example .env    # then fill in the values (see Configuration)
 bun run dev
 ```
 
@@ -107,22 +104,6 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 | `bun run lint` | Lint with ESLint |
 | `bun run format` | Format with Prettier |
 
-## Configuration
-
-Copy `.env.example` to `.env` and set the Supabase project values.
-
-| Variable | Used by | Description |
-| --- | --- | --- |
-| `SUPABASE_URL` | Server | Supabase project URL |
-| `SUPABASE_PUBLISHABLE_KEY` | Server | Supabase publishable (anon) key |
-| `SUPABASE_PROJECT_ID` | Tooling | Supabase project reference |
-| `VITE_SUPABASE_URL` | Client | Same URL, exposed to the browser bundle |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Client | Same publishable key, exposed to the browser bundle |
-| `VITE_SUPABASE_PROJECT_ID` | Client | Same project reference, exposed to the browser bundle |
-
-> [!IMPORTANT]
-> Only ever use the **publishable** key. Never put the Supabase `service_role` key in this repository, in `.env`, or in any `VITE_*` variable, because `VITE_*` values are shipped to every visitor's browser.
-
 ## Project structure
 
 ```
@@ -140,11 +121,11 @@ Copy `.env.example` to `.env` and set the Supabase project values.
 │   │   └── ui/               # Headless UI primitives (Radix-based)
 │   ├── content/blog/         # Blog posts in Markdown
 │   ├── data/site.ts          # Site content: contact, navigation, services, locations
-│   ├── lib/                  # Blog loader, form schemas, server functions, helpers
+│   ├── lib/                  # Blog loader, form schemas, email builder, helpers
 │   ├── routes/               # File-based routes, one file per page
 │   ├── styles.css            # Design tokens, type scale and section themes
 │   └── test/                 # Vitest setup and tests
-├── supabase/migrations/      # Database schema for enquiry tables
+├── wrangler.jsonc            # Cloudflare Workers configuration
 └── vite.config.ts            # Build configuration
 ```
 
@@ -164,21 +145,15 @@ Most content lives in [`src/data/site.ts`](src/data/site.ts), so routine updates
 
 Blog posts appear on `/blog`, in the sitemap and in the RSS feed automatically. Set `draft: true` to keep a post visible only in local development.
 
-## Forms and data
+## Forms
 
-The contact and franchise forms submit to TanStack server functions in [`src/lib/enquiries.functions.ts`](src/lib/enquiries.functions.ts). Each submission is:
+The Contact and Franchise forms do not use a database or any third-party service. When a visitor submits:
 
-1. validated against a Zod schema shared with the client,
-2. rejected if the honeypot field is filled or the form was completed implausibly fast,
-3. inserted into Supabase.
+1. the form is validated against the Zod schemas in [`src/lib/enquiries.schema.ts`](src/lib/enquiries.schema.ts),
+2. submissions with the honeypot field filled, or completed implausibly fast, are dropped,
+3. the visitor's email app opens with a message to `hello@stopwash.lk`, with the subject and every field already written out ([`src/lib/enquiries.email.ts`](src/lib/enquiries.email.ts)). They press **Send**.
 
-Row-level security allows anonymous users to **insert only**. Submitted enquiries are never publicly readable; review them in the Supabase dashboard.
-
-To apply the schema to a new Supabase project:
-
-```sh
-supabase db push
-```
+Enquiries therefore arrive in the `hello@stopwash.lk` inbox. To change the destination, update `customerEmail` and `franchiseEmail` in `src/data/site.ts`.
 
 ## Quality checks
 
@@ -205,23 +180,33 @@ stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquir
 | --- | --- |
 | Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc` |
 | Custom domains `stopwash.lk` and `www.stopwash.lk` | `wrangler.jsonc` (`routes`) |
-| Supabase URL and publishable key for the forms | `wrangler.jsonc` (`vars`) |
 | `www` to `stopwash.lk` permanent redirect | `src/server.ts` |
 | Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts` |
 | Long-term caching for hashed assets | generated `_headers` |
 | Logs and metrics | `observability` in `wrangler.jsonc` |
-| Automatic deploy on every push to `main` | `.github/workflows/deploy.yml` |
+| Automatic deploy on every push to `main` | Cloudflare Workers Builds (connected in the dashboard) |
 
 ### Going live (one time)
 
+Cloudflare builds and deploys straight from this GitHub repository. No API tokens or GitHub secrets are needed.
+
 1. **Add the domain to Cloudflare.** In the Cloudflare dashboard, add `stopwash.lk` as a site and switch the domain's nameservers to the two Cloudflare nameservers shown (at your `.lk` registrar). Wait until the zone shows as **Active**.
-2. **Create an API token.** Cloudflare dashboard → My Profile → API Tokens → *Create Token* → **Edit Cloudflare Workers** template. Scope it to your account and the `stopwash.lk` zone.
-3. **Add two GitHub secrets.** Repository → Settings → Secrets and variables → Actions:
-   - `CLOUDFLARE_API_TOKEN`: the token from step 2
-   - `CLOUDFLARE_ACCOUNT_ID`: shown on the right of the Cloudflare dashboard overview
-4. **Deploy.** Repository → Actions → **Deploy** → *Run workflow* (or push to `main`). The first deploy creates the Worker and attaches both custom domains, including their SSL certificates.
+2. **Connect the repository.** Workers & Pages → *Create* → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
+3. **Use these settings:**
+
+   | Setting | Value |
+   | --- | --- |
+   | Project name | `stopwash-website` (must match `name` in `wrangler.jsonc`) |
+   | Production branch | `main` |
+   | Build command | `bun run build` |
+   | Deploy command | `npx wrangler deploy` |
+   | Non-production branch deploy command | `npx wrangler versions upload` |
+   | Root directory | `/` (leave empty) |
+   | Build variable | `BUN_VERSION` = `1.4.4` |
+
+4. **Save and deploy.** The first build creates the Worker and attaches `stopwash.lk` and `www.stopwash.lk`, including their SSL certificates. From then on, every push to `main` deploys automatically, and other branches get preview versions.
 5. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
-6. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form, then confirm it arrives in Supabase.
+6. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form to confirm it opens an email to hello@stopwash.lk.
 
 ### Deploying from your machine
 
@@ -234,9 +219,9 @@ bun run deploy         # build, then publish
 
 `bun run preview:worker` builds the site and runs it in Cloudflare's own runtime (workerd) at http://localhost:8787. Requests always arrive as `localhost` there, so the `www` redirect only takes effect on the real domain (it is covered by `src/test/server-entry.test.ts`).
 
-### Changing environment values
+### Environment values
 
-Non-secret values go in `vars` in `wrangler.jsonc`. If a real secret is ever needed, never commit it: run `npx wrangler secret put NAME` instead.
+The site needs no environment variables. If one is ever added, put non-secret values in `vars` in `wrangler.jsonc`; never commit a secret, use `npx wrangler secret put NAME` instead.
 
 ## Releases and versioning
 

@@ -1,11 +1,10 @@
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { franchiseSchema, type FranchiseInput } from "@/lib/enquiries.schema";
-import { submitFranchise } from "@/lib/enquiries.functions";
+import { MailCheck } from "lucide-react";
+import { contact } from "@/data/site";
+import { franchiseSchema, looksLikeBot, type FranchiseInput } from "@/lib/enquiries.schema";
+import { franchiseEmailLink } from "@/lib/enquiries.email";
 import { Field, Honeypot, inputCls } from "./Field";
 import { ctaVariants } from "./Cta";
 import { ThemedSelect } from "./ThemedSelect";
@@ -15,29 +14,33 @@ const unitOptions = ["Single-unit", "Multi-unit", "Not sure yet"] as const;
 const siteOptions = ["Yes", "In discussion", "Not yet"] as const;
 
 export function FranchiseForm() {
-  const send = useServerFn(submitFranchise);
-  const [done, setDone] = useState(false);
-  const { register, control, handleSubmit, formState: { errors, isSubmitting } } = useForm<FranchiseInput>({
+  const [link, setLink] = useState<string | null>(null);
+  const { register, control, handleSubmit, formState: { errors } } = useForm<FranchiseInput>({
     resolver: zodResolver(franchiseSchema),
     defaultValues: { startedAt: Date.now() },
   });
 
-  const onSubmit = async (values: FranchiseInput) => {
-    try {
-      await send({ data: values });
-      setDone(true);
-      window.scrollTo({ top: document.getElementById("apply")?.offsetTop ?? 0, behavior: "smooth" });
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Something went wrong. Please try again.");
-    }
+  // No backend: the application opens in the visitor's email app, addressed to the franchise team and ready to send.
+  const onSubmit = (values: FranchiseInput) => {
+    if (looksLikeBot(values)) { setLink(""); return; }
+    const href = franchiseEmailLink(values);
+    setLink(href);
+    window.location.href = href;
+    window.scrollTo({ top: document.getElementById("apply")?.offsetTop ?? 0, behavior: "smooth" });
   };
 
-  if (done) {
+  if (link !== null) {
     return (
       <div className="rounded-2xl border border-border bg-snow p-8 md:p-12">
-        <CheckCircle2 className="h-12 w-12 text-leaf" />
-        <h3 className="text-h2 mt-5">Enquiry received.</h3>
-        <p className="mt-5 max-w-2xl text-lg">Thank you for your interest in building with STOPWASH. We review every enquiry carefully. If the market, partner and opportunity are aligned, our team will contact you for the next conversation.</p>
+        <MailCheck className="h-12 w-12 text-leaf" aria-hidden />
+        <h3 className="text-h2 mt-5">One last step.</h3>
+        <p className="mt-5 max-w-2xl text-lg">Your email app has opened with your application written out. Press <strong>Send</strong> and it goes straight to the STOPWASH franchise team. We review every application carefully and will contact you if the market, partner and opportunity are aligned.</p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Nothing opened?{" "}
+          {link ? <a className="font-medium text-foreground underline underline-offset-4" href={link}>Open it again</a> : null}
+          {link ? " or email " : "Email "}
+          <a className="font-medium text-foreground underline underline-offset-4" href={`mailto:${contact.franchiseEmail}`}>{contact.franchiseEmail}</a>.
+        </p>
       </div>
     );
   }
@@ -80,9 +83,10 @@ export function FranchiseForm() {
         <Field label="What will you bring to the network?" htmlFor="f-bring" optional><textarea id="f-bring" rows={3} className={inputCls} {...register("contribution")} /></Field>
         <Field label="Preferred time to speak" htmlFor="f-time" optional><input id="f-time" placeholder="e.g. Weekday mornings" className={inputCls} {...register("preferredTime")} /></Field>
       </fieldset>
-      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "lime", className: "w-full md:w-auto md:justify-self-start" })}>
-        {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : "Start the franchise conversation"}
-      </button>
+      <div className="grid gap-2 md:justify-items-start">
+        <button type="submit" className={ctaVariants({ variant: "lime", className: "w-full md:w-auto" })}>Start the franchise conversation</button>
+        <p className="text-sm text-muted-foreground">Opens your email app with your application ready to send.</p>
+      </div>
       <p className="text-sm text-muted-foreground">Your details are stored securely and only seen by the STOPWASH franchise team.</p>
     </form>
   );

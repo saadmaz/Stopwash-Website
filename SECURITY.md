@@ -43,7 +43,7 @@ Out of scope:
 - denial-of-service and volumetric attacks,
 - social engineering of STOPWASH staff or customers,
 - findings from automated scanners without a demonstrated impact,
-- third-party services (for example Supabase or Cloudflare). Report those to the provider directly.
+- third-party services (for example Cloudflare). Report those to the provider directly.
 
 ## Safe harbour
 

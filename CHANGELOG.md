@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, custom domains for stopwash.lk and www.stopwash.lk, the Supabase settings the enquiry forms need, and logging.
+- Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, custom domains for stopwash.lk and www.stopwash.lk, and logging.
 - Permanent redirect from www.stopwash.lk to stopwash.lk, and security headers (HSTS, nosniff, frame, referrer and permissions policies) on every page.
-- Deploy workflow that publishes to Cloudflare on every push to main once the Cloudflare secrets are added, plus `deploy` and `preview:worker` scripts.
+- Deployment through Cloudflare Workers Builds (the repository connected in the Cloudflare dashboard deploys every push to main), plus `deploy` and `preview:worker` scripts for manual use.
 - Tests for the www redirect.
 - "Brand & dealer partnership" enquiry type on the Contact form; the B2B tile links straight to it.
 - Homepage "Our outlets" section above the closing call to action, showing each open outlet as a card with address, phone, opening hours, directions and the map.
@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Social links now point to the STOPWASH Instagram, TikTok and LinkedIn profiles.
 - Homepage "How it works" section now has a navy background.
 - Homepage franchise card is now aligned to the navigation width, with larger type and rewritten copy ("One outlet proves the idea. A network changes the category."), a "Become a franchisee" button and a link straight to the franchise FAQ.
 - Homepage Services section now presents the two STOPWASH formats, high-traffic hotspots ("Clean while you're out.") and fleet and brand partnerships ("Your fleet's detailing partner.", official partner to JETOUR, JAC and DONGFENG), as full-height photo tiles with matching amounts of text that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
@@ -44,6 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Supabase: the database, its client library, schema and settings. The Contact and Franchise forms now open a ready-to-send email to hello@stopwash.lk.
+- Facebook and YouTube icons (no profiles yet).
 - "Our promise" section from the homepage.
 - Round "scroll down" arrow at the bottom of the page heroes.
 - "Our first outlet" section from the homepage (replaced by "Our outlets").
