@@ -22,8 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Homepage "How it works" section now has a navy background.
 - Homepage franchise card is now aligned to the navigation width, with larger type and rewritten copy ("One outlet proves the idea. A network changes the category."), a "Become a franchisee" button and a link straight to the franchise FAQ.
-- Homepage Services section now presents the two STOPWASH formats, the supermarket model ("Clean while you shop.") and the B2B model, STOPWASH as official detailing partner to vehicle brands and dealerships ("The detailing partner behind the brands."), as full-height photo tiles that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
+- Homepage Services section now presents the two STOPWASH formats, high-traffic hotspots ("Clean while you're out.") and fleet and brand partnerships ("Your fleet's detailing partner.", official partner to JETOUR, JAC and DONGFENG), as full-height photo tiles with matching amounts of text that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
 - Homepage order: Services now follows "Why the name?", ahead of "What we are building".
 - Location cards: the map now fills the full height of the card.
 - Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.
@@ -39,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- "Our promise" section from the homepage.
 - Round "scroll down" arrow at the bottom of the page heroes.
 - "Our first outlet" section from the homepage (replaced by "Our outlets").
 - "The STOPWASH difference" section (Motion, Precision, Repeatability) from the homepage.

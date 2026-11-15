@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
-import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, serviceModels, standards } from "@/data/site";
+import { alts, buildingEngine, images, journey, locations, pageHead, serviceModels, standards } from "@/data/site";
 import { Cta, ctaVariants } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -30,7 +30,6 @@ function Home() {
       <WhyTheName />
       <ServicesPreview />
       <Building />
-      <BrandPromise />
       <HowItWorks />
       <CleanSquad />
       <Standard />
@@ -145,36 +144,6 @@ function Building() {
   );
 }
 
-/* Brand promise. */
-function BrandPromise() {
-  return (
-    <section className="section-dark section-y">
-      <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <SectionHeading eyebrow="Our promise" title="Your time is not a spare part." intro="We do not treat your time as something that can be left idling beside the wash bay. Every visit is designed to give you what a modern vehicle-care service should." />
-        </div>
-        <div className="lg:pt-10">
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {brandPromise.map((item, i) => (
-              <li key={item} className={i === brandPromise.length - 1 ? "sm:col-span-2" : ""}>
-                <Reveal delay={i * 0.04} className="flex items-center gap-3 rounded-2xl bg-card px-5 py-4">
-                  <Check className="h-5 w-5 shrink-0 text-lime" aria-hidden />
-                  <span className="font-medium">{item}</span>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-          <Reveal delay={0.15} className="mt-8 border-l-2 border-lime pl-5">
-            <p className="text-lg text-muted-foreground">The vehicle leaves cleaner.</p>
-            <p className="font-display text-xl font-bold tracking-tight">You leave with your day intact.</p>
-          </Reveal>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-
 /* Our outlets: every location as a card with its details and map. */
 function OurOutlets() {
   const open = locations.filter((l) => l.status === "open");
@@ -230,13 +199,24 @@ function ServicesPreview() {
                     <h3 id={`model-${m.slug}`} className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight md:text-[2.125rem]">{m.title}</h3>
                     <p className="mt-3 max-w-md leading-relaxed text-snow/80">{m.text}</p>
                     <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-                      <ul className="flex flex-wrap gap-2">
-                        {m.points.map((pt) => (
-                          <li key={pt} className="inline-flex items-center gap-1.5 rounded-full border border-snow/20 px-3 py-1 text-sm text-snow/90">
-                            <Check className="h-3.5 w-3.5 text-lime" aria-hidden /> {pt}
-                          </li>
-                        ))}
-                      </ul>
+                      {"partners" in m ? (
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-snow/60">Official partner to</span>
+                          <ul className="flex flex-wrap gap-2" aria-label="Official brand partners">
+                            {m.partners.map((brand) => (
+                              <li key={brand} className="rounded-full border border-snow/25 px-3 py-1 font-display text-sm font-bold tracking-[0.12em] text-snow">{brand}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : (
+                        <ul className="flex flex-wrap gap-2">
+                          {m.points.map((pt) => (
+                            <li key={pt} className="inline-flex items-center gap-1.5 rounded-full border border-snow/20 px-3 py-1 text-sm text-snow/90">
+                              <Check className="h-3.5 w-3.5 text-lime" aria-hidden /> {pt}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                       <Link to={m.cta.to} {...("search" in m.cta ? { search: m.cta.search as never } : {})} className="inline-flex items-center gap-2 font-semibold text-lime underline-offset-[6px] hover:underline">
                         {m.cta.label} <ArrowRight className="h-4 w-4" aria-hidden />
                       </Link>
@@ -254,7 +234,7 @@ function ServicesPreview() {
 
 function HowItWorks() {
   return (
-    <section className="section-paper section-y">
+    <section className="section-dark section-y">
       <Container>
         <SectionHeading center eyebrow="How it works" title="No mystery. No wandering around. No lost afternoon." />
         <StepTrack steps={journey} className="mt-12" />

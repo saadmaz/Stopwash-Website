@@ -104,20 +104,21 @@ export const footerNav = [
 export const serviceModels = [
   {
     slug: "supermarket",
-    label: "Supermarket model",
-    title: "Clean while you shop.",
-    text: "A STOPWASH station in the supermarket car park. Your vehicle is cleaned while you do your shopping, so the errand and the wash share the same hour.",
-    points: ["At places you already go", "No extra trip"],
+    label: "High-traffic hotspots",
+    title: "Clean while you're out.",
+    text: "STOPWASH stations at busy everyday destinations, cleaning your car while you shop or dine.",
+    points: ["No extra trip", "Where you already go"],
     cta: { label: "Find a STOPWASH", to: "/locations" },
     image: modelSupermarket,
     alt: "A smiling shopper walking out of a supermarket with his shopping bags",
   },
   {
     slug: "b2b",
-    label: "B2B model",
-    title: "The detailing partner behind the brands.",
-    text: "STOPWASH works as the official detailing partner for vehicle brands and their dealerships, from pre-delivery preparation to showroom upkeep and after-sales care, all to one consistent standard.",
-    points: ["Pre-delivery preparation", "After-sales care"],
+    label: "Fleet & brand partners",
+    title: "Your fleet's detailing partner.",
+    text: "Official detailing for brand and dealer fleets, keeping every new car showroom-ready from day one.",
+    /** Official brand partners, shown as wordmarks. */
+    partners: ["JETOUR", "JAC", "DONGFENG"],
     cta: { label: "Partner with us", to: "/contact", search: { type: "Brand & dealer partnership" } },
     image: modelOutlet,
     alt: "A freshly detailed white Kia SUV at STOPWASH Katubedda",
@@ -252,14 +253,6 @@ export const buildingEngine = [
   "A network built to scale",
 ];
 
-/** Brand promise: what every visit should deliver. */
-export const brandPromise = [
-  "A clear choice",
-  "A clear process",
-  "A dependable finish",
-  "A team that knows what it is doing",
-  "A reason to come back",
-];
 
 /** The questions behind the brand (Our Story). */
 export const storyQuestions = [
