@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, custom domains for stopwash.lk and www.stopwash.lk, and logging.
+- Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, a workers.dev address with branch preview URLs, and logging. Custom domains are attached in the Cloudflare dashboard.
 - Permanent redirect from www.stopwash.lk to stopwash.lk, and security headers (HSTS, nosniff, frame, referrer and permissions policies) on every page.
 - Deployment through Cloudflare Workers Builds (the repository connected in the Cloudflare dashboard deploys every push to main), plus `deploy` and `preview:worker` scripts for manual use.
 - Tests for the www redirect.

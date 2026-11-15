@@ -179,7 +179,8 @@ stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquir
 | Item | Where |
 | --- | --- |
 | Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc` |
-| Custom domains `stopwash.lk` and `www.stopwash.lk` | `wrangler.jsonc` (`routes`) |
+| `workers.dev` address and branch preview URLs | `wrangler.jsonc` |
+| Custom domains `stopwash.lk` and `www.stopwash.lk` | attached in the Cloudflare dashboard |
 | `www` to `stopwash.lk` permanent redirect | `src/server.ts` |
 | Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts` |
 | Long-term caching for hashed assets | generated `_headers` |
@@ -190,9 +191,8 @@ stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquir
 
 Cloudflare builds and deploys straight from this GitHub repository. No API tokens or GitHub secrets are needed.
 
-1. **Add the domain to Cloudflare.** In the Cloudflare dashboard, add `stopwash.lk` as a site and switch the domain's nameservers to the two Cloudflare nameservers shown (at your `.lk` registrar). Wait until the zone shows as **Active**.
-2. **Connect the repository.** Workers & Pages → *Create* → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
-3. **Use these settings:**
+1. **Connect the repository.** Workers & Pages → *Create* → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
+2. **Use these settings:**
 
    | Setting | Value |
    | --- | --- |
@@ -204,9 +204,11 @@ Cloudflare builds and deploys straight from this GitHub repository. No API token
    | Root directory | `/` (leave empty) |
    | Build variable | `BUN_VERSION` = `1.4.4` |
 
-4. **Save and deploy.** The first build creates the Worker and attaches `stopwash.lk` and `www.stopwash.lk`, including their SSL certificates. From then on, every push to `main` deploys automatically, and other branches get preview versions.
-5. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
-6. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form to confirm it opens an email to hello@stopwash.lk.
+3. **Save and deploy.** The site goes live at `https://stopwash-website.<your-account>.workers.dev`. From then on every push to `main` deploys automatically, and other branches get preview URLs.
+4. **Add the domain to Cloudflare.** Add `stopwash.lk` as a site, then switch the domain's nameservers at your `.lk` registrar to the two Cloudflare nameservers shown. Wait until the zone shows as **Active**.
+5. **Attach the domains.** Worker `stopwash-website` → Settings → **Domains & Routes** → *Add* → **Custom domain**: add `stopwash.lk`, then `www.stopwash.lk`. Cloudflare creates the DNS records and SSL certificates.
+6. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
+7. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form to confirm it opens an email to hello@stopwash.lk.
 
 ### Deploying from your machine
 

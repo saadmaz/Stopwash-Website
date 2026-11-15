@@ -7,12 +7,11 @@
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat"],
 
-  // stopwash.lk must be an active zone in the same Cloudflare account before the first deploy.
-  // www.stopwash.lk is redirected to stopwash.lk by src/server.ts.
-  "routes": [
-    { "pattern": "stopwash.lk", "custom_domain": true },
-    { "pattern": "www.stopwash.lk", "custom_domain": true }
-  ],
+  // Always reachable at stopwash-website.<account>.workers.dev, with preview URLs for other branches.
+  // stopwash.lk and www.stopwash.lk are attached in the dashboard (Worker > Settings > Domains & Routes)
+  // once the domain is active in this account; src/server.ts redirects www to stopwash.lk.
+  "workers_dev": true,
+  "preview_urls": true,
 
   "observability": { "enabled": true }
 }
