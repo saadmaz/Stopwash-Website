@@ -1,4 +1,5 @@
 import heroHome from "@/assets/photos/hero-home.webp";
+import franchiseHero from "@/assets/photos/franchise-hero.webp";
 import heroBay from "@/assets/photos/hero-bay.webp";
 import detailHands from "@/assets/photos/detail-hands.webp";
 import interior from "@/assets/photos/interior.webp";
@@ -11,9 +12,10 @@ import ogImage from "@/assets/photos/hero-bay.jpg";
  * outlet or team. Swap each file for real STOPWASH photography (same keys) and
  * update the alt text. Nothing else in the site needs to change.
  */
-export const images = { heroHome, heroBay, detailHands, interior, foam };
+export const images = { heroHome, franchiseHero, heroBay, detailHands, interior, foam };
 export const alts: Record<keyof typeof images, string> = {
   heroHome: "A smiling man walking out of a shop with shopping bags, seen from inside a parked car",
+  franchiseHero: "A STOPWASH-branded wash kiosk with lime graphics on a wet forecourt under a blue sky",
   heroBay: "A dark vehicle covered in foam inside a wash bay lit in green",
   detailHands: "A gloved hand drying a freshly washed vehicle panel with a microfibre cloth",
   interior: "A vehicle cabin being vacuumed during an interior clean",
@@ -54,7 +56,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Services", to: "/services" },
-  { label: "Franchise", to: "/franchise" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];

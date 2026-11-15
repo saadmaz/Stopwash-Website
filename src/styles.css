@@ -3,6 +3,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+/* Viewports wider than 16:9: hero photos show whole instead of being cropped to fill. */
+@custom-variant wide (@media (min-aspect-ratio: 16/9));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -209,6 +211,11 @@
 @utility fade-up {
   animation: fade-up 0.8s cubic-bezier(.22,1,.36,1) both;
   animation-delay: var(--d, 0s);
+}
+/* Fades an element in from its left edge (used on hero photos placed at the right). */
+@utility fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 35%);
+  mask-image: linear-gradient(to right, transparent, black 35%);
 }
 @utility page-fade {
   animation: page-fade 0.35s ease-out both;

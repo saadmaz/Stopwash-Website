@@ -44,7 +44,7 @@ export function Navbar() {
         overDark ? "bg-transparent text-snow" : "bg-snow/95 text-ink shadow-[0_1px_0_rgb(5_10_18/0.08)] backdrop-blur",
       )}
     >
-      <nav className="mx-auto flex h-[4.5rem] w-full max-w-[1240px] items-center justify-between px-5 md:px-8" aria-label="Main">
+      <nav className="mx-auto flex h-[4.5rem] w-full max-w-[1440px] items-center justify-between px-5 md:px-8" aria-label="Main">
         <Link to="/" aria-label="STOPWASH home"><Logo className={overDark ? "text-snow" : "text-ink"} wash={overDark ? "text-lime" : "text-leaf"} /></Link>
         <ul className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) => {
@@ -80,7 +80,7 @@ export function Navbar() {
           })}
         </ul>
         <div className="hidden lg:block">
-          <Cta to="/franchise" className="px-5 py-2.5" arrow={false}>Build a STOPWASH</Cta>
+          <Cta to="/franchise" className="px-5 py-2.5" arrow={false}>Become a franchisee</Cta>
         </div>
         <button
           className={cn("grid h-11 w-11 place-items-center rounded-full lg:hidden", overDark ? "hover:bg-snow/10" : "hover:bg-paper")}
@@ -115,7 +115,7 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-8 grid gap-3">
-            <Cta to="/franchise">Build a STOPWASH</Cta>
+            <Cta to="/franchise">Become a franchisee</Cta>
             <Cta to="/locations" variant="ink">Find a STOPWASH</Cta>
           </div>
         </div>

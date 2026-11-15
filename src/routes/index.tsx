@@ -43,16 +43,15 @@ function Home() {
 /* Hero: full-bleed photograph, one confident line, two actions. */
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink text-snow md:h-[92svh] md:max-h-[900px] md:items-center" aria-labelledby="hero-title">
-      <img src={images.heroHome} alt={alts.heroHome} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover object-[62%_30%]" />
+    <section className="relative isolate flex h-[100svh] min-h-[640px] items-end overflow-hidden bg-ink text-snow md:items-center" aria-labelledby="hero-title">
+      {/* Photo starts below the nav so the subject's head never sits under it. On wide screens it shows whole at the right. */}
+      <img src={images.heroHome} alt={alts.heroHome} fetchPriority="high" decoding="async" className="absolute inset-x-0 bottom-0 top-[4.5rem] -z-10 h-[calc(100%-4.5rem)] w-full object-cover object-[62%_10%] wide:left-auto wide:w-auto wide:max-w-none wide:fade-left" />
+      <div className="absolute inset-x-0 top-[4.5rem] -z-10 h-40 bg-gradient-to-b from-ink to-transparent" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-ink/60 to-transparent" />
       <div className="absolute inset-0 -z-10 bg-ink/50 md:hidden" />
-      <Container className="pb-14 pt-32 md:pb-0 md:pt-24">
+      <Container className="max-w-[1440px] pb-14 pt-32 md:pb-0 md:pt-24">
         <div className="max-w-2xl">
-          <p className="fade-up mb-6 inline-flex items-center gap-2 rounded-full bg-snow/10 px-3.5 py-1.5 text-sm font-medium backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-lime" /> Now open in Katubedda
-          </p>
           <h1 id="hero-title" className="text-hero fade-up" style={{ ["--d" as string]: "0.05s" }}>
             Giving you <br />back <span className="text-lime">the gift</span> <br />of time
           </h1>

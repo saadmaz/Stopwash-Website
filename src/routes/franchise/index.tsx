@@ -32,13 +32,15 @@ const atAGlance: [string, string][] = [
 function Franchise() {
   return (
     <>
-      <section className="section-dark relative isolate overflow-hidden pb-16 pt-32 md:pb-24 md:pt-40">
-        <img src={images.heroBay} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/90 to-navy/40" />
-        <Container className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-7">
+      <section className="section-dark relative isolate flex min-h-[100svh] items-end overflow-hidden pb-16 pt-32 md:items-center md:pb-20 md:pt-28" aria-labelledby="franchise-title">
+        <img src={images.franchiseHero} alt={alts.franchiseHero} fetchPriority="high" decoding="async" className="absolute inset-x-0 bottom-0 top-[4.5rem] -z-10 h-[calc(100%-4.5rem)] w-full object-cover object-[68%_0%] wide:left-auto wide:w-auto wide:max-w-none wide:fade-left" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/75 via-45% to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-navy/60 md:hidden" />
+        <Container className="max-w-[1440px]">
+          <div className="max-w-2xl">
             <p className="eyebrow fade-up mb-5">Franchise with us</p>
-            <h1 className="fade-up" style={{ ["--d" as string]: "0.05s" }}>
+            <h1 id="franchise-title" className="fade-up" style={{ ["--d" as string]: "0.05s" }}>
               <span className="block font-display text-xl font-semibold tracking-tight text-snow/55 md:text-2xl">Do not open another car wash.</span>
               <span className="text-h1 mt-3 block">Build the next STOPWASH.</span>
             </h1>
@@ -51,19 +53,20 @@ function Franchise() {
               <Cta href="#faq" variant="outline" className="text-snow" arrow={false}>Read the FAQ</Cta>
             </div>
           </div>
-          <aside className="fade-up lg:col-span-5" style={{ ["--d" as string]: "0.3s" }} aria-label="Franchise at a glance">
-            <div className="rounded-3xl border border-snow/10 bg-snow/[0.06] p-6 backdrop-blur md:p-8">
-              <p className="eyebrow">At a glance</p>
-              <dl className="mt-4 divide-y divide-snow/10">
-                {atAGlance.map(([k, v]) => (
-                  <div key={k} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 sm:py-3.5">
-                    <dt className="shrink-0 text-sm text-snow/60">{k}</dt>
-                    <dd className="font-semibold sm:text-right">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </aside>
+        </Container>
+      </section>
+
+      <section className="section-paper border-b border-border py-10 md:py-12" aria-label="Franchise at a glance">
+        <Container>
+          <p className="eyebrow mb-5">At a glance</p>
+          <dl className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-5">
+            {atAGlance.map(([k, v]) => (
+              <div key={k} className="border-l-2 border-lime pl-4">
+                <dt className="text-sm text-muted-foreground">{k}</dt>
+                <dd className="mt-1 font-semibold leading-snug">{v}</dd>
+              </div>
+            ))}
+          </dl>
         </Container>
       </section>
 

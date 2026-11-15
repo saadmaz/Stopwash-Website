@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- New homepage hero photograph and headline: "Giving you back the gift of time".
+- Franchise page hero photograph of the STOPWASH kiosk.
+- Image folders for photos, location photos and brand files, with a guide in `src/assets/README.md`.
+
+### Changed
+
+- Homepage hero fills the full screen, with the text aligned further left.
+- Hero photos show uncropped on wide screens and start below the navigation bar.
+- Navigation: "Franchise" moved out of the menu into the primary button, now labelled "Become a franchisee".
+- Franchise "At a glance" facts moved from the hero into a strip directly below it.
+
+### Removed
+
+- "Now open in Katubedda" tag from the homepage hero.
+
 ## [1.0.0] - 2026-11-15
 
 First production release of [stopwash.lk](https://stopwash.lk).
