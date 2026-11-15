@@ -2,7 +2,7 @@
 
 ## Our commitment
 
-Everyone who works on this project — staff, partners and invited collaborators — deserves a professional, respectful and harassment-free environment, regardless of background, identity or experience.
+Everyone who works on this project, including staff, partners and invited collaborators, deserves a professional, respectful and harassment-free environment, regardless of background, identity or experience.
 
 ## Expected behaviour
 

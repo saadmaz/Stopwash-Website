@@ -71,9 +71,9 @@ content(blog): publish monsoon car-care tips
 
 Releases follow [Semantic Versioning](https://semver.org):
 
-- **Major** — a redesign or a breaking change to forms or data.
-- **Minor** — new pages, sections or features.
-- **Patch** — fixes, copy and small visual changes.
+- **Major:** A redesign or a breaking change to forms or data.
+- **Minor:** New pages, sections or features.
+- **Patch:** Fixes, copy and small visual changes.
 
 To cut a release:
 

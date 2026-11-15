@@ -4,7 +4,7 @@
 
 **The queue ends here.**
 
-The official website of STOPWASH — a faster, sharper and more dependable vehicle-care network in Sri Lanka.
+The official website of STOPWASH: a faster, sharper and more dependable vehicle-care network in Sri Lanka.
 
 [![Website](https://img.shields.io/badge/website-stopwash.lk-B2E04C?style=flat-square&labelColor=0B1728)](https://stopwash.lk)
 [![CI](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml)
@@ -49,16 +49,16 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 
 ## Features
 
-- **Brand and story pages** — Home, Our Story, Our Vision and The STOPWASH Standard.
-- **Services** — the full service catalogue with clear levels of care.
-- **Locations** — outlet cards with directions, click-to-call and an embedded map when coordinates are set.
-- **Franchise funnel** — programme overview, partner criteria, journey, FAQ and an application form.
-- **Contact** — enquiry form with service, franchise and general enquiry types.
-- **Blog** — Markdown posts with tags, reading time, drafts and an RSS feed.
+- **Brand and story pages:** Home, Our Story, Our Vision and The STOPWASH Standard.
+- **Services:** The full service catalogue with clear levels of care.
+- **Locations:** Outlet cards with directions, click-to-call and an embedded map when coordinates are set.
+- **Franchise funnel:** Programme overview, partner criteria, journey, FAQ and an application form.
+- **Contact:** Enquiry form with service, franchise and general enquiry types.
+- **Blog:** Markdown posts with tags, reading time, drafts and an RSS feed.
 - **Server-side rendering** for fast first paint and complete HTML for search engines.
-- **SEO built in** — per-page titles, descriptions and Open Graph images, a generated `sitemap.xml`, `robots.txt` and `AutoWash` structured data.
-- **Spam-resistant forms** — schema validation, a honeypot field and a minimum fill time, with insert-only database access.
-- **Accessible by default** — skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.
+- **SEO built in:** Per-page titles, descriptions and Open Graph images, a generated `sitemap.xml`, `robots.txt` and `AutoWash` structured data.
+- **Spam-resistant forms:** Schema validation, a honeypot field and a minimum fill time, with insert-only database access.
+- **Accessible by default:** Skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.
 
 ## Tech stack
 
@@ -121,7 +121,7 @@ Copy `.env.example` to `.env` and set the Supabase project values.
 | `VITE_SUPABASE_PROJECT_ID` | Client | Same project reference, exposed to the browser bundle |
 
 > [!IMPORTANT]
-> Only ever use the **publishable** key. Never put the Supabase `service_role` key in this repository, in `.env`, or in any `VITE_*` variable — `VITE_*` values are shipped to every visitor's browser.
+> Only ever use the **publishable** key. Never put the Supabase `service_role` key in this repository, in `.env`, or in any `VITE_*` variable, because `VITE_*` values are shipped to every visitor's browser.
 
 ## Project structure
 
@@ -151,7 +151,7 @@ Most content lives in [`src/data/site.ts`](src/data/site.ts), so routine updates
 | Task | Where |
 | --- | --- |
 | Update phone, email or social links | `contact` in `src/data/site.ts` |
-| Add or edit a location | `locations` in `src/data/site.ts` — set `coordinates` to enable the map |
+| Add or edit a location | `locations` in `src/data/site.ts`; set `coordinates` to enable the map |
 | Edit services | `serviceCatalogue` and `servicePreview` in `src/data/site.ts` |
 | Replace photography | Swap files in `src/assets/` (keep the names) and update `alts` |
 | Change brand colours | Tokens at the top of `src/styles.css` |
