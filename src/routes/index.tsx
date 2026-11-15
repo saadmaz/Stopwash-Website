@@ -27,9 +27,9 @@ function Home() {
       <Hero />
       <WhyStopwash />
       <WhyTheName />
+      <ServicesPreview />
       <Building />
       <FirstOutlet />
-      <ServicesPreview />
       <BrandPromise />
       <HowItWorks />
       <CleanSquad />
