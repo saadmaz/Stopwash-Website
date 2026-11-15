@@ -4,6 +4,16 @@ import heroBay from "@/assets/photos/hero-bay.webp";
 import detailHands from "@/assets/photos/detail-hands.webp";
 import interior from "@/assets/photos/interior.webp";
 import foam from "@/assets/photos/foam.webp";
+import customer01 from "@/assets/photos/customers/customer-01.webp";
+import customer02 from "@/assets/photos/customers/customer-02.webp";
+import customer03 from "@/assets/photos/customers/customer-03.webp";
+import customer04 from "@/assets/photos/customers/customer-04.webp";
+import customer05 from "@/assets/photos/customers/customer-05.webp";
+import customer06 from "@/assets/photos/customers/customer-06.webp";
+import customer07 from "@/assets/photos/customers/customer-07.webp";
+import customer08 from "@/assets/photos/customers/customer-08.webp";
+import customer09 from "@/assets/photos/customers/customer-09.webp";
+import customer10 from "@/assets/photos/customers/customer-10.webp";
 // JPEG kept for link previews: some social platforms do not render WebP og:images.
 import ogImage from "@/assets/photos/og-home.jpg";
 
@@ -21,6 +31,20 @@ export const alts: Record<keyof typeof images, string> = {
   interior: "A vehicle cabin being vacuumed during an interior clean",
   foam: "A vehicle being rinsed with a high-pressure water jet",
 };
+
+/** Real customers photographed at STOPWASH Katubedda ("STOPWASH-ED"). Shown on the homepage photo wall. */
+export const customerPhotos: { src: string; alt: string }[] = [
+  { src: customer01, alt: "Two customers beside their freshly washed red Land Rover Defender, at STOPWASH Katubedda" },
+  { src: customer02, alt: "A customer with a freshly washed white Honda SUV, at STOPWASH Katubedda" },
+  { src: customer03, alt: "A customer and a boy beside their freshly washed white SUV, at STOPWASH Katubedda" },
+  { src: customer04, alt: "Two customers with their freshly washed white Toyota, photographed at night, at STOPWASH Katubedda" },
+  { src: customer05, alt: "A customer and two boys with their freshly washed car, at STOPWASH Katubedda" },
+  { src: customer06, alt: "A customer beside a freshly washed white BMW, at STOPWASH Katubedda" },
+  { src: customer07, alt: "A customer beside a freshly washed white Kia SUV, at STOPWASH Katubedda" },
+  { src: customer08, alt: "A family beside their freshly washed red Honda, at STOPWASH Katubedda" },
+  { src: customer09, alt: "Two customers beside their freshly washed red Toyota Land Cruiser Prado, at STOPWASH Katubedda" },
+  { src: customer10, alt: "A customer and a boy beside their freshly washed dark SUV, at STOPWASH Katubedda" },
+];
 
 export const contact = {
   phone: "+94 70 622 5252",
@@ -155,11 +179,6 @@ export const locations: Location[] = [
   },
 ];
 
-export const pillars = [
-  { n: "01", title: "Motion", lead: "Get customers back on the road.", text: "Vehicle care designed around convenience and the customer's schedule." },
-  { n: "02", title: "Precision", lead: "Make every minute and every movement count.", text: "A defined process, trained teams and attention to detail." },
-  { n: "03", title: "Repeatability", lead: "The same confidence, every time.", text: "A consistent experience supported by operational standards and quality control." },
-];
 
 export const journey = [
   { n: "01", title: "Pull in", text: "Arrive at STOPWASH." },

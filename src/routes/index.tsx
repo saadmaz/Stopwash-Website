@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Crosshair, Navigation, Phone, Repeat, Timer } from "lucide-react";
-import { alts, brandPromise, buildingEngine, contact, directionsUrl, images, journey, locations, pageHead, pillars, servicePreview, standards } from "@/data/site";
+import { ArrowRight, Check, Navigation, Phone, Timer } from "lucide-react";
+import { alts, brandPromise, buildingEngine, contact, directionsUrl, images, journey, locations, pageHead, servicePreview, standards } from "@/data/site";
 import { Cta, ctaVariants } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
 import { FinalCta } from "@/components/site/FinalCta";
 import { LandingHero } from "@/components/site/LandingHero";
+import { CustomerArc } from "@/components/site/CustomerArc";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 
 export const Route = createFileRoute("/")({
@@ -20,14 +21,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const pillarIcons = [Timer, Crosshair, Repeat];
-
 function Home() {
   return (
     <>
       <Hero />
-      <Intro />
-      <Difference />
+      <WhyStopwash />
+      <WhyTheName />
       <Building />
       <FirstOutlet />
       <ServicesPreview />
@@ -61,34 +60,45 @@ function Hero() {
   );
 }
 
-function Intro() {
+/* Why STOPWASH: full-screen statement above an arc of real customers that drifts while in view. */
+function WhyStopwash() {
   return (
-    <section className="section-y">
+    <section aria-labelledby="why-title" className="section-dark relative flex min-h-[100svh] flex-col overflow-hidden pt-28 md:pt-32">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_100%,rgb(178_224_76/0.12),transparent_70%)]" aria-hidden />
+      <Container className="text-center">
+        <Reveal>
+          <p className="eyebrow mb-5">Why STOPWASH</p>
+          <h2 id="why-title" className="mx-auto max-w-5xl font-display font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(2.4rem,min(5.4vw,8.5vh),5.25rem)]">
+            A car wash should be a <span className="text-lime">pit stop</span>, not a lifestyle.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="text-lead mx-auto mt-6 max-w-xl text-snow/75">Vehicle care should not cost you your momentum.</p>
+          <div className="mt-8 flex justify-center"><Cta to="/our-story">Read our story</Cta></div>
+        </Reveal>
+      </Container>
+      <CustomerArc className="mt-auto h-[clamp(200px,22vw,320px)] pt-10" />
+    </section>
+  );
+}
+
+/* Why the name: the stopwatch idea, as its own section. */
+function WhyTheName() {
+  return (
+    <section aria-labelledby="name-title" className="section-paper section-y">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <SectionHeading className="self-start lg:sticky lg:top-28 lg:col-span-6" eyebrow="Why STOPWASH" title="A car wash should be a pit stop, not a lifestyle." />
-          <Reveal delay={0.1} className="text-lead space-y-5 text-muted-foreground lg:col-span-6 lg:pt-10">
-            <p className="text-foreground">Somewhere along the way, washing a car became a test of patience.</p>
-            <p>You arrive with a dirty vehicle. You join a line. You wait without knowing how long. You leave hoping the finish is worth the time you gave away.</p>
-            <p>STOPWASH was built on a simple refusal:</p>
-            <p className="border-l-4 border-lime pl-5 font-display text-2xl font-bold leading-snug tracking-tight text-foreground md:text-[1.75rem]">
-              Vehicle care should not cost you your momentum.
-            </p>
-            <p>So we are building a better way to do it, with a clear process, a trained clean squad, a visible standard and a finish that earns the return visit.</p>
-          </Reveal>
-        </div>
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
-          <Reveal className="md:col-span-2"><Photo src={images.interior} alt={alts.interior} className="h-64 md:h-[26rem]" /></Reveal>
-          <Reveal delay={0.08}><Photo src={images.detailHands} alt={alts.detailHands} className="h-64 md:h-[26rem]" /></Reveal>
-        </div>
-        <Reveal className="mt-4">
-          <Link to="/our-story" hash="the-name" className="group flex flex-col gap-5 rounded-3xl bg-navy p-7 text-snow sm:flex-row sm:items-center md:p-9">
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-lime"><Timer className="h-7 w-7 text-ink" aria-hidden /></span>
-            <div className="flex-1">
-              <p className="eyebrow text-lime">Why the name?</p>
-              <p className="mt-2 font-display text-xl font-bold leading-snug tracking-tight md:text-2xl">STOPWASH comes from the stopwatch. We never set out to sell a car wash. We set out to sell time.</p>
+        <Reveal>
+          <Link to="/our-story" hash="the-name" className="group grid gap-8 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-9">
+              <p className="eyebrow mb-6 flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-lime"><Timer className="h-5 w-5 text-ink" aria-hidden /></span>
+                Why the name?
+              </p>
+              <h2 id="name-title" className="text-h1">
+                STOPWASH comes from the <span className="bg-lime px-2 [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">stopwatch.</span> We never set out to sell a car wash. We set out to sell time.
+              </h2>
             </div>
-            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold text-lime">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold underline decoration-lime decoration-2 underline-offset-[6px] md:col-span-3 md:justify-self-end">
               Read the story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </span>
           </Link>
@@ -160,28 +170,6 @@ function BrandPromise() {
   );
 }
 
-function Difference() {
-  return (
-    <section className="section-paper section-y">
-      <Container>
-        <SectionHeading center eyebrow="The STOPWASH difference" title="Less waiting. More moving." />
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {pillars.map((p, i) => {
-            const Icon = pillarIcons[i]!;
-            return (
-              <Reveal key={p.title} delay={i * 0.06} className="rounded-2xl bg-snow p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-lime"><Icon className="h-6 w-6 text-ink" aria-hidden /></span>
-                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight">{p.title}</h3>
-                <p className="mt-2 font-medium">{p.lead}</p>
-                <p className="mt-2 leading-relaxed text-muted-foreground">{p.text}</p>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Container>
-    </section>
-  );
-}
 
 function FirstOutlet() {
   const loc = locations[0]!;

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Homepage "Why STOPWASH" section: full screen, with the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that drifts slowly sideways. It moves only while the section is on screen and stays still for visitors who prefer reduced motion.
+- "Why the name?" is now its own section on the homepage, on a light background.
 - Katubedda outlet details: 239 Model Town Rd, Moratuwa 10400, open every day 9:00 am to 9:00 pm, with the official Google Maps embed and directions to the exact pin.
 - Local business structured data now includes the street address, map pin and opening hours.
 - New link preview image for social sharing, cropped from the homepage photograph.
@@ -31,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- "The STOPWASH difference" section (Motion, Precision, Repeatability) from the homepage.
 - Gmail address from the footer, Contact, Privacy Policy and Terms; hello@stopwash.lk is the single contact address.
 - "General enquiries" card on the Contact page (it duplicated hello@stopwash.lk).
 - "Now open in Katubedda" tag from the homepage hero.
