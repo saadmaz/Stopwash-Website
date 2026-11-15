@@ -31,8 +31,8 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-border bg-paper p-8 md:p-10">
-        <CheckCircle2 className="h-10 w-10 text-leaf" />
+      <div className="rounded-2xl border border-border bg-stone p-8 md:p-10">
+        <CheckCircle2 className="h-10 w-10 text-moss" />
         <h3 className="text-h2 mt-5">Message received.</h3>
         <p className="mt-4 text-muted-foreground">Thanks for reaching out. Our team will get back to you shortly.</p>
         <button className="mt-8 text-sm underline underline-offset-4" onClick={() => setDone(false)}>Send another message</button>
@@ -55,7 +55,7 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
         </Field>
       </div>
       <Field label="Message" htmlFor="c-msg" error={errors.message?.message}><textarea id="c-msg" rows={5} className={inputCls} {...register("message")} /></Field>
-      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "lime", className: "w-full md:w-auto md:justify-self-start" })}>
+      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "primary", className: "w-full md:w-auto md:justify-self-start" })}>
         {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : "Send message"}
       </button>
     </form>

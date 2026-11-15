@@ -42,7 +42,7 @@ function Contact() {
         <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="space-y-4 lg:col-span-4">
             {channels.map((c, i) => (
-              <Reveal key={c.label} delay={i * 0.05} className="rounded-2xl bg-paper p-6">
+              <Reveal key={c.label} delay={i * 0.05} className="rounded-2xl bg-stone p-6">
                 <h2 className="font-semibold">{c.label}</h2>
                 <ul className="mt-3 space-y-2">
                   {c.lines.map((l) => (
@@ -56,14 +56,14 @@ function Contact() {
                 </ul>
               </Reveal>
             ))}
-            <Reveal delay={0.12} className="rounded-2xl bg-paper p-6">
+            <Reveal delay={0.12} className="rounded-2xl bg-stone p-6">
               <h2 className="font-semibold">Follow STOPWASH</h2>
               <SocialLinks className="mt-4" tone="white" links={socialProfiles} />
             </Reveal>
             <Reveal delay={0.15} className="rounded-2xl bg-navy p-6 text-snow">
               <h2 className="font-semibold">Thinking bigger?</h2>
               <p className="mt-2 text-snow/75">Franchise enquiries have their own form.</p>
-              <Link to="/franchise" hash="apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline">
+              <Link to="/franchise" hash="apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-leaf hover:underline">
                 Start the franchise conversation <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </Reveal>

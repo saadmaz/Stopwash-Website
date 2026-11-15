@@ -24,7 +24,7 @@ export function ThemedSelect({ id, value, onChange, onBlur, options, placeholder
         id={id}
         aria-invalid={invalid || undefined}
         className={cn(
-          "group flex w-full items-center justify-between gap-3 rounded-xl border border-input bg-snow px-4 py-3 text-left text-base text-ink transition-colors",
+          "group flex w-full items-center justify-between gap-3 rounded-lg border border-input bg-snow px-4 py-3 text-left text-base text-ink transition-colors",
           "hover:border-ink/30 focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10 data-[state=open]:border-navy data-[state=open]:ring-4 data-[state=open]:ring-navy/10",
           "data-[placeholder]:text-ink/45",
           invalid && "border-destructive",
@@ -40,7 +40,7 @@ export function ThemedSelect({ id, value, onChange, onBlur, options, placeholder
           position="popper"
           sideOffset={6}
           className={cn(
-            "z-[60] max-h-[min(22rem,var(--radix-select-content-available-height))] w-[var(--radix-select-trigger-width)] overflow-hidden rounded-2xl border border-border bg-snow p-1.5 text-ink shadow-xl shadow-ink/10",
+            "z-[60] max-h-[min(22rem,var(--radix-select-content-available-height))] w-[var(--radix-select-trigger-width)] overflow-hidden rounded-lg border border-border bg-snow p-1.5 text-ink shadow-[0_16px_40px_-16px_rgb(28_48_56/0.4)]",
             "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
           )}
         >
@@ -50,15 +50,13 @@ export function ThemedSelect({ id, value, onChange, onBlur, options, placeholder
                 key={o}
                 value={o}
                 className={cn(
-                  "relative flex cursor-pointer select-none items-center justify-between gap-3 rounded-xl px-3.5 py-2.5 text-[0.9375rem] outline-none transition-colors",
-                  "data-[highlighted]:bg-paper data-[state=checked]:font-semibold",
+                  "relative flex cursor-pointer select-none items-center justify-between gap-3 rounded-md px-3.5 py-2.5 text-[0.9375rem] outline-none transition-colors",
+                  "data-[highlighted]:bg-stone data-[state=checked]:font-semibold",
                 )}
               >
                 <SelectPrimitive.ItemText>{o}</SelectPrimitive.ItemText>
                 <SelectPrimitive.ItemIndicator>
-                  <span className="grid h-5 w-5 place-items-center rounded-full bg-lime">
-                    <Check className="h-3.5 w-3.5 text-ink" aria-hidden />
-                  </span>
+                  <Check className="h-4 w-4 text-moss" aria-hidden />
                 </SelectPrimitive.ItemIndicator>
               </SelectPrimitive.Item>
             ))}

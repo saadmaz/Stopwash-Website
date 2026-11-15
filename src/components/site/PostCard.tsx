@@ -28,11 +28,11 @@ export function PostCard({ post, featured }: { post: Post; featured?: boolean })
         {post.tags.length > 0 && (
           <ul className="mb-3 flex flex-wrap gap-2">
             {post.tags.map((t) => (
-              <li key={t} className="rounded-full bg-paper px-3 py-1 text-xs font-medium">{t}</li>
+              <li key={t} className="rounded-full bg-stone px-3 py-1 text-xs font-medium">{t}</li>
             ))}
           </ul>
         )}
-        <h3 className={cn("font-display font-bold tracking-tight group-hover:underline group-hover:decoration-lime group-hover:decoration-2 group-hover:underline-offset-4", featured ? "text-h2" : "text-xl leading-snug")}>
+        <h3 className={cn("font-display font-bold tracking-tight group-hover:underline group-hover:decoration-leaf group-hover:decoration-2 group-hover:underline-offset-4", featured ? "text-h2" : "text-xl leading-snug")}>
           {post.title}
         </h3>
         {post.description && <p className={cn("mt-3 leading-relaxed text-muted-foreground", featured && "text-lead")}>{post.description}</p>}

@@ -59,7 +59,7 @@ export function SocialLinks({ links = brandChannels, tone = "light", className }
               style={{ ["--brand" as string]: networkColors[l.network] }}
               className={cn(
                 "grid h-10 w-10 place-items-center rounded-full transition-colors duration-200 hover:bg-[var(--brand)] hover:text-white",
-                tone === "dark" ? "bg-snow/10 text-snow" : tone === "white" ? "bg-snow text-ink" : "bg-paper text-ink",
+                tone === "dark" ? "bg-snow/10 text-snow" : tone === "white" ? "bg-snow text-ink" : "bg-stone text-ink",
               )}
             >
               <Icon className="h-[1.05rem] w-[1.05rem]" aria-hidden />

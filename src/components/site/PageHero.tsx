@@ -4,7 +4,7 @@ import { Container } from "./SectionHeading";
 /** Inner-page header: light, generous, sentence case. Optional photo on the right. */
 export function PageHero({ eyebrow, title, children, image, imageAlt = "" }: { eyebrow: string; title: ReactNode; children?: ReactNode; image?: string; imageAlt?: string }) {
   return (
-    <section className="section-paper pb-16 pt-32 md:pb-20 md:pt-40">
+    <section className="section-stone pb-16 pt-36 md:pb-24 md:pt-44">
       <Container className={image ? "grid items-end gap-10 lg:grid-cols-12" : ""}>
         <div className={image ? "lg:col-span-7" : "max-w-4xl"}>
           <p className="eyebrow fade-up mb-5">{eyebrow}</p>
@@ -17,7 +17,7 @@ export function PageHero({ eyebrow, title, children, image, imageAlt = "" }: { e
         </div>
         {image && (
           <div className="fade-up lg:col-span-5" style={{ ["--d" as string]: "0.2s" }}>
-            <img src={image} alt={imageAlt} fetchPriority="high" className="aspect-[4/3] w-full rounded-2xl object-cover" />
+            <img src={image} alt={imageAlt} fetchPriority="high" className="aspect-[4/3] w-full rounded-xl object-cover" />
           </div>
         )}
       </Container>

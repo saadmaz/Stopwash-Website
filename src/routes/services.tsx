@@ -30,7 +30,7 @@ function Services() {
           <ul className="-mx-5 flex gap-1 overflow-x-auto px-5 py-3 [scrollbar-width:none] md:mx-0 md:px-0">
             {serviceCatalogue.map((s) => (
               <li key={s.slug} className="shrink-0">
-                <a href={`#${s.slug}`} className="block rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-paper hover:text-ink">{s.name}</a>
+                <a href={`#${s.slug}`} className="block rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-stone hover:text-ink">{s.name}</a>
               </li>
             ))}
           </ul>
@@ -47,10 +47,10 @@ function Services() {
                   <Photo src={s.image} alt={s.alt} label="Photography coming soon" className="aspect-[4/3]" />
                 </Reveal>
                 <Reveal delay={0.08} className={cn(flip && "lg:order-1")}>
-                  <span className="inline-block rounded-full bg-paper px-3 py-1 text-sm font-medium">{s.tag}</span>
+                  <span className="inline-block rounded-full bg-stone px-3 py-1 text-sm font-medium">{s.tag}</span>
                   <h2 id={`svc-${s.slug}`} className="text-h2 mt-4">{s.name}</h2>
                   <p className="text-lead mt-4 text-muted-foreground">{s.text}</p>
-                  <p className="mt-6 border-l-2 border-lime pl-4"><span className="font-semibold">Made for: </span>{s.forWho}</p>
+                  <p className="mt-6 border-l-2 border-leaf pl-4"><span className="font-semibold">Made for: </span>{s.forWho}</p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Cta to="/contact" search={{ type: s.enquiryType }}>
                       {s.slug === "fleet" ? "Start a fleet conversation" : "Enquire"}

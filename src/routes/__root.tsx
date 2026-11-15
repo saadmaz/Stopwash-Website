@@ -20,14 +20,14 @@ import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
-    <section className="section-paper flex min-h-[80vh] items-center px-5 pb-20 pt-36 md:px-8">
+    <section className="flex min-h-[80vh] items-center px-5 pb-20 pt-36 md:px-8">
       <div className="mx-auto w-full max-w-[1240px]">
         <p className="eyebrow mb-5">Page not found</p>
         <h1 className="text-h1 max-w-2xl">Looks like a wrong turn.</h1>
         <p className="text-lead mt-5 max-w-lg text-muted-foreground">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Link to="/" className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c9ff4d]">Back to home</Link>
-          <Link to="/locations" className="inline-flex items-center rounded-full border border-ink/25 px-6 py-3.5 font-semibold hover:border-ink/60">Find a STOPWASH</Link>
+          <Link to="/" className="inline-flex items-center rounded-lg bg-navy px-5 py-3 text-[0.9375rem] font-medium text-snow transition-colors hover:bg-ink">Back to home</Link>
+          <Link to="/locations" className="inline-flex items-center rounded-lg border border-ink/25 px-5 py-3 text-[0.9375rem] font-medium transition-colors hover:border-ink/60 hover:bg-ink/5">Find a STOPWASH</Link>
         </div>
       </div>
     </section>
@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "STOPWASH: The Queue Ends Here" },
       { name: "description", content: "STOPWASH is building a faster, sharper vehicle-care network in Sri Lanka." },
       { name: "author", content: "STOPWASH PVT LTD" },
-      { name: "theme-color", content: "#FFFFFF" },
+      { name: "theme-color", content: "#F5F3ED" },
       { property: "og:site_name", content: "STOPWASH" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "alternate", type: "application/rss+xml", title: "STOPWASH Blog", href: "/blog/rss.xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Black&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" },
     ],
     scripts: [
       {
@@ -140,7 +140,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-snow">Skip to content</a>
       <Navbar />
       <main id="main" key={pathname} className="page-fade">
         <Outlet />

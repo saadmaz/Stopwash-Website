@@ -15,14 +15,14 @@ type Props = {
 export function Photo({ src, alt, className, imgClassName, label, priority }: Props) {
   if (!src) {
     return (
-      <div aria-hidden className={cn("flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-border bg-paper p-6 text-center text-ink", className)}>
-        <Logo className="text-lg text-ink" wash="text-leaf" />
+      <div aria-hidden className={cn("flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-border bg-stone p-6 text-center text-ink", className)}>
+        <Logo className="text-base" />
         {label && <p className="text-sm font-medium text-muted-foreground">{label}</p>}
       </div>
     );
   }
   return (
-    <div className={cn("overflow-hidden rounded-2xl bg-paper", className)}>
+    <div className={cn("overflow-hidden rounded-2xl bg-stone", className)}>
       <img
         src={src}
         alt={alt}

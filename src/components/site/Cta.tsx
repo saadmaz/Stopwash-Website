@@ -4,19 +4,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Compact, confident buttons.
+ * `primary` is the solid dark action; everything else is deliberately quieter.
+ */
 export const ctaVariants = cva(
-  "group inline-flex items-center justify-center gap-2 text-center sm:whitespace-nowrap rounded-full px-6 py-3.5 text-[0.9375rem] font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-60",
+  "group inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-center text-[0.9375rem] font-medium transition-colors duration-200 sm:whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-60",
   {
     variants: {
       variant: {
-        lime: "bg-lime text-ink hover:bg-[#c9ff4d]",
+        primary: "bg-navy text-snow hover:bg-ink",
         ink: "bg-ink text-snow hover:bg-navy",
-        outline: "border border-current/25 text-foreground hover:border-current/60",
-        light: "bg-snow text-ink hover:bg-paper",
-        link: "rounded-none px-0 py-1 text-foreground underline decoration-current/30 underline-offset-[6px] hover:decoration-current",
+        outline: "border border-current/25 text-foreground hover:border-current/60 hover:bg-current/5",
+        light: "bg-snow text-ink hover:bg-stone",
+        link: "rounded-none px-0 py-1 text-foreground underline decoration-leaf decoration-2 underline-offset-[6px] hover:decoration-current",
       },
     },
-    defaultVariants: { variant: "lime" },
+    defaultVariants: { variant: "primary" },
   },
 );
 

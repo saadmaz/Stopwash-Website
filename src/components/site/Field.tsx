@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export const inputCls =
-  "w-full rounded-xl border border-input bg-snow px-4 py-3 text-base text-ink placeholder:text-ink/40 transition-colors focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10";
+  "w-full rounded-lg border border-input bg-snow px-4 py-3 text-base text-ink placeholder:text-ink/40 transition-colors focus:border-navy focus:outline-none focus:ring-4 focus:ring-navy/10";
 
 export function Field({ label, error, children, htmlFor, optional }: { label: string; error?: string | undefined; children: ReactNode; htmlFor: string; optional?: boolean }) {
   return (

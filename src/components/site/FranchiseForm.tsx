@@ -35,7 +35,7 @@ export function FranchiseForm() {
   if (done) {
     return (
       <div className="rounded-2xl border border-border bg-snow p-8 md:p-12">
-        <CheckCircle2 className="h-12 w-12 text-leaf" />
+        <CheckCircle2 className="h-12 w-12 text-moss" />
         <h3 className="text-h2 mt-5">Enquiry received.</h3>
         <p className="mt-5 max-w-2xl text-lg">Thank you for your interest in building with STOPWASH. We review every enquiry carefully. If the market, partner and opportunity are aligned, our team will contact you for the next conversation.</p>
       </div>
@@ -80,7 +80,7 @@ export function FranchiseForm() {
         <Field label="What will you bring to the network?" htmlFor="f-bring" optional><textarea id="f-bring" rows={3} className={inputCls} {...register("contribution")} /></Field>
         <Field label="Preferred time to speak" htmlFor="f-time" optional><input id="f-time" placeholder="e.g. Weekday mornings" className={inputCls} {...register("preferredTime")} /></Field>
       </fieldset>
-      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "lime", className: "w-full md:w-auto md:justify-self-start" })}>
+      <button type="submit" disabled={isSubmitting} className={ctaVariants({ variant: "primary", className: "w-full md:w-auto md:justify-self-start" })}>
         {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : "Start the franchise conversation"}
       </button>
       <p className="text-sm text-muted-foreground">Your details are stored securely and only seen by the STOPWASH franchise team.</p>

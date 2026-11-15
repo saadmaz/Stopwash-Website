@@ -5,12 +5,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Calmer geometry: cards and controls read as panels, not pills. */
+  --radius: 0.625rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-2xl: 0.75rem;
+  --radius-3xl: 1rem;
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,45 +36,53 @@
   --color-ring: var(--ring);
   --color-navy: var(--navy);
   --color-ink: var(--ink);
-  --color-lime: var(--lime);
   --color-leaf: var(--leaf);
+  --color-moss: var(--moss);
+  --color-stone: var(--stone);
   --color-paper: var(--paper);
   --color-snow: var(--snow);
   --color-steel: var(--steel);
 }
 
-/* Brand palette: #B6FF00 lime · #0B1728 navy · #050A12 ink · #F5F6F2 paper · #A6ADB8 steel */
+/*
+  Palette — a better kind of clean.
+  Warm light neutrals carry the site; the deep blue-green anchors it; the green
+  accent appears only in small doses (pips, checks, rules, hover states).
+
+  #F5F3ED paper · #E5E2D9 stone · #1C3038 navy (deep ink blue-green)
+  #292D2F ink (charcoal text) · #A8B78A leaf (muted accent) · #C9C7BF steel (quiet line)
+*/
 :root {
-  --radius: 1rem;
-  --navy: #0b1728;
-  --ink: #050a12;
-  --lime: #b6ff00;
-  --leaf: #4a7300; /* lime darkened for readable accent text on light backgrounds */
-  --paper: #f5f6f2;
-  --snow: #ffffff;
-  --steel: #a6adb8;
+  --navy: #1c3038; /* dark anchor: footer, contrast sections */
+  --ink: #292d2f; /* charcoal: headlines and body copy */
+  --leaf: #a8b78a; /* muted accent: small highlights and states only */
+  --moss: #546440; /* leaf darkened so accent text stays readable on light */
+  --paper: #f5f3ed; /* main canvas */
+  --stone: #e5e2d9; /* gentle section separation */
+  --snow: #fbfaf6; /* warm white: cards, inputs, type on dark */
+  --steel: #c9c7bf; /* quiet line */
 
   /* Light by default; dark sections opt in with .section-dark */
-  --background: var(--snow);
+  --background: var(--paper);
   --foreground: var(--ink);
   --card: var(--snow);
   --card-foreground: var(--ink);
   --popover: var(--snow);
   --popover-foreground: var(--ink);
-  --primary: var(--lime);
-  --primary-foreground: var(--ink);
-  --secondary: var(--paper);
+  --primary: var(--navy);
+  --primary-foreground: var(--snow);
+  --secondary: var(--stone);
   --secondary-foreground: var(--ink);
-  --muted: var(--paper);
-  --muted-foreground: #5a6372;
-  --accent: var(--lime);
+  --muted: var(--stone);
+  --muted-foreground: #5f625d;
+  --accent: var(--leaf);
   --accent-foreground: var(--ink);
-  --destructive: #d93025;
+  --destructive: #9c3024;
   --destructive-foreground: var(--snow);
-  --border: rgb(5 10 18 / 0.1);
-  --input: rgb(5 10 18 / 0.16);
+  --border: rgb(41 45 47 / 0.14);
+  --input: rgb(41 45 47 / 0.2);
   --ring: var(--navy);
-  --eyebrow: var(--leaf);
+  --eyebrow: var(--moss);
 }
 
 @layer base {
@@ -83,16 +95,22 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
-  ::selection { background: var(--lime); color: var(--ink); }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+  ::selection { background: var(--leaf); color: var(--ink); }
+
+  /* Visible keyboard focus everywhere, never on mouse clicks. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
   /* Keep browser-drawn UI on brand */
   :root { color-scheme: light; accent-color: var(--navy); }
-  html { scrollbar-color: #c5cad2 transparent; scrollbar-width: thin; }
+  html { scrollbar-color: var(--steel) transparent; scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #c5cad2; border-radius: 999px; border: 2px solid var(--snow); }
-  ::-webkit-scrollbar-thumb:hover { background: #9aa1ab; }
+  ::-webkit-scrollbar-thumb { background: var(--steel); border-radius: 999px; border: 2px solid var(--paper); }
+  ::-webkit-scrollbar-thumb:hover { background: #adab9f; }
   textarea { resize: vertical; }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -119,87 +137,108 @@
   background: var(--navy);
   color: var(--snow);
   --foreground: var(--snow);
-  --muted-foreground: #b4bcc8;
-  --border: rgb(255 255 255 / 0.12);
-  --input: rgb(255 255 255 / 0.2);
-  --card: rgb(255 255 255 / 0.04);
+  --muted-foreground: #b3beb9;
+  --border: rgb(251 250 246 / 0.14);
+  --input: rgb(251 250 246 / 0.22);
+  --card: rgb(251 250 246 / 0.05);
   --card-foreground: var(--snow);
-  --ring: var(--lime);
-  --eyebrow: var(--lime);
+  --ring: var(--leaf);
+  --eyebrow: var(--leaf);
 }
-/* Restores light-theme tokens inside a dark section (e.g. a white form card on navy). */
+/* Restores light-theme tokens inside a dark section (e.g. a white form card on ink). */
 @utility theme-light {
   --foreground: var(--ink);
-  --muted-foreground: #5a6372;
-  --border: rgb(5 10 18 / 0.1);
-  --input: rgb(5 10 18 / 0.16);
+  --muted-foreground: #5f625d;
+  --border: rgb(41 45 47 / 0.14);
+  --input: rgb(41 45 47 / 0.2);
   --card: var(--snow);
   --card-foreground: var(--ink);
   --ring: var(--navy);
-  --eyebrow: var(--leaf);
+  --eyebrow: var(--moss);
 }
-@utility section-paper {
-  background: var(--paper);
+/* Soft stone: a gentle separation between two light sections. */
+@utility section-stone {
+  background: var(--stone);
   color: var(--ink);
+  --card: var(--snow);
+  --border: rgb(41 45 47 / 0.12);
 }
-@utility section-lime {
-  background: var(--lime);
+/* A stone panel inside a light section: used for closing statements. */
+@utility panel-stone {
+  background: var(--stone);
   color: var(--ink);
-  --muted-foreground: rgb(5 10 18 / 0.72);
-  --border: rgb(5 10 18 / 0.18);
-  --eyebrow: var(--ink);
+  --muted-foreground: #55584f;
+  --border: rgb(41 45 47 / 0.16);
+  --eyebrow: var(--moss);
 }
 
-/* ── Type scale ─────────────────────────────────── */
+/* ── Typography ─────────────────────────────────────
+   Archivo Black carries the oversized display moments; Archivo covers smaller
+   headings and emphasis; DM Sans handles everything that has to be read. */
+:root {
+  --display-face: "Archivo Black", "Archivo", ui-sans-serif, system-ui, sans-serif;
+}
 @utility text-hero {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: var(--display-face);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
-  font-size: clamp(2.75rem, min(7.2vw, 11vh), 6.25rem);
+  font-size: clamp(3rem, min(8.4vw, 12vh), 7.25rem);
 }
 @utility text-h1 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  font-size: clamp(2.375rem, 5vw, 4.25rem);
+  font-family: var(--display-face);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
 }
 @utility text-h2 {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--display-face);
+  font-weight: 400;
   line-height: 1.06;
-  letter-spacing: -0.03em;
-  font-size: clamp(1.875rem, 3.4vw, 3rem);
+  letter-spacing: -0.02em;
+  font-size: clamp(1.875rem, 3.4vw, 2.875rem);
 }
 @utility text-h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-size: 1.1875rem;
+}
+@utility text-statement {
+  font-family: var(--display-face);
+  font-weight: 400;
+  line-height: 1.15;
   letter-spacing: -0.015em;
-  font-size: 1.25rem;
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
 }
 @utility text-lead {
-  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-  line-height: 1.6;
+  font-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  line-height: 1.65;
 }
 @utility eyebrow {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--eyebrow);
 }
 
 /* ── Rhythm ─────────────────────────────────────── */
 @utility section-y {
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+/* A single hairline of accent: the green used as a cue, never as a field. */
+@utility rule-leaf {
+  border-left: 2px solid var(--leaf);
+  padding-left: 1.25rem;
 }
 
 /* ── Motion: CSS so SSR'd hero content animates before hydration ── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes page-fade {
@@ -207,11 +246,11 @@
   to { opacity: 1; }
 }
 @utility fade-up {
-  animation: fade-up 0.8s cubic-bezier(.22,1,.36,1) both;
+  animation: fade-up 0.7s cubic-bezier(.22,1,.36,1) both;
   animation-delay: var(--d, 0s);
 }
 @utility page-fade {
-  animation: page-fade 0.35s ease-out both;
+  animation: page-fade 0.3s ease-out both;
 }
 
 /* ── Blog article body (rendered Markdown) ───────── */
@@ -219,15 +258,15 @@
   .prose-blog {
     font-size: 1.125rem;
     line-height: 1.75;
-    color: #2a3240;
+    color: #3a3d3b;
   }
   .prose-blog > * + * { margin-top: 1.25em; }
   .prose-blog h2 {
     margin-top: 2.2em;
-    font-family: var(--font-display);
-    font-weight: 700;
+    font-family: var(--display-face);
+    font-weight: 400;
     font-size: clamp(1.5rem, 2.4vw, 1.875rem);
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
@@ -235,30 +274,31 @@
     margin-top: 1.8em;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.1875rem;
     color: var(--ink);
   }
   .prose-blog h2 + *, .prose-blog h3 + * { margin-top: 0.75em; }
-  .prose-blog a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--lime); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .prose-blog a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--leaf); text-decoration-thickness: 2px; text-underline-offset: 4px; }
   .prose-blog a:hover { text-decoration-color: var(--ink); }
   .prose-blog strong { color: var(--ink); font-weight: 600; }
   .prose-blog ul, .prose-blog ol { padding-left: 1.4em; }
   .prose-blog ul { list-style: disc; }
   .prose-blog ol { list-style: decimal; }
   .prose-blog li + li { margin-top: 0.4em; }
-  .prose-blog li::marker { color: var(--leaf); }
+  .prose-blog li::marker { color: var(--moss); }
   .prose-blog blockquote {
-    border-left: 4px solid var(--lime);
+    border-left: 2px solid var(--leaf);
     padding: 0.25em 0 0.25em 1.25em;
-    font-family: var(--font-display);
+    font-family: var(--display-face);
+    font-weight: 400;
     font-size: 1.375rem;
-    font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
     color: var(--ink);
   }
-  .prose-blog img { width: 100%; border-radius: 1rem; }
+  .prose-blog img { width: 100%; border-radius: var(--radius-3xl); }
   .prose-blog hr { border: 0; border-top: 1px solid var(--color-border); margin: 2.5em 0; }
-  .prose-blog code { background: var(--paper); border-radius: 0.375rem; padding: 0.15em 0.4em; font-size: 0.9em; }
+  .prose-blog code { background: var(--stone); border-radius: 0.375rem; padding: 0.15em 0.4em; font-size: 0.9em; }
   .prose-blog table { width: 100%; border-collapse: collapse; font-size: 1rem; }
   .prose-blog th, .prose-blog td { border-bottom: 1px solid var(--color-border); padding: 0.6em 0.5em; text-align: left; }
 }

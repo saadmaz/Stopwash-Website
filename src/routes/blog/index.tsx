@@ -45,7 +45,7 @@ function Blog() {
           )}
 
           {!featured ? (
-            <div className="rounded-3xl bg-paper px-6 py-16 text-center">
+            <div className="rounded-3xl bg-stone px-6 py-16 text-center">
               <h2 className="text-h3">No posts yet{tag ? ` in “${tag}”` : ""}.</h2>
               <p className="mt-2 text-muted-foreground">Check back soon, or follow us for updates.</p>
               <SocialLinks className="mt-6 justify-center" />
@@ -86,7 +86,7 @@ function TagLink({ tag, active, children }: { tag?: string; active: boolean; chi
       to="/blog"
       search={tag ? { tag } : {}}
       aria-current={active ? "page" : undefined}
-      className={cn("inline-block rounded-full px-4 py-2 text-sm font-medium transition-colors", active ? "bg-ink text-snow" : "bg-paper hover:bg-ink/10")}
+      className={cn("inline-block rounded-full px-4 py-2 text-sm font-medium transition-colors", active ? "bg-ink text-snow" : "bg-stone hover:bg-ink/10")}
     >
       {children}
     </Link>

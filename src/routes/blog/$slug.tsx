@@ -65,7 +65,7 @@ function Article() {
   return (
     <>
       <article>
-        <header className="section-paper pb-12 pt-32 md:pt-40">
+        <header className="section-stone pb-12 pt-32 md:pt-40">
           <Container className="max-w-3xl">
             <Link to="/blog" className="fade-up inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-ink">
               <ArrowLeft className="h-4 w-4" aria-hidden /> All posts
@@ -73,7 +73,7 @@ function Article() {
             {post.tags.length > 0 && (
               <ul className="fade-up mt-8 flex flex-wrap gap-2">
                 {post.tags.map((t) => (
-                  <li key={t}><Link to="/blog" search={{ tag: t }} className="rounded-full bg-snow px-3 py-1 text-xs font-medium hover:bg-lime">{t}</Link></li>
+                  <li key={t}><Link to="/blog" search={{ tag: t }} className="rounded-full bg-snow px-3 py-1 text-xs font-medium hover:bg-leaf">{t}</Link></li>
                 ))}
               </ul>
             )}
@@ -97,7 +97,7 @@ function Article() {
         <Container className="section-y max-w-3xl">
           <div className="prose-blog" dangerouslySetInnerHTML={{ __html: post.html }} />
           {post.updated && <p className="mt-10 text-sm text-muted-foreground">Updated {formatDate(post.updated)}</p>}
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-paper p-6">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-stone p-6">
             <p className="font-semibold">Found this useful? Share it.</p>
             <ShareButtons title={post.title} slug={post.slug} />
           </div>
@@ -105,7 +105,7 @@ function Article() {
       </article>
 
       {more.length > 0 && (
-        <section className="section-paper section-y">
+        <section className="section-stone section-y">
           <Container>
             <div className="flex items-end justify-between gap-6">
               <h2 className="text-h2">Keep reading</h2>

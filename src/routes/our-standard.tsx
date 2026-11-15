@@ -39,7 +39,7 @@ function OurStandard() {
             {standards.map((s, i) => (
               <li key={s.title}>
                 <Reveal delay={(i % 3) * 0.05} className="h-full rounded-2xl border border-border p-7">
-                  <span className="text-sm font-semibold text-leaf">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-sm font-semibold text-moss">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="text-h3 mt-3">{s.title}</h3>
                   <p className="mt-2 leading-relaxed text-muted-foreground">{s.text}</p>
                 </Reveal>
@@ -48,14 +48,14 @@ function OurStandard() {
             <li>
               <Reveal className="flex h-full flex-col justify-between gap-6 rounded-2xl bg-navy p-7 text-snow">
                 <p className="font-display text-xl font-bold leading-snug">The system sets the pace. The people create the difference.</p>
-                <div><Cta to="/contact" variant="lime" className="px-5 py-2.5">Tell us how we did</Cta></div>
+                <div><Cta to="/contact" variant="light" className="px-4 py-2.5">Tell us how we did</Cta></div>
               </Reveal>
             </li>
           </ul>
         </Container>
       </section>
 
-      <section className="section-paper section-y">
+      <section className="section-stone section-y">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading eyebrow="The quality loop" title="Standards are not a poster on the wall." intro="Every service is defined before it is delivered, checked before the vehicle is handed back, and recovered properly if it falls short. The network gets sharper as it grows, not looser." />

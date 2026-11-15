@@ -43,27 +43,24 @@ function Home() {
 /* Hero: full-bleed photograph, one confident line, two actions. */
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink text-snow md:h-[92svh] md:max-h-[900px]" aria-labelledby="hero-title">
-      <img src={images.heroBay} alt={alts.heroBay} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%]" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-ink/70 to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-ink/55 md:hidden" />
-      <Container className="pb-14 pt-32 md:pb-20">
-        <div className="max-w-2xl">
-          <p className="fade-up mb-6 inline-flex items-center gap-2 rounded-full bg-snow/10 px-3.5 py-1.5 text-sm font-medium backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-lime" /> Now open in Katubedda
+    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-navy text-snow md:h-[92svh] md:max-h-[900px]" aria-labelledby="hero-title">
+      <img src={images.heroBay} alt={alts.heroBay} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover object-[62%_45%]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/88 via-navy/55 to-navy/10" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-2/5 bg-gradient-to-t from-navy/75 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-navy/45 md:hidden" />
+      <Container className="pb-16 pt-32 md:pb-24">
+        <div className="max-w-3xl">
+          <p className="fade-up mb-7 inline-flex items-center gap-2.5 text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-snow/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-leaf" /> Now open in Katubedda
           </p>
           <h1 id="hero-title" className="text-hero fade-up" style={{ ["--d" as string]: "0.05s" }}>
-            The queue <br />ends <span className="text-lime">here.</span>
+            The queue <br />ends here.
           </h1>
-          <p className="fade-up mt-6 font-display text-xl font-semibold md:text-2xl" style={{ ["--d" as string]: "0.15s" }}>
-            Vehicle care without the lost afternoon.
+          <p className="fade-up mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-snow/75 md:text-lg" style={{ ["--d" as string]: "0.15s" }}>
+            Vehicle care without the lost afternoon. STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
           </p>
-          <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.2s" }}>
-            STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
-          </p>
-          <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.3s" }}>
-            <Cta to="/locations">Find a STOPWASH</Cta>
+          <div className="fade-up mt-10 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.25s" }}>
+            <Cta to="/locations" variant="light">Find a STOPWASH</Cta>
             <Cta to="/franchise" variant="outline" className="text-snow">Build a STOPWASH</Cta>
           </div>
         </div>
@@ -82,7 +79,7 @@ function Intro() {
             <p className="text-foreground">Somewhere along the way, washing a car became a test of patience.</p>
             <p>You arrive with a dirty vehicle. You join a line. You wait without knowing how long. You leave hoping the finish is worth the time you gave away.</p>
             <p>STOPWASH was built on a simple refusal:</p>
-            <p className="border-l-4 border-lime pl-5 font-display text-2xl font-bold leading-snug tracking-tight text-foreground md:text-[1.75rem]">
+            <p className="text-statement rule-leaf text-foreground">
               Vehicle care should not cost you your momentum.
             </p>
             <p>So we are building a better way to do it, with a clear process, a trained clean squad, a visible standard and a finish that earns the return visit.</p>
@@ -93,13 +90,13 @@ function Intro() {
           <Reveal delay={0.08}><Photo src={images.detailHands} alt={alts.detailHands} className="h-64 md:h-[26rem]" /></Reveal>
         </div>
         <Reveal className="mt-4">
-          <Link to="/our-story" hash="the-name" className="group flex flex-col gap-5 rounded-3xl bg-navy p-7 text-snow sm:flex-row sm:items-center md:p-9">
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-lime"><Timer className="h-7 w-7 text-ink" aria-hidden /></span>
+          <Link to="/our-story" hash="the-name" className="group flex flex-col gap-6 rounded-2xl bg-navy p-8 text-snow sm:flex-row sm:items-center md:p-10">
+            <Timer className="h-6 w-6 shrink-0 text-leaf" aria-hidden />
             <div className="flex-1">
-              <p className="eyebrow text-lime">Why the name?</p>
-              <p className="mt-2 font-display text-xl font-bold leading-snug tracking-tight md:text-2xl">STOPWASH comes from the stopwatch. We never set out to sell a car wash. We set out to sell time.</p>
+              <p className="eyebrow text-leaf">Why the name?</p>
+              <p className="text-statement mt-3">STOPWASH comes from the stopwatch. We never set out to sell a car wash. We set out to sell time.</p>
             </div>
-            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold text-lime">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap text-[0.9375rem] font-medium text-snow/85 group-hover:text-snow">
               Read the story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </span>
           </Link>
@@ -122,19 +119,19 @@ function Building() {
           </Reveal>
         </div>
         <div className="lg:col-span-6 lg:pt-10">
-          <ul className="divide-y divide-border rounded-2xl bg-paper px-6">
+          <ul className="divide-y divide-border border-y border-border">
             {buildingEngine.map((item, i) => (
               <li key={item}>
-                <Reveal delay={i * 0.03} className="flex items-center justify-between gap-4 py-4">
+                <Reveal delay={i * 0.03} className="flex items-baseline gap-5 py-4">
+                  <span className="text-xs tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                   <span className="font-medium">{item}</span>
-                  <span className="text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                 </Reveal>
               </li>
             ))}
           </ul>
-          <Reveal delay={0.1} className="mt-6 text-lg leading-relaxed">
+          <Reveal delay={0.1} className="mt-8">
             <p className="text-muted-foreground">The goal is not to make customers better at waiting.</p>
-            <p className="font-display text-xl font-bold tracking-tight">The goal is to remove the waiting from the experience.</p>
+            <p className="text-statement mt-2">The goal is to remove the waiting from the experience.</p>
           </Reveal>
         </div>
       </Container>
@@ -145,25 +142,25 @@ function Building() {
 /* Brand promise. */
 function BrandPromise() {
   return (
-    <section className="section-dark section-y">
+    <section className="section-stone section-y">
       <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <SectionHeading eyebrow="Our promise" title="Your time is not a spare part." intro="We do not treat your time as something that can be left idling beside the wash bay. Every visit is designed to give you what a modern vehicle-care service should." />
         </div>
         <div className="lg:pt-10">
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="grid gap-x-8 sm:grid-cols-2">
             {brandPromise.map((item, i) => (
               <li key={item} className={i === brandPromise.length - 1 ? "sm:col-span-2" : ""}>
-                <Reveal delay={i * 0.04} className="flex items-center gap-3 rounded-2xl bg-card px-5 py-4">
-                  <Check className="h-5 w-5 shrink-0 text-lime" aria-hidden />
+                <Reveal delay={i * 0.04} className="flex items-center gap-3 border-b border-border py-4">
+                  <Check className="h-[1.1rem] w-[1.1rem] shrink-0 text-moss" aria-hidden />
                   <span className="font-medium">{item}</span>
                 </Reveal>
               </li>
             ))}
           </ul>
-          <Reveal delay={0.15} className="mt-8 border-l-2 border-lime pl-5">
-            <p className="text-lg text-muted-foreground">The vehicle leaves cleaner.</p>
-            <p className="font-display text-xl font-bold tracking-tight">You leave with your day intact.</p>
+          <Reveal delay={0.15} className="rule-leaf mt-10">
+            <p className="text-muted-foreground">The vehicle leaves cleaner.</p>
+            <p className="text-statement mt-1">You leave with your day intact.</p>
           </Reveal>
         </div>
       </Container>
@@ -173,16 +170,16 @@ function BrandPromise() {
 
 function Difference() {
   return (
-    <section className="section-paper section-y">
+    <section className="section-stone section-y">
       <Container>
-        <SectionHeading center eyebrow="The STOPWASH difference" title="Less waiting. More moving." />
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <SectionHeading eyebrow="The STOPWASH difference" title="Less waiting. More moving." />
+        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {pillars.map((p, i) => {
             const Icon = pillarIcons[i]!;
             return (
-              <Reveal key={p.title} delay={i * 0.06} className="rounded-2xl bg-snow p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-lime"><Icon className="h-6 w-6 text-ink" aria-hidden /></span>
-                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight">{p.title}</h3>
+              <Reveal key={p.title} delay={i * 0.06} className="border-t border-border pt-6">
+                <Icon className="h-5 w-5 text-moss" aria-hidden />
+                <h3 className="text-h3 mt-5">{p.title}</h3>
                 <p className="mt-2 font-medium">{p.lead}</p>
                 <p className="mt-2 leading-relaxed text-muted-foreground">{p.text}</p>
               </Reveal>
@@ -197,10 +194,10 @@ function Difference() {
 function FirstOutlet() {
   const loc = locations[0]!;
   return (
-    <section className="section-dark section-y">
-      <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal><Photo src={images.foam} alt={alts.foam} className="aspect-[4/3]" /></Reveal>
-        <div>
+    <section className="section-stone section-y">
+      <Container className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+        <Reveal className="lg:col-span-7"><Photo src={images.foam} alt={alts.foam} className="aspect-[5/4]" /></Reveal>
+        <div className="lg:col-span-5">
           <SectionHeading eyebrow="Our first outlet" title="Katubedda is where the movement starts." />
           <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
             <p>The first STOPWASH outlet in Katubedda is where the idea meets the road.</p>
@@ -209,10 +206,10 @@ function FirstOutlet() {
           <Reveal delay={0.15}>
             <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6">
               <div><dt className="text-sm text-muted-foreground">Location</dt><dd className="mt-1 font-semibold">Katubedda, Sri Lanka</dd></div>
-              <div><dt className="text-sm text-muted-foreground">Phone</dt><dd className="mt-1 font-semibold"><a href={contact.phoneHref} className="hover:text-lime">{contact.phone}</a></dd></div>
+              <div><dt className="text-sm text-muted-foreground">Phone</dt><dd className="mt-1 font-semibold"><a href={contact.phoneHref} className="underline decoration-leaf decoration-2 underline-offset-4 hover:decoration-current">{contact.phone}</a></dd></div>
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={directionsUrl(loc)} target="_blank" rel="noopener noreferrer" className={ctaVariants({ variant: "lime" })}><Navigation className="h-4 w-4" aria-hidden /> Get directions</a>
+              <a href={directionsUrl(loc)} target="_blank" rel="noopener noreferrer" className={ctaVariants({ variant: "primary" })}><Navigation className="h-4 w-4" aria-hidden /> Get directions</a>
               <a href={contact.phoneHref} className={ctaVariants({ variant: "outline" })}><Phone className="h-4 w-4" aria-hidden /> Call now</a>
             </div>
           </Reveal>
@@ -253,10 +250,10 @@ function ServicesPreview() {
 
 function HowItWorks() {
   return (
-    <section className="section-paper section-y">
+    <section className="section-y">
       <Container>
-        <SectionHeading center eyebrow="How it works" title="No mystery. No wandering around. No lost afternoon." />
-        <StepTrack steps={journey} className="mt-12" />
+        <SectionHeading eyebrow="How it works" title="No mystery. No wandering around. No lost afternoon." />
+        <StepTrack steps={journey} className="mt-14" />
       </Container>
     </section>
   );
@@ -273,8 +270,8 @@ function CleanSquad() {
             <p>The STOPWASH clean squad is trained to move with purpose, pay attention to the details and understand that every vehicle is someone's time, money and responsibility on four wheels.</p>
             <p>We do not want a team that simply completes tasks. We want a team that sees the finish before the customer does.</p>
           </Reveal>
-          <Reveal delay={0.15} className="mt-8 rounded-2xl bg-paper p-6">
-            <p className="font-display text-xl font-bold leading-snug tracking-tight">The system sets the pace. The people create the difference.</p>
+          <Reveal delay={0.15} className="rule-leaf mt-10">
+            <p className="text-statement">The system sets the pace. The people create the difference.</p>
           </Reveal>
         </div>
         <div className="grid grid-cols-2 gap-4 lg:order-1">
@@ -299,7 +296,7 @@ function Standard() {
           {standards.map((s, i) => (
             <li key={s.title}>
               <Reveal delay={(i % 2) * 0.05} className="flex gap-4">
-                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lime"><Check className="h-4 w-4 text-ink" aria-hidden /></span>
+                <Check className="mt-1 h-[1.1rem] w-[1.1rem] shrink-0 text-leaf" aria-hidden />
                 <div>
                   <h3 className="font-semibold">{s.title}</h3>
                   <p className="mt-1 text-[0.9375rem] leading-relaxed text-muted-foreground">{s.text}</p>
@@ -317,7 +314,7 @@ function Expansion() {
   return (
     <section className="section-y">
       <Container>
-        <Reveal className="section-lime grid gap-8 rounded-3xl px-7 py-12 md:px-14 md:py-16 lg:grid-cols-2 lg:items-end lg:gap-16">
+        <Reveal className="panel-stone grid gap-8 rounded-2xl px-7 py-14 md:px-14 md:py-20 lg:grid-cols-2 lg:items-end lg:gap-16">
           <div>
             <p className="eyebrow mb-4">Grow with us</p>
             <h2 className="text-h2">One outlet proves a point. A network changes a category.</h2>
@@ -327,8 +324,8 @@ function Expansion() {
               STOPWASH is building the vehicle-care ecosystem for Sri Lanka. We are building the network one stop at a time, but the ambition is national.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>
-              <Cta to="/franchise" variant="outline">Explore franchising</Cta>
+              <Cta to="/franchise">Build a STOPWASH</Cta>
+              <Cta to="/franchise" variant="link" arrow={false}>Explore franchising</Cta>
             </div>
           </div>
         </Reveal>

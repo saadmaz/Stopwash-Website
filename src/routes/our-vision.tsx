@@ -32,16 +32,16 @@ function OurVision() {
 
       <section className="section-y">
         <Container>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Reveal className="flex flex-col rounded-3xl bg-navy p-8 text-snow md:p-12">
-              <p className="eyebrow text-lime">Vision</p>
-              <p className="mt-5 font-display text-2xl font-bold leading-snug tracking-tight md:text-3xl">
+          <div className="grid gap-5 md:grid-cols-2">
+            <Reveal className="flex flex-col rounded-2xl bg-navy p-8 text-snow md:p-12">
+              <p className="eyebrow text-leaf">Vision</p>
+              <p className="text-statement mt-6">
                 To make professional vehicle care as convenient, repeatable and accessible as the fuel stop, the coffee stop or the next stop on the road.
               </p>
             </Reveal>
-            <Reveal delay={0.08} className="flex flex-col rounded-3xl bg-lime p-8 text-ink md:p-12">
-              <p className="eyebrow text-ink">Mission</p>
-              <p className="mt-5 font-display text-2xl font-bold leading-snug tracking-tight md:text-3xl">
+            <Reveal delay={0.08} className="panel-stone flex flex-col rounded-2xl p-8 md:p-12">
+              <p className="eyebrow">Mission</p>
+              <p className="text-statement mt-6">
                 We make vehicle care easier for customers and more scalable for operators by combining strong locations, sharp systems, trained teams and a service experience people want to repeat.
               </p>
             </Reveal>
@@ -50,13 +50,13 @@ function OurVision() {
         </Container>
       </section>
 
-      <section className="section-paper section-y">
+      <section className="section-stone section-y">
         <Container>
           <SectionHeading center eyebrow="What we believe" title="The STOPWASH point of view" />
-          <ul className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-2">
+          <ul className="mx-auto mt-14 grid max-w-5xl gap-x-10 gap-y-8 md:grid-cols-2">
             {pov.map((p, i) => (
               <li key={p.not}>
-                <Reveal delay={(i % 2) * 0.06} className="h-full rounded-2xl bg-snow p-8">
+                <Reveal delay={(i % 2) * 0.06} className="h-full border-t border-border pt-6">
                   <p className="text-lg text-muted-foreground">{p.not}</p>
                   <p className="mt-2 font-display text-2xl font-bold leading-snug tracking-tight">{p.is}</p>
                 </Reveal>
