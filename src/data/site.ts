@@ -42,6 +42,9 @@ export const contact = {
   ] as const,
 };
 
+/** Pages that open with a full-screen dark LandingHero; the navigation bar is transparent over them. */
+export const landingHeroPaths = new Set(["/", "/services", "/locations", "/our-story", "/our-vision", "/our-standard", "/franchise", "/blog", "/contact"]);
+
 export type NavItem = { label: string; to: string; children?: { label: string; to: string }[] };
 
 export const mainNav: NavItem[] = [

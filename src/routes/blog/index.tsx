@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { pageHead } from "@/data/site";
 import { allTags, posts } from "@/lib/blog";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { PostCard } from "@/components/site/PostCard";
@@ -29,9 +29,12 @@ function Blog() {
 
   return (
     <>
-      <PageHero eyebrow="Blog" title="Notes from the road.">
-        <p>Car care tips, STOPWASH news and the thinking behind a better way to keep your vehicle moving.</p>
-      </PageHero>
+      <LandingHero
+        id="blog-title"
+        eyebrow="Blog"
+        title={<>Notes from the <span className="text-lime">road.</span></>}
+        lead={<p>Car care tips, STOPWASH news and the thinking behind a better way to keep your vehicle moving.</p>}
+      />
 
       <section className="section-y">
         <Container>

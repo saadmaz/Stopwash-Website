@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { locations, pageHead } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { contact, directionsUrl, locations, pageHead } from "@/data/site";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { LocationCard } from "@/components/site/LocationCard";
@@ -18,12 +18,20 @@ export const Route = createFileRoute("/locations")({
 
 function Locations() {
   const open = locations.filter((l) => l.status === "open");
+  const first = open[0];
   const soon = locations.filter((l) => l.status === "coming-soon");
   return (
     <>
-      <PageHero eyebrow="Locations" title="Find the next stop.">
-        <p>{open.length === 1 ? "One outlet open today. Built to be the first of many." : `${open.length} outlets open today.`}</p>
-      </PageHero>
+      <LandingHero
+        id="locations-title"
+        eyebrow="Locations"
+        title={<>Find the <span className="text-lime">next stop.</span></>}
+        lead={<p>{open.length === 1 ? "One outlet open today. Built to be the first of many." : `${open.length} outlets open today.`}</p>}
+        actions={first && <>
+          <Cta href={directionsUrl(first)}>Get directions</Cta>
+          <Cta href={contact.phoneHref} variant="outline" className="text-snow" arrow={false}>Call {contact.phone}</Cta>
+        </>}
+      />
 
       <section className="section-y">
         <Container className="grid gap-6">

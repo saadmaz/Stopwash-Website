@@ -161,6 +161,14 @@
   text-transform: uppercase;
   font-size: clamp(2.75rem, min(7.2vw, 11vh), 6.25rem);
 }
+/* Landing-hero heading for sentence-length page titles (a step below text-hero). */
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.5rem, min(5.4vw, 9vh), 4.75rem);
+}
 @utility text-h1 {
   font-family: var(--font-display);
   font-weight: 700;

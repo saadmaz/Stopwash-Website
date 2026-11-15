@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Timer } from "lucide-react";
 import { alts, images, networkParts, pageHead, storyQuestions } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -21,7 +21,15 @@ export const Route = createFileRoute("/our-story")({
 function OurStory() {
   return (
     <>
-      <PageHero eyebrow="Our story" title="We got tired of watching time disappear in car-wash queues." image={images.foam} imageAlt={alts.foam} />
+      <LandingHero
+        id="story-title"
+        eyebrow="Our story"
+        title={<>We got tired of watching <span className="text-lime">time disappear</span> in car-wash queues.</>}
+        actions={<>
+          <Cta href="#the-name">Why the name</Cta>
+          <Cta to="/locations" variant="outline" className="text-snow">Visit Katubedda</Cta>
+        </>}
+      />
 
       <section className="section-y">
         <Container className="grid gap-10 lg:grid-cols-12 lg:gap-16">

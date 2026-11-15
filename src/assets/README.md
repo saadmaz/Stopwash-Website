@@ -7,6 +7,10 @@
 | `brand/` | Official STOPWASH logo files | SVG preferred, or PNG |
 | `../../public/blog/` | Blog covers and images inside posts | JPG, so link previews work on WhatsApp, Facebook and LinkedIn |
 
+## Page hero photos
+
+Every main page opens with `LandingHero` (`src/components/site/LandingHero.tsx`). Pages without a photo show a branded backdrop. To add one, save it as `photos/hero-<page>.webp` (landscape, about 1600 x 900), import it in `src/data/site.ts` with alt text, and pass `image`, `imageAlt` and `focus` (the part to keep in view on phones) to that page's `LandingHero`.
+
 ## Adding images
 
 1. Drop the original files into `_incoming/` at the project root. That folder is ignored by git, so raw files never reach the repository.

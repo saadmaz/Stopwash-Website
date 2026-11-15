@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { pageHead, serviceCatalogue } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -21,9 +21,16 @@ export const Route = createFileRoute("/services")({
 function Services() {
   return (
     <>
-      <PageHero eyebrow="Services" title="Your vehicle has a schedule. So should its care.">
-        <p>STOPWASH services are designed around real moments: the quick reset, the weekly clean, the full refresh, the pre-sale presentation and the fleet that needs to be ready every morning.</p>
-      </PageHero>
+      <LandingHero
+        id="services-title"
+        eyebrow="Services"
+        title={<>Your vehicle has a schedule. <span className="text-lime">So should its care.</span></>}
+        lead={<p>STOPWASH services are designed around real moments: the quick reset, the weekly clean, the full refresh, the pre-sale presentation and the fleet that needs to be ready every morning.</p>}
+        actions={<>
+          <Cta to="/locations">Find a STOPWASH</Cta>
+          <Cta to="/contact" variant="outline" className="text-snow">Ask the team</Cta>
+        </>}
+      />
 
       <nav aria-label="Services on this page" className="sticky top-[4.5rem] z-30 border-b border-border bg-snow/95 backdrop-blur">
         <Container>

@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { contact, enquiryTypes, pageHead, type EnquiryType } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
+import { Cta } from "@/components/site/Cta";
 import { Container } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -34,9 +35,16 @@ function Contact() {
   const type = raw && enquiryTypes.includes(raw) ? raw : undefined;
   return (
     <>
-      <PageHero eyebrow="Contact" title="Keep the conversation moving.">
-        <p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH? Tell us where you are going.</p>
-      </PageHero>
+      <LandingHero
+        id="contact-title"
+        eyebrow="Contact"
+        title={<>Keep the conversation <span className="text-lime">moving.</span></>}
+        lead={<p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH? Tell us where you are going.</p>}
+        actions={<>
+          <Cta href={contact.phoneHref} arrow={false}>Call {contact.phone}</Cta>
+          <Cta href={contact.whatsappHref} variant="outline" className="text-snow">Message on WhatsApp</Cta>
+        </>}
+      />
 
       <section className="section-y">
         <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">

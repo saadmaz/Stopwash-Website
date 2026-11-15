@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { mainNav } from "@/data/site";
+import { landingHeroPaths, mainNav } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { Cta } from "./Cta";
@@ -31,8 +31,9 @@ export function Navbar() {
     };
   }, [open]);
 
-  // Only the homepage starts over a dark photo; everywhere else the bar is light.
-  const overDark = pathname === "/" && !scrolled && !open;
+  // Pages that open with a dark landing hero get a transparent bar until the visitor scrolls.
+  const path = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  const overDark = landingHeroPaths.has(path) && !scrolled && !open;
 
   const isActive = (item: (typeof mainNav)[number]) =>
     item.to === "/" ? pathname === "/" : item.children ? item.children.some((c) => pathname.startsWith(c.to)) : pathname.startsWith(item.to);

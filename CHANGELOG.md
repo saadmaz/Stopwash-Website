@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.
+- Navigation bar is transparent over every landing hero until the visitor scrolls.
 - Homepage hero fills the full screen, with the text aligned further left.
 - Hero photos show uncropped on wide screens and start below the navigation bar.
 - Navigation: "Franchise" moved out of the menu into the primary button, now labelled "Become a franchisee".

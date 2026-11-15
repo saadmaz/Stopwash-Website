@@ -6,6 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
 import { FinalCta } from "@/components/site/FinalCta";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 
 export const Route = createFileRoute("/")({
@@ -43,31 +44,26 @@ function Home() {
 /* Hero: full-bleed photograph, one confident line, two actions. */
 function Hero() {
   return (
-    <section className="relative isolate flex h-[100svh] min-h-[640px] items-end overflow-hidden bg-ink text-snow md:items-center" aria-labelledby="hero-title">
-      {/* Photo starts below the nav so the subject's head never sits under it. On wide screens it shows whole at the right. */}
-      <img src={images.heroHome} alt={alts.heroHome} fetchPriority="high" decoding="async" className="absolute inset-x-0 bottom-0 top-[4.5rem] -z-10 h-[calc(100%-4.5rem)] w-full object-cover object-[62%_10%] wide:left-auto wide:w-auto wide:max-w-none wide:fade-left" />
-      <div className="absolute inset-x-0 top-[4.5rem] -z-10 h-40 bg-gradient-to-b from-ink to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-ink/60 to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-ink/50 md:hidden" />
-      <Container className="max-w-[1440px] pb-14 pt-32 md:pb-0 md:pt-24">
-        <div className="max-w-2xl">
-          <h1 id="hero-title" className="text-hero fade-up" style={{ ["--d" as string]: "0.05s" }}>
-            Giving you <br />back <span className="text-lime">the gift</span> <br />of time
-          </h1>
-          <p className="fade-up mt-6 font-display text-xl font-semibold md:text-2xl" style={{ ["--d" as string]: "0.15s" }}>
-            Vehicle care without the lost afternoon.
-          </p>
-          <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.2s" }}>
-            STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
-          </p>
-          <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.3s" }}>
-            <Cta to="/locations">Find a STOPWASH</Cta>
-            <Cta to="/franchise" variant="outline" className="text-snow">Build a STOPWASH</Cta>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <LandingHero
+      id="hero-title"
+      tone="ink"
+      titleClassName="text-hero"
+      image={images.heroHome}
+      imageAlt={alts.heroHome}
+      focus="62% 10%"
+      title={<>Giving you <br />back <span className="text-lime">the gift</span> <br />of time</>}
+      actions={<>
+        <Cta to="/locations">Find a STOPWASH</Cta>
+        <Cta to="/franchise" variant="outline" className="text-snow">Build a STOPWASH</Cta>
+      </>}
+    >
+      <p className="fade-up mt-6 font-display text-xl font-semibold md:text-2xl" style={{ ["--d" as string]: "0.15s" }}>
+        Vehicle care without the lost afternoon.
+      </p>
+      <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.2s" }}>
+        STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
+      </p>
+    </LandingHero>
   );
 }
 

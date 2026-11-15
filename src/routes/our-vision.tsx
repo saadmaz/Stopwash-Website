@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { alts, images, pageHead } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
+import { Cta } from "@/components/site/Cta";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -26,9 +27,16 @@ const pov = [
 function OurVision() {
   return (
     <>
-      <PageHero eyebrow="Our vision" title="Make vehicle care disappear into the rhythm of the day.">
-        <p>The best vehicle-care experience is not the one that demands attention. It is the one that fits neatly into the day, delivers exactly what was expected and leaves you moving better than before. That is the future STOPWASH is building.</p>
-      </PageHero>
+      <LandingHero
+        id="vision-title"
+        eyebrow="Our vision"
+        title={<>Make vehicle care disappear into the <span className="text-lime">rhythm of the day.</span></>}
+        lead={<p>The best vehicle-care experience is not the one that demands attention. It is the one that fits neatly into the day, delivers exactly what was expected and leaves you moving better than before. That is the future STOPWASH is building.</p>}
+        actions={<>
+          <Cta to="/our-standard">See our standard</Cta>
+          <Cta to="/locations" variant="outline" className="text-snow">Find a STOPWASH</Cta>
+        </>}
+      />
 
       <section className="section-y">
         <Container>

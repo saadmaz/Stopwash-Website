@@ -9,6 +9,7 @@ import { Cta } from "@/components/site/Cta";
 import { LocationCard } from "@/components/site/LocationCard";
 import { FaqList } from "@/components/site/FaqList";
 import { FranchiseApply } from "@/components/site/FranchiseApply";
+import { LandingHero } from "@/components/site/LandingHero";
 
 export const Route = createFileRoute("/franchise/")({
   head: () =>
@@ -32,29 +33,27 @@ const atAGlance: [string, string][] = [
 function Franchise() {
   return (
     <>
-      <section className="section-dark relative isolate flex min-h-[100svh] items-end overflow-hidden pb-16 pt-32 md:items-center md:pb-20 md:pt-28" aria-labelledby="franchise-title">
-        <img src={images.franchiseHero} alt={alts.franchiseHero} fetchPriority="high" decoding="async" className="absolute inset-x-0 bottom-0 top-[4.5rem] -z-10 h-[calc(100%-4.5rem)] w-full object-cover object-[68%_0%] wide:left-auto wide:w-auto wide:max-w-none wide:fade-left" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/75 via-45% to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
-        <div className="absolute inset-0 -z-10 bg-navy/60 md:hidden" />
-        <Container className="max-w-[1440px]">
-          <div className="max-w-2xl">
-            <p className="eyebrow fade-up mb-5">Franchise with us</p>
-            <h1 id="franchise-title" className="fade-up" style={{ ["--d" as string]: "0.05s" }}>
-              <span className="block font-display text-xl font-semibold tracking-tight text-snow/55 md:text-2xl">Do not open another car wash.</span>
-              <span className="text-h1 mt-3 block">Build the next STOPWASH.</span>
-            </h1>
-            <p className="fade-up mt-6 font-display text-xl font-semibold text-lime md:text-2xl" style={{ ["--d" as string]: "0.1s" }}>The difference is the system.</p>
-            <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.15s" }}>
-              STOPWASH gives franchise partners a serious vehicle-care brand, a defined operating model and the support required to build a local business that customers return to.
-            </p>
-            <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ ["--d" as string]: "0.25s" }}>
-              <Cta href="#apply">Apply to become a franchise partner</Cta>
-              <Cta href="#faq" variant="outline" className="text-snow" arrow={false}>Read the FAQ</Cta>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <LandingHero
+        id="franchise-title"
+        eyebrow="Franchise with us"
+        titleClassName=""
+        image={images.franchiseHero}
+        imageAlt={alts.franchiseHero}
+        focus="68% 0%"
+        title={<>
+          <span className="block font-display text-xl font-semibold tracking-tight text-snow/55 md:text-2xl">Do not open another car wash.</span>
+          <span className="text-h1 mt-3 block">Build the next STOPWASH.</span>
+        </>}
+        actions={<>
+          <Cta href="#apply">Apply to become a franchise partner</Cta>
+          <Cta href="#faq" variant="outline" className="text-snow" arrow={false}>Read the FAQ</Cta>
+        </>}
+      >
+        <p className="fade-up mt-6 font-display text-xl font-semibold text-lime md:text-2xl" style={{ ["--d" as string]: "0.1s" }}>The difference is the system.</p>
+        <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.15s" }}>
+          STOPWASH gives franchise partners a serious vehicle-care brand, a defined operating model and the support required to build a local business that customers return to.
+        </p>
+      </LandingHero>
 
       <section className="section-paper border-b border-border py-10 md:py-12" aria-label="Franchise at a glance">
         <Container>

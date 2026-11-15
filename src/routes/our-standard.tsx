@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { alts, images, pageHead, standards } from "@/data/site";
-import { PageHero } from "@/components/site/PageHero";
+import { LandingHero } from "@/components/site/LandingHero";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -28,9 +28,16 @@ const loop = [
 function OurStandard() {
   return (
     <>
-      <PageHero eyebrow="The STOPWASH standard" title="Built like a network. Felt like a local stop." image={images.detailHands} imageAlt={alts.detailHands}>
-        <p>A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit. That is what STOPWASH is building towards.</p>
-      </PageHero>
+      <LandingHero
+        id="standard-title"
+        eyebrow="The STOPWASH standard"
+        title={<>Built like a network. <span className="text-lime">Felt like a local stop.</span></>}
+        lead={<p>A single great wash is not a business model. The real test is whether the experience holds up on a busy day, with a different team, at a different location, months after the first visit. That is what STOPWASH is building towards.</p>}
+        actions={<>
+          <Cta to="/locations">Find a STOPWASH</Cta>
+          <Cta to="/contact" variant="outline" className="text-snow">Tell us how we did</Cta>
+        </>}
+      />
 
       <section className="section-y">
         <Container>
