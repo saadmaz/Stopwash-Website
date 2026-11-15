@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Navigation, Phone, Timer } from "lucide-react";
-import { alts, brandPromise, buildingEngine, contact, directionsUrl, images, journey, locations, pageHead, servicePreview, standards } from "@/data/site";
-import { Cta, ctaVariants } from "@/components/site/Cta";
+import { ArrowRight, Check, Timer } from "lucide-react";
+import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, servicePreview, standards } from "@/data/site";
+import { Cta } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
 import { FinalCta } from "@/components/site/FinalCta";
+import { LocationCard } from "@/components/site/LocationCard";
 import { LandingHero } from "@/components/site/LandingHero";
 import { CustomerArc } from "@/components/site/CustomerArc";
 import { Container, SectionHeading } from "@/components/site/SectionHeading";
@@ -29,12 +30,12 @@ function Home() {
       <WhyTheName />
       <ServicesPreview />
       <Building />
-      <FirstOutlet />
       <BrandPromise />
       <HowItWorks />
       <CleanSquad />
       <Standard />
       <Expansion />
+      <OurOutlets />
       <FinalCta />
     </>
   );
@@ -171,29 +172,28 @@ function BrandPromise() {
 }
 
 
-function FirstOutlet() {
-  const loc = locations[0]!;
+/* Our outlets: every location as a card with its details and map. */
+function OurOutlets() {
+  const open = locations.filter((l) => l.status === "open");
   return (
-    <section className="section-dark section-y">
-      <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal><Photo src={images.foam} alt={alts.foam} className="aspect-[4/3]" /></Reveal>
-        <div>
-          <SectionHeading eyebrow="Our first outlet" title="Katubedda is where the movement starts." />
-          <Reveal delay={0.1} className="text-lead mt-6 space-y-4 text-muted-foreground">
-            <p>The first STOPWASH outlet in Katubedda is where the idea meets the road.</p>
-            <p>It is the first proof point for a bigger idea: vehicle care can be faster without becoming careless, more professional without becoming complicated and more consistent without losing its human touch.</p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6">
-              <div><dt className="text-sm text-muted-foreground">Location</dt><dd className="mt-1 font-semibold">{loc.address ?? "Katubedda, Sri Lanka"}</dd></div>
-              {loc.hours && <div><dt className="text-sm text-muted-foreground">Open</dt><dd className="mt-1 font-semibold">{loc.hours}</dd></div>}
-              <div><dt className="text-sm text-muted-foreground">Phone</dt><dd className="mt-1 font-semibold"><a href={contact.phoneHref} className="hover:text-lime">{contact.phone}</a></dd></div>
-            </dl>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={directionsUrl(loc)} target="_blank" rel="noopener noreferrer" className={ctaVariants({ variant: "lime" })}><Navigation className="h-4 w-4" aria-hidden /> Get directions</a>
-              <a href={contact.phoneHref} className={ctaVariants({ variant: "outline" })}><Phone className="h-4 w-4" aria-hidden /> Call now</a>
-            </div>
-          </Reveal>
+    <section aria-labelledby="outlets-title" className="section-paper section-y">
+      <Container>
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-3xl">
+            <Reveal>
+              <p className="eyebrow mb-4">Our outlets</p>
+              <h2 id="outlets-title" className="text-h2">Find your nearest STOPWASH.</h2>
+              <p className="text-lead mt-5 text-muted-foreground">
+                {open.length === 1 ? "One outlet open today, built to be the first of many." : `${open.length} outlets open today.`}
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}><Cta to="/locations" variant="link">See all locations</Cta></Reveal>
+        </div>
+        <div className="mt-12 space-y-6">
+          {open.map((l, i) => (
+            <Reveal key={l.slug} delay={i * 0.05}><LocationCard location={l} /></Reveal>
+          ))}
         </div>
       </Container>
     </section>

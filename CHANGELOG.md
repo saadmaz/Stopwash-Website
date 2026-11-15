@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Homepage "Our outlets" section above the closing call to action, showing each open outlet as a card with address, phone, opening hours, directions and the map.
 - Homepage "Why STOPWASH" section on white: the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that runs from the bottom-left to the bottom-right corner, each card tilted along the curve, drifting slowly sideways. It fits one screen on laptops, monitors and phones, moves only while the section is on screen, and stays still for visitors who prefer reduced motion.
 - "Why the name?" is now its own navy section on the homepage.
 - Katubedda outlet details: 239 Model Town Rd, Moratuwa 10400, open every day 9:00 am to 9:00 pm, with the official Google Maps embed and directions to the exact pin.
@@ -20,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Homepage order: Services now follows "Why the name?", ahead of "What we are building".
+- Location cards: the map now fills the full height of the card.
 - Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.
 - Navigation bar is transparent over every landing hero until the visitor scrolls.
 - Contact, Locations and Blog heroes are shorter (about 70% of the screen) so the form, map and posts are reached sooner.
@@ -33,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- "Our first outlet" section from the homepage (replaced by "Our outlets").
 - "The STOPWASH difference" section (Motion, Precision, Repeatability) from the homepage.
 - Gmail address from the footer, Contact, Privacy Policy and Terms; hello@stopwash.lk is the single contact address.
 - "General enquiries" card on the Contact page (it duplicated hello@stopwash.lk).

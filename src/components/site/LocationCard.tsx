@@ -30,7 +30,7 @@ export function LocationCard({ location }: { location: Location }) {
         </div>
       </div>
       {map ? (
-        <iframe title={`Map of STOPWASH ${location.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="min-h-80 w-full border-0" />
+        <iframe title={`Map of STOPWASH ${location.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="h-full min-h-80 w-full border-0" />
       ) : (
         <Photo src={location.image} alt={location.alt} className="min-h-80 rounded-none" />
       )}
