@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Katubedda outlet details: 239 Model Town Rd, Moratuwa 10400, open every day 9:00 am to 9:00 pm, with the official Google Maps embed and directions to the exact pin.
+- Local business structured data now includes the street address, map pin and opening hours.
+- New link preview image for social sharing, cropped from the homepage photograph.
 - New homepage hero photograph and headline: "Giving you back the gift of time".
 - Franchise page hero photograph of the STOPWASH kiosk.
 - Image folders for photos, location photos and brand files, with a guide in `src/assets/README.md`.
@@ -17,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.
 - Navigation bar is transparent over every landing hero until the visitor scrolls.
+- Contact, Locations and Blog heroes are shorter (about 70% of the screen) so the form, map and posts are reached sooner.
+- Homepage hero: one-line introduction, and the second button now leads to Services.
+- Browser title now reads "Giving You Back the Gift of Time".
+- Location status badge reads "Open" instead of "Open now".
 - Homepage hero fills the full screen, with the text aligned further left.
 - Hero photos show uncropped on wide screens and start below the navigation bar.
 - Navigation: "Franchise" moved out of the menu into the primary button, now labelled "Become a franchisee".
@@ -24,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Gmail address from the footer, Contact, Privacy Policy and Terms; hello@stopwash.lk is the single contact address.
+- "General enquiries" card on the Contact page (it duplicated hello@stopwash.lk).
 - "Now open in Katubedda" tag from the homepage hero.
 
 ## [1.0.0] - 2026-11-15

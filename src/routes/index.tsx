@@ -12,7 +12,7 @@ import { Container, SectionHeading } from "@/components/site/SectionHeading";
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead({
-      title: "STOPWASH: The Queue Ends Here | Car Wash & Vehicle Care in Sri Lanka",
+      title: "STOPWASH: Giving You Back the Gift of Time | Car Wash & Vehicle Care in Sri Lanka",
       description:
         "STOPWASH is building a faster, sharper and more dependable way to care for your vehicle. Professional car wash and vehicle care in Katubedda, Sri Lanka.",
       path: "/",
@@ -54,16 +54,10 @@ function Hero() {
       title={<>Giving you <br />back <span className="text-lime">the gift</span> <br />of time</>}
       actions={<>
         <Cta to="/locations">Find a STOPWASH</Cta>
-        <Cta to="/franchise" variant="outline" className="text-snow">Build a STOPWASH</Cta>
+        <Cta to="/services" variant="outline" className="text-snow">See our services</Cta>
       </>}
-    >
-      <p className="fade-up mt-6 font-display text-xl font-semibold md:text-2xl" style={{ ["--d" as string]: "0.15s" }}>
-        Vehicle care without the lost afternoon.
-      </p>
-      <p className="text-lead fade-up mt-3 max-w-xl text-snow/75" style={{ ["--d" as string]: "0.2s" }}>
-        STOPWASH is building a faster, sharper and more dependable way to care for the vehicle that keeps you moving.
-      </p>
-    </LandingHero>
+      lead={<p>Professional vehicle care that fits around your day, not the other way round.</p>}
+    />
   );
 }
 
@@ -203,7 +197,8 @@ function FirstOutlet() {
           </Reveal>
           <Reveal delay={0.15}>
             <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-6">
-              <div><dt className="text-sm text-muted-foreground">Location</dt><dd className="mt-1 font-semibold">Katubedda, Sri Lanka</dd></div>
+              <div><dt className="text-sm text-muted-foreground">Location</dt><dd className="mt-1 font-semibold">{loc.address ?? "Katubedda, Sri Lanka"}</dd></div>
+              {loc.hours && <div><dt className="text-sm text-muted-foreground">Open</dt><dd className="mt-1 font-semibold">{loc.hours}</dd></div>}
               <div><dt className="text-sm text-muted-foreground">Phone</dt><dd className="mt-1 font-semibold"><a href={contact.phoneHref} className="hover:text-lime">{contact.phone}</a></dd></div>
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

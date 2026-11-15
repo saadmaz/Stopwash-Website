@@ -47,7 +47,7 @@ export const Route = createFileRoute("/terms")({
         },
         {
           heading: "Contact",
-          body: <p>Questions about these terms: <a href={`mailto:${contact.generalEmail}`}>{contact.generalEmail}</a>.</p>,
+          body: <p>Questions about these terms: <a href={`mailto:${contact.customerEmail}`}>{contact.customerEmail}</a>.</p>,
         },
       ]}
     />

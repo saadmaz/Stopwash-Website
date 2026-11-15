@@ -27,7 +27,6 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-snow/70">
               <li><a href={contact.phoneHref} className="transition-colors hover:text-lime">{contact.phone}</a></li>
               <li><a href={`mailto:${contact.customerEmail}`} className="transition-colors hover:text-lime">{contact.customerEmail}</a></li>
-              <li><a href={`mailto:${contact.generalEmail}`} className="transition-colors hover:text-lime">{contact.generalEmail}</a></li>
               <li><a href={contact.siteUrl} className="transition-colors hover:text-lime">{contact.website}</a></li>
             </ul>
             <SocialLinks tone="dark" className="mt-6" />

@@ -31,6 +31,7 @@ function Blog() {
     <>
       <LandingHero
         id="blog-title"
+        size="tall"
         eyebrow="Blog"
         title={<>Notes from the <span className="text-lime">road.</span></>}
         lead={<p>Car care tips, STOPWASH news and the thinking behind a better way to keep your vehicle moving.</p>}

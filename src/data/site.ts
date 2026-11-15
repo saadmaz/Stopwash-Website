@@ -5,7 +5,7 @@ import detailHands from "@/assets/photos/detail-hands.webp";
 import interior from "@/assets/photos/interior.webp";
 import foam from "@/assets/photos/foam.webp";
 // JPEG kept for link previews: some social platforms do not render WebP og:images.
-import ogImage from "@/assets/photos/hero-bay.jpg";
+import ogImage from "@/assets/photos/og-home.jpg";
 
 /**
  * PLACEHOLDER IMAGERY: these are mood images, not photographs of the STOPWASH
@@ -27,7 +27,6 @@ export const contact = {
   phoneHref: "tel:+94706225252",
   customerEmail: "hello@stopwash.lk",
   franchiseEmail: "hello@stopwash.lk",
-  generalEmail: "info.stopwash@gmail.com",
   website: "www.stopwash.lk",
   siteUrl: "https://stopwash.lk",
   /** WhatsApp chat link for the customer line (assumes +94 70 622 5252 is on WhatsApp). */
@@ -120,6 +119,10 @@ export type Location = {
   mapsQuery: string;
   /** Set once the exact pin is confirmed. Enables the embedded Google Map. */
   coordinates: { lat: number; lng: number } | null;
+  /** Google Maps share link for the business listing. */
+  mapsLink?: string;
+  /** Official Google Maps embed URL (shows the business card). Falls back to a pin at `coordinates`. */
+  mapEmbed?: string;
   image: string;
   alt: string;
 };
@@ -129,6 +132,7 @@ export function directionsUrl(l: Location) {
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}`;
 }
 export function mapEmbedUrl(l: Location) {
+  if (l.mapEmbed) return l.mapEmbed;
   if (!l.coordinates) return null;
   return `https://www.google.com/maps?q=${l.coordinates.lat},${l.coordinates.lng}&z=16&output=embed`;
 }
@@ -139,11 +143,13 @@ export const locations: Location[] = [
     name: "Katubedda",
     status: "open",
     label: "The first STOPWASH outlet",
-    address: null, // exact address to be confirmed
+    address: "239 Model Town Rd, Moratuwa 10400",
     phone: contact.phone,
-    hours: null, // opening hours to be confirmed
-    mapsQuery: "STOPWASH Katubedda, Moratuwa, Sri Lanka",
-    coordinates: null, // exact pin to be confirmed
+    hours: "Every day, 9:00 am to 9:00 pm",
+    mapsQuery: "STOPWASH CAR WASH - KATUBEDDA, 239 Model Town Rd, Moratuwa 10400",
+    coordinates: { lat: 6.8025221, lng: 79.8883531 },
+    mapsLink: "https://maps.app.goo.gl/Yn8p6YJWb5a6z3a1A",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7311768681325!2d79.8883531!3d6.802522100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2453c7e48ff37%3A0xb742b34ac68090e8!2sSTOPWASH%20CAR%20WASH%20-%20KATUBEDDA!5e0!3m2!1sen!2slk!4v1794753834506!5m2!1sen!2slk",
     image: heroBay,
     alt: alts.heroBay,
   },

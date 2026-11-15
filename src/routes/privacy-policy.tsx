@@ -46,7 +46,7 @@ export const Route = createFileRoute("/privacy-policy")({
           heading: "Your choices",
           body: (
             <p>
-              You can ask us to access, correct or delete the information you have shared by emailing <a href={`mailto:${contact.generalEmail}`}>{contact.generalEmail}</a>.
+              You can ask us to access, correct or delete the information you have shared by emailing <a href={`mailto:${contact.customerEmail}`}>{contact.customerEmail}</a>.
             </p>
           ),
         },

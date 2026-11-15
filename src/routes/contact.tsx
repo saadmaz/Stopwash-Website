@@ -26,7 +26,6 @@ export const Route = createFileRoute("/contact")({
 const channels = [
   { label: "Customer enquiries", lines: [{ icon: Phone, text: contact.phone, href: contact.phoneHref }, { icon: FaWhatsapp, text: "Chat on WhatsApp", href: contact.whatsappHref }, { icon: Mail, text: contact.customerEmail, href: `mailto:${contact.customerEmail}` }] },
   { label: "Franchise enquiries", lines: [{ icon: Mail, text: contact.franchiseEmail, href: `mailto:${contact.franchiseEmail}` }] },
-  { label: "General enquiries", lines: [{ icon: Mail, text: contact.generalEmail, href: `mailto:${contact.generalEmail}` }] },
 ];
 
 function Contact() {
@@ -37,6 +36,7 @@ function Contact() {
     <>
       <LandingHero
         id="contact-title"
+        size="tall"
         eyebrow="Contact"
         title={<>Keep the conversation <span className="text-lime">moving.</span></>}
         lead={<p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH? Tell us where you are going.</p>}

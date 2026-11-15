@@ -24,6 +24,8 @@ type Props = {
   /** Which part of the photo to keep in view when it is cropped (narrow screens), as CSS object-position. */
   focus?: string;
   tone?: Tone;
+  /** "full" fills the screen; "tall" (about 70%) suits pages where the visitor came to do something below the hero. */
+  size?: "full" | "tall";
 };
 
 const toneClasses: Record<Tone, { side: string; top: string; bottom: string; mobile: string }> = {
@@ -38,13 +40,13 @@ const delay = (d: string) => ({ ["--d" as string]: d }) as CSSProperties;
  * Photos start below the navigation bar; on screens wider than 16:9 they show whole at the right,
  * fading into the dark side behind the text. Narrower screens crop to fill, framed by `focus`.
  */
-export function LandingHero({ id, title, titleClassName = "text-display", eyebrow, lead, children, actions, image, imageAlt = "", focus = "50% 20%", tone = "navy" }: Props) {
+export function LandingHero({ id, title, titleClassName = "text-display", eyebrow, lead, children, actions, image, imageAlt = "", focus = "50% 20%", tone = "navy", size = "full" }: Props) {
   const t = toneClasses[tone];
   return (
     <>
       <section
         aria-labelledby={id}
-        className="section-dark relative isolate flex min-h-[100svh] items-end overflow-hidden md:items-center"
+        className={cn("section-dark relative isolate flex items-end overflow-hidden md:items-center", size === "full" ? "min-h-[100svh]" : "min-h-[70svh]")}
         style={tone === "ink" ? { background: "var(--ink)" } : undefined}
       >
         {image ? (

@@ -24,6 +24,7 @@ function Locations() {
     <>
       <LandingHero
         id="locations-title"
+        size="tall"
         eyebrow="Locations"
         title={<>Find the <span className="text-lime">next stop.</span></>}
         lead={<p>{open.length === 1 ? "One outlet open today. Built to be the first of many." : `${open.length} outlets open today.`}</p>}

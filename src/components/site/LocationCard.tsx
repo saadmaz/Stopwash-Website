@@ -11,7 +11,7 @@ export function LocationCard({ location }: { location: Location }) {
     <article className="grid overflow-hidden rounded-3xl border border-border bg-snow lg:grid-cols-2" aria-labelledby={`loc-${location.slug}`}>
       <div className="flex flex-col p-7 md:p-10">
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-lime/30 px-3 py-1 text-sm font-semibold text-ink">
-          <span className="h-2 w-2 rounded-full bg-leaf" /> {location.status === "open" ? "Open now" : "Coming soon"}
+          <span className="h-2 w-2 rounded-full bg-leaf" /> {location.status === "open" ? "Open" : "Coming soon"}
         </span>
         <h2 id={`loc-${location.slug}`} className="text-h2 mt-5">{location.name}</h2>
         <p className="mt-2 text-lg text-muted-foreground">{location.label}</p>
@@ -30,7 +30,7 @@ export function LocationCard({ location }: { location: Location }) {
         </div>
       </div>
       {map ? (
-        <iframe title={`Map of STOPWASH ${location.name}`} src={map} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="min-h-80 w-full border-0" />
+        <iframe title={`Map of STOPWASH ${location.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="min-h-80 w-full border-0" />
       ) : (
         <Photo src={location.image} alt={location.alt} className="min-h-80 rounded-none" />
       )}
