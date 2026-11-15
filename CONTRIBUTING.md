@@ -2,7 +2,7 @@
 
 Thanks for helping build [stopwash.lk](https://stopwash.lk). This guide covers how changes move from an idea to production.
 
-This is a private, proprietary repository. Contributions are accepted from STOPWASH team members and invited collaborators only.
+The source code is publicly visible, but it is proprietary: see [LICENSE](LICENSE). Code contributions are accepted from STOPWASH team members and invited collaborators only. Anyone is welcome to report a bug or suggest a change by opening an issue.
 
 ## Workflow
 

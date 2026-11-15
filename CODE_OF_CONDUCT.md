@@ -9,7 +9,7 @@ Everyone who works on this project, including staff, partners and invited collab
 - Be respectful and considerate in issues, pull requests, reviews and messages.
 - Give and accept constructive feedback. Critique the work, not the person.
 - Assume good intent, and ask before assuming.
-- Respect confidentiality. This is a private repository: do not share its code, designs, data or discussions outside the team without permission.
+- Respect confidentiality. Do not share private team discussions, unreleased designs, customer data or credentials outside the team without permission.
 - Take responsibility for mistakes and help put them right.
 
 ## Unacceptable behaviour
