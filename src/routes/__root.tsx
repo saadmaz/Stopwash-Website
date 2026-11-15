@@ -26,7 +26,7 @@ function NotFoundComponent() {
         <h1 className="text-h1 max-w-2xl">Looks like a wrong turn.</h1>
         <p className="text-lead mt-5 max-w-lg text-muted-foreground">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Link to="/" className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c9ff4d]">Back to home</Link>
+          <Link to="/" className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c0e86a]">Back to home</Link>
           <Link to="/locations" className="inline-flex items-center rounded-full border border-ink/25 px-6 py-3.5 font-semibold hover:border-ink/60">Find a STOPWASH</Link>
         </div>
       </div>

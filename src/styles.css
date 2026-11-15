@@ -39,12 +39,12 @@
   --color-steel: var(--steel);
 }
 
-/* Brand palette: #B6FF00 lime · #0B1728 navy · #050A12 ink · #F5F6F2 paper · #A6ADB8 steel */
+/* Brand palette: #B2E04C lime · #0B1728 navy · #050A12 ink · #F5F6F2 paper · #A6ADB8 steel */
 :root {
   --radius: 1rem;
   --navy: #0b1728;
   --ink: #050a12;
-  --lime: #b6ff00;
+  --lime: #b2e04c;
   --leaf: #4a7300; /* lime darkened for readable accent text on light backgrounds */
   --paper: #f5f6f2;
   --snow: #ffffff;

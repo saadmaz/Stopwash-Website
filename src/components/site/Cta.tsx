@@ -9,7 +9,7 @@ export const ctaVariants = cva(
   {
     variants: {
       variant: {
-        lime: "bg-lime text-ink hover:bg-[#c9ff4d]",
+        lime: "bg-lime text-ink hover:bg-[#c0e86a]",
         ink: "bg-ink text-snow hover:bg-navy",
         outline: "border border-current/25 text-foreground hover:border-current/60",
         light: "bg-snow text-ink hover:bg-paper",
