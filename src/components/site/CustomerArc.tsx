@@ -22,19 +22,20 @@ export function CustomerArc({ className }: { className?: string }) {
     const el = stage.current;
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let width = 0, cardW = 0, step = 0, total = 0, top = 0;
+    let width = 0, cardW = 0, step = 0, total = 0, rise = 0, dip = 0;
     let offset = 0, last = 0, raf = 0, visible = false;
 
-    // Cards fill the stage: as tall as the space allows (card + dip + tilt is about 1.62 card widths),
-    // capped so a phone shows a couple of cards and a wide monitor about five.
+    // The arc runs corner to corner: the centre card sits at the top of the stage and the curve drops so that
+    // cards at the left and right edges rise out of the bottom corners (about 60% of the card showing).
     const measure = () => {
       width = el.clientWidth;
-      const maxW = width < 640 ? width * 0.5 : width < 1024 ? width * 0.3 : Math.min(width * 0.2, 340);
-      cardW = Math.max(110, Math.min(el.clientHeight / 1.62, maxW));
-      // On tall screens the width cap wins; centre the arc in the leftover height instead of leaving one big gap.
-      top = Math.max(0, (el.clientHeight - cardW * 1.62) / 2);
+      const h = el.clientHeight;
+      const maxW = width < 640 ? width * 0.4 : width < 1024 ? width * 0.3 : Math.min(width * 0.2, 340);
+      cardW = Math.max(110, Math.min(h * 0.5, maxW));
+      rise = cardW * 0.04;
+      dip = Math.max(0, h - cardW * 1.25 * 0.6 - rise);
       el.style.setProperty("--card", `${cardW}px`);
-      step = cardW * 1.1;
+      step = cardW * (width < 640 ? 1.3 : 1.1); // the curve is steeper on phones, so space the tilted cards wider
       total = step * CARDS.length;
     };
 
@@ -46,9 +47,10 @@ export function CustomerArc({ className }: { className?: string }) {
         if (p < 0) p += total;
         const left = p - total / 2 + half; // track centred on the stage
         const u = (left + cardW / 2 - half) / Math.max(half, 1); // -1 at the left edge, 1 at the right
-        const y = cardW * 0.22 * u * u; // edges dip
-        const r = 11 * u; // edges tilt outward
-        card.style.transform = `translate3d(${left}px, ${top + y}px, 0) rotate(${r}deg)`;
+        const y = rise + dip * u * u; // parabola: highest in the middle, reaching the bottom corners
+        const tangent = (Math.atan((2 * dip * u) / Math.max(half, 1)) * 180) / Math.PI;
+        const r = Math.max(-25, Math.min(25, tangent * 0.85)); // tilt along the curve, capped for narrow screens
+        card.style.transform = `translate3d(${left}px, ${y}px, 0) rotate(${r}deg)`;
       });
     };
 
@@ -83,7 +85,6 @@ export function CustomerArc({ className }: { className?: string }) {
       style={{ ["--card" as string]: "clamp(118px, min(15vw, 21svh), 250px)" }}
       className={cn(
         "relative w-full overflow-hidden transition-opacity duration-700",
-        "[-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
         ready ? "opacity-100" : "opacity-0",
         className,
       )}
@@ -95,7 +96,7 @@ export function CustomerArc({ className }: { className?: string }) {
             key={i}
             ref={(node) => { cards.current[i] = node; }}
             aria-hidden={copy || undefined}
-            className="absolute left-0 top-[calc(var(--card)*0.06)] w-[var(--card)] origin-bottom will-change-transform"
+            className="absolute left-0 top-0 w-[var(--card)] origin-center will-change-transform"
           >
             <figure className="overflow-hidden rounded-2xl bg-paper shadow-[0_18px_40px_-18px_rgb(5_10_18/0.35)] ring-1 ring-ink/5">
               <img src={photo.src} alt={copy ? "" : photo.alt} loading="lazy" decoding="async" width={560} height={700} className="aspect-[4/5] h-auto w-full object-cover" />

@@ -63,7 +63,7 @@ function Hero() {
 /* Why STOPWASH: full-screen statement above an arc of real customers that drifts while in view. */
 function WhyStopwash() {
   return (
-    <section aria-labelledby="why-title" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-snow pb-10 pt-24 md:pt-28 [@media(max-height:700px)]:pt-20">
+    <section aria-labelledby="why-title" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-snow pt-24 md:pt-28 [@media(max-height:700px)]:pt-20">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_100%,rgb(178_224_76/0.14),transparent_70%)]" aria-hidden />
       <Container className="pb-8 text-center">
         <Reveal>
