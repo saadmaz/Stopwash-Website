@@ -44,19 +44,51 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-// Wraps TanStack Start's handler so unexpected SSR failures render a branded 500 page.
+/** The one public hostname. Requests for www are redirected here so search engines see a single site. */
+const CANONICAL_HOST = "stopwash.lk";
+
+/** Security headers for every page and server-function response (static assets are served by Cloudflare directly). */
+const SECURITY_HEADERS: Record<string, string> = {
+  "strict-transport-security": "max-age=31536000",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "SAMEORIGIN",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+};
+
+function withSecurityHeaders(response: Response): Response {
+  const secured = new Response(response.body, response);
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+    if (!secured.headers.has(name)) secured.headers.set(name, value);
+  }
+  return secured;
+}
+
+function canonicalRedirect(request: Request): Response | null {
+  const url = new URL(request.url);
+  if (url.hostname !== `www.${CANONICAL_HOST}`) return null;
+  url.hostname = CANONICAL_HOST;
+  url.protocol = "https:";
+  return Response.redirect(url.toString(), 301);
+}
+
+// Wraps TanStack Start's handler: canonical host, security headers, and a branded 500 page for SSR failures.
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const redirect = canonicalRedirect(request);
+    if (redirect) return redirect;
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(), {
-        status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      });
+      return withSecurityHeaders(
+        new Response(renderErrorPage(), {
+          status: 500,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        }),
+      );
     }
   },
 };

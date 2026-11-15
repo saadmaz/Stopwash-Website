@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, custom domains for stopwash.lk and www.stopwash.lk, the Supabase settings the enquiry forms need, and logging.
+- Permanent redirect from www.stopwash.lk to stopwash.lk, and security headers (HSTS, nosniff, frame, referrer and permissions policies) on every page.
+- Deploy workflow that publishes to Cloudflare on every push to main once the Cloudflare secrets are added, plus `deploy` and `preview:worker` scripts.
+- Tests for the www redirect.
 - "Brand & dealer partnership" enquiry type on the Contact form; the B2B tile links straight to it.
 - Homepage "Our outlets" section above the closing call to action, showing each open outlet as a card with address, phone, opening hours, directions and the map.
 - Homepage "Why STOPWASH" section on white: the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that runs from the bottom-left to the bottom-right corner, each card tilted along the curve, drifting slowly sideways. It fits one screen on laptops, monitors and phones, moves only while the section is on screen, and stays still for visitors who prefer reduced motion.

@@ -197,22 +197,46 @@ bun run typecheck && bun run test && bun run build
 
 ## Deployment
 
-`bun run build` targets **Cloudflare Workers** by default. The output is written to `.output/`.
+stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquiry forms run in the Worker, and static files are served from Cloudflare's edge. Configuration lives in [`wrangler.jsonc`](wrangler.jsonc).
+
+### What is already set up
+
+| Item | Where |
+| --- | --- |
+| Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc` |
+| Custom domains `stopwash.lk` and `www.stopwash.lk` | `wrangler.jsonc` (`routes`) |
+| Supabase URL and publishable key for the forms | `wrangler.jsonc` (`vars`) |
+| `www` to `stopwash.lk` permanent redirect | `src/server.ts` |
+| Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts` |
+| Long-term caching for hashed assets | generated `_headers` |
+| Logs and metrics | `observability` in `wrangler.jsonc` |
+| Automatic deploy on every push to `main` | `.github/workflows/deploy.yml` |
+
+### Going live (one time)
+
+1. **Add the domain to Cloudflare.** In the Cloudflare dashboard, add `stopwash.lk` as a site and switch the domain's nameservers to the two Cloudflare nameservers shown (at your `.lk` registrar). Wait until the zone shows as **Active**.
+2. **Create an API token.** Cloudflare dashboard → My Profile → API Tokens → *Create Token* → **Edit Cloudflare Workers** template. Scope it to your account and the `stopwash.lk` zone.
+3. **Add two GitHub secrets.** Repository → Settings → Secrets and variables → Actions:
+   - `CLOUDFLARE_API_TOKEN`: the token from step 2
+   - `CLOUDFLARE_ACCOUNT_ID`: shown on the right of the Cloudflare dashboard overview
+4. **Deploy.** Repository → Actions → **Deploy** → *Run workflow* (or push to `main`). The first deploy creates the Worker and attaches both custom domains, including their SSL certificates.
+5. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
+6. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form, then confirm it arrives in Supabase.
+
+### Deploying from your machine
 
 ```sh
-bun run build
-npx wrangler deploy
+npx wrangler login     # once
+bun run deploy         # build, then publish
 ```
 
-To deploy elsewhere, set `NITRO_PRESET` at build time:
+### Preview the production build locally
 
-```sh
-NITRO_PRESET=node-server bun run build   # then: node .output/server/index.mjs
-NITRO_PRESET=vercel bun run build
-NITRO_PRESET=netlify bun run build
-```
+`bun run preview:worker` builds the site and runs it in Cloudflare's own runtime (workerd) at http://localhost:8787. Requests always arrive as `localhost` there, so the `www` redirect only takes effect on the real domain (it is covered by `src/test/server-entry.test.ts`).
 
-Set the server-side environment variables (`SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`) in the hosting provider's dashboard.
+### Changing environment values
+
+Non-secret values go in `vars` in `wrangler.jsonc`. If a real secret is ever needed, never commit it: run `npx wrangler secret put NAME` instead.
 
 ## Releases and versioning
 

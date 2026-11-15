@@ -1,0 +1,26 @@
+{
+  // Cloudflare Workers configuration. `bun run build` merges this into .output/server/wrangler.json,
+  // and `bun run deploy` (or the Deploy workflow) publishes it.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "stopwash-website",
+  // Pinned so Cloudflare runtime behaviour only changes when this date is moved on deliberately.
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // stopwash.lk must be an active zone in the same Cloudflare account before the first deploy.
+  // www.stopwash.lk is redirected to stopwash.lk by src/server.ts.
+  "routes": [
+    { "pattern": "stopwash.lk", "custom_domain": true },
+    { "pattern": "www.stopwash.lk", "custom_domain": true }
+  ],
+
+  // Read by the enquiry server functions. These are the Supabase PUBLISHABLE values, which are safe to
+  // be public (row-level security allows inserts only). Never put the service_role key here.
+  "vars": {
+    "SUPABASE_URL": "https://ngovhfzfawjfyalwznqd.supabase.co",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_WWKAhakNEWLbFNtRcBEnxA_rsPfIUHC",
+    "SUPABASE_PROJECT_ID": "ngovhfzfawjfyalwznqd"
+  },
+
+  "observability": { "enabled": true }
+}
