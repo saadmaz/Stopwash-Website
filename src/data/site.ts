@@ -1,5 +1,7 @@
 import heroHome from "@/assets/photos/hero-home.webp";
 import franchiseHero from "@/assets/photos/franchise-hero.webp";
+import modelSupermarket from "@/assets/photos/model-supermarket.webp";
+import modelOutlet from "@/assets/photos/model-outlet.webp";
 import heroBay from "@/assets/photos/hero-bay.webp";
 import detailHands from "@/assets/photos/detail-hands.webp";
 import interior from "@/assets/photos/interior.webp";
@@ -98,15 +100,29 @@ export const footerNav = [
   { label: "Contact", to: "/contact" },
 ];
 
-/** Preliminary service concepts: final names and inclusions to be confirmed. */
-export const servicePreview = [
-  { code: "01", name: "The Quick One", text: "For the days when the car needs a reset and you need to keep moving.", image: foam },
-  { code: "02", name: "The Proper Clean", text: "For the inside, the outside and all the evidence of daily life the vehicle has collected along the way.", image: interior },
-  { code: "03", name: "The Full Reset", text: "For vehicles that need more than a passing clean. A complete refresh from cabin to exterior.", image: heroBay },
-  { code: "04", name: "The Detail Stop", text: "For customers who notice the finish, care about the surfaces and expect more from vehicle care.", image: detailHands },
-  { code: "05", name: "The Repeat Route", text: "Memberships and scheduled visits for people who prefer their vehicle care handled before it becomes a problem.", image: null },
-  { code: "06", name: "Fleet Lane", text: "Structured vehicle care for businesses whose vehicles are part of the business, not just parked outside it.", image: null },
-];
+/** The two STOPWASH formats, shown on the homepage. */
+export const serviceModels = [
+  {
+    slug: "supermarket",
+    label: "Supermarket model",
+    title: "Clean while you shop.",
+    text: "A STOPWASH station in the supermarket car park. Your vehicle is cleaned while you do your shopping, so the errand and the wash share the same hour.",
+    points: ["At places you already go", "No extra trip"],
+    cta: { label: "Find a STOPWASH", to: "/locations" },
+    image: modelSupermarket,
+    alt: "A smiling shopper walking out of a supermarket with his shopping bags",
+  },
+  {
+    slug: "outlet",
+    label: "Outlet model",
+    title: "Drive in. Drive out sharper.",
+    text: "A dedicated STOPWASH outlet with every level of care, from a quick reset to a full detail. Our first is open in Katubedda, every day from 9 am to 9 pm.",
+    points: ["Every level of care", "Open every day"],
+    cta: { label: "Visit Katubedda", to: "/locations" },
+    image: modelOutlet,
+    alt: "A white Kia SUV and a customer at the STOPWASH Katubedda outlet",
+  },
+] as const;
 
 export type Service = {
   slug: string;

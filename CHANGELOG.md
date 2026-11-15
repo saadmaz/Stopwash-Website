@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Homepage Services section now presents the two STOPWASH formats, the supermarket model ("Clean while you shop.") and the outlet model ("Drive in. Drive out sharper."), as full-height photo tiles that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
 - Homepage order: Services now follows "Why the name?", ahead of "What we are building".
 - Location cards: the map now fills the full height of the card.
 - Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.

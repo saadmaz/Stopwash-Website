@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
-import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, servicePreview, standards } from "@/data/site";
+import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, serviceModels, standards } from "@/data/site";
 import { Cta } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
@@ -203,26 +203,46 @@ function OurOutlets() {
   );
 }
 
+/* Services: the two STOPWASH formats as full-bleed photo tiles, sized to fit one screen. */
 function ServicesPreview() {
   return (
-    <section className="section-y">
+    <section aria-labelledby="models-title" className="section-paper flex min-h-[100svh] flex-col justify-center py-20 md:py-24 [@media(max-height:760px)]:py-12">
       <Container>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <SectionHeading eyebrow="Services" title="Pick your pit stop." intro="Clear levels of care, so you can choose what your vehicle needs today." />
-          <Reveal delay={0.1}><Cta to="/services" variant="link">See the services</Cta></Reveal>
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow mb-4">Services</p>
+            <h2 id="models-title" className="text-h2">Two ways to STOPWASH.</h2>
+            <p className="text-lead mt-4 text-muted-foreground">One standard of care, built around where you already are.</p>
+          </Reveal>
+          <Reveal delay={0.1}><Cta to="/services" variant="link">See all services</Cta></Reveal>
         </div>
-        <ul className="mt-12 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {servicePreview.map((s, i) => (
-            <li key={s.code}>
-              <Reveal delay={(i % 3) * 0.06}>
-                <Link to="/services" className="group block">
-                  <Photo src={s.image} alt="" className="aspect-[4/3] transition-transform duration-300 group-hover:-translate-y-1" />
-                  <h3 className="text-h3 mt-5 flex items-center gap-2">
-                    {s.name}
-                    <ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" aria-hidden />
-                  </h3>
-                  <p className="mt-2 leading-relaxed text-muted-foreground">{s.text}</p>
-                </Link>
+        <ul className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2 md:gap-6">
+          {serviceModels.map((m, i) => (
+            <li key={m.slug}>
+              <Reveal delay={i * 0.08}>
+                <article className="group relative isolate flex h-[clamp(340px,54svh,620px)] flex-col justify-end overflow-hidden rounded-3xl bg-ink text-snow" aria-labelledby={`model-${m.slug}`}>
+                  <img src={m.image} alt={m.alt} loading="lazy" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/95 via-ink/45 to-ink/0" />
+                  <div className="p-7 md:p-9">
+                    <p className="inline-flex items-center gap-2 rounded-full bg-snow/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] backdrop-blur">
+                      <span className="text-lime">{String(i + 1).padStart(2, "0")}</span> {m.label}
+                    </p>
+                    <h3 id={`model-${m.slug}`} className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight md:text-[2.125rem]">{m.title}</h3>
+                    <p className="mt-3 max-w-md leading-relaxed text-snow/80">{m.text}</p>
+                    <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                      <ul className="flex flex-wrap gap-2">
+                        {m.points.map((pt) => (
+                          <li key={pt} className="inline-flex items-center gap-1.5 rounded-full border border-snow/20 px-3 py-1 text-sm text-snow/90">
+                            <Check className="h-3.5 w-3.5 text-lime" aria-hidden /> {pt}
+                          </li>
+                        ))}
+                      </ul>
+                      <Link to={m.cta.to} className="inline-flex items-center gap-2 font-semibold text-lime underline-offset-[6px] hover:underline">
+                        {m.cta.label} <ArrowRight className="h-4 w-4" aria-hidden />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
               </Reveal>
             </li>
           ))}
