@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, serviceModels, standards } from "@/data/site";
-import { Cta } from "@/components/site/Cta";
+import { Cta, ctaVariants } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
 import { Photo } from "@/components/site/Photo";
 import { StepTrack } from "@/components/site/StepTrack";
@@ -212,7 +212,7 @@ function ServicesPreview() {
           <Reveal className="max-w-2xl">
             <p className="eyebrow mb-4">Services</p>
             <h2 id="models-title" className="text-h2">Two ways to STOPWASH.</h2>
-            <p className="text-lead mt-4 text-muted-foreground">One standard of care, built around where you already are.</p>
+            <p className="text-lead mt-4 text-muted-foreground">One standard of care, for the drivers we serve and the brands we partner with.</p>
           </Reveal>
           <Reveal delay={0.1}><Cta to="/services" variant="link">See all services</Cta></Reveal>
         </div>
@@ -237,7 +237,7 @@ function ServicesPreview() {
                           </li>
                         ))}
                       </ul>
-                      <Link to={m.cta.to} className="inline-flex items-center gap-2 font-semibold text-lime underline-offset-[6px] hover:underline">
+                      <Link to={m.cta.to} {...("search" in m.cta ? { search: m.cta.search as never } : {})} className="inline-flex items-center gap-2 font-semibold text-lime underline-offset-[6px] hover:underline">
                         {m.cta.label} <ArrowRight className="h-4 w-4" aria-hidden />
                       </Link>
                     </div>
@@ -314,22 +314,30 @@ function Standard() {
   );
 }
 
+/* Franchise pitch: the lime card, sized as a full section and aligned to the navigation width. */
 function Expansion() {
   return (
-    <section className="section-y">
-      <Container>
-        <Reveal className="section-lime grid gap-8 rounded-3xl px-7 py-12 md:px-14 md:py-16 lg:grid-cols-2 lg:items-end lg:gap-16">
-          <div>
-            <p className="eyebrow mb-4">Grow with us</p>
-            <h2 className="text-h2">One outlet proves a point. A network changes a category.</h2>
-          </div>
-          <div>
-            <p className="text-lead text-muted-foreground">
-              STOPWASH is building the vehicle-care ecosystem for Sri Lanka. We are building the network one stop at a time, but the ambition is national.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Cta to="/franchise" variant="ink">Build a STOPWASH</Cta>
-              <Cta to="/franchise" variant="outline">Explore franchising</Cta>
+    <section aria-labelledby="franchise-pitch-title" className="py-16 md:py-24">
+      <Container className="max-w-[1440px]">
+        <Reveal className="section-lime rounded-3xl px-7 py-12 md:px-14 md:py-16 lg:px-20 lg:py-20">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
+            <div className="lg:col-span-7">
+              <p className="eyebrow mb-5">Franchise with STOPWASH</p>
+              <h2 id="franchise-pitch-title" className="text-display">
+                One outlet proves the idea. A network changes the category.
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-lead text-muted-foreground">
+                We are building Sri Lanka&apos;s vehicle-care network one stop at a time, with local partners who lead their market and a shared system that keeps every STOPWASH consistent. The ambition is national.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Cta to="/franchise" variant="ink">Become a franchisee</Cta>
+                <Link to="/franchise" hash="faq" className={ctaVariants({ variant: "outline" })}>
+                  <span>Read the franchise FAQ</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
+                </Link>
+              </div>
             </div>
           </div>
         </Reveal>

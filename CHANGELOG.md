@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- "Brand & dealer partnership" enquiry type on the Contact form; the B2B tile links straight to it.
 - Homepage "Our outlets" section above the closing call to action, showing each open outlet as a card with address, phone, opening hours, directions and the map.
 - Homepage "Why STOPWASH" section on white: the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that runs from the bottom-left to the bottom-right corner, each card tilted along the curve, drifting slowly sideways. It fits one screen on laptops, monitors and phones, moves only while the section is on screen, and stays still for visitors who prefer reduced motion.
 - "Why the name?" is now a compact navy band on the homepage: the STOPWATCH to STOPWASH wordmark beside a short explanation and a link to the story.
@@ -21,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Homepage Services section now presents the two STOPWASH formats, the supermarket model ("Clean while you shop.") and the outlet model ("Drive in. Drive out sharper."), as full-height photo tiles that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
+- Homepage franchise card is now aligned to the navigation width, with larger type and rewritten copy ("One outlet proves the idea. A network changes the category."), a "Become a franchisee" button and a link straight to the franchise FAQ.
+- Homepage Services section now presents the two STOPWASH formats, the supermarket model ("Clean while you shop.") and the B2B model, STOPWASH as official detailing partner to vehicle brands and dealerships ("The detailing partner behind the brands."), as full-height photo tiles that fit one screen, with a link to all services. The six individual service cards moved off the homepage.
 - Homepage order: Services now follows "Why the name?", ahead of "What we are building".
 - Location cards: the map now fills the full height of the card.
 - Services, Locations, Our Story, Our Vision, Our Standard, Blog and Contact open with a full-screen landing hero, matching Home and Franchise. Pages without a photograph show a branded backdrop until one is supplied.
@@ -37,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Round "scroll down" arrow at the bottom of the page heroes.
 - "Our first outlet" section from the homepage (replaced by "Our outlets").
 - "The STOPWASH difference" section (Motion, Precision, Repeatability) from the homepage.
 - Gmail address from the footer, Contact, Privacy Policy and Terms; hello@stopwash.lk is the single contact address.

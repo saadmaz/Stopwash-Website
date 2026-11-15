@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "./SectionHeading";
 
@@ -78,16 +77,7 @@ export function LandingHero({ id, title, titleClassName = "text-display", eyebro
           </div>
         </Container>
 
-        <a
-          href={`#${id}-next`}
-          aria-label="Scroll to the next section"
-          className="fade-up absolute bottom-6 left-1/2 hidden h-11 w-11 -translate-x-1/2 place-items-center rounded-full border border-snow/20 text-snow/70 transition-colors hover:border-snow/50 hover:text-snow md:grid"
-          style={delay("0.4s")}
-        >
-          <ChevronDown className="h-5 w-5" aria-hidden />
-        </a>
       </section>
-      <div id={`${id}-next`} className="scroll-mt-16" />
     </>
   );
 }

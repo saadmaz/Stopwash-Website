@@ -113,14 +113,14 @@ export const serviceModels = [
     alt: "A smiling shopper walking out of a supermarket with his shopping bags",
   },
   {
-    slug: "outlet",
-    label: "Outlet model",
-    title: "Drive in. Drive out sharper.",
-    text: "A dedicated STOPWASH outlet with every level of care, from a quick reset to a full detail. Our first is open in Katubedda, every day from 9 am to 9 pm.",
-    points: ["Every level of care", "Open every day"],
-    cta: { label: "Visit Katubedda", to: "/locations" },
+    slug: "b2b",
+    label: "B2B model",
+    title: "The detailing partner behind the brands.",
+    text: "STOPWASH works as the official detailing partner for vehicle brands and their dealerships, from pre-delivery preparation to showroom upkeep and after-sales care, all to one consistent standard.",
+    points: ["Pre-delivery preparation", "After-sales care"],
+    cta: { label: "Partner with us", to: "/contact", search: { type: "Brand & dealer partnership" } },
     image: modelOutlet,
-    alt: "A white Kia SUV and a customer at the STOPWASH Katubedda outlet",
+    alt: "A freshly detailed white Kia SUV at STOPWASH Katubedda",
   },
 ] as const;
 
@@ -292,7 +292,7 @@ export const partnerTraits = [
   "Wants to grow with the brand over time",
 ];
 
-export const enquiryTypes = ["General enquiry", "Service enquiry", "Franchise enquiry", "Fleet partnership", "Other"] as const;
+export const enquiryTypes = ["General enquiry", "Service enquiry", "Franchise enquiry", "Brand & dealer partnership", "Fleet partnership", "Other"] as const;
 export type EnquiryType = (typeof enquiryTypes)[number];
 
 export function pageHead(opts: { title: string; description: string; path: string; image?: string }) {
