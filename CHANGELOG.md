@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Homepage "Why STOPWASH" section: full screen, with the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that drifts slowly sideways. It moves only while the section is on screen and stays still for visitors who prefer reduced motion.
-- "Why the name?" is now its own section on the homepage, on a light background.
+- Homepage "Why STOPWASH" section on white: the statement centred in large capitals above an arc of real STOPWASH-ED customer photos that drifts slowly sideways and fades in and out at the screen edges. It fits one screen on laptops, monitors and phones, moves only while the section is on screen, and stays still for visitors who prefer reduced motion.
+- "Why the name?" is now its own navy section on the homepage.
 - Katubedda outlet details: 239 Model Town Rd, Moratuwa 10400, open every day 9:00 am to 9:00 pm, with the official Google Maps embed and directions to the exact pin.
 - Local business structured data now includes the street address, map pin and opening hours.
 - New link preview image for social sharing, cropped from the homepage photograph.

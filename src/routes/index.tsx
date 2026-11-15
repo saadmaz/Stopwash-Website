@@ -63,21 +63,21 @@ function Hero() {
 /* Why STOPWASH: full-screen statement above an arc of real customers that drifts while in view. */
 function WhyStopwash() {
   return (
-    <section aria-labelledby="why-title" className="section-dark relative flex min-h-[100svh] flex-col overflow-hidden pt-28 md:pt-32">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_100%,rgb(178_224_76/0.12),transparent_70%)]" aria-hidden />
-      <Container className="text-center">
+    <section aria-labelledby="why-title" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-snow pb-10 pt-24 md:pt-28 [@media(max-height:700px)]:pt-20">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_100%,rgb(178_224_76/0.14),transparent_70%)]" aria-hidden />
+      <Container className="pb-8 text-center">
         <Reveal>
           <p className="eyebrow mb-5">Why STOPWASH</p>
-          <h2 id="why-title" className="mx-auto max-w-5xl font-display font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(2.4rem,min(5.4vw,8.5vh),5.25rem)]">
-            A car wash should be a <span className="text-lime">pit stop</span>, not a lifestyle.
+          <h2 id="why-title" className="mx-auto max-w-5xl font-display font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(2rem,min(5vw,7.5svh),5rem)]">
+            A car wash should be a <span className="whitespace-nowrap bg-lime px-2">pit stop</span>, not a lifestyle.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-lead mx-auto mt-6 max-w-xl text-snow/75">Vehicle care should not cost you your momentum.</p>
-          <div className="mt-8 flex justify-center"><Cta to="/our-story">Read our story</Cta></div>
+          <p className="text-lead mx-auto mt-5 max-w-xl text-muted-foreground">Vehicle care should not cost you your momentum.</p>
+          <div className="mt-7 flex justify-center"><Cta to="/our-story">Read our story</Cta></div>
         </Reveal>
       </Container>
-      <CustomerArc className="mt-auto h-[clamp(200px,22vw,320px)] pt-10" />
+      <CustomerArc className="min-h-[200px] flex-1" />
     </section>
   );
 }
@@ -85,7 +85,7 @@ function WhyStopwash() {
 /* Why the name: the stopwatch idea, as its own section. */
 function WhyTheName() {
   return (
-    <section aria-labelledby="name-title" className="section-paper section-y">
+    <section aria-labelledby="name-title" className="section-dark section-y">
       <Container>
         <Reveal>
           <Link to="/our-story" hash="the-name" className="group grid gap-8 md:grid-cols-12 md:items-end">
@@ -95,10 +95,10 @@ function WhyTheName() {
                 Why the name?
               </p>
               <h2 id="name-title" className="text-h1">
-                STOPWASH comes from the <span className="bg-lime px-2 [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">stopwatch.</span> We never set out to sell a car wash. We set out to sell time.
+                STOPWASH comes from the <span className="text-lime">stopwatch.</span> We never set out to sell a car wash. We set out to sell time.
               </h2>
             </div>
-            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold underline decoration-lime decoration-2 underline-offset-[6px] md:col-span-3 md:justify-self-end">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold text-lime md:col-span-3 md:justify-self-end">
               Read the story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </span>
           </Link>
