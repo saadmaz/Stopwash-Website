@@ -1,5 +1,5 @@
 {
-  // Cloudflare Workers configuration. `bun run build` merges this into .output/server/wrangler.json,
+  // Cloudflare Workers configuration. `bun run build` merges this into .output/server/wrangler.json.
   // Cloudflare Workers Builds (connected in the dashboard) builds and deploys every push to main.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "stopwash-website",
