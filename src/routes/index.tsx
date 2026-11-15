@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Timer } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { alts, brandPromise, buildingEngine, images, journey, locations, pageHead, servicePreview, standards } from "@/data/site";
 import { Cta } from "@/components/site/Cta";
 import { Reveal } from "@/components/site/Reveal";
@@ -83,27 +83,30 @@ function WhyStopwash() {
   );
 }
 
-/* Why the name: the stopwatch idea, as its own section. */
+/* Why the name: a compact band. The wordmark shows the idea, the copy explains it. */
 function WhyTheName() {
   return (
-    <section aria-labelledby="name-title" className="section-dark section-y">
+    <section aria-labelledby="name-title" className="section-dark py-20 md:py-24">
       <Container>
-        <Reveal>
-          <Link to="/our-story" hash="the-name" className="group grid gap-8 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-9">
-              <p className="eyebrow mb-6 flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-lime"><Timer className="h-5 w-5 text-ink" aria-hidden /></span>
-                Why the name?
-              </p>
-              <h2 id="name-title" className="text-h1">
-                STOPWASH comes from the <span className="text-lime">stopwatch.</span> We never set out to sell a car wash. We set out to sell time.
-              </h2>
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-0">
+          <Reveal className="md:col-span-5 md:pr-12">
+            <p className="eyebrow mb-6">Why the name?</p>
+            <p className="sr-only">STOPWATCH became STOPWASH.</p>
+            <div aria-hidden className="font-display font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[clamp(2.25rem,4.4vw,3.75rem)]">
+              <p className="text-snow/30">STOPWA<span className="line-through decoration-lime decoration-[0.08em]">TCH</span></p>
+              <p className="mt-1">STOP<span className="text-lime">WASH</span></p>
             </div>
-            <span className="inline-flex items-center gap-2 whitespace-nowrap font-semibold text-lime md:col-span-3 md:justify-self-end">
+          </Reveal>
+          <Reveal delay={0.1} className="md:col-span-7 md:border-l md:border-snow/10 md:pl-12 lg:pl-16">
+            <h2 id="name-title" className="font-display text-2xl font-semibold leading-snug tracking-tight md:text-[1.875rem]">
+              STOPWASH comes from the stopwatch.
+            </h2>
+            <p className="text-lead mt-3 max-w-xl text-snow/70">We never set out to sell a car wash. We set out to sell time.</p>
+            <Link to="/our-story" hash="the-name" className="group mt-8 inline-flex items-center gap-2 font-semibold text-lime underline-offset-[6px] hover:underline">
               Read the story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </span>
-          </Link>
-        </Reveal>
+            </Link>
+          </Reveal>
+        </div>
       </Container>
     </section>
   );
