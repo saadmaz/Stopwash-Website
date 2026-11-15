@@ -43,18 +43,18 @@ function Home() {
 /* Hero: full-bleed photograph, one confident line, two actions. */
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink text-snow md:h-[92svh] md:max-h-[900px]" aria-labelledby="hero-title">
-      <img src={images.heroBay} alt={alts.heroBay} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_45%]" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-ink/70 to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-ink/55 md:hidden" />
-      <Container className="pb-14 pt-32 md:pb-20">
+    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-ink text-snow md:h-[92svh] md:max-h-[900px] md:items-center" aria-labelledby="hero-title">
+      <img src={images.heroHome} alt={alts.heroHome} fetchPriority="high" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover object-[62%_30%]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-ink/60 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-ink/50 md:hidden" />
+      <Container className="pb-14 pt-32 md:pb-0 md:pt-24">
         <div className="max-w-2xl">
           <p className="fade-up mb-6 inline-flex items-center gap-2 rounded-full bg-snow/10 px-3.5 py-1.5 text-sm font-medium backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-lime" /> Now open in Katubedda
           </p>
           <h1 id="hero-title" className="text-hero fade-up" style={{ ["--d" as string]: "0.05s" }}>
-            The queue <br />ends <span className="text-lime">here.</span>
+            Giving you <br />back <span className="text-lime">the gift</span> <br />of time
           </h1>
           <p className="fade-up mt-6 font-display text-xl font-semibold md:text-2xl" style={{ ["--d" as string]: "0.15s" }}>
             Vehicle care without the lost afternoon.

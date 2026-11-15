@@ -129,8 +129,12 @@ Copy `.env.example` to `.env` and set the Supabase project values.
 .
 ├── .github/                  # CI workflow, issue and pull request templates
 ├── public/                   # Static files: favicons, robots.txt, blog images
+├── _incoming/                # Drop zone for new raw images (ignored by git)
 ├── src/
-│   ├── assets/               # Photography
+│   ├── assets/
+│   │   ├── photos/           # Site photography
+│   │   ├── locations/        # One photo per outlet
+│   │   └── brand/            # Logo files
 │   ├── components/
 │   │   ├── site/             # Site components: Navbar, Footer, forms, cards
 │   │   └── ui/               # Headless UI primitives (Radix-based)
@@ -153,7 +157,7 @@ Most content lives in [`src/data/site.ts`](src/data/site.ts), so routine updates
 | Update phone, email or social links | `contact` in `src/data/site.ts` |
 | Add or edit a location | `locations` in `src/data/site.ts`; set `coordinates` to enable the map |
 | Edit services | `serviceCatalogue` and `servicePreview` in `src/data/site.ts` |
-| Replace photography | Swap files in `src/assets/` (keep the names) and update `alts` |
+| Add or replace photography | See [`src/assets/README.md`](src/assets/README.md): drop originals in `_incoming/`, then convert into `src/assets/photos/`, `locations/` or `brand/` |
 | Change brand colours | Tokens at the top of `src/styles.css` |
 | Add a page | Create `src/routes/<slug>.tsx`, set `head: () => pageHead({...})`, add the path to `src/routes/sitemap[.]xml.ts` |
 | Write a blog post | See [`src/content/blog/README.md`](src/content/blog/README.md) |

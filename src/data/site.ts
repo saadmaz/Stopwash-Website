@@ -1,17 +1,19 @@
-import heroBay from "@/assets/hero-bay.webp";
-import detailHands from "@/assets/detail-hands.webp";
-import interior from "@/assets/interior.webp";
-import foam from "@/assets/foam.webp";
+import heroHome from "@/assets/photos/hero-home.webp";
+import heroBay from "@/assets/photos/hero-bay.webp";
+import detailHands from "@/assets/photos/detail-hands.webp";
+import interior from "@/assets/photos/interior.webp";
+import foam from "@/assets/photos/foam.webp";
 // JPEG kept for link previews: some social platforms do not render WebP og:images.
-import ogImage from "@/assets/hero-bay.jpg";
+import ogImage from "@/assets/photos/hero-bay.jpg";
 
 /**
  * PLACEHOLDER IMAGERY: these are mood images, not photographs of the STOPWASH
  * outlet or team. Swap each file for real STOPWASH photography (same keys) and
  * update the alt text. Nothing else in the site needs to change.
  */
-export const images = { heroBay, detailHands, interior, foam };
+export const images = { heroHome, heroBay, detailHands, interior, foam };
 export const alts: Record<keyof typeof images, string> = {
+  heroHome: "A smiling man walking out of a shop with shopping bags, seen from inside a parked car",
   heroBay: "A dark vehicle covered in foam inside a wash bay lit in green",
   detailHands: "A gloved hand drying a freshly washed vehicle panel with a microfibre cloth",
   interior: "A vehicle cabin being vacuumed during an interior clean",
