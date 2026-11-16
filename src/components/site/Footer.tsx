@@ -7,7 +7,7 @@ import { SocialLinks } from "./SocialIcon";
 export function Footer() {
   return (
     <footer className="section-dark border-t border-snow/10">
-      <Container className="pb-10 pt-16 md:pt-20">
+      <Container className="pb-24 pt-16 md:pb-10 md:pt-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Logo className="text-snow" />
@@ -32,9 +32,9 @@ export function Footer() {
             <SocialLinks tone="dark" className="mt-6" />
           </div>
         </div>
-        <div className="mt-16 flex flex-col gap-4 border-t border-snow/10 pt-6 text-sm text-snow/55 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col items-center gap-4 border-t border-snow/10 pt-6 text-center text-sm text-snow/55 md:flex-row md:justify-between md:text-left">
           <p>© 2026 STOPWASH PVT LTD. All rights reserved. <span className="text-snow/80">Stop washing time away.</span></p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link to="/privacy-policy" className="hover:text-snow">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-snow">Terms and Conditions</Link>
           </div>
