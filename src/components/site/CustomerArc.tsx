@@ -14,6 +14,44 @@ const CARDS = [...customerPhotos, ...customerPhotos];
  * Moves only while the section is on screen, and stays still for visitors who prefer reduced motion.
  */
 export function CustomerArc({ className }: { className?: string }) {
+  return (
+    <>
+      <CustomerStrip className="md:hidden" />
+      <ArcStage className={cn("hidden md:block", className)} />
+    </>
+  );
+}
+
+/**
+ * Phones: the same photos in a straight row that drifts sideways. The arc needs width to read as a curve,
+ * so narrow screens get this calmer strip instead. Visitors who prefer reduced motion see a still row.
+ */
+function CustomerStrip({ className }: { className?: string }) {
+  return (
+    <div
+      role="group"
+      aria-label="STOPWASH customers at Katubedda"
+      className={cn("overflow-hidden py-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]", className)}
+    >
+      <ul className="flex w-max animate-[marquee_60s_linear_infinite] motion-reduce:animate-none">
+        {CARDS.map((photo, i) => {
+          const copy = i >= customerPhotos.length;
+          return (
+            <li key={i} aria-hidden={copy || undefined} className="w-44 shrink-0 px-2">
+              <figure className="overflow-hidden rounded-2xl bg-paper shadow-[0_14px_30px_-16px_rgb(5_10_18/0.35)] ring-1 ring-ink/5">
+                {/* Not lazy: cards start beside the screen, where lazy images would arrive blank as they drift in. */}
+                <img src={photo.src} alt={copy ? "" : photo.alt} fetchPriority="low" decoding="async" width={560} height={700} className="aspect-[4/5] h-auto w-full object-cover" />
+              </figure>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+/** Tablets and up: the arc. */
+function ArcStage({ className }: { className?: string }) {
   const stage = useRef<HTMLDivElement>(null);
   const cards = useRef<(HTMLDivElement | null)[]>([]);
   const [ready, setReady] = useState(false);
