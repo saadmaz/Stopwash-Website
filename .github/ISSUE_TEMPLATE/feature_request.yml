@@ -1,5 +1,5 @@
 name: Change request
-description: Suggest a new page, feature, content update or design change.
+description: Suggest a new feature, page, content update or design change.
 title: "feat: "
 labels: [enhancement]
 body:
@@ -8,10 +8,10 @@ body:
     attributes:
       label: Type of change
       options:
-        - New feature or page
+        - New feature
         - Content or copy update
         - Design or visual change
-        - New location
+        - SEO or performance
         - Other
     validations:
       required: true

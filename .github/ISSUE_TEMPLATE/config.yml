@@ -3,6 +3,6 @@ contact_links:
   - name: Report a security vulnerability
     url: https://github.com/saadmaz/Stopwash-Website/blob/main/SECURITY.md
     about: Please report security issues privately, not in a public issue.
-  - name: Customer or franchise enquiry
-    url: https://stopwash.lk/contact
-    about: For bookings, services or franchising, contact the STOPWASH team directly.
+  - name: Customer enquiry
+    url: https://stopwash.lk
+    about: For bookings, services or general questions, contact the STOPWASH team directly.

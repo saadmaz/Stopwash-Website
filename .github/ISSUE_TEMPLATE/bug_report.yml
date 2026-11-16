@@ -1,5 +1,5 @@
 name: Bug report
-description: Something on stopwash.lk is broken or behaves unexpectedly.
+description: Something is broken or behaves unexpectedly.
 title: "fix: "
 labels: [bug]
 body:
@@ -8,18 +8,18 @@ body:
       value: |
         Thanks for reporting. For security problems, do not use this form. See SECURITY.md instead.
   - type: input
-    id: url
+    id: where
     attributes:
       label: Page URL
       description: Where did it happen?
-      placeholder: https://stopwash.lk/contact
+      placeholder: https://stopwash.lk/
     validations:
       required: true
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Describe the problem. Screenshots help.
+      description: Describe the problem. Screenshots or error messages help.
     validations:
       required: true
   - type: textarea
@@ -37,6 +37,16 @@ body:
         2. Tap ...
         3. See ...
   - type: dropdown
+    id: severity
+    attributes:
+      label: Impact
+      options:
+        - Blocking (cannot complete a task)
+        - Major (workaround exists)
+        - Minor (cosmetic or rare)
+    validations:
+      required: true
+  - type: dropdown
     id: device
     attributes:
       label: Device
@@ -44,10 +54,8 @@ body:
         - Phone
         - Tablet
         - Desktop or laptop
-    validations:
-      required: true
   - type: input
     id: browser
     attributes:
       label: Browser and version
-      placeholder: Chrome 140 on Android
+      placeholder: Chrome 142 on Android
