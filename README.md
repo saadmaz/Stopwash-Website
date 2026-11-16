@@ -39,12 +39,12 @@ STOPWASH is building a connected vehicle-care network for people who keep moving
 
 This repository powers [stopwash.lk](https://stopwash.lk): the brand, service and location information customers use to find a STOPWASH, and the franchise funnel operators use to apply to build one.
 
-| | |
-| --- | --- |
-| **Organisation** | STOPWASH PVT LTD |
-| **Website** | [stopwash.lk](https://stopwash.lk) |
-| **Contact** | [hello@stopwash.lk](mailto:hello@stopwash.lk) · +94 70 622 5252 |
-| **Maintainer** | [Saad Mazhar](https://github.com/saadmaz) |
+|                  |                                                                 |
+| ---------------- | --------------------------------------------------------------- |
+| **Organisation** | STOPWASH PVT LTD                                                |
+| **Website**      | [stopwash.lk](https://stopwash.lk)                              |
+| **Contact**      | [hello@stopwash.lk](mailto:hello@stopwash.lk) · +94 70 622 5252 |
+| **Maintainer**   | [Saad Mazhar](https://github.com/saadmaz)                       |
 
 ## Features
 
@@ -61,17 +61,17 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 
 ## Tech stack
 
-| Layer | Technology |
-| --- | --- |
+| Layer     | Technology                                                                       |
+| --------- | -------------------------------------------------------------------------------- |
 | Framework | [TanStack Start](https://tanstack.com/start) (React 19, SSR, file-based routing) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 with design tokens in `src/styles.css` |
-| Motion | Framer Motion, with CSS animations for server-rendered content |
-| Forms | React Hook Form + Zod |
-| Content | Markdown via `marked` |
-| Build | Vite 8 + Nitro |
-| Hosting | Cloudflare Workers (default) |
-| Tooling | Bun, Vitest, Testing Library, ESLint, Prettier |
+| Language  | TypeScript (strict)                                                              |
+| Styling   | Tailwind CSS v4 with design tokens in `src/styles.css`                           |
+| Motion    | Framer Motion, with CSS animations for server-rendered content                   |
+| Forms     | React Hook Form + Zod                                                            |
+| Content   | Markdown via `marked`                                                            |
+| Build     | Vite 8 + Nitro                                                                   |
+| Hosting   | Cloudflare Workers (default)                                                     |
+| Tooling   | Bun, Vitest, Testing Library, ESLint, Prettier                                   |
 
 ## Getting started
 
@@ -93,16 +93,16 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 
 ### Scripts
 
-| Command | Description |
-| --- | --- |
-| `bun run dev` | Start the development server with hot reload |
-| `bun run build` | Production build into `.output/` |
-| `bun run preview` | Serve the production build locally |
-| `bun run typecheck` | Type-check the project with `tsc` |
-| `bun run test` | Run the test suite once |
-| `bun run test:watch` | Run tests in watch mode |
-| `bun run lint` | Lint with ESLint |
-| `bun run format` | Format with Prettier |
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `bun run dev`        | Start the development server with hot reload |
+| `bun run build`      | Production build into `.output/`             |
+| `bun run preview`    | Serve the production build locally           |
+| `bun run typecheck`  | Type-check the project with `tsc`            |
+| `bun run test`       | Run the test suite once                      |
+| `bun run test:watch` | Run tests in watch mode                      |
+| `bun run lint`       | Lint with ESLint                             |
+| `bun run format`     | Format with Prettier                         |
 
 ## Project structure
 
@@ -133,15 +133,15 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 
 Most content lives in [`src/data/site.ts`](src/data/site.ts), so routine updates don't touch page code.
 
-| Task | Where |
-| --- | --- |
-| Update phone, email or social links | `contact` in `src/data/site.ts` |
-| Add or edit a location | `locations` in `src/data/site.ts`; set `coordinates` to enable the map |
-| Edit services | `serviceCatalogue` and `servicePreview` in `src/data/site.ts` |
-| Add or replace photography | See [`src/assets/README.md`](src/assets/README.md): drop originals in `_incoming/`, then convert into `src/assets/photos/`, `locations/` or `brand/` |
-| Change brand colours | Tokens at the top of `src/styles.css` |
-| Add a page | Create `src/routes/<slug>.tsx`, set `head: () => pageHead({...})`, add the path to `src/routes/sitemap[.]xml.ts` |
-| Write a blog post | See [`src/content/blog/README.md`](src/content/blog/README.md) |
+| Task                                | Where                                                                                                                                                |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Update phone, email or social links | `contact` in `src/data/site.ts`                                                                                                                      |
+| Add or edit a location              | `locations` in `src/data/site.ts`; set `coordinates` to enable the map                                                                               |
+| Edit services                       | `serviceCatalogue` and `servicePreview` in `src/data/site.ts`                                                                                        |
+| Add or replace photography          | See [`src/assets/README.md`](src/assets/README.md): drop originals in `_incoming/`, then convert into `src/assets/photos/`, `locations/` or `brand/` |
+| Change brand colours                | Tokens at the top of `src/styles.css`                                                                                                                |
+| Add a page                          | Create `src/routes/<slug>.tsx`, set `head: () => pageHead({...})`, add the path to `src/routes/sitemap[.]xml.ts`                                     |
+| Write a blog post                   | See [`src/content/blog/README.md`](src/content/blog/README.md)                                                                                       |
 
 Blog posts appear on `/blog`, in the sitemap and in the RSS feed automatically. Set `draft: true` to keep a post visible only in local development.
 
@@ -177,37 +177,37 @@ stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquir
 
 ### What is already set up
 
-| Item | Where |
-| --- | --- |
-| Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc` |
-| `workers.dev` address and branch preview URLs | `wrangler.jsonc` |
-| Custom domains `stopwash.lk` and `www.stopwash.lk` | attached in the Cloudflare dashboard |
-| `www` to `stopwash.lk` permanent redirect | `src/server.ts` |
-| Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts` |
-| Long-term caching for hashed assets | generated `_headers` |
-| Logs and metrics | `observability` in `wrangler.jsonc` |
-| Automatic deploy on every push to `main` | Cloudflare Workers Builds (connected in the dashboard) |
+| Item                                                                       | Where                                                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc`                                       |
+| `workers.dev` address and branch preview URLs                              | `wrangler.jsonc`                                       |
+| Custom domains `stopwash.lk` and `www.stopwash.lk`                         | attached in the Cloudflare dashboard                   |
+| `www` to `stopwash.lk` permanent redirect                                  | `src/server.ts`                                        |
+| Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts`                                        |
+| Long-term caching for hashed assets                                        | generated `_headers`                                   |
+| Logs and metrics                                                           | `observability` in `wrangler.jsonc`                    |
+| Automatic deploy on every push to `main`                                   | Cloudflare Workers Builds (connected in the dashboard) |
 
 ### Going live (one time)
 
 Cloudflare builds and deploys straight from this GitHub repository. No API tokens or GitHub secrets are needed.
 
-1. **Connect the repository.** Workers & Pages → *Create* → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
+1. **Connect the repository.** Workers & Pages → _Create_ → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
 2. **Use these settings:**
 
-   | Setting | Value |
-   | --- | --- |
-   | Project name | `stopwash-website` (must match `name` in `wrangler.jsonc`) |
-   | Production branch | `main` |
-   | Build command | `bun run build` |
-   | Deploy command | `npx wrangler deploy` |
-   | Non-production branch deploy command | `npx wrangler versions upload` |
-   | Root directory | `/` (leave empty) |
-   | Build variable | `BUN_VERSION` = `1.4.4` |
+   | Setting                              | Value                                                      |
+   | ------------------------------------ | ---------------------------------------------------------- |
+   | Project name                         | `stopwash-website` (must match `name` in `wrangler.jsonc`) |
+   | Production branch                    | `main`                                                     |
+   | Build command                        | `bun run build`                                            |
+   | Deploy command                       | `npx wrangler deploy`                                      |
+   | Non-production branch deploy command | `npx wrangler versions upload`                             |
+   | Root directory                       | `/` (leave empty)                                          |
+   | Build variable                       | `BUN_VERSION` = `1.4.4`                                    |
 
 3. **Save and deploy.** The site goes live at `https://stopwash-website.<your-account>.workers.dev`. From then on every push to `main` deploys automatically, and other branches get preview URLs.
 4. **Add the domain to Cloudflare.** Add `stopwash.lk` as a site, then switch the domain's nameservers at your `.lk` registrar to the two Cloudflare nameservers shown. Wait until the zone shows as **Active**.
-5. **Attach the domains.** Worker `stopwash-website` → Settings → **Domains & Routes** → *Add* → **Custom domain**: add `stopwash.lk`, then `www.stopwash.lk`. Cloudflare creates the DNS records and SSL certificates.
+5. **Attach the domains.** Worker `stopwash-website` → Settings → **Domains & Routes** → _Add_ → **Custom domain**: add `stopwash.lk`, then `www.stopwash.lk`. Cloudflare creates the DNS records and SSL certificates.
 6. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
 7. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form to confirm it opens an email to hello@stopwash.lk.
 

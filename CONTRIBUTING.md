@@ -9,14 +9,14 @@ The source code is publicly visible, but it is proprietary: see [LICENSE](LICENS
 1. **Open or pick an issue.** Use the bug report or change request template so the problem and expected result are clear.
 2. **Branch from `main`.** Use a short, descriptive name with a type prefix:
 
-   | Prefix | Use for |
-   | --- | --- |
-   | `feat/` | New pages, sections or capabilities |
-   | `fix/` | Bug fixes |
-   | `content/` | Copy, photography or blog posts |
-   | `style/` | Visual or design changes |
-   | `chore/` | Dependencies, tooling, configuration |
-   | `docs/` | Documentation |
+   | Prefix     | Use for                              |
+   | ---------- | ------------------------------------ |
+   | `feat/`    | New pages, sections or capabilities  |
+   | `fix/`     | Bug fixes                            |
+   | `content/` | Copy, photography or blog posts      |
+   | `style/`   | Visual or design changes             |
+   | `chore/`   | Dependencies, tooling, configuration |
+   | `docs/`    | Documentation                        |
 
    Example: `feat/booking-widget`, `content/monsoon-care-post`.
 
@@ -39,16 +39,16 @@ Follow [Conventional Commits](https://www.conventionalcommits.org):
 <type>(<optional scope>): <summary in the imperative mood>
 ```
 
-| Type | Meaning |
-| --- | --- |
-| `feat` | A new feature |
-| `fix` | A bug fix |
-| `style` | Visual or formatting change with no behaviour change |
+| Type       | Meaning                                                 |
+| ---------- | ------------------------------------------------------- |
+| `feat`     | A new feature                                           |
+| `fix`      | A bug fix                                               |
+| `style`    | Visual or formatting change with no behaviour change    |
 | `refactor` | Code change that neither fixes a bug nor adds a feature |
-| `content` | Copy, imagery or blog content |
-| `docs` | Documentation only |
-| `test` | Adding or updating tests |
-| `chore` | Build, tooling or dependency changes |
+| `content`  | Copy, imagery or blog content                           |
+| `docs`     | Documentation only                                      |
+| `test`     | Adding or updating tests                                |
+| `chore`    | Build, tooling or dependency changes                    |
 
 Examples:
 
