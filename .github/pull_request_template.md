@@ -18,7 +18,7 @@ Closes #
 
 ## Checklist
 
-- [ ] `bun run typecheck`, `bun run test` and `bun run build` pass locally
+- [ ] `bun run lint`, `bun run typecheck`, `bun run test` and `bun run build` pass locally
 - [ ] Checked on a phone-width screen as well as desktop
 - [ ] Images have meaningful `alt` text
 - [ ] New pages set `pageHead()` and are added to the sitemap

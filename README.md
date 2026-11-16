@@ -160,6 +160,7 @@ Enquiries therefore arrive in the `hello@stopwash.lk` inbox. To change the desti
 Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml):
 
 - dependency install from the lockfile
+- lint
 - type check
 - tests
 - production build
@@ -167,7 +168,7 @@ Every push and pull request to `main` runs the [CI workflow](.github/workflows/c
 Run the same checks locally before opening a pull request:
 
 ```sh
-bun run typecheck && bun run test && bun run build
+bun run lint && bun run typecheck && bun run test && bun run build
 ```
 
 ## Deployment

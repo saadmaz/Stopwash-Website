@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Dependabot configuration, `.editorconfig` and `.gitattributes`.
+- Lint step in continuous integration.
+
+## [1.1.0] - 2026-11-16
+
+### Added
+
 - Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, a workers.dev address with branch preview URLs, and logging. Custom domains are attached in the Cloudflare dashboard.
 - Permanent redirect from www.stopwash.lk to stopwash.lk, and security headers (HSTS, nosniff, frame, referrer and permissions policies) on every page.
 - Deployment through Cloudflare Workers Builds (the repository connected in the Cloudflare dashboard deploys every push to main), plus `deploy` and `preview:worker` scripts for manual use.
@@ -79,5 +86,6 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/saadmaz/Stopwash-Website/releases/tag/v1.0.0

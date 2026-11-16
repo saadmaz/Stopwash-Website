@@ -23,7 +23,7 @@ The source code is publicly visible, but it is proprietary: see [LICENSE](LICENS
 3. **Make the change** and run the checks locally:
 
    ```sh
-   bun run typecheck && bun run test && bun run build
+   bun run lint && bun run typecheck && bun run test && bun run build
    ```
 
 4. **Open a pull request** into `main` and complete the checklist in the template. CI must pass before merging.
