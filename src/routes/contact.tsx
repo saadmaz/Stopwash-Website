@@ -57,7 +57,7 @@ function Contact() {
                     <li key={l.text}>
                       <a href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink">
                         <l.icon className="h-4 w-4 shrink-0" aria-hidden />
-                        <span className="break-all">{l.text}</span>
+                        <span className="[overflow-wrap:anywhere]">{l.text}</span>
                       </a>
                     </li>
                   ))}

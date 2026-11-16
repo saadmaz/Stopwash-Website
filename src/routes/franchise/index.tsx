@@ -142,7 +142,7 @@ function Franchise() {
                   <li key={b} className="flex gap-3 text-[0.9375rem] leading-snug"><Check className="mt-px h-[1.1rem] w-[1.1rem] shrink-0 text-lime" aria-hidden />{b}</li>
                 ))}
               </ul>
-              <p className="mt-auto border-t border-snow/15 pt-6 text-snow/80 lg:mt-8">The partner is never left to figure out the hard parts alone. In return, the partner is expected to operate the system with discipline.</p>
+              <p className="mt-8 border-t border-snow/15 pt-6 text-snow/80 lg:mt-auto">The partner is never left to figure out the hard parts alone. In return, the partner is expected to operate the system with discipline.</p>
             </Reveal>
             <Reveal delay={0.08} className="flex flex-col rounded-3xl bg-lime p-7 text-ink md:p-10 lg:col-span-2">
               <h3 className="font-display text-2xl font-bold tracking-tight">What the partner brings</h3>
@@ -152,7 +152,7 @@ function Franchise() {
                   <li key={b} className="flex gap-3 text-[0.9375rem] leading-snug"><Check className="mt-px h-[1.1rem] w-[1.1rem] shrink-0" aria-hidden />{b}</li>
                 ))}
               </ul>
-              <p className="mt-auto border-t border-ink/15 pt-6 font-display text-xl font-bold tracking-tight lg:mt-8">We provide the road map. The partner still has to drive.</p>
+              <p className="mt-8 border-t border-ink/15 pt-6 font-display text-xl font-bold tracking-tight lg:mt-auto">We provide the road map. The partner still has to drive.</p>
             </Reveal>
           </div>
         </Container>

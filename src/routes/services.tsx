@@ -34,7 +34,7 @@ function Services() {
 
       <nav aria-label="Services on this page" className="sticky top-[4.5rem] z-30 border-b border-border bg-snow/95 backdrop-blur">
         <Container>
-          <ul className="-mx-5 flex gap-1 overflow-x-auto px-5 py-3 [scrollbar-width:none] md:mx-0 md:px-0">
+          <ul className="-mx-5 flex gap-1 overflow-x-auto px-5 py-3 pr-12 [scrollbar-width:none] [mask-image:linear-gradient(to_right,black_calc(100%-3rem),transparent)] md:mx-0 md:px-0 md:[mask-image:none]">
             {serviceCatalogue.map((s) => (
               <li key={s.slug} className="shrink-0">
                 <a href={`#${s.slug}`} className="block rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-paper hover:text-ink">{s.name}</a>

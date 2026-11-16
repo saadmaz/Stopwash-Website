@@ -45,7 +45,7 @@ export function LandingHero({ id, title, titleClassName = "text-display", eyebro
     <>
       <section
         aria-labelledby={id}
-        className={cn("section-dark relative isolate flex items-end overflow-hidden md:items-center", size === "full" ? "min-h-[100svh]" : "min-h-[70svh]")}
+        className={cn("section-dark relative isolate flex overflow-hidden md:items-center", image ? "items-end" : "items-center", size === "full" ? "min-h-[100svh]" : "min-h-[70svh]")}
         style={tone === "ink" ? { background: "var(--ink)" } : undefined}
       >
         {image ? (
@@ -60,7 +60,7 @@ export function LandingHero({ id, title, titleClassName = "text-display", eyebro
             />
             <div className={cn("absolute inset-x-0 top-[4.5rem] -z-10 h-40 bg-gradient-to-b to-transparent", t.top)} />
             <div className={cn("absolute inset-0 -z-10 bg-gradient-to-r to-transparent", t.side)} />
-            <div className={cn("absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t to-transparent", t.bottom)} />
+            <div className={cn("absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t to-transparent md:h-1/3", t.bottom)} />
             <div className={cn("absolute inset-0 -z-10 md:hidden", t.mobile)} />
           </>
         ) : (
@@ -89,7 +89,7 @@ function HeroBackdrop() {
       <div className="absolute inset-0 bg-[radial-gradient(55%_65%_at_78%_45%,rgb(178_224_76/0.14),transparent_70%)]" />
       <div className="absolute right-[-18rem] top-1/2 h-[52rem] w-[52rem] -translate-y-1/2 rounded-full border border-lime/20 md:right-[-10rem]" />
       <div className="absolute right-[-10rem] top-1/2 h-[36rem] w-[36rem] -translate-y-1/2 rounded-full border border-lime/35 md:right-[-2rem]" />
-      <div className="absolute right-[8%] top-[13%] h-20 w-20 rounded-full bg-lime md:right-[14%] md:top-[30%] md:h-40 md:w-40" />
+      <div className="absolute right-[7%] top-[9%] h-16 w-16 rounded-full bg-lime md:right-[14%] md:top-[30%] md:h-40 md:w-40" />
     </div>
   );
 }

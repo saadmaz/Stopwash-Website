@@ -189,7 +189,7 @@ function ServicesPreview() {
           {serviceModels.map((m, i) => (
             <li key={m.slug}>
               <Reveal delay={i * 0.08}>
-                <article className="group relative isolate flex h-[clamp(340px,54svh,620px)] flex-col justify-end overflow-hidden rounded-3xl bg-ink text-snow" aria-labelledby={`model-${m.slug}`}>
+                <article className="group relative isolate flex min-h-[clamp(340px,54svh,620px)] flex-col justify-end overflow-hidden rounded-3xl bg-ink text-snow" aria-labelledby={`model-${m.slug}`}>
                   <img src={m.image} alt={m.alt} loading="lazy" decoding="async" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/95 via-ink/45 to-ink/0" />
                   <div className="p-7 md:p-9">
@@ -303,7 +303,7 @@ function Expansion() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
             <div className="lg:col-span-7">
               <p className="eyebrow mb-5">Franchise with STOPWASH</p>
-              <h2 id="franchise-pitch-title" className="text-display">
+              <h2 id="franchise-pitch-title" className="text-h2 md:text-display">
                 One outlet proves the idea. A network changes the category.
               </h2>
             </div>
