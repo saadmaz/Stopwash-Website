@@ -10,16 +10,16 @@
 
 The blog index, post page, sitemap and RSS feed update automatically.
 
-| Field | Required | Example |
-| --- | --- | --- |
-| `title` | yes | `Why we built STOPWASH` |
-| `description` | yes | One or two sentences for Google and link previews |
-| `date` | yes | `2026-11-13` |
-| `updated` | no | `2026-12-01` |
-| `author` | no | `STOPWASH Team` (default) |
-| `cover` | no | `/blog/monsoon-cover.jpg` |
-| `coverAlt` | with cover | A short description of the image |
-| `tags` | no | `[Car care, Tips]` |
-| `draft` | no | `true` / `false` |
+| Field         | Required   | Example                                           |
+| ------------- | ---------- | ------------------------------------------------- |
+| `title`       | yes        | `Why we built STOPWASH`                           |
+| `description` | yes        | One or two sentences for Google and link previews |
+| `date`        | yes        | `2026-11-13`                                      |
+| `updated`     | no         | `2026-12-01`                                      |
+| `author`      | no         | `STOPWASH Team` (default)                         |
+| `cover`       | no         | `/blog/monsoon-cover.jpg`                         |
+| `coverAlt`    | with cover | A short description of the image                  |
+| `tags`        | no         | `[Car care, Tips]`                                |
+| `draft`       | no         | `true` / `false`                                  |
 
 Files whose names start with `_` (like the template) and this README are never published.

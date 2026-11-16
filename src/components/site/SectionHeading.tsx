@@ -3,7 +3,9 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 
 export function Container({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("mx-auto w-full max-w-[1240px] px-5 md:px-8", className)}>{children}</div>;
+  return (
+    <div className={cn("mx-auto w-full max-w-[1240px] px-5 md:px-8", className)}>{children}</div>
+  );
 }
 
 /** Eyebrow + headline + optional intro. */

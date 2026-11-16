@@ -1,7 +1,11 @@
 import { z } from "zod";
 import { enquiryTypes } from "@/data/site";
 
-const phone = z.string().trim().max(40).regex(/^[+\d\s()-]*$/, "Use digits, spaces, + or -");
+const phone = z
+  .string()
+  .trim()
+  .max(40)
+  .regex(/^[+\d\s()-]*$/, "Use digits, spaces, + or -");
 
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(120),
@@ -35,6 +39,9 @@ export type FranchiseInput = z.infer<typeof franchiseSchema>;
 
 /** Submissions faster than this are treated as bots. */
 export const MIN_FILL_MS = 3000;
-export function looksLikeBot(input: { website?: string | undefined; startedAt: number }, now = Date.now()) {
+export function looksLikeBot(
+  input: { website?: string | undefined; startedAt: number },
+  now = Date.now(),
+) {
   return Boolean(input.website) || now - input.startedAt < MIN_FILL_MS;
 }

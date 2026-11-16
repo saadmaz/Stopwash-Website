@@ -1,11 +1,11 @@
 # Images
 
-| Folder | What goes here | Format |
-| --- | --- | --- |
-| `photos/` | Site photography: hero, page sections, services | WebP, 1200 to 1600px wide |
-| `locations/` | One photo per outlet, named after the location slug (e.g. `katubedda.webp`) | WebP, 1200 to 1600px wide |
-| `brand/` | Official STOPWASH logo files | SVG preferred, or PNG |
-| `../../public/blog/` | Blog covers and images inside posts | JPG, so link previews work on WhatsApp, Facebook and LinkedIn |
+| Folder               | What goes here                                                              | Format                                                        |
+| -------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `photos/`            | Site photography: hero, page sections, services                             | WebP, 1200 to 1600px wide                                     |
+| `locations/`         | One photo per outlet, named after the location slug (e.g. `katubedda.webp`) | WebP, 1200 to 1600px wide                                     |
+| `brand/`             | Official STOPWASH logo files                                                | SVG preferred, or PNG                                         |
+| `../../public/blog/` | Blog covers and images inside posts                                         | JPG, so link previews work on WhatsApp, Facebook and LinkedIn |
 
 ## Page hero photos
 

@@ -17,9 +17,23 @@ type Props = {
  * Brand-styled dropdown (replaces the native <select>, whose menu is drawn by the OS).
  * Keyboard and screen-reader accessible via Radix.
  */
-export function ThemedSelect({ id, value, onChange, onBlur, options, placeholder = "Select", invalid, name }: Props) {
+export function ThemedSelect({
+  id,
+  value,
+  onChange,
+  onBlur,
+  options,
+  placeholder = "Select",
+  invalid,
+  name,
+}: Props) {
   return (
-    <SelectPrimitive.Root value={value ?? ""} onValueChange={onChange} {...(name ? { name } : {})} onOpenChange={(open) => !open && onBlur?.()}>
+    <SelectPrimitive.Root
+      value={value ?? ""}
+      onValueChange={onChange}
+      {...(name ? { name } : {})}
+      onOpenChange={(open) => !open && onBlur?.()}
+    >
       <SelectPrimitive.Trigger
         id={id}
         aria-invalid={invalid || undefined}
@@ -32,7 +46,10 @@ export function ThemedSelect({ id, value, onChange, onBlur, options, placeholder
       >
         <SelectPrimitive.Value placeholder={placeholder} />
         <SelectPrimitive.Icon asChild>
-          <ChevronDown className="h-4 w-4 shrink-0 text-ink/50 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden />
+          <ChevronDown
+            className="h-4 w-4 shrink-0 text-ink/50 transition-transform duration-200 group-data-[state=open]:rotate-180"
+            aria-hidden
+          />
         </SelectPrimitive.Icon>
       </SelectPrimitive.Trigger>
       <SelectPrimitive.Portal>

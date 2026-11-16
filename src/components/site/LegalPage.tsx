@@ -4,7 +4,19 @@ import { Container } from "./SectionHeading";
 
 export type LegalSection = { heading: string; body: ReactNode };
 
-export function LegalPage({ label, title, updated, intro, sections }: { label: string; title: string; updated: string; intro: ReactNode; sections: LegalSection[] }) {
+export function LegalPage({
+  label,
+  title,
+  updated,
+  intro,
+  sections,
+}: {
+  label: string;
+  title: string;
+  updated: string;
+  intro: ReactNode;
+  sections: LegalSection[];
+}) {
   return (
     <>
       <PageHero eyebrow={label} title={title}>
@@ -16,7 +28,10 @@ export function LegalPage({ label, title, updated, intro, sections }: { label: s
             <ol className="sticky top-28 space-y-1 border-l border-border">
               {sections.map((s, i) => (
                 <li key={s.heading}>
-                  <a href={`#s-${i + 1}`} className="-ml-px block border-l border-transparent py-1.5 pl-4 text-sm text-muted-foreground transition-colors hover:border-ink hover:text-ink">
+                  <a
+                    href={`#s-${i + 1}`}
+                    className="-ml-px block border-l border-transparent py-1.5 pl-4 text-sm text-muted-foreground transition-colors hover:border-ink hover:text-ink"
+                  >
                     {s.heading}
                   </a>
                 </li>

@@ -24,10 +24,23 @@ function NotFoundComponent() {
       <div className="mx-auto w-full max-w-[1240px]">
         <p className="eyebrow mb-5">Page not found</p>
         <h1 className="text-h1 max-w-2xl">Looks like a wrong turn.</h1>
-        <p className="text-lead mt-5 max-w-lg text-muted-foreground">The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving again.</p>
+        <p className="text-lead mt-5 max-w-lg text-muted-foreground">
+          The page you&apos;re looking for has moved or never existed. Let&apos;s get you moving
+          again.
+        </p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Link to="/" className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c0e86a]">Back to home</Link>
-          <Link to="/locations" className="inline-flex items-center rounded-full border border-ink/25 px-6 py-3.5 font-semibold hover:border-ink/60">Find a STOPWASH</Link>
+          <Link
+            to="/"
+            className="inline-flex items-center rounded-full bg-lime px-6 py-3.5 font-semibold text-ink hover:bg-[#c0e86a]"
+          >
+            Back to home
+          </Link>
+          <Link
+            to="/locations"
+            className="inline-flex items-center rounded-full border border-ink/25 px-6 py-3.5 font-semibold hover:border-ink/60"
+          >
+            Find a STOPWASH
+          </Link>
         </div>
       </div>
     </section>
@@ -76,7 +89,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "STOPWASH: Giving You Back the Gift of Time" },
-      { name: "description", content: "STOPWASH is building a faster, sharper vehicle-care network in Sri Lanka." },
+      {
+        name: "description",
+        content: "STOPWASH is building a faster, sharper vehicle-care network in Sri Lanka.",
+      },
       { name: "author", content: "STOPWASH PVT LTD" },
       { name: "theme-color", content: "#FFFFFF" },
       { property: "og:site_name", content: "STOPWASH" },
@@ -91,10 +107,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      { rel: "alternate", type: "application/rss+xml", title: "STOPWASH Blog", href: "/blog/rss.xml" },
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        title: "STOPWASH Blog",
+        href: "/blog/rss.xml",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+      },
     ],
     scripts: [
       {
@@ -106,10 +130,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://stopwash.lk",
           telephone: "+94706225252",
           email: "hello@stopwash.lk",
-          address: { "@type": "PostalAddress", streetAddress: "239 Model Town Rd", addressLocality: "Moratuwa", postalCode: "10400", addressCountry: "LK" },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "239 Model Town Rd",
+            addressLocality: "Moratuwa",
+            postalCode: "10400",
+            addressCountry: "LK",
+          },
           geo: { "@type": "GeoCoordinates", latitude: 6.8025221, longitude: 79.8883531 },
           hasMap: "https://maps.app.goo.gl/Yn8p6YJWb5a6z3a1A",
-          openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "21:00" }],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "09:00",
+              closes: "21:00",
+            },
+          ],
           parentOrganization: { "@type": "Organization", name: "STOPWASH PVT LTD" },
         }),
       },
@@ -142,15 +187,20 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
-      <Navbar />
-      <main id="main" key={pathname} className="page-fade">
-        <Outlet />
-      </main>
-      <Footer />
-      <BackToTop />
-      <Toaster />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-lime focus:px-4 focus:py-2 focus:text-ink"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main" key={pathname} className="page-fade">
+          <Outlet />
+        </main>
+        <Footer />
+        <BackToTop />
+        <Toaster />
       </MotionConfig>
     </QueryClientProvider>
   );

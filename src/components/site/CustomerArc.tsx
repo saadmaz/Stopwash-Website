@@ -31,7 +31,10 @@ function CustomerStrip({ className }: { className?: string }) {
     <div
       role="group"
       aria-label="STOPWASH customers at Katubedda"
-      className={cn("overflow-hidden py-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]", className)}
+      className={cn(
+        "overflow-hidden py-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]",
+        className,
+      )}
     >
       <ul className="flex w-max animate-[marquee_60s_linear_infinite] motion-reduce:animate-none">
         {CARDS.map((photo, i) => {
@@ -40,7 +43,15 @@ function CustomerStrip({ className }: { className?: string }) {
             <li key={i} aria-hidden={copy || undefined} className="w-44 shrink-0 px-2">
               <figure className="overflow-hidden rounded-2xl bg-paper shadow-[0_14px_30px_-16px_rgb(5_10_18/0.35)] ring-1 ring-ink/5">
                 {/* Not lazy: cards start beside the screen, where lazy images would arrive blank as they drift in. */}
-                <img src={photo.src} alt={copy ? "" : photo.alt} fetchPriority="low" decoding="async" width={560} height={700} className="aspect-[4/5] h-auto w-full object-cover" />
+                <img
+                  src={photo.src}
+                  alt={copy ? "" : photo.alt}
+                  fetchPriority="low"
+                  decoding="async"
+                  width={560}
+                  height={700}
+                  className="aspect-[4/5] h-auto w-full object-cover"
+                />
               </figure>
             </li>
           );
@@ -60,15 +71,24 @@ function ArcStage({ className }: { className?: string }) {
     const el = stage.current;
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let width = 0, cardW = 0, step = 0, total = 0, rise = 0, dip = 0;
-    let offset = 0, last = 0, raf = 0, visible = false;
+    let width = 0,
+      cardW = 0,
+      step = 0,
+      total = 0,
+      rise = 0,
+      dip = 0;
+    let offset = 0,
+      last = 0,
+      raf = 0,
+      visible = false;
 
     // The arc runs corner to corner: the centre card sits at the top of the stage and the curve drops so that
     // cards at the left and right edges rise out of the bottom corners (about 60% of the card showing).
     const measure = () => {
       width = el.clientWidth;
       const h = el.clientHeight;
-      const maxW = width < 640 ? width * 0.4 : width < 1024 ? width * 0.3 : Math.min(width * 0.2, 340);
+      const maxW =
+        width < 640 ? width * 0.4 : width < 1024 ? width * 0.3 : Math.min(width * 0.2, 340);
       cardW = Math.max(110, Math.min(h * 0.5, maxW));
       rise = cardW * 0.04;
       dip = Math.max(0, h - cardW * 1.25 * 0.6 - rise);
@@ -103,16 +123,26 @@ function ArcStage({ className }: { className?: string }) {
     place();
     setReady(true);
 
-    const ro = new ResizeObserver(() => { measure(); place(); });
+    const ro = new ResizeObserver(() => {
+      measure();
+      place();
+    });
     ro.observe(el);
 
     const io = new IntersectionObserver(([entry]) => {
       visible = !!entry?.isIntersecting;
-      if (visible && !reduce && !raf) { last = 0; raf = requestAnimationFrame(frame); }
+      if (visible && !reduce && !raf) {
+        last = 0;
+        raf = requestAnimationFrame(frame);
+      }
     });
     io.observe(el);
 
-    return () => { ro.disconnect(); io.disconnect(); cancelAnimationFrame(raf); };
+    return () => {
+      ro.disconnect();
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -132,12 +162,22 @@ function ArcStage({ className }: { className?: string }) {
         return (
           <div
             key={i}
-            ref={(node) => { cards.current[i] = node; }}
+            ref={(node) => {
+              cards.current[i] = node;
+            }}
             aria-hidden={copy || undefined}
             className="absolute left-0 top-0 w-[var(--card)] origin-center will-change-transform"
           >
             <figure className="overflow-hidden rounded-2xl bg-paper shadow-[0_18px_40px_-18px_rgb(5_10_18/0.35)] ring-1 ring-ink/5">
-              <img src={photo.src} alt={copy ? "" : photo.alt} loading="lazy" decoding="async" width={560} height={700} className="aspect-[4/5] h-auto w-full object-cover" />
+              <img
+                src={photo.src}
+                alt={copy ? "" : photo.alt}
+                loading="lazy"
+                decoding="async"
+                width={560}
+                height={700}
+                className="aspect-[4/5] h-auto w-full object-cover"
+              />
             </figure>
           </div>
         );

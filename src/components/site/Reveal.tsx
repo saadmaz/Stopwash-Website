@@ -2,7 +2,15 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 /** Gentle fade-up on first scroll into view. */
-export function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       className={className}

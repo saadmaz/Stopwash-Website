@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact } from "@/data/site";
 import { posts } from "@/lib/blog";
 
-const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 /** RSS 2.0 feed of published posts. */
 export const Route = createFileRoute("/blog/rss.xml")({
@@ -34,7 +35,12 @@ ${items}
   </channel>
 </rss>
 `;
-        return new Response(body, { headers: { "content-type": "application/rss+xml; charset=utf-8", "cache-control": "public, max-age=3600" } });
+        return new Response(body, {
+          headers: {
+            "content-type": "application/rss+xml; charset=utf-8",
+            "cache-control": "public, max-age=3600",
+          },
+        });
       },
     },
   },
