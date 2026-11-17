@@ -1,11 +1,25 @@
 # Changelog
 
+<!-- nav -->
+<p align="center"><a href="README.md">README</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <a href="SECURITY.md">Security</a> · <strong>Changelog</strong> · <a href="LICENSE">License</a></p>
+
 All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.1] - 2026-11-17
+
+### Changed
+
+- Redesigned README with a brand banner, live release, CI and deployment badges, action buttons, feature grid, diagrams and collapsible panels.
+- Navigation bars and callouts across the contributing, security, conduct and documentation pages.
+
+### Fixed
+
+- Production smoke test no longer fails when Cloudflare's bot protection challenges the CI runner; the challenge confirms the site is up.
 
 ## [1.2.0] - 2026-11-17
 
@@ -90,7 +104,8 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/saadmaz/Stopwash-Website/releases/tag/v1.0.0
