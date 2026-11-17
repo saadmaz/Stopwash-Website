@@ -1,8 +1,12 @@
 # Contributing
 
+<!-- nav -->
+<p align="center"><a href="README.md">README</a> · <strong>Contributing</strong> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <a href="SECURITY.md">Security</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+
 Thanks for helping build stopwash.lk. This guide covers how changes move from an idea to production.
 
-The source code is publicly visible, but it is proprietary: see [LICENSE](LICENSE). Code contributions are accepted from STOPWASH team members and invited collaborators only. Anyone is welcome to report a bug or suggest a change by opening an issue.
+> [!NOTE]
+> The source code is publicly visible, but it is proprietary: see [LICENSE](LICENSE). Code contributions are accepted from STOPWASH team members and invited collaborators only. Anyone is welcome to report a bug or suggest a change by opening an issue.
 
 ## Workflow
 
@@ -36,7 +40,8 @@ The source code is publicly visible, but it is proprietary: see [LICENSE](LICENS
 | `main`                 | Production  | Released code only; every merge deploys to production  |
 | `feat/*`, `fix/*`, ... | None        | Short-lived work branches, merged into `develop`       |
 
-Never push directly to `develop` or `main`, and never force-push to either.
+> [!IMPORTANT]
+> Never push directly to `develop` or `main`, and never force-push to either.
 
 ## Commit messages
 
