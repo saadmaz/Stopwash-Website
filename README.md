@@ -153,9 +153,14 @@ bun run lint && bun run typecheck && bun run test && bun run build
 
 ## Deployment
 
-Cloudflare Workers Builds deploys every push to `main`; other branches get preview URLs.
+| Environment | Branch    | URL                                        |
+| ----------- | --------- | ------------------------------------------ |
+| Development | `develop` | [dev.stopwash.lk](https://dev.stopwash.lk) |
+| Production  | `main`    | [stopwash.lk](https://stopwash.lk)         |
 
-Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
+Cloudflare Workers Builds builds and serves each branch; the Deploy workflow verifies the build and the live URL. Work merges into `develop` and deploys to development; a release pull request from `develop` into `main` deploys to production.
+
+Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
 ## Documentation
 
