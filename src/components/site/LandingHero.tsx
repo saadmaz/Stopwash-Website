@@ -28,8 +28,18 @@ type Props = {
 };
 
 const toneClasses: Record<Tone, { side: string; top: string; bottom: string; mobile: string }> = {
-  ink: { side: "from-ink/85 via-ink/45", top: "from-ink", bottom: "from-ink/60", mobile: "bg-ink/50" },
-  navy: { side: "from-navy via-navy/75 via-45%", top: "from-navy", bottom: "from-navy/70", mobile: "bg-navy/60" },
+  ink: {
+    side: "from-ink/85 via-ink/45",
+    top: "from-ink",
+    bottom: "from-ink/60",
+    mobile: "bg-ink/50",
+  },
+  navy: {
+    side: "from-navy via-navy/75 via-45%",
+    top: "from-navy",
+    bottom: "from-navy/70",
+    mobile: "bg-navy/60",
+  },
 };
 
 const delay = (d: string) => ({ ["--d" as string]: d }) as CSSProperties;
@@ -39,13 +49,30 @@ const delay = (d: string) => ({ ["--d" as string]: d }) as CSSProperties;
  * Photos start below the navigation bar; on screens wider than 16:9 they show whole at the right,
  * fading into the dark side behind the text. Narrower screens crop to fill, framed by `focus`.
  */
-export function LandingHero({ id, title, titleClassName = "text-display", eyebrow, lead, children, actions, image, imageAlt = "", focus = "50% 20%", tone = "navy", size = "full" }: Props) {
+export function LandingHero({
+  id,
+  title,
+  titleClassName = "text-display",
+  eyebrow,
+  lead,
+  children,
+  actions,
+  image,
+  imageAlt = "",
+  focus = "50% 20%",
+  tone = "navy",
+  size = "full",
+}: Props) {
   const t = toneClasses[tone];
   return (
     <>
       <section
         aria-labelledby={id}
-        className={cn("section-dark relative isolate flex overflow-hidden md:items-center", image ? "items-end" : "items-center", size === "full" ? "min-h-[100svh]" : "min-h-[70svh]")}
+        className={cn(
+          "section-dark relative isolate flex overflow-hidden md:items-center",
+          image ? "items-end" : "items-center",
+          size === "full" ? "min-h-[100svh]" : "min-h-[70svh]",
+        )}
         style={tone === "ink" ? { background: "var(--ink)" } : undefined}
       >
         {image ? (
@@ -58,9 +85,19 @@ export function LandingHero({ id, title, titleClassName = "text-display", eyebro
               style={{ objectPosition: focus }}
               className="absolute inset-x-0 bottom-0 top-[4.5rem] -z-10 h-[calc(100%-4.5rem)] w-full object-cover wide:left-auto wide:w-auto wide:max-w-none wide:fade-left"
             />
-            <div className={cn("absolute inset-x-0 top-[4.5rem] -z-10 h-40 bg-gradient-to-b to-transparent", t.top)} />
+            <div
+              className={cn(
+                "absolute inset-x-0 top-[4.5rem] -z-10 h-40 bg-gradient-to-b to-transparent",
+                t.top,
+              )}
+            />
             <div className={cn("absolute inset-0 -z-10 bg-gradient-to-r to-transparent", t.side)} />
-            <div className={cn("absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t to-transparent md:h-1/3", t.bottom)} />
+            <div
+              className={cn(
+                "absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t to-transparent md:h-1/3",
+                t.bottom,
+              )}
+            />
             <div className={cn("absolute inset-0 -z-10 md:hidden", t.mobile)} />
           </>
         ) : (
@@ -70,13 +107,22 @@ export function LandingHero({ id, title, titleClassName = "text-display", eyebro
         <Container className="max-w-[1440px] pb-20 pt-32 md:py-28">
           <div className="max-w-3xl">
             {eyebrow && <p className="eyebrow fade-up mb-5">{eyebrow}</p>}
-            <h1 id={id} className={cn("fade-up", titleClassName)} style={delay("0.05s")}>{title}</h1>
+            <h1 id={id} className={cn("fade-up", titleClassName)} style={delay("0.05s")}>
+              {title}
+            </h1>
             {children}
-            {lead && <div className="text-lead fade-up mt-6 max-w-xl text-snow/75" style={delay("0.15s")}>{lead}</div>}
-            {actions && <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={delay("0.25s")}>{actions}</div>}
+            {lead && (
+              <div className="text-lead fade-up mt-6 max-w-xl text-snow/75" style={delay("0.15s")}>
+                {lead}
+              </div>
+            )}
+            {actions && (
+              <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={delay("0.25s")}>
+                {actions}
+              </div>
+            )}
           </div>
         </Container>
-
       </section>
     </>
   );

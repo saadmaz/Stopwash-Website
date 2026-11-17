@@ -1,3 +1,5 @@
+# Continuous integration: the merge gate for every pull request into main.
+# Production deployment is handled separately (see docs/DEPLOYMENT.md).
 name: CI
 
 on:
@@ -16,9 +18,11 @@ permissions:
 
 jobs:
   verify:
-    name: Type check, test and build
+    name: Verify
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    env:
+      TZ: Asia/Colombo
 
     steps:
       - name: Check out
@@ -31,6 +35,12 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Check formatting
+        run: bun run format:check
 
       - name: Type check
         run: bun run typecheck

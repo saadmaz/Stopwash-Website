@@ -18,9 +18,8 @@ Closes #
 
 ## Checklist
 
-- [ ] `bun run typecheck`, `bun run test` and `bun run build` pass locally
+- [ ] Checks pass locally: `bun run lint && bun run typecheck && bun run test && bun run build`
 - [ ] Checked on a phone-width screen as well as desktop
-- [ ] Images have meaningful `alt` text
-- [ ] New pages set `pageHead()` and are added to the sitemap
-- [ ] No secret keys or credentials added
+- [ ] No secrets, credentials or personal data added
+- [ ] New pages have a title, description and sitemap entry
 - [ ] `CHANGELOG.md` updated under `Unreleased` for user-facing changes

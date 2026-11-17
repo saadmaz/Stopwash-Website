@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-16
+
 ### Added
 
 - Cloudflare Workers production setup: `wrangler.jsonc` with the worker name, pinned compatibility date, a workers.dev address with branch preview URLs, and logging. Custom domains are attached in the Cloudflare dashboard.
@@ -23,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New homepage hero photograph and headline: "Giving you back the gift of time".
 - Franchise page hero photograph of the STOPWASH kiosk.
 - Image folders for photos, location photos and brand files, with a guide in `src/assets/README.md`.
+- Dependabot configuration, `.editorconfig` and `.gitattributes`.
+- Lint step in continuous integration.
+- Standard documentation layout shared by every STTPS repository: architecture, configuration, deployment, decision records (ADRs) and release and rollback runbooks, indexed in `docs/README.md`.
 
 ### Changed
 
@@ -72,12 +77,13 @@ First production release of [stopwash.lk](https://stopwash.lk).
 - Server-side rendering with per-page SEO metadata, Open Graph images, `sitemap.xml`, `robots.txt` and structured data.
 - Enquiry storage in Supabase with insert-only row-level security, schema validation and spam protection.
 - Branded 404 and error pages.
-- Continuous integration: type check, tests and production build on every push and pull request.
+- Continuous integration on every push and pull request: type check, tests and production build.
 - Project documentation, contribution guidelines, security policy and issue templates.
 
 ### Changed
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/saadmaz/Stopwash-Website/releases/tag/v1.0.0

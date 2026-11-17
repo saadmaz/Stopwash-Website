@@ -15,7 +15,8 @@ export const Route = createFileRoute("/blog/")({
   head: () => ({
     ...pageHead({
       title: "Blog: Car Care Tips & News | STOPWASH Sri Lanka",
-      description: "Car care tips, STOPWASH news and notes from the road. Practical vehicle-care advice for drivers in Sri Lanka.",
+      description:
+        "Car care tips, STOPWASH news and notes from the road. Practical vehicle-care advice for drivers in Sri Lanka.",
       path: "/blog",
     }),
   }),
@@ -33,8 +34,17 @@ function Blog() {
         id="blog-title"
         size="tall"
         eyebrow="Blog"
-        title={<>Notes from the <span className="text-lime">road.</span></>}
-        lead={<p>Car care tips, STOPWASH news and the thinking behind a better way to keep your vehicle moving.</p>}
+        title={
+          <>
+            Notes from the <span className="text-lime">road.</span>
+          </>
+        }
+        lead={
+          <p>
+            Car care tips, STOPWASH news and the thinking behind a better way to keep your vehicle
+            moving.
+          </p>
+        }
       />
 
       <section className="section-y">
@@ -42,8 +52,16 @@ function Blog() {
           {allTags.length > 1 && (
             <nav aria-label="Filter by topic" className="mb-12">
               <ul className="flex flex-wrap gap-2">
-                <li><TagLink active={!tag}>All posts</TagLink></li>
-                {allTags.map((t) => <li key={t}><TagLink tag={t} active={tag === t}>{t}</TagLink></li>)}
+                <li>
+                  <TagLink active={!tag}>All posts</TagLink>
+                </li>
+                {allTags.map((t) => (
+                  <li key={t}>
+                    <TagLink tag={t} active={tag === t}>
+                      {t}
+                    </TagLink>
+                  </li>
+                ))}
               </ul>
             </nav>
           )}
@@ -51,16 +69,24 @@ function Blog() {
           {!featured ? (
             <div className="rounded-3xl bg-paper px-6 py-16 text-center">
               <h2 className="text-h3">No posts yet{tag ? ` in “${tag}”` : ""}.</h2>
-              <p className="mt-2 text-muted-foreground">Check back soon, or follow us for updates.</p>
+              <p className="mt-2 text-muted-foreground">
+                Check back soon, or follow us for updates.
+              </p>
               <SocialLinks className="mt-6 justify-center" />
             </div>
           ) : (
             <>
-              <Reveal><PostCard post={featured} featured /></Reveal>
+              <Reveal>
+                <PostCard post={featured} featured />
+              </Reveal>
               {rest.length > 0 && (
                 <ul className="mt-16 grid gap-x-6 gap-y-12 border-t border-border pt-12 sm:grid-cols-2 lg:grid-cols-3">
                   {rest.map((p, i) => (
-                    <li key={p.slug}><Reveal delay={(i % 3) * 0.05}><PostCard post={p} /></Reveal></li>
+                    <li key={p.slug}>
+                      <Reveal delay={(i % 3) * 0.05}>
+                        <PostCard post={p} />
+                      </Reveal>
+                    </li>
                   ))}
                 </ul>
               )}
@@ -74,7 +100,9 @@ function Blog() {
           <Reveal className="section-dark flex flex-col items-start justify-between gap-6 rounded-3xl px-7 py-10 md:flex-row md:items-center md:px-12">
             <div>
               <h2 className="font-display text-2xl font-bold tracking-tight">Follow along</h2>
-              <p className="mt-1 text-muted-foreground">New posts, outlet updates and behind-the-scenes stories from the clean squad.</p>
+              <p className="mt-1 text-muted-foreground">
+                New posts, outlet updates and behind-the-scenes stories from the clean squad.
+              </p>
             </div>
             <SocialLinks tone="dark" />
           </Reveal>
@@ -84,13 +112,24 @@ function Blog() {
   );
 }
 
-function TagLink({ tag, active, children }: { tag?: string; active: boolean; children: React.ReactNode }) {
+function TagLink({
+  tag,
+  active,
+  children,
+}: {
+  tag?: string;
+  active: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       to="/blog"
       search={tag ? { tag } : {}}
       aria-current={active ? "page" : undefined}
-      className={cn("inline-block rounded-full px-4 py-2 text-sm font-medium transition-colors", active ? "bg-ink text-snow" : "bg-paper hover:bg-ink/10")}
+      className={cn(
+        "inline-block rounded-full px-4 py-2 text-sm font-medium transition-colors",
+        active ? "bg-ink text-snow" : "bg-paper hover:bg-ink/10",
+      )}
     >
       {children}
     </Link>

@@ -23,16 +23,33 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: () => {
         const latest = posts[0]?.updated ?? posts[0]?.date;
         const urls = [
-          ...pages.map((p) => ({ loc: p.path, lastmod: p.path === "/blog" ? latest : undefined, ...p })),
-          ...posts.map((p) => ({ loc: `/blog/${p.slug}`, lastmod: p.updated ?? p.date, priority: "0.6", freq: "yearly" })),
+          ...pages.map((p) => ({
+            loc: p.path,
+            lastmod: p.path === "/blog" ? latest : undefined,
+            ...p,
+          })),
+          ...posts.map((p) => ({
+            loc: `/blog/${p.slug}`,
+            lastmod: p.updated ?? p.date,
+            priority: "0.6",
+            freq: "yearly",
+          })),
         ];
         const body =
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
           urls
-            .map((u) => `  <url><loc>${contact.siteUrl}${u.loc === "/" ? "/" : u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}<changefreq>${u.freq}</changefreq><priority>${u.priority}</priority></url>`)
+            .map(
+              (u) =>
+                `  <url><loc>${contact.siteUrl}${u.loc === "/" ? "/" : u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ""}<changefreq>${u.freq}</changefreq><priority>${u.priority}</priority></url>`,
+            )
             .join("\n") +
           `\n</urlset>\n`;
-        return new Response(body, { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=3600" } });
+        return new Response(body, {
+          headers: {
+            "content-type": "application/xml; charset=utf-8",
+            "cache-control": "public, max-age=3600",
+          },
+        });
       },
     },
   },

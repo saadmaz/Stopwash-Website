@@ -17,15 +17,26 @@ export const Route = createFileRoute("/contact")({
   head: () =>
     pageHead({
       title: "Contact STOPWASH: Customer, Fleet & Franchise Enquiries",
-      description: "Call +94 70 622 5252 or send us a message. Customer enquiries, fleet partnerships and franchise conversations with STOPWASH Sri Lanka.",
+      description:
+        "Call +94 70 622 5252 or send us a message. Customer enquiries, fleet partnerships and franchise conversations with STOPWASH Sri Lanka.",
       path: "/contact",
     }),
   component: Contact,
 });
 
 const channels = [
-  { label: "Customer enquiries", lines: [{ icon: Phone, text: contact.phone, href: contact.phoneHref }, { icon: FaWhatsapp, text: "Chat on WhatsApp", href: contact.whatsappHref }, { icon: Mail, text: contact.customerEmail, href: `mailto:${contact.customerEmail}` }] },
-  { label: "Franchise enquiries", lines: [{ icon: Mail, text: contact.franchiseEmail, href: `mailto:${contact.franchiseEmail}` }] },
+  {
+    label: "Customer enquiries",
+    lines: [
+      { icon: Phone, text: contact.phone, href: contact.phoneHref },
+      { icon: FaWhatsapp, text: "Chat on WhatsApp", href: contact.whatsappHref },
+      { icon: Mail, text: contact.customerEmail, href: `mailto:${contact.customerEmail}` },
+    ],
+  },
+  {
+    label: "Franchise enquiries",
+    lines: [{ icon: Mail, text: contact.franchiseEmail, href: `mailto:${contact.franchiseEmail}` }],
+  },
 ];
 
 function Contact() {
@@ -38,12 +49,27 @@ function Contact() {
         id="contact-title"
         size="tall"
         eyebrow="Contact"
-        title={<>Keep the conversation <span className="text-lime">moving.</span></>}
-        lead={<p>Looking for a better clean? Planning a fleet partnership? Interested in building the next STOPWASH? Tell us where you are going.</p>}
-        actions={<>
-          <Cta href={contact.phoneHref} arrow={false}>Call {contact.phone}</Cta>
-          <Cta href={contact.whatsappHref} variant="outline" className="text-snow">Message on WhatsApp</Cta>
-        </>}
+        title={
+          <>
+            Keep the conversation <span className="text-lime">moving.</span>
+          </>
+        }
+        lead={
+          <p>
+            Looking for a better clean? Planning a fleet partnership? Interested in building the
+            next STOPWASH? Tell us where you are going.
+          </p>
+        }
+        actions={
+          <>
+            <Cta href={contact.phoneHref} arrow={false}>
+              Call {contact.phone}
+            </Cta>
+            <Cta href={contact.whatsappHref} variant="outline" className="text-snow">
+              Message on WhatsApp
+            </Cta>
+          </>
+        }
       />
 
       <section className="section-y">
@@ -55,7 +81,13 @@ function Contact() {
                 <ul className="mt-3 space-y-2">
                   {c.lines.map((l) => (
                     <li key={l.text}>
-                      <a href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink">
+                      <a
+                        href={l.href}
+                        {...(l.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-ink"
+                      >
                         <l.icon className="h-4 w-4 shrink-0" aria-hidden />
                         <span className="[overflow-wrap:anywhere]">{l.text}</span>
                       </a>
@@ -71,7 +103,11 @@ function Contact() {
             <Reveal delay={0.15} className="rounded-2xl bg-navy p-6 text-snow">
               <h2 className="font-semibold">Thinking bigger?</h2>
               <p className="mt-2 text-snow/75">Franchise enquiries have their own form.</p>
-              <Link to="/franchise" hash="apply" className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline">
+              <Link
+                to="/franchise"
+                hash="apply"
+                className="mt-4 inline-flex items-center gap-2 font-semibold text-lime hover:underline"
+              >
                 Start the franchise conversation <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </Reveal>
@@ -79,7 +115,9 @@ function Contact() {
           <div className="lg:col-span-8">
             <Reveal className="rounded-3xl border border-border p-6 md:p-10">
               <h2 className="font-display text-2xl font-bold tracking-tight">Send us a message</h2>
-              <p className="mt-2 text-muted-foreground">We read every message. For anything urgent at the outlet, calling is fastest.</p>
+              <p className="mt-2 text-muted-foreground">
+                We read every message. For anything urgent at the outlet, calling is fastest.
+              </p>
               <div className="mt-8">
                 <ContactForm key={type ?? "default"} {...(type ? { defaultType: type } : {})} />
               </div>

@@ -17,7 +17,14 @@ export default defineConfig(({ command, mode }) => {
     server: { port: 8080 },
     resolve: {
       alias: { "@": `${process.cwd()}/src` },
-      dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
+      dedupe: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "react/jsx-dev-runtime",
+        "@tanstack/react-query",
+        "@tanstack/query-core",
+      ],
     },
     plugins: [
       tailwindcss(),

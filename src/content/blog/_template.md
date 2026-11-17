@@ -13,7 +13,7 @@ Start with a short opening paragraph.
 
 ## A section heading
 
-Write normally. **Bold**, *italic* and [links](https://stopwash.lk) all work.
+Write normally. **Bold**, _italic_ and [links](https://stopwash.lk) all work.
 
 - Bullet points
 - Work too

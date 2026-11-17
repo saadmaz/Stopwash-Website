@@ -76,8 +76,12 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -85,17 +89,45 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
-  ::selection { background: var(--lime); color: var(--ink); }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+  ::selection {
+    background: var(--lime);
+    color: var(--ink);
+  }
 
   /* Keep browser-drawn UI on brand */
-  :root { color-scheme: light; accent-color: var(--navy); }
-  html { scrollbar-color: #c5cad2 transparent; scrollbar-width: thin; }
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #c5cad2; border-radius: 999px; border: 2px solid var(--snow); }
-  ::-webkit-scrollbar-thumb:hover { background: #9aa1ab; }
-  textarea { resize: vertical; }
+  :root {
+    color-scheme: light;
+    accent-color: var(--navy);
+  }
+  html {
+    scrollbar-color: #c5cad2 transparent;
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c5cad2;
+    border-radius: 999px;
+    border: 2px solid var(--snow);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9aa1ab;
+  }
+  textarea {
+    resize: vertical;
+  }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -106,8 +138,12 @@
     transition: background-color 9999s ease-out 0s;
   }
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       animation-delay: 0s !important;
@@ -209,20 +245,34 @@
 
 /* ── Motion: CSS so SSR'd hero content animates before hydration ── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* Endless sideways drift: the track holds the list twice, so moving it half its width loops seamlessly. */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes page-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @utility fade-up {
-  animation: fade-up 0.8s cubic-bezier(.22,1,.36,1) both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--d, 0s);
 }
 /* Fades an element in from its left edge (used on hero photos placed at the right). */
@@ -241,7 +291,9 @@
     line-height: 1.75;
     color: #2a3240;
   }
-  .prose-blog > * + * { margin-top: 1.25em; }
+  .prose-blog > * + * {
+    margin-top: 1.25em;
+  }
   .prose-blog h2 {
     margin-top: 2.2em;
     font-family: var(--font-display);
@@ -258,15 +310,40 @@
     font-size: 1.25rem;
     color: var(--ink);
   }
-  .prose-blog h2 + *, .prose-blog h3 + * { margin-top: 0.75em; }
-  .prose-blog a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--lime); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-  .prose-blog a:hover { text-decoration-color: var(--ink); }
-  .prose-blog strong { color: var(--ink); font-weight: 600; }
-  .prose-blog ul, .prose-blog ol { padding-left: 1.4em; }
-  .prose-blog ul { list-style: disc; }
-  .prose-blog ol { list-style: decimal; }
-  .prose-blog li + li { margin-top: 0.4em; }
-  .prose-blog li::marker { color: var(--leaf); }
+  .prose-blog h2 + *,
+  .prose-blog h3 + * {
+    margin-top: 0.75em;
+  }
+  .prose-blog a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--lime);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .prose-blog a:hover {
+    text-decoration-color: var(--ink);
+  }
+  .prose-blog strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .prose-blog ul,
+  .prose-blog ol {
+    padding-left: 1.4em;
+  }
+  .prose-blog ul {
+    list-style: disc;
+  }
+  .prose-blog ol {
+    list-style: decimal;
+  }
+  .prose-blog li + li {
+    margin-top: 0.4em;
+  }
+  .prose-blog li::marker {
+    color: var(--leaf);
+  }
   .prose-blog blockquote {
     border-left: 4px solid var(--lime);
     padding: 0.25em 0 0.25em 1.25em;
@@ -276,9 +353,30 @@
     line-height: 1.4;
     color: var(--ink);
   }
-  .prose-blog img { width: 100%; border-radius: 1rem; }
-  .prose-blog hr { border: 0; border-top: 1px solid var(--color-border); margin: 2.5em 0; }
-  .prose-blog code { background: var(--paper); border-radius: 0.375rem; padding: 0.15em 0.4em; font-size: 0.9em; }
-  .prose-blog table { width: 100%; border-collapse: collapse; font-size: 1rem; }
-  .prose-blog th, .prose-blog td { border-bottom: 1px solid var(--color-border); padding: 0.6em 0.5em; text-align: left; }
+  .prose-blog img {
+    width: 100%;
+    border-radius: 1rem;
+  }
+  .prose-blog hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 2.5em 0;
+  }
+  .prose-blog code {
+    background: var(--paper);
+    border-radius: 0.375rem;
+    padding: 0.15em 0.4em;
+    font-size: 0.9em;
+  }
+  .prose-blog table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  .prose-blog th,
+  .prose-blog td {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.6em 0.5em;
+    text-align: left;
+  }
 }

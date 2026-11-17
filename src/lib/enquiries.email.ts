@@ -7,7 +7,9 @@ type Line = [label: string, value: string | undefined | null];
 function mailto(to: string, subject: string, lines: Line[]) {
   const body = lines
     .filter(([, v]) => v && v.trim())
-    .map(([label, v]) => (v!.includes("\n") || v!.length > 60 ? `${label}:\n${v!.trim()}` : `${label}: ${v!.trim()}`))
+    .map(([label, v]) =>
+      v!.includes("\n") || v!.length > 60 ? `${label}:\n${v!.trim()}` : `${label}: ${v!.trim()}`,
+    )
     .join("\n\n");
   return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

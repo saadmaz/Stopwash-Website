@@ -1,10 +1,19 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok, FaWhatsapp, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaWhatsapp,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import type { IconType } from "react-icons";
 import { contact } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-export type Network = "instagram" | "facebook" | "tiktok" | "linkedin" | "youtube" | "whatsapp" | "email" | "x";
+export type Network =
+  "instagram" | "facebook" | "tiktok" | "linkedin" | "youtube" | "whatsapp" | "email" | "x";
 
 /** Official brand marks (Font Awesome brand set). */
 export const networkIcons: Record<Network, IconType> = {
@@ -33,7 +42,11 @@ export const networkColors: Record<Network, string> = {
 type Link = { network: Network; label: string; href: string };
 
 /** Social profiles only. */
-export const socialProfiles: Link[] = contact.socials.map((s) => ({ network: s.network as Network, label: s.label, href: s.href }));
+export const socialProfiles: Link[] = contact.socials.map((s) => ({
+  network: s.network as Network,
+  label: s.label,
+  href: s.href,
+}));
 
 /** STOPWASH's own channels: social profiles + WhatsApp + email. */
 export const brandChannels: Link[] = [
@@ -43,7 +56,15 @@ export const brandChannels: Link[] = [
 ];
 
 /** Round icon buttons. `tone` picks the resting style for light or dark backgrounds. */
-export function SocialLinks({ links = brandChannels, tone = "light", className }: { links?: Link[]; tone?: "light" | "dark" | "white"; className?: string }) {
+export function SocialLinks({
+  links = brandChannels,
+  tone = "light",
+  className,
+}: {
+  links?: Link[];
+  tone?: "light" | "dark" | "white";
+  className?: string;
+}) {
   return (
     <ul className={cn("flex flex-wrap gap-2", className)}>
       {links.map((l) => {
@@ -59,7 +80,11 @@ export function SocialLinks({ links = brandChannels, tone = "light", className }
               style={{ ["--brand" as string]: networkColors[l.network] }}
               className={cn(
                 "grid h-10 w-10 place-items-center rounded-full transition-colors duration-200 hover:bg-[var(--brand)] hover:text-white",
-                tone === "dark" ? "bg-snow/10 text-snow" : tone === "white" ? "bg-snow text-ink" : "bg-paper text-ink",
+                tone === "dark"
+                  ? "bg-snow/10 text-snow"
+                  : tone === "white"
+                    ? "bg-snow text-ink"
+                    : "bg-paper text-ink",
               )}
             >
               <Icon className="h-[1.05rem] w-[1.05rem]" aria-hidden />

@@ -6,12 +6,12 @@
 
 The official website of STOPWASH: a faster, sharper and more dependable vehicle-care network in Sri Lanka.
 
-[![Website](https://img.shields.io/badge/website-stopwash.lk-B2E04C?style=flat-square&labelColor=0B1728)](https://stopwash.lk)
+[![Website](https://img.shields.io/badge/website-stopwash.lk-374151?style=flat-square&labelColor=111827)](https://stopwash.lk)
 [![CI](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/saadmaz/Stopwash-Website?style=flat-square&labelColor=0B1728&color=B2E04C)](https://github.com/saadmaz/Stopwash-Website/releases)
-![License](https://img.shields.io/badge/license-proprietary-0B1728?style=flat-square)
+[![Version](https://img.shields.io/badge/version-v1.1.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
+![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
-[**stopwash.lk**](https://stopwash.lk) · [Report a bug](https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml)
+[**stopwash.lk**](https://stopwash.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml)
 
 </div>
 
@@ -21,13 +21,14 @@ The official website of STOPWASH: a faster, sharper and more dependable vehicle-
 
 - [About](#about)
 - [Features](#features)
+- [Architecture](#architecture)
 - [Tech stack](#tech-stack)
 - [Getting started](#getting-started)
+- [Configuration](#configuration)
 - [Project structure](#project-structure)
-- [Content management](#content-management)
-- [Forms](#forms)
 - [Quality checks](#quality-checks)
 - [Deployment](#deployment)
+- [Documentation](#documentation)
 - [Releases and versioning](#releases-and-versioning)
 - [Contributing](#contributing)
 - [Security](#security)
@@ -39,12 +40,13 @@ STOPWASH is building a connected vehicle-care network for people who keep moving
 
 This repository powers [stopwash.lk](https://stopwash.lk): the brand, service and location information customers use to find a STOPWASH, and the franchise funnel operators use to apply to build one.
 
-| | |
-| --- | --- |
-| **Organisation** | STOPWASH PVT LTD |
-| **Website** | [stopwash.lk](https://stopwash.lk) |
-| **Contact** | [hello@stopwash.lk](mailto:hello@stopwash.lk) · +94 70 622 5252 |
-| **Maintainer** | [Saad Mazhar](https://github.com/saadmaz) |
+|                  |                                                                 |
+| ---------------- | --------------------------------------------------------------- |
+| **Organisation** | STOPWASH PVT LTD                                                |
+| **Status**       | Live                                                            |
+| **Website**      | [stopwash.lk](https://stopwash.lk)                              |
+| **Contact**      | [hello@stopwash.lk](mailto:hello@stopwash.lk) · +94 70 622 5252 |
+| **Maintainer**   | [Saad Mazhar](https://github.com/saadmaz)                       |
 
 ## Features
 
@@ -59,19 +61,25 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 - **Spam-resistant forms:** Schema validation, a honeypot field and a minimum fill time. Enquiries arrive by email, with no database to manage.
 - **Accessible by default:** Skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.
 
+## Architecture
+
+A server-rendered TanStack Start application on Cloudflare Workers. Pages render in the Worker, which also applies the `www` redirect and security headers. Enquiry forms validate in the browser and open a pre-filled email to the STOPWASH inbox; the site stores no personal data.
+
+The full picture, with diagrams, is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Significant decisions are recorded as [ADRs](docs/adr/README.md).
+
 ## Tech stack
 
-| Layer | Technology |
-| --- | --- |
+| Layer     | Technology                                                                       |
+| --------- | -------------------------------------------------------------------------------- |
 | Framework | [TanStack Start](https://tanstack.com/start) (React 19, SSR, file-based routing) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 with design tokens in `src/styles.css` |
-| Motion | Framer Motion, with CSS animations for server-rendered content |
-| Forms | React Hook Form + Zod |
-| Content | Markdown via `marked` |
-| Build | Vite 8 + Nitro |
-| Hosting | Cloudflare Workers (default) |
-| Tooling | Bun, Vitest, Testing Library, ESLint, Prettier |
+| Language  | TypeScript (strict)                                                              |
+| Styling   | Tailwind CSS v4 with design tokens in `src/styles.css`                           |
+| Motion    | Framer Motion, with CSS animations for server-rendered content                   |
+| Forms     | React Hook Form + Zod                                                            |
+| Content   | Markdown via `marked`                                                            |
+| Build     | Vite 8 + Nitro                                                                   |
+| Hosting   | Cloudflare Workers (default)                                                     |
+| Tooling   | Bun, Vitest, Testing Library, ESLint, Prettier                                   |
 
 ## Getting started
 
@@ -93,16 +101,22 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 
 ### Scripts
 
-| Command | Description |
-| --- | --- |
-| `bun run dev` | Start the development server with hot reload |
-| `bun run build` | Production build into `.output/` |
-| `bun run preview` | Serve the production build locally |
-| `bun run typecheck` | Type-check the project with `tsc` |
-| `bun run test` | Run the test suite once |
-| `bun run test:watch` | Run tests in watch mode |
-| `bun run lint` | Lint with ESLint |
-| `bun run format` | Format with Prettier |
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `bun run dev`        | Start the development server with hot reload |
+| `bun run build`      | Production build into `.output/`             |
+| `bun run preview`    | Serve the production build locally           |
+| `bun run typecheck`  | Type-check the project with `tsc`            |
+| `bun run test`       | Run the test suite once                      |
+| `bun run test:watch` | Run tests in watch mode                      |
+| `bun run lint`       | Lint with ESLint                             |
+| `bun run format`     | Format with Prettier                         |
+
+## Configuration
+
+The site needs no environment variables. Contact details, services, locations and the form destinations live in `src/data/site.ts`; Worker settings live in `wrangler.jsonc`.
+
+Every variable, where it is set and which are secret: [docs/CONFIGURATION.md](docs/CONFIGURATION.md). How to update content is in [docs/CONTENT.md](docs/CONTENT.md).
 
 ## Project structure
 
@@ -129,105 +143,38 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 └── vite.config.ts            # Build configuration
 ```
 
-## Content management
-
-Most content lives in [`src/data/site.ts`](src/data/site.ts), so routine updates don't touch page code.
-
-| Task | Where |
-| --- | --- |
-| Update phone, email or social links | `contact` in `src/data/site.ts` |
-| Add or edit a location | `locations` in `src/data/site.ts`; set `coordinates` to enable the map |
-| Edit services | `serviceCatalogue` and `servicePreview` in `src/data/site.ts` |
-| Add or replace photography | See [`src/assets/README.md`](src/assets/README.md): drop originals in `_incoming/`, then convert into `src/assets/photos/`, `locations/` or `brand/` |
-| Change brand colours | Tokens at the top of `src/styles.css` |
-| Add a page | Create `src/routes/<slug>.tsx`, set `head: () => pageHead({...})`, add the path to `src/routes/sitemap[.]xml.ts` |
-| Write a blog post | See [`src/content/blog/README.md`](src/content/blog/README.md) |
-
-Blog posts appear on `/blog`, in the sitemap and in the RSS feed automatically. Set `draft: true` to keep a post visible only in local development.
-
-## Forms
-
-The Contact and Franchise forms do not use a database or any third-party service. When a visitor submits:
-
-1. the form is validated against the Zod schemas in [`src/lib/enquiries.schema.ts`](src/lib/enquiries.schema.ts),
-2. submissions with the honeypot field filled, or completed implausibly fast, are dropped,
-3. the visitor's email app opens with a message to `hello@stopwash.lk`, with the subject and every field already written out ([`src/lib/enquiries.email.ts`](src/lib/enquiries.email.ts)). They press **Send**.
-
-Enquiries therefore arrive in the `hello@stopwash.lk` inbox. To change the destination, update `customerEmail` and `franchiseEmail` in `src/data/site.ts`.
-
 ## Quality checks
 
-Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml):
-
-- dependency install from the lockfile
-- type check
-- tests
-- production build
-
-Run the same checks locally before opening a pull request:
+Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml): lint, type check, tests and a production build. Run the same checks locally before opening a pull request:
 
 ```sh
-bun run typecheck && bun run test && bun run build
+bun run lint && bun run typecheck && bun run test && bun run build
 ```
 
 ## Deployment
 
-stopwash.lk runs on **Cloudflare Workers**: server-side rendering and the enquiry forms run in the Worker, and static files are served from Cloudflare's edge. Configuration lives in [`wrangler.jsonc`](wrangler.jsonc).
+Cloudflare Workers Builds deploys every push to `main`; other branches get preview URLs.
 
-### What is already set up
+Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
-| Item | Where |
-| --- | --- |
-| Worker name `stopwash-website`, pinned compatibility date, `nodejs_compat` | `wrangler.jsonc` |
-| `workers.dev` address and branch preview URLs | `wrangler.jsonc` |
-| Custom domains `stopwash.lk` and `www.stopwash.lk` | attached in the Cloudflare dashboard |
-| `www` to `stopwash.lk` permanent redirect | `src/server.ts` |
-| Security headers (HSTS, nosniff, frame, referrer and permissions policies) | `src/server.ts` |
-| Long-term caching for hashed assets | generated `_headers` |
-| Logs and metrics | `observability` in `wrangler.jsonc` |
-| Automatic deploy on every push to `main` | Cloudflare Workers Builds (connected in the dashboard) |
+## Documentation
 
-### Going live (one time)
+All documentation lives in [`docs/`](docs/README.md), using the same layout in every STTPS repository.
 
-Cloudflare builds and deploys straight from this GitHub repository. No API tokens or GitHub secrets are needed.
+| Document                                  | Covers                                              |
+| ----------------------------------------- | --------------------------------------------------- |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md)   | How the system is built and how data flows          |
+| [CONFIGURATION.md](docs/CONFIGURATION.md) | Environment variables and configuration files       |
+| [DEPLOYMENT.md](docs/DEPLOYMENT.md)       | Hosting, the delivery pipeline and first-time setup |
+| [CONTENT.md](docs/CONTENT.md)             | Updating copy, business data, imagery and articles  |
+| [adr/](docs/adr/README.md)                | Architecture decision records                       |
+| [runbooks/](docs/runbooks/README.md)      | Release and rollback procedures                     |
 
-1. **Connect the repository.** Workers & Pages → *Create* → **Import a repository** → connect GitHub and choose `saadmaz/Stopwash-Website`.
-2. **Use these settings:**
-
-   | Setting | Value |
-   | --- | --- |
-   | Project name | `stopwash-website` (must match `name` in `wrangler.jsonc`) |
-   | Production branch | `main` |
-   | Build command | `bun run build` |
-   | Deploy command | `npx wrangler deploy` |
-   | Non-production branch deploy command | `npx wrangler versions upload` |
-   | Root directory | `/` (leave empty) |
-   | Build variable | `BUN_VERSION` = `1.4.4` |
-
-3. **Save and deploy.** The site goes live at `https://stopwash-website.<your-account>.workers.dev`. From then on every push to `main` deploys automatically, and other branches get preview URLs.
-4. **Add the domain to Cloudflare.** Add `stopwash.lk` as a site, then switch the domain's nameservers at your `.lk` registrar to the two Cloudflare nameservers shown. Wait until the zone shows as **Active**.
-5. **Attach the domains.** Worker `stopwash-website` → Settings → **Domains & Routes** → *Add* → **Custom domain**: add `stopwash.lk`, then `www.stopwash.lk`. Cloudflare creates the DNS records and SSL certificates.
-6. **Recommended zone settings:** SSL/TLS mode **Full (strict)** and **Always Use HTTPS** on.
-7. **Check it:** open https://stopwash.lk, confirm https://www.stopwash.lk redirects to it, and send one test message through the Contact form to confirm it opens an email to hello@stopwash.lk.
-
-### Deploying from your machine
-
-```sh
-npx wrangler login     # once
-bun run deploy         # build, then publish
-```
-
-### Preview the production build locally
-
-`bun run preview:worker` builds the site and runs it in Cloudflare's own runtime (workerd) at http://localhost:8787. Requests always arrive as `localhost` there, so the `www` redirect only takes effect on the real domain (it is covered by `src/test/server-entry.test.ts`).
-
-### Environment values
-
-The site needs no environment variables. If one is ever added, put non-secret values in `vars` in `wrangler.jsonc`; never commit a secret, use `npx wrangler secret put NAME` instead.
+Product and reference documents for this project are listed in the [documentation index](docs/README.md).
 
 ## Releases and versioning
 
-The project follows [Semantic Versioning](https://semver.org). Each release is tagged `vX.Y.Z` and published on the [Releases](https://github.com/saadmaz/Stopwash-Website/releases) page. Notable changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+The project follows [Semantic Versioning](https://semver.org). Each release is tagged `vX.Y.Z` and published on the [Releases](https://github.com/saadmaz/Stopwash-Website/releases) page. Notable changes are recorded in [CHANGELOG.md](CHANGELOG.md), and the release procedure is in [docs/runbooks/release.md](docs/runbooks/release.md).
 
 ## Contributing
 
@@ -241,4 +188,4 @@ Please do not report security issues in public issues. See [SECURITY.md](SECURIT
 
 Copyright © 2026 STOPWASH PVT LTD. All rights reserved.
 
-This is proprietary software. No permission is granted to use, copy, modify or distribute it without prior written consent. See [LICENSE](LICENSE).
+This is proprietary software. The source is publicly visible, but no permission is granted to use, copy, modify or distribute it without prior written consent. See [LICENSE](LICENSE).

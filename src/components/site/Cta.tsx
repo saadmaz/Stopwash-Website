@@ -20,20 +20,49 @@ export const ctaVariants = cva(
   },
 );
 
-type Props = VariantProps<typeof ctaVariants> & { children: ReactNode; className?: string; arrow?: boolean };
+type Props = VariantProps<typeof ctaVariants> & {
+  children: ReactNode;
+  className?: string;
+  arrow?: boolean;
+};
 
-export function Cta({ to, href, search, children, variant, className, arrow = true }: Props & { to?: string; href?: string; search?: Record<string, string> }) {
+export function Cta({
+  to,
+  href,
+  search,
+  children,
+  variant,
+  className,
+  arrow = true,
+}: Props & { to?: string; href?: string; search?: Record<string, string> }) {
   const inner = (
     <>
       <span>{children}</span>
-      {arrow && <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />}
+      {arrow && (
+        <ArrowRight
+          className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+          aria-hidden
+        />
+      )}
     </>
   );
   const cls = cn(ctaVariants({ variant }), className);
   if (href) {
     const external = href.startsWith("http");
-    return <a href={href} className={cls} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{inner}</a>;
+    return (
+      <a
+        href={href}
+        className={cls}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {inner}
+      </a>
+    );
   }
   // Routes come from data, so the path is not statically known here.
-  return <Link to={to as "/"} {...(search ? { search: search as never } : {})} className={cls}>{inner}</Link>;
+  return (
+    <Link to={to as "/"} {...(search ? { search: search as never } : {})} className={cls}>
+      {inner}
+    </Link>
+  );
 }

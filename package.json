@@ -1,7 +1,7 @@
 {
   "name": "stopwash-website",
-  "version": "1.0.0",
-  "description": "Official website of STOPWASH: a faster, sharper vehicle-care network in Sri Lanka.",
+  "version": "1.1.0",
+  "description": "Website for STOPWASH, Sri Lanka's vehicle-care network: services, outlets and franchising.",
   "homepage": "https://stopwash.lk",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
   "engines": {
     "node": ">=20"
   },
-  "sideEffects": false,
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -28,6 +28,7 @@
     "deploy": "bun run build && wrangler deploy",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
