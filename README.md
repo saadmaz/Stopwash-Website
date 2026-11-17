@@ -8,7 +8,7 @@ The official website of STOPWASH: a faster, sharper and more dependable vehicle-
 
 [![Website](https://img.shields.io/badge/website-stopwash.lk-374151?style=flat-square&labelColor=111827)](https://stopwash.lk)
 [![CI](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.1.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
+[![Version](https://img.shields.io/badge/version-v1.2.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
 ![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
 [**stopwash.lk**](https://stopwash.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml)
