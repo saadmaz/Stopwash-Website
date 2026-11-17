@@ -1,5 +1,9 @@
 # Content
 
+<!-- nav -->
+
+<sub><a href="../README.md">Project README</a> · <a href="README.md">Documentation index</a></sub>
+
 > How to update copy, locations, photography and the blog on stopwash.lk. Part of the [project documentation](README.md).
 
 Most content lives in [`src/data/site.ts`](../src/data/site.ts), so routine updates don't touch page code.

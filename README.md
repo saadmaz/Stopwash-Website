@@ -4,7 +4,7 @@
 
 <img src=".github/assets/banner.svg" alt="STOPWASH: The queue ends here." width="100%">
 
-<br/><br/>
+<br/>
 
 <p><strong>The official website of STOPWASH: a faster, sharper and more dependable vehicle-care network in Sri Lanka.</strong></p>
 
@@ -14,14 +14,14 @@
 <a href="https://github.com/saadmaz/Stopwash-Website/commits/develop"><img alt="Last commit" src="https://img.shields.io/github/last-commit/saadmaz/Stopwash-Website/develop?style=flat-square&labelColor=111827&color=374151"></a>
 <img alt="License" src="https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827">
 
-<br/><br/>
+<br/>
 
 <a href="https://stopwash.lk"><img alt="Visit stopwash.lk" src="https://img.shields.io/badge/Visit%20stopwash.lk-0b1728?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
 <a href="docs/README.md"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-0b1728?style=for-the-badge&logo=readthedocs&logoColor=white"></a>
 <a href="https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml"><img alt="Report a bug" src="https://img.shields.io/badge/Report%20a%20bug-0b1728?style=for-the-badge&logo=github&logoColor=white"></a>
 <a href="https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml"><img alt="Request a change" src="https://img.shields.io/badge/Request%20a%20change-0b1728?style=for-the-badge&logo=github&logoColor=white"></a>
 
-<br/><br/>
+<br/>
 
 <a href="#about">About</a> ·
 <a href="#features">Features</a> ·
@@ -61,7 +61,7 @@ STOPWASH is building a connected vehicle-care network for people who keep moving
 
 This repository powers [stopwash.lk](https://stopwash.lk): the brand, service and location information customers use to find a STOPWASH, and the franchise funnel operators use to apply to build one.
 
-|                  |                                                                 |
+| At a glance      |                                                                 |
 | ---------------- | --------------------------------------------------------------- |
 | **Organisation** | STOPWASH PVT LTD                                                |
 | **Status**       | Live                                                            |

@@ -1,5 +1,9 @@
 # Configuration
 
+<!-- nav -->
+
+<sub><a href="../README.md">Project README</a> · <a href="README.md">Documentation index</a></sub>
+
 > Settings that control how stopwash.lk builds and behaves. Part of the [project documentation](README.md).
 
 ## Environment variables
