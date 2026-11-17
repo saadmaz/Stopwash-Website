@@ -1,38 +1,59 @@
+<a id="readme-top"></a>
+
 <div align="center">
 
-# STOPWASH
+<img src=".github/assets/banner.svg" alt="STOPWASH: The queue ends here." width="100%">
 
-**The queue ends here.**
+<br/><br/>
 
-The official website of STOPWASH: a faster, sharper and more dependable vehicle-care network in Sri Lanka.
+<p><strong>The official website of STOPWASH: a faster, sharper and more dependable vehicle-care network in Sri Lanka.</strong></p>
 
-[![Website](https://img.shields.io/badge/website-stopwash.lk-374151?style=flat-square&labelColor=111827)](https://stopwash.lk)
-[![CI](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.2.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
-![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
+<a href="https://github.com/saadmaz/Stopwash-Website/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/saadmaz/Stopwash-Website?include_prereleases&style=flat-square&label=release&labelColor=111827&color=b2e04c"></a>
+<a href="https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg?branch=develop"></a>
+<a href="https://github.com/saadmaz/Stopwash-Website/deployments"><img alt="Production deployment" src="https://img.shields.io/github/deployments/saadmaz/Stopwash-Website/production?style=flat-square&label=production&labelColor=111827&logo=github"></a>
+<a href="https://github.com/saadmaz/Stopwash-Website/commits/develop"><img alt="Last commit" src="https://img.shields.io/github/last-commit/saadmaz/Stopwash-Website/develop?style=flat-square&labelColor=111827&color=374151"></a>
+<img alt="License" src="https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827">
 
-[**stopwash.lk**](https://stopwash.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml)
+<br/><br/>
+
+<a href="https://stopwash.lk"><img alt="Visit stopwash.lk" src="https://img.shields.io/badge/Visit%20stopwash.lk-0b1728?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
+<a href="docs/README.md"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-0b1728?style=for-the-badge&logo=readthedocs&logoColor=white"></a>
+<a href="https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml"><img alt="Report a bug" src="https://img.shields.io/badge/Report%20a%20bug-0b1728?style=for-the-badge&logo=github&logoColor=white"></a>
+<a href="https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml"><img alt="Request a change" src="https://img.shields.io/badge/Request%20a%20change-0b1728?style=for-the-badge&logo=github&logoColor=white"></a>
+
+<br/><br/>
+
+<a href="#about">About</a> ·
+<a href="#features">Features</a> ·
+<a href="#architecture">Architecture</a> ·
+<a href="#getting-started">Getting started</a> ·
+<a href="#deployment">Deployment</a> ·
+<a href="#documentation">Documentation</a> ·
+<a href="#contributing">Contributing</a>
 
 </div>
 
 ---
 
-## Contents
+<details>
+<summary><strong>Table of contents</strong></summary>
 
-- [About](#about)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Tech stack](#tech-stack)
-- [Getting started](#getting-started)
-- [Configuration](#configuration)
-- [Project structure](#project-structure)
-- [Quality checks](#quality-checks)
-- [Deployment](#deployment)
-- [Documentation](#documentation)
-- [Releases and versioning](#releases-and-versioning)
-- [Contributing](#contributing)
-- [Security](#security)
-- [License](#license)
+1. [About](#about)
+2. [Features](#features)
+3. [Architecture](#architecture)
+4. [Tech stack](#tech-stack)
+5. [Getting started](#getting-started)
+6. [Configuration](#configuration)
+7. [Project structure](#project-structure)
+8. [Quality checks](#quality-checks)
+9. [Deployment](#deployment)
+10. [Documentation](#documentation)
+11. [Releases and versioning](#releases-and-versioning)
+12. [Contributing](#contributing)
+13. [Security](#security)
+14. [License](#license)
+
+</details>
 
 ## About
 
@@ -48,26 +69,52 @@ This repository powers [stopwash.lk](https://stopwash.lk): the brand, service an
 | **Contact**      | [hello@stopwash.lk](mailto:hello@stopwash.lk) · +94 70 622 5252 |
 | **Maintainer**   | [Saad Mazhar](https://github.com/saadmaz)                       |
 
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
+
 ## Features
 
-- **Brand and story pages:** Home, Our Story, Our Vision and The STOPWASH Standard.
-- **Services:** The full service catalogue with clear levels of care.
-- **Locations:** Outlet cards with directions, click-to-call and an embedded map when coordinates are set.
-- **Franchise funnel:** Programme overview, partner criteria, journey, FAQ and an application form.
-- **Contact:** Enquiry form with service, franchise and general enquiry types.
-- **Blog:** Markdown posts with tags, reading time, drafts and an RSS feed.
-- **Server-side rendering** for fast first paint and complete HTML for search engines.
-- **SEO built in:** Per-page titles, descriptions and Open Graph images, a generated `sitemap.xml`, `robots.txt` and `AutoWash` structured data.
-- **Spam-resistant forms:** Schema validation, a honeypot field and a minimum fill time. Enquiries arrive by email, with no database to manage.
-- **Accessible by default:** Skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.
+<table>
+<tr><td width="50%" valign="top"><strong>Brand and story pages</strong><br/>Home, Our Story, Our Vision and The STOPWASH Standard.</td><td width="50%" valign="top"><strong>Services</strong><br/>The full service catalogue with clear levels of care.</td></tr>
+<tr><td width="50%" valign="top"><strong>Locations</strong><br/>Outlet cards with directions, click-to-call and an embedded map when coordinates are set.</td><td width="50%" valign="top"><strong>Franchise funnel</strong><br/>Programme overview, partner criteria, journey, FAQ and an application form.</td></tr>
+<tr><td width="50%" valign="top"><strong>Contact</strong><br/>Enquiry form with service, franchise and general enquiry types.</td><td width="50%" valign="top"><strong>Blog</strong><br/>Markdown posts with tags, reading time, drafts and an RSS feed.</td></tr>
+<tr><td width="50%" valign="top"><strong>Server-side rendering</strong><br/>for fast first paint and complete HTML for search engines.</td><td width="50%" valign="top"><strong>SEO built in</strong><br/>Per-page titles, descriptions and Open Graph images, a generated <code>sitemap.xml</code>, <code>robots.txt</code> and <code>AutoWash</code> structured data.</td></tr>
+<tr><td width="50%" valign="top"><strong>Spam-resistant forms</strong><br/>Schema validation, a honeypot field and a minimum fill time. Enquiries arrive by email, with no database to manage.</td><td width="50%" valign="top"><strong>Accessible by default</strong><br/>Skip link, visible keyboard focus, reduced-motion support and WCAG AA colour contrast.</td></tr>
+</table>
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Architecture
 
 A server-rendered TanStack Start application on Cloudflare Workers. Pages render in the Worker, which also applies the `www` redirect and security headers. Enquiry forms validate in the browser and open a pre-filled email to the STOPWASH inbox; the site stores no personal data.
 
-The full picture, with diagrams, is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Significant decisions are recorded as [ADRs](docs/adr/README.md).
+```mermaid
+flowchart LR
+  Visitor((Visitor)) --> Worker["Cloudflare Worker<br/>SSR, redirects, headers"]
+  Worker --> Assets["Static assets<br/>edge cache"]
+  Visitor -- enquiry form --> Mail["Visitor's email app<br/>to hello@stopwash.lk"]
+  Repo["GitHub main"] -- Workers Builds --> Worker
+```
+
+> [!TIP]
+> The full design, with every component and data flow, is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Significant decisions are recorded as [architecture decision records](docs/adr/README.md).
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Tech stack
+
+<p>
+<img alt="TanStack Start" src="https://img.shields.io/badge/TanStack%20Start-FF4154?style=flat-square&logo=reactquery&logoColor=white">
+<img alt="React" src="https://img.shields.io/badge/React-087EA4?style=flat-square&logo=react&logoColor=white">
+<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white">
+<img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white">
+<img alt="Cloudflare Workers" src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=flat-square&logo=cloudflareworkers&logoColor=white">
+<img alt="Vitest" src="https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white">
+<img alt="Bun" src="https://img.shields.io/badge/Bun-000000?style=flat-square&logo=bun&logoColor=white">
+</p>
+
+<details>
+<summary><strong>Full stack breakdown</strong></summary>
 
 | Layer     | Technology                                                                       |
 | --------- | -------------------------------------------------------------------------------- |
@@ -80,6 +127,10 @@ The full picture, with diagrams, is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.
 | Build     | Vite 8 + Nitro                                                                   |
 | Hosting   | Cloudflare Workers (default)                                                     |
 | Tooling   | Bun, Vitest, Testing Library, ESLint, Prettier                                   |
+
+</details>
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Getting started
 
@@ -99,7 +150,8 @@ bun run dev
 
 The site runs at **http://localhost:8080**. If that port is busy, Vite picks the next free one and prints it.
 
-### Scripts
+<details>
+<summary><strong>All scripts</strong></summary>
 
 | Command              | Description                                  |
 | -------------------- | -------------------------------------------- |
@@ -112,13 +164,37 @@ The site runs at **http://localhost:8080**. If that port is busy, Vite picks the
 | `bun run lint`       | Lint with ESLint                             |
 | `bun run format`     | Format with Prettier                         |
 
+</details>
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
+
 ## Configuration
 
 The site needs no environment variables. Contact details, services, locations and the form destinations live in `src/data/site.ts`; Worker settings live in `wrangler.jsonc`.
 
-Every variable, where it is set and which are secret: [docs/CONFIGURATION.md](docs/CONFIGURATION.md). How to update content is in [docs/CONTENT.md](docs/CONTENT.md).
+<details>
+<summary><strong>Environment variables</strong></summary>
+
+| File               | Controls                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| `wrangler.jsonc`   | Worker name, compatibility date, `workers.dev` and preview URLs, observability, and any non-secret `vars` |
+| `src/server.ts`    | `www` redirect and security headers                                                                       |
+| `vite.config.ts`   | Build configuration                                                                                       |
+| `src/data/site.ts` | Business data, including `customerEmail` and `franchiseEmail`, the form destinations                      |
+
+Where each value is set, and which are secret: [docs/CONFIGURATION.md](docs/CONFIGURATION.md).
+
+</details>
+
+> [!NOTE]
+> Copy, business data, imagery and articles are edited as described in [docs/CONTENT.md](docs/CONTENT.md).
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Project structure
+
+<details>
+<summary><strong>Repository layout</strong></summary>
 
 ```
 .
@@ -143,54 +219,96 @@ Every variable, where it is set and which are secret: [docs/CONFIGURATION.md](do
 └── vite.config.ts            # Build configuration
 ```
 
+</details>
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
+
 ## Quality checks
 
-Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml): lint, type check, tests and a production build. Run the same checks locally before opening a pull request:
+Every pull request into `develop` or `main` runs the [CI workflow](.github/workflows/ci.yml): lint, type check, tests and a production build. Pull requests merge only when CI is green.
 
 ```sh
 bun run lint && bun run typecheck && bun run test && bun run build
 ```
 
+> [!IMPORTANT]
+> Run the same checks locally before opening a pull request. They are the exact commands CI runs.
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
+
 ## Deployment
 
-| Environment | Branch    | URL                                        |
-| ----------- | --------- | ------------------------------------------ |
-| Development | `develop` | [dev.stopwash.lk](https://dev.stopwash.lk) |
-| Production  | `main`    | [stopwash.lk](https://stopwash.lk)         |
+| Environment | Branch    | URL                                        | Status                                                                                                                                                             |
+| ----------- | --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Development | `develop` | [dev.stopwash.lk](https://dev.stopwash.lk) | <img alt="development" src="https://img.shields.io/github/deployments/saadmaz/Stopwash-Website/development?style=flat-square&label=development&labelColor=111827"> |
+| Production  | `main`    | [stopwash.lk](https://stopwash.lk)         | <img alt="production" src="https://img.shields.io/github/deployments/saadmaz/Stopwash-Website/production?style=flat-square&label=production&labelColor=111827">    |
 
-Cloudflare Workers Builds builds and serves each branch; the Deploy workflow verifies the build and the live URL. Work merges into `develop` and deploys to development; a release pull request from `develop` into `main` deploys to production.
+```mermaid
+flowchart LR
+  F["feature/* · fix/*"] -- pull request --> D["develop"]
+  D -- auto deploy --> DEV(["Development"])
+  D -- release pull request --> M["main"]
+  M -- auto deploy --> PROD(["Production"])
+```
 
-Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
+Cloudflare Workers Builds builds and serves each branch; the Deploy workflow verifies the build and the live URL. Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+> [!TIP]
+> To ship or undo a release, follow the [release](docs/runbooks/release.md) and [rollback](docs/runbooks/rollback.md) runbooks.
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Documentation
 
-All documentation lives in [`docs/`](docs/README.md), using the same layout in every STTPS repository.
+Every STTPS repository uses the same documentation layout.
 
-| Document                                  | Covers                                              |
-| ----------------------------------------- | --------------------------------------------------- |
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md)   | How the system is built and how data flows          |
-| [CONFIGURATION.md](docs/CONFIGURATION.md) | Environment variables and configuration files       |
-| [DEPLOYMENT.md](docs/DEPLOYMENT.md)       | Hosting, the delivery pipeline and first-time setup |
-| [CONTENT.md](docs/CONTENT.md)             | Updating copy, business data, imagery and articles  |
-| [adr/](docs/adr/README.md)                | Architecture decision records                       |
-| [runbooks/](docs/runbooks/README.md)      | Release and rollback procedures                     |
+| Document                               | Covers                                               |
+| -------------------------------------- | ---------------------------------------------------- |
+| [Documentation index](docs/README.md)  | Every document in this repository                    |
+| [Architecture](docs/ARCHITECTURE.md)   | How the system is built and how data flows           |
+| [Configuration](docs/CONFIGURATION.md) | Environment variables and configuration files        |
+| [Deployment](docs/DEPLOYMENT.md)       | Environments, hosting, pipeline and first-time setup |
+| [Content](docs/CONTENT.md)             | Updating copy, business data, imagery and articles   |
+| [Decision records](docs/adr/README.md) | Why the system is built the way it is                |
+| [Runbooks](docs/runbooks/README.md)    | Release and rollback procedures                      |
 
-Product and reference documents for this project are listed in the [documentation index](docs/README.md).
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Releases and versioning
 
-The project follows [Semantic Versioning](https://semver.org). Each release is tagged `vX.Y.Z` and published on the [Releases](https://github.com/saadmaz/Stopwash-Website/releases) page. Notable changes are recorded in [CHANGELOG.md](CHANGELOG.md), and the release procedure is in [docs/runbooks/release.md](docs/runbooks/release.md).
+[![Latest release](https://img.shields.io/github/v/release/saadmaz/Stopwash-Website?include_prereleases&style=for-the-badge&label=latest%20release&labelColor=111827&color=b2e04c)](https://github.com/saadmaz/Stopwash-Website/releases)
+
+The project follows [Semantic Versioning](https://semver.org). Every release is tagged `vX.Y.Z`, published on the [Releases](https://github.com/saadmaz/Stopwash-Website/releases) page with its notes, and recorded in [CHANGELOG.md](CHANGELOG.md). The procedure is in [docs/runbooks/release.md](docs/runbooks/release.md).
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for the branching model, commit conventions and pull request checklist. All participants are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+| Step |                                                                           |
+| ---- | ------------------------------------------------------------------------- |
+| 1    | Branch from `develop` using a type prefix (`feat/`, `fix/`, `docs/`, ...) |
+| 2    | Commit with [Conventional Commits](https://www.conventionalcommits.org)   |
+| 3    | Open a pull request into `develop` and complete the checklist             |
+| 4    | Squash and merge once CI is green and the change is reviewed              |
+
+The full guide is in [CONTRIBUTING.md](CONTRIBUTING.md). Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Security
 
-Please do not report security issues in public issues. See [SECURITY.md](SECURITY.md) for how to report a vulnerability privately.
+> [!IMPORTANT]
+> Never report a vulnerability in a public issue. Follow [SECURITY.md](SECURITY.md) to report it privately; you will hear back within three business days.
+
+<p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## License
 
 Copyright © 2026 STOPWASH PVT LTD. All rights reserved.
 
 This is proprietary software. The source is publicly visible, but no permission is granted to use, copy, modify or distribute it without prior written consent. See [LICENSE](LICENSE).
+
+<div align="center">
+<br/>
+<sub>Built and maintained by the STOPWASH team · Part of the <a href="https://sttps.co">STTPS group</a></sub>
+</div>
