@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Removed
+
+- 45 unused UI components, an unused hook and 34 unused dependencies. Installs and the repository are smaller; the site and its behaviour are unchanged.
+
 ## [1.2.3] - 2026-11-17
 
 ### Changed
