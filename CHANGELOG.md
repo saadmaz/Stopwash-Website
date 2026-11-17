@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-11-17
+
 ### Changed
 
 - README shows the development environment as awaiting host setup until development deploys are enabled.
@@ -108,7 +110,8 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.0.0...v1.1.0
