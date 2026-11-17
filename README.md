@@ -8,7 +8,7 @@ The official website of STOPWASH: a faster, sharper and more dependable vehicle-
 
 [![Website](https://img.shields.io/badge/website-stopwash.lk-374151?style=flat-square&labelColor=111827)](https://stopwash.lk)
 [![CI](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Stopwash-Website/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.1.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
+[![Version](https://img.shields.io/badge/version-v1.2.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Stopwash-Website/releases)
 ![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
 [**stopwash.lk**](https://stopwash.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Stopwash-Website/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Stopwash-Website/issues/new?template=feature_request.yml)
@@ -153,9 +153,14 @@ bun run lint && bun run typecheck && bun run test && bun run build
 
 ## Deployment
 
-Cloudflare Workers Builds deploys every push to `main`; other branches get preview URLs.
+| Environment | Branch    | URL                                        |
+| ----------- | --------- | ------------------------------------------ |
+| Development | `develop` | [dev.stopwash.lk](https://dev.stopwash.lk) |
+| Production  | `main`    | [stopwash.lk](https://stopwash.lk)         |
 
-Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
+Cloudflare Workers Builds builds and serves each branch; the Deploy workflow verifies the build and the live URL. Work merges into `develop` and deploys to development; a release pull request from `develop` into `main` deploys to production.
+
+Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
 ## Documentation
 
