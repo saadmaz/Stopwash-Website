@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.2.3] - 2026-11-17
+
 ### Changed
 
 - Contributing, Security Policy, Code of Conduct, License and Changelog redesigned with branded headers, navigation, tables, diagrams and callouts; the licence is now LICENSE.md.
@@ -135,7 +137,8 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.1.0...v1.2.0
