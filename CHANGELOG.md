@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-18
+
 ### Changed
 
 - The official STOPWASH logo replaces the text wordmark in the header and footer: lime on dark sections, ink on light ones.
@@ -158,7 +160,8 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.5...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.5...v1.3.0
 [1.2.5]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.2...v1.2.3
