@@ -7,11 +7,13 @@
   "compatibility_date": "2026-10-01",
   "compatibility_flags": ["nodejs_compat"],
 
-  // Always reachable at stopwash-website.<account>.workers.dev, with preview URLs for other branches.
+  // Always reachable at stopwash-website.<account>.workers.dev.
   // stopwash.lk and www.stopwash.lk are attached in the dashboard (Worker > Settings > Domains & Routes)
   // once the domain is active in this account; src/server.ts redirects www to stopwash.lk.
+  // Preview URLs stay off: with them on, Cloudflare adds a hidden *.stopwash.lk wildcard for the custom
+  // domains, which hijacks every other subdomain (pos, accounts, euro, hr and typos) with a 404 page.
   "workers_dev": true,
-  "preview_urls": true,
+  "preview_urls": false,
 
   "observability": { "enabled": true },
 }
