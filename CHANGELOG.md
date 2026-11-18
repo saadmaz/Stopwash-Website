@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Other stopwash.lk subdomains (such as the POS) no longer show Cloudflare's "There is nothing here yet" page. Preview URLs are off, so Cloudflare no longer adds a hidden wildcard that answered every subdomain.
+
 ## [1.2.4] - 2026-11-17
 
 ### Removed
