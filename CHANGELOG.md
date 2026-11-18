@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.2.5] - 2026-11-18
+
 ### Fixed
 
 - Other stopwash.lk subdomains (such as the POS) no longer show Cloudflare's "There is nothing here yet" page. Preview URLs are off, so Cloudflare no longer adds a hidden wildcard that answered every subdomain.
@@ -147,7 +149,8 @@ First production release of [stopwash.lk](https://stopwash.lk).
 
 - Brand lime softened from `#B6FF00` to `#B2E04C` for a calmer, more comfortable look.
 
-[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.4...HEAD
+[Unreleased]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.5...HEAD
+[1.2.5]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/saadmaz/Stopwash-Website/compare/v1.2.1...v1.2.2
