@@ -4,8 +4,9 @@
 | -------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `photos/`            | Site photography: hero, page sections, services                             | WebP, 1200 to 1600px wide                                     |
 | `locations/`         | One photo per outlet, named after the location slug (e.g. `katubedda.webp`) | WebP, 1200 to 1600px wide                                     |
-| `brand/`             | Official STOPWASH logo files                                                | SVG preferred, or PNG                                         |
 | `../../public/blog/` | Blog covers and images inside posts                                         | JPG, so link previews work on WhatsApp, Facebook and LinkedIn |
+
+The STOPWASH logo is not an image in this folder: it is inline SVG in `src/components/site/Logo.tsx`, and every logo file (SVG, PNG, social images) lives in [`brand/`](../../brand/README.md).
 
 ## Page hero photos
 

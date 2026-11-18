@@ -199,7 +199,8 @@ Where each value is set, and which are secret: [docs/CONFIGURATION.md](docs/CONF
 ```
 .
 ├── .github/                  # CI workflow, issue and pull request templates
-├── public/                   # Static files: favicons, robots.txt, blog images
+├── brand/                    # Official logo files: SVG masters, PNGs, social images
+├── public/                   # Static files: favicons, web manifest, robots.txt, blog images
 ├── _incoming/                # Drop zone for new raw images (ignored by git)
 ├── src/
 │   ├── assets/
