@@ -22,7 +22,7 @@ export function Photo({ src, alt, className, imgClassName, label, priority }: Pr
           className,
         )}
       >
-        <Logo className="text-lg text-ink" wash="text-leaf" />
+        <Logo className="h-6 text-ink" />
         {label && <p className="text-sm font-medium text-muted-foreground">{label}</p>}
       </div>
     );

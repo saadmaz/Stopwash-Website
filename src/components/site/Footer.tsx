@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="pb-24 pt-16 md:pb-10 md:pt-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Logo className="text-snow" />
+            <Logo className="text-lime" />
             <p className="mt-5 max-w-sm text-lg leading-relaxed text-snow/75">
               The vehicle-care ecosystem for people who keep moving.
             </p>

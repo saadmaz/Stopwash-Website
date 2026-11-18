@@ -31,6 +31,15 @@
 
 ## [Unreleased]
 
+### Changed
+
+- The official STOPWASH logo replaces the text wordmark in the header and footer: lime on dark sections, ink on light ones.
+- New favicons and home-screen icons from the logo mark, with a web app manifest.
+
+### Added
+
+- `brand/`: the official logo pack (SVG masters, PNG exports, logo-on-background versions, social profile pictures and covers) and its usage guide.
+
 ## [1.2.5] - 2026-11-18
 
 ### Fixed
