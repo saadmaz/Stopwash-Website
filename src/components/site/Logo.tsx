@@ -1,26 +1,27 @@
 import { cn } from "@/lib/utils";
+import { LOGO_PATH, LOGO_VIEWBOX, MARK_PATH, MARK_VIEWBOX } from "./logo-art";
 
-/** Text wordmark placeholder: swap for the official STOPWASH logo file when supplied. */
+/**
+ * The official STOPWASH logo. It takes its colour from `currentColor`:
+ * lime on dark backgrounds, ink on light ones (never lime on white).
+ */
 export function Logo({
   className = "",
-  wash = "text-lime",
+  variant = "horizontal",
 }: {
   className?: string;
-  wash?: string;
+  variant?: "horizontal" | "mark";
 }) {
+  const mark = variant === "mark";
   return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-2 font-display text-xl font-bold tracking-tight",
-        className,
-      )}
+    <svg
+      viewBox={mark ? MARK_VIEWBOX : LOGO_VIEWBOX}
+      role="img"
+      aria-label="STOPWASH"
+      fill="currentColor"
+      className={cn("block h-7 w-auto shrink-0", className)}
     >
-      <span className="grid h-7 w-7 place-items-center rounded-lg bg-lime text-[0.7rem] font-black text-ink">
-        SW
-      </span>
-      <span>
-        STOP<span className={wash}>WASH</span>
-      </span>
-    </span>
+      <path fillRule="evenodd" d={mark ? MARK_PATH : LOGO_PATH} />
+    </svg>
   );
 }

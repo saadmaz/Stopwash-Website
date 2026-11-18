@@ -56,10 +56,7 @@ export function Navbar() {
         aria-label="Main"
       >
         <Link to="/" aria-label="STOPWASH home">
-          <Logo
-            className={overDark ? "text-snow" : "text-ink"}
-            wash={overDark ? "text-lime" : "text-leaf"}
-          />
+          <Logo className={overDark ? "text-lime" : "text-ink"} />
         </Link>
         <ul className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) => {
