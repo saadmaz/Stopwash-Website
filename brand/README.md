@@ -33,7 +33,7 @@ Profile pictures keep the mark well inside the circle that every platform crops 
 | Site header and footer         | `src/components/site/Logo.tsx` (inline SVG, colour from `currentColor`)                                                                         |
 | Favicons and home-screen icons | `public/favicon.*`, `public/apple-touch-icon.png`, `public/android-chrome-*.png`, `public/maskable-icon-512x512.png`, `public/site.webmanifest` |
 | Figma                          | Stopwash › Design System › Website kit › `Site/Logo` (Type: Horizontal or Mark; Tone: Ink, Lime, White)                                         |
-| POS                            | `saadmaz/Stopwash-POS`: `apps/web/src/app/Logo.tsx` and `apps/web/public/`                                                                      |
+| OS                             | `saadmaz/Stopwash-OS`: `apps/web/src/app/Logo.tsx` and `apps/web/public/`                                                                       |
 | Maintenance page               | `saadmaz/Stopwash-Maintenance`: inlined in `src/index.js`                                                                                       |
 
 When the logo changes, update the SVGs here first, then the places above.
